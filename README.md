@@ -1,2 +1,2 @@
 # AtCoder
-AtCoderやってみっかし
+AtCoderやる
