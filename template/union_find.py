@@ -45,3 +45,19 @@ class UnionFind():
     # ノードxが属する木のサイズを返す
     def Count(self, x):
         return -self.root[self.Find_Root(x)]
+
+
+n, q = map(int, input().split())
+uf = UnionFind(n)
+for i in range(q):
+    p, a, b = map(int, input().split())
+    a -= 1
+    b -= 1
+    if p == 0:
+        uf.Unite(a, b)
+    else:
+        if uf.isSameGroup(a, b):
+            print("Yes")
+        else:
+            print("No")
+
