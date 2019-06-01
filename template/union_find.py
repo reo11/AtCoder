@@ -49,15 +49,17 @@ class UnionFind():
 
 n, q = map(int, input().split())
 uf = UnionFind(n)
+ans = ""
 for i in range(q):
     p, a, b = map(int, input().split())
     a -= 1
     b -= 1
     if p == 0:
         uf.Unite(a, b)
-    else:
+    if p == 1:
         if uf.isSameGroup(a, b):
-            print("Yes")
+            ans += "Yes\n"
         else:
-            print("No")
+            ans += "No\n"
+print(ans)
 
