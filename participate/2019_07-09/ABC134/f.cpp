@@ -35,25 +35,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    ll n;
-    in >> n;
+    in >> ;
 
-    ll a_min, a;
-    in >> a;
-    a_min = a;
-    vector<ll> v = {a};
-
-    REP(i, n-1){
-        in >> a;
-        if(a_min >= a){
-            BIN_INSERT(v, a);
-            a_min = a;
-        }else{
-            ll idx = BIN_LEFT(v, a);
-            DEL(v, idx - 1);
-            BIN_INSERT(v, a);
-            a_min = v[0];
-        }
-    }
-    out << v.size() << endl;
+    out <<  << endl;
 }
