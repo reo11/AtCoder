@@ -1,3 +1,10 @@
 {
-    "python.pythonPath": "C:\\Users\\reo\\Anaconda3\\envs\\atcoder\\python.exe"
+    "python.pythonPath": "C:\\Users\\reo\\Anaconda3\\envs\\atcoder\\python.exe",
+    "code-runner.runInTerminal": true,
+    "workbench.sideBar.location": "left",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "runner.languageMap": {
+        "cpp": "/Users/reo/vsc_run/cpp.sh"
+    }
 }
