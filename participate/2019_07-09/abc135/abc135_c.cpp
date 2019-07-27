@@ -34,7 +34,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    ll n, b;
+    ll n;
     vector<ll> a(n+1);
 
     in >> n;

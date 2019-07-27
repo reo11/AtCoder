@@ -34,8 +34,13 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
+    ll a, b;
+    in >> a >> b;
 
-    in >> ;
-
-    out <<  << endl;
+    ll k = (a+b) / 2;
+    if(abs(a - k) == abs(b - k)){
+        out << k << endl;
+    }else{
+        out << "IMPOSSIBLE" << endl;
+    }
 }
