@@ -38,17 +38,23 @@ int main()
     cin.tie(0);
     string s;
     in >> s;
-    ll l = s.size()
-    ll dp[l+1][2];
-    dp[0][0] = 1; dp[0][1] = 1;
-    REP(i, l){
-        REP(j, 2){
-            if(s[l-1-i] == "?"){
-                dp[i+1][j] = dp[i]
-            }else{
+    ll n = s.size();
+    ll dp[n+1][13] = {};
+    dp[0][0] = 1;
 
+    ll c;
+    REP(i, n){
+        if(s[i] == '?') c = -1;
+        else c = s[i] - '0';
+
+        REP(j, 10){
+            if(c == -1 or c==j){
+                REP(k, 13){
+                    dp[i+1][(k * 10 + j) % 13] += dp[i][k];
+                }
             }
         }
+        REP(j, 13) dp[i+1][j] %= MOD;
     }
-    out << dp[l][1] << endl;
+    out << dp[n][5] << endl;
 }
