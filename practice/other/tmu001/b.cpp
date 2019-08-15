@@ -1,3 +1,4 @@
+// 深さ優先探索
 // template
 #include <bits/stdc++.h>
 using namespace std;
@@ -30,44 +31,51 @@ template<class T>bool chmax(T &a, const T &b) { if (a<b) { a=b; return 1; } retu
 template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } return 0; }
 // template end
 
+ll visited[501][501] = {};
+char c[501][501];
+
+bool check(ll x, ll y){
+    if(c[x][y] == '#') return false;
+    if(visited[x][y] > 0) return false;
+    visited[x][y] = 1;
+    if(c[x][y] == 'g') return true;
+    bool flag = false;
+    for(int i=0; i < 4; i ++){
+        if(x+dx[i] >= 0 && x+dx[i] < 501){
+            if(y+dy[i] >= 0 && y+dy[i] < 501){
+                flag = flag || check(x + dx[i], y + dy[i]);
+            }
+        }
+    }
+    return flag;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    string s, t;
-    in >> s >> t;
-    ll n = s.size(), m = t.size();
-    ll dp[n+1][m+1] = {};
-
-    ll idx = 1;
-    REP_AB(i, 1, n){
-        REP_AB(j, 1, m){
-            if(s[i-1] == t[j-1]){
-                dp[i][j] = dp[i-1][j-1] + 1;
-                if(idx == dp[i][j]){
-                    idx += 1;
-                }
-            }else{
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+    ll h, w;
+    in >> h >> w;
+    REP(i, 501){
+        REP(j, 501){
+            c[i][j] = '#';
+        }
+    }
+    bool gool = false;
+    ll s_x, s_y;
+    REP(i, h){
+        REP(j, w){
+            in >> c[i][j];
+            if(c[i][j] == 's'){
+                s_x = i;
+                s_y = j;
             }
         }
     }
-
-    string ans = "";
-    ll x = n;
-    ll y = m;
-    while(x > 0 && y > 0){
-        if(dp[x][y] == dp[x-1][y]){
-            x--;
-        }else if(dp[x][y] == dp[x][y-1]){
-            y--;
-        }else{
-            x--;
-            y--;
-            ans += s[x];
-        }
+    if(check(s_x, s_y)){
+        out << "Yes" << endl;
+    }else{
+        out << "No" << endl;
     }
-    REVERSE(ans);
-    out << ans << endl;
 }

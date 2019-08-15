@@ -1,3 +1,4 @@
+// 深さ優先探索
 // template
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,39 +36,41 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    string s, t;
-    in >> s >> t;
-    ll n = s.size(), m = t.size();
-    ll dp[n+1][m+1] = {};
+    ll h, w;
+    in >> h >> w;
+    ll s_y, s_x, g_y, g_x;
+    in >> s_y >> s_x;
+    s_y--;s_x--;
+    in >> g_y >> g_x;
+    g_y--;g_x--;
 
-    ll idx = 1;
-    REP_AB(i, 1, n){
-        REP_AB(j, 1, m){
-            if(s[i-1] == t[j-1]){
-                dp[i][j] = dp[i-1][j-1] + 1;
-                if(idx == dp[i][j]){
-                    idx += 1;
+    char c[h][w];
+    ll visited[h][w] = {};
+    queue<pair<pair<ll, ll>, ll>> q;
+    q.push(pair<pair<ll, ll>, ll>(pair<ll, ll>(s_x, s_y), 0));
+    bool gool = false;
+    REP(i, h){
+        REP(j, w){
+            in >> c[i][j];
+        }
+    }
+
+    while(!q.empty()){
+        ll x = q.front().first.first;
+        ll y = q.front().first.second;
+        ll count = q.front().second;
+        if(x == g_x && y == g_y){
+            out << count << endl;
+            return 0;
+        }
+        q.pop();
+        if(visited[y][x] == 0 && c[y][x] == '.'){
+            visited[y][x] = 1;
+            REP(i, 4){
+                if(x+dx[i] >= 0 && x+dx[i] < w && y+dy[i] >= 0 && y+dy[i] < h && c[y+dy[i]][x+dx[i]] != '#'){
+                    q.push(pair<pair<ll, ll>, ll>(pair<ll, ll>(x+dx[i], y+dy[i]), count+1));
                 }
-            }else{
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
             }
         }
     }
-
-    string ans = "";
-    ll x = n;
-    ll y = m;
-    while(x > 0 && y > 0){
-        if(dp[x][y] == dp[x-1][y]){
-            x--;
-        }else if(dp[x][y] == dp[x][y-1]){
-            y--;
-        }else{
-            x--;
-            y--;
-            ans += s[x];
-        }
-    }
-    REVERSE(ans);
-    out << ans << endl;
 }

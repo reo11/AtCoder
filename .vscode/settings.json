@@ -6,5 +6,8 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "runner.languageMap": {
         "cpp": "/Users/reo/vsc_run/cpp.sh"
+    },
+    "files.associations": {
+        "utility": "cpp"
     }
 }

@@ -35,39 +35,30 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    string s, t;
-    in >> s >> t;
-    ll n = s.size(), m = t.size();
-    ll dp[n+1][m+1] = {};
-
-    ll idx = 1;
-    REP_AB(i, 1, n){
-        REP_AB(j, 1, m){
-            if(s[i-1] == t[j-1]){
-                dp[i][j] = dp[i-1][j-1] + 1;
-                if(idx == dp[i][j]){
-                    idx += 1;
-                }
-            }else{
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
-            }
+    ll h, w;
+    in >> h >> w;
+    string a[h];
+    REP(i, h){
+        in >> a[i];
+    }
+    ll b[h][w] = {};
+    b[0][0] = 1;
+    queue<pair<ll, ll> > q;
+    q.push(pair<ll, ll>(0, 0));
+    while(!q.empty()){
+        ll y = q.front().first;
+        ll x = q.front().second;
+        q.pop();
+        if(y + 1 < h && a[y+1][x] == '.'){
+            if(b[y+1][x] == 0) q.push(pair<ll, ll>(y+1, x));
+            b[y+1][x] += b[y][x];
+            b[y+1][x] %= MOD;
+        }
+        if(x + 1 < w && a[y][x+1] == '.'){
+            if(b[y][x+1] == 0) q.push(pair<ll, ll>(y, x+1));
+            b[y][x+1] += b[y][x];
+            b[y][x+1] %= MOD;
         }
     }
-
-    string ans = "";
-    ll x = n;
-    ll y = m;
-    while(x > 0 && y > 0){
-        if(dp[x][y] == dp[x-1][y]){
-            x--;
-        }else if(dp[x][y] == dp[x][y-1]){
-            y--;
-        }else{
-            x--;
-            y--;
-            ans += s[x];
-        }
-    }
-    REVERSE(ans);
-    out << ans << endl;
+    out << b[h-1][w-1] << endl;
 }
