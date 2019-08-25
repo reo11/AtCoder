@@ -1,3 +1,5 @@
+# 二部グラフの最大マッチング
+# 最大流
 from collections import deque
 class Dinic:
     def __init__(self, N):
