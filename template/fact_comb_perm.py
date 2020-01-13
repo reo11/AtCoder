@@ -38,3 +38,15 @@ class Facts():
         a = self.fact[n]
         b = self.fact[n-k]
         return (a * self.power_func(b, self.p-2)) % self.p
+
+
+    def power_func(self, a, b):
+        """ a^b mod p　を繰り返し二乗法で求める """
+        """ 計算量 O(log(b)) """
+        if b == 0:
+            return 1
+        if b % 2 == 0:
+            d = self.power_func(a, b//2)
+            return d*d % self.p
+        if b % 2 == 1:
+            return (a*self.power_func(a, b-1)) % self.p
