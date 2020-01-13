@@ -1,4 +1,6 @@
 from math import factorial
+
+
 class Facts():
     def __init__(self, max_num=10**5, p=10**9 + 7):
         self.p = p
@@ -36,31 +38,3 @@ class Facts():
         a = self.fact[n]
         b = self.fact[n-k]
         return (a * self.power_func(b, self.p-2)) % self.p
-
-    def power_func(self, a, b):
-        """ a^b mod p　を繰り返し二乗法で求める """
-        """ 計算量 O(log(b)) """
-        if b == 0:
-            return 1
-        if b % 2 == 0:
-            d = self.power_func(a, b//2)
-            return d*d % self.p
-        if b % 2 == 1:
-            return (a*self.power_func(a, b-1)) % self.p
-
-MOD = 10**9 + 7
-
-fact = Facts()
-n, k = map(int, input().split())
-a = list(map(int, input().split()))
-a.sort()
-ans = 0
-# pos
-for i in range(n-1):
-    c = fact.comb(n-1-i, k-1)
-    ans += a[n-1-i] * c
-    ans %= MOD
-    ans -= a[i] * c
-    ans %= MOD
-print(ans)
-

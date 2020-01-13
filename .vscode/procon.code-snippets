@@ -1,0 +1,69 @@
+{
+	"N": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"int(input())"
+		],
+		"description": "n"
+	},
+	"A B C ...": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"map(int, input().split())"
+		],
+		"description": "A B C ..."
+	},
+	"A_1 A_2 ... A_N": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"list(map(int, input().split()))"
+		],
+		"description": "A_1 A_2 ... A_N"
+	},
+	"A_1, A_2, ... A_N": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"[int(input()) for _ in range(n)]"
+		],
+		"description": "A_1, A_2, ... A_N"
+	},
+	"A_1 B_1, A_2 B_2, ... A_N B_N": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"[map(int, input().split()) for _ in range(n)]"
+		],
+		"description": "A_1 B_1, A_2 B_2, ... A_N B_N"
+	},
+	"S_1 V_1, S_2 V_2, ... S_N V_N": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"sv = [input().split() for _ in range(n)]",
+			"sv = [(str(x[0]), int(x[1]))for x in sv]"
+		],
+		"description": "S_1 V_1, S_2 V_2, ... S_N V_N"
+	},
+	"e": {
+		"scope": "python",
+		"prefix": "input",
+		"body": [
+			"[[i for i in list(str(input()))] for i in range(h)]"
+		],
+		"description": "e .#.#.#"
+	},
+	"template": {
+		"scope": "python",
+		"prefix": "template",
+		"body": [
+			"import sys",
+			"input = sys.stdin.readline",
+			"sys.setrecursionlimit(20000000)"
+		],
+		"description": "template"
+	},
+}
