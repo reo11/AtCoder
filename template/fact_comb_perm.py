@@ -1,5 +1,5 @@
 from math import factorial
-
+# python < pypy
 
 class Facts():
     def __init__(self, max_num=10**5, p=10**9 + 7):
