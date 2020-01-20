@@ -7,6 +7,33 @@
 		],
 		"description": "for template"
 	},
+	"if": {
+		"scope": "python",
+		"prefix": "if",
+		"body": [
+			"if :",
+			"\tpass",
+			"else:",
+			"\tpass"
+		],
+		"description": "if template"
+	},
+	"Yes/No": {
+		"scope": "python",
+		"prefix": "Yes",
+		"body": [
+			"print(['No', 'Yes'][x])"
+		],
+		"description": "Yes/No template"
+	},
+	"yes/no": {
+		"scope": "python",
+		"prefix": "yes",
+		"body": [
+			"print(['no', 'yes'][x])"
+		],
+		"description": "yes/no template"
+	},
 	"N": {
 		"scope": "python",
 		"prefix": "input",
