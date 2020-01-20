@@ -1,7 +1,11 @@
 from math import factorial
-# python < pypy
+
 
 class Facts():
+    """
+    階乗のメモ化
+    組み合わせ数、順列数の計算を高速に行う
+    """
     def __init__(self, max_num=10**5, p=10**9 + 7):
         self.p = p
         self.max_num = max_num
@@ -12,10 +16,6 @@ class Facts():
 
     def comb(self, n, k):
         """ nCk mod p を求める """
-        """ 計算量 O(log(p)) """
-        """ n! / (n-k)! / k! mod p """
-        """ フェルマーの小定理 a^(-1) ≡ a^(p-2) """
-        """ n! * k!^(p-2) * (n-k)!^(p-2) mod p """
         if n < 0 or k < 0 or n < k:
             return 0
         if n == 0 or k == 0:
@@ -28,9 +28,6 @@ class Facts():
 
     def perm(self, n, k):
         """ nPk mod p を求める """
-        """ 計算量 O(b - a)? """
-        """ n! / (n-k)! mod p """
-        """ n! * (n-k)!^(p-2) mod p """
         if n < 0 or k < 0 or n < k:
             return 0
         if n == 0 or k == 0:
@@ -42,7 +39,6 @@ class Facts():
 
     def power_func(self, a, b):
         """ a^b mod p　を繰り返し二乗法で求める """
-        """ 計算量 O(log(b)) """
         if b == 0:
             return 1
         if b % 2 == 0:

@@ -19,10 +19,10 @@ class UnionFind():
             return
         # 違う木に属していた場合rankを見てくっつける方を決める
         if self.rank[x_root] >= self.rank[y_root]:
-            self.rank[x_root] += self.rank[y_root]
+            self.root[x_root] += self.root[y_root]
             self.root[y_root] = x_root
         else:
-            self.rank[y_root] += self.rank[x_root]
+            self.root[y_root] += self.root[x_root]
             self.root[x_root] = y_root
 
     # xとyが同じグループに属するか判断
@@ -31,4 +31,19 @@ class UnionFind():
 
     # ノードxが属する木のサイズを返す
     def Count(self, x):
-        return self.rank[self.Find_Root(x)]
+        return self.root[self.Find_Root(x)]
+
+
+n, q = map(int, input().split())
+uf = UnionFind(n)
+ans = []
+for i in range(q):
+    p, a, b = map(int, input().split())
+    if p == 0:
+        uf.Unite(a, b)
+    if p == 1:
+        if uf.isSameGroup(a, b):
+            ans.append("Yes")
+        else:
+            ans.append("No")
+print("\n".join(ans))

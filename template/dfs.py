@@ -1,10 +1,8 @@
-# pypyだと通らない
-# pythonだと通る
 import sys
-sys.setrecursionlimit(20000000)
-
+sys.setrecursionlimit(10**7)
 
 class DepthFirsSearch:
+    """ 深さ優先探索 """
     def __init__(self, h, w, board, s_xy, g_xy):
         self.h, self.w = h, w
         self.board = board

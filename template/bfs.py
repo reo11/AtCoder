@@ -1,6 +1,7 @@
 import queue
 
 class BreadthFirstSearch:
+    """ 幅優先探索 """
     def __init__(self, h, w, start_xy, goal_xy, board):
         self.h, self.w = h, w
         (self.sx, self.sy) = start_xy

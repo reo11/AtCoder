@@ -1,3 +1,8 @@
+import sys
+from collections import defaultdict
+input = sys.stdin.readline
+
+
 class UnionFind():
     def __init__(self, n):
         self.n = n
@@ -29,6 +34,31 @@ class UnionFind():
     def isSameGroup(self, x, y):
         return self.Find_Root(x) == self.Find_Root(y)
 
-    # ノードxが属する木のサイズを返す
-    def Count(self, x):
-        return self.rank[self.Find_Root(x)]
+n, k, l = map(int, input().split())
+pq = [list(map(int, input().split())) for _ in range(k)]
+rs = [list(map(int, input().split())) for _ in range(l)]
+
+uf1 = UnionFind(n)
+uf2 = UnionFind(n)
+
+for i in range(k):
+    uf1.Unite(pq[i][0], pq[i][1])
+
+for i in range(l):
+    uf2.Unite(rs[i][0], rs[i][1])
+
+pairs = []
+d = defaultdict(int)
+
+for i in range(1, n+1):
+    name = "{} {}".format(uf1.Find_Root(i), uf2.Find_Root(i))
+    pairs.append(name)
+    d[name] += 1
+
+ans = []
+for i in range(n):
+    ans.append(d[pairs[i]])
+
+print(*ans)
+
+
