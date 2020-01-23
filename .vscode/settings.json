@@ -9,5 +9,21 @@
     },
     "files.associations": {
         "utility": "cpp"
-    }
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#ca3336",
+        "activityBar.activeBorder": "#36cc33",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#36cc33",
+        "activityBarBadge.foreground": "#15202b",
+        "titleBar.activeBackground": "#a1292b",
+        "titleBar.inactiveBackground": "#a1292b99",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "statusBar.background": "#a1292b",
+        "statusBarItem.hoverBackground": "#ca3336",
+        "statusBar.foreground": "#e7e7e7"
+    },
+    "peacock.color": "#a1292b"
 }
