@@ -1,16 +1,12 @@
 import bisect
-
-n = int(input())
-l = list(map(int, input().split()))
-l.sort()
+ 
+N = int(input())
+L = list(map(int, input().split()))
+L.sort()
+ 
 ans = 0
-
-for i in range(n):
-    for j in range(i, n):
-        a = l[i]
-        b = l[j]
-        left = bisect.bisect_left(l, abs(a-b))
-        right = bisect.bisect_left(l, (a+b))
-        ans += right - left
-        print(left, right)
+for i in range(N):
+    for j in range(i+1, N):
+        ans += bisect.bisect_left(L, L[i]+L[j]) - 1 - j
+ 
 print(ans)
