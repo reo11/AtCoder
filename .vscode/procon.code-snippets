@@ -367,4 +367,17 @@
 		],
 		"description": "最小公倍数が大きくなった時にmodを取る"
 	},
+	"cumsum": {
+		"scope": "python",
+		"prefix": "cums",
+		"body": [
+			"# 累積和",
+			"def cumsum(a):",
+			"\tr = [0]",
+			"\tfor v in a:",
+			"\t\tr.append(r[-1] + v)",
+			"\treturn r",
+		],
+		"description": "累積和"
+	},
 }
