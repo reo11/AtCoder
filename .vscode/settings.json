@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/reo/.pyenv/versions/atcoder/bin/python",
+    "python.pythonPath": "C:\\Users\\reo\\Anaconda3\\python.exe",
     "code-runner.runInTerminal": true,
     "workbench.sideBar.location": "left",
     "editor.suggestSelection": "first",
