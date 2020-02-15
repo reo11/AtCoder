@@ -42,6 +42,22 @@
 		],
 		"description": "n"
 	},
+	"N = ": {
+		"scope": "python",
+		"prefix": "n =",
+		"body": [
+			"n = int(input())"
+		],
+		"description": "n"
+	},
+	"M = ": {
+		"scope": "python",
+		"prefix": "m =",
+		"body": [
+			"m = int(input())"
+		],
+		"description": "M"
+	},
 	"A B C ...": {
 		"scope": "python",
 		"prefix": "input",
@@ -379,5 +395,29 @@
 			"\treturn r",
 		],
 		"description": "累積和"
+	},
+
+
+
+
+
+	// cpp
+	"include": {
+		"scope": "cpp",
+		"prefix": "include",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"typedef long long int ll;",
+			"",
+			"void solve(){",
+			"\t",
+			"}",
+			"",
+			"int main(){",
+			"\tsolve();",
+			"}"
+		],
+		"description": "cpp template"
 	},
 }
