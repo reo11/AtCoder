@@ -17,12 +17,14 @@ class LCM_mod:
 
     def rep_sqr(self, base, k):
         # 繰り返し二乗法
-        if k == 0:
-            return 1
-        elif k % 2 == 0:
-            return (self.rep_sqr(base, k / 2) ** 2) % self.p
-        else:
-            return (self.rep_sqr(base, k - 1) * base) % self.p
+        ans = 1
+        while k > 0:
+            if k & 1:
+                ans = ans * base % self.p
+            base = base * base % self.p
+            k >>= 1
+        return ans
+
 
     def sieve(self):
         """

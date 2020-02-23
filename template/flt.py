@@ -7,12 +7,13 @@ class FLT:
         self.mod = mod
 
     def rep_sqr(self, base, k):
-        if k == 0:
-            return 1
-        elif k % 2 == 0:
-            return (self.rep_sqr(base, k // 2) ** 2) % self.mod
-        else:
-            return (self.rep_sqr(base, k - 1) * base) % self.mod
+        ans = 1
+        while k > 0:
+            if k & 1:
+                ans = ans * base % self.mod
+            base = base * base % self.mod
+            k >>= 1
+        return ans
 
     def inv(self, a):
         """ 逆元を取る """
