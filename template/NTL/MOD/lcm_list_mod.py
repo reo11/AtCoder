@@ -1,5 +1,5 @@
+# https://atcoder.jp/contests/abc152/tasks/abc152_e
 from collections import defaultdict
-
 
 class LCM_mod:
     """
@@ -7,7 +7,6 @@ class LCM_mod:
     オーバーフローが発生しないように素因数分解し,
     因数の積を逐次余りに置き換えて最小公倍数を導出する.
     """
-
     def __init__(self, max_num, p=10**9+7):
         self.max_num = max_num + 1
         self.p = p
@@ -24,7 +23,6 @@ class LCM_mod:
             base = base * base % self.p
             k >>= 1
         return ans
-
 
     def sieve(self):
         """
