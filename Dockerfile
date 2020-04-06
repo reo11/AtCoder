@@ -1,0 +1,41 @@
+FROM ubuntu:18.04
+RUN apt-get update &&\
+    apt-get install -yq software-properties-common wget zlib1g lbzip2 apt-utils libboost-all-dev git
+
+# Python 3.8.2
+RUN add-apt-repository -y ppa:deadsnakes/ppa &&\
+    apt install -y python3.8 python3.8-dev python3-pip &&\
+    python3.8 -m pip install -U Cython numba numpy scipy scikit-learn networkx
+
+# C++
+RUN apt-get install -y software-properties-common &&\
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test &&\
+    apt install -y gcc-9 g++-9 gdc-9 gfortran-9
+
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 &&\
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 &&\
+    update-alternatives --install /usr/bin/gdc gdc /usr/bin/gdc-9 10 &&\
+    update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-9 10
+
+RUN git clone https://github.com/boostorg/boost.git &&\
+    cd boost &&\
+    git submodule update --init &&\
+    chmod 777 bootstrap.sh &&\
+    ./bootstrap.sh --with-toolset=gcc --without-libraries=mpi,graph_parallel --with-python=python3.8 &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" stage &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" --prefix=/opt/boost/gcc install
+
+# PyPy3 (7.3.0)
+RUN add-apt-repository -y ppa:pypy/ppa &&\
+    apt update &&\
+    apt install -y pypy pypy3
+
+# その他のコマンド
+RUN mkdir /work
+
+ARG UID=1000
+RUN useradd -m -u ${UID} docker
+USER ${UID}
+COPY ./.bashrc /tmp
+RUN cat /tmp/.bashrc >> ~/.bashrc
+WORKDIR /work

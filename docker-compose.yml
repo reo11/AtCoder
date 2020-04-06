@@ -1,0 +1,10 @@
+version: "3"
+services:
+  atcoder:
+    build: .
+    tty: true
+    container_name: atcoder
+    volumes:
+      - ./:/work
+    working_dir: /work
+    command: bash
