@@ -33,9 +33,10 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
 # その他のコマンド
 RUN mkdir /work
 
-ARG UID=1000
-RUN useradd -m -u ${UID} docker
-USER ${UID}
+# ユーザ名の指定
+# ARG UID=1000
+# RUN useradd -m -u ${UID} docker
+# USER ${UID}
 COPY ./.bashrc /tmp
 RUN cat /tmp/.bashrc >> ~/.bashrc
 WORKDIR /work
