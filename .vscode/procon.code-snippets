@@ -119,7 +119,7 @@
 		"prefix": "template, sys",
 		"body": [
 			"import sys",
-			"input = sys.stdin.buffer.readline",
+			"input = lambda: sys.stdin.readline().rstrip()",
 			"sys.setrecursionlimit(20000000)"
 		],
 		"description": "template"
