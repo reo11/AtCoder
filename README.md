@@ -15,9 +15,17 @@ docker exec -it atcoder bash
 ```
 
 ### aliasについて
-とりあえず公式で使われてるコマンドのaliasを`.bashrc`に書いたので、適当にやれば使えるはず。
+とりあえず公式で使われてるコマンドのaliasを`.zshrc`に書いたので、適当にやれば使えるはず。
 ```
 python a.py
 pypy a.py
 cpp a.cpp
+```
+
+### online jundge toolsを使う
+```
+login_atcoder
+submit_pypy a
+submit_python a
+submit_cpp a
 ```
