@@ -30,13 +30,21 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
     apt update &&\
     apt install -y pypy pypy3
 
+# online-judge-tools
+RUN python3.8 -m pip install online-judge-tools
+
 # その他のコマンド
 RUN mkdir /work
+
+# zsh
+RUN apt install -y curl zsh vim
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # ユーザ名の指定
 # ARG UID=1000
 # RUN useradd -m -u ${UID} docker
 # USER ${UID}
-COPY ./.bashrc /tmp
-RUN cat /tmp/.bashrc >> ~/.bashrc
+COPY ./.zshrc /tmp
+RUN echo "exec zsh" > ~/.bashrc
+RUN cat "/tmp/.zshrc" > ~/.zshrc
 WORKDIR /work
