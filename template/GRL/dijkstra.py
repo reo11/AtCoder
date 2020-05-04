@@ -5,8 +5,8 @@ def dijkstra(s, n, w, cost, create_path=False, goal=None):
     #n:頂点数,　w:辺の数, cost[u][v] : 辺uvのコスト(存在しないときはinf)
     d = [float("inf")] * n
     used = [False] * n
-    d[0] = 0
-    que = [[0, 0]] # (dist, node_num)
+    d[s] = 0
+    que = [[0, s]] # (dist, node_num)
     if create_path:
         prev = {}
     heapify(que)
