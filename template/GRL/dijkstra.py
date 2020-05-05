@@ -4,7 +4,6 @@ def dijkstra(s, n, w, cost, create_path=False, goal=None):
     #始点sから各頂点への最短距離
     #n:頂点数,　w:辺の数, cost[u][v] : 辺uvのコスト(存在しないときはinf)
     d = [float("inf")] * n
-    used = [False] * n
     d[s] = 0
     que = [[0, s]] # (dist, node_num)
     if create_path:
