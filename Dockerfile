@@ -1,6 +1,9 @@
 FROM ubuntu:18.04
 RUN apt-get update &&\
-    apt-get install -yq software-properties-common wget zlib1g lbzip2 apt-utils libboost-all-dev git
+    apt-get install -yq software-properties-common wget zlib1g lbzip2 apt-utils libboost-all-dev git peco golang
+
+RUN export GOPATH=$HOME/go &&\
+    export PATH="$GOPATH/bin:$PATH"
 
 # Python 3.8.2
 RUN add-apt-repository -y ppa:deadsnakes/ppa &&\
@@ -35,16 +38,22 @@ RUN python3.8 -m pip install online-judge-tools
 
 # その他のコマンド
 RUN mkdir /work
+# RUN go get github.com/motemen/ghq
 
 # zsh
-RUN apt install -y curl zsh vim
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN apt install -y sudo
+RUN mkdir /tmp/tmphome &&\
+    cd /tmp/tmphome &&\
+    git clone https://github.com/reo11/dotfiles.git &&\
+    ./dotfiles/.bin/dotsinstaller.sh --no-gui &&\
+    vim -c PlugInstall -c q -c q
 
 # ユーザ名の指定
 # ARG UID=1000
 # RUN useradd -m -u ${UID} docker
 # USER ${UID}
+RUN exec zsh
 COPY ./.zshrc /tmp
 RUN echo "exec zsh" > ~/.bashrc
-RUN cat "/tmp/.zshrc" > ~/.zshrc
+RUN cat "/tmp/.zshrc" >> ~/.zshrc
 WORKDIR /work
