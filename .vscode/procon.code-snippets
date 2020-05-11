@@ -428,9 +428,6 @@
 	},
 
 
-
-
-
 	// cpp
 	"include": {
 		"scope": "cpp",
@@ -438,9 +435,13 @@
 		"body": [
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
-			"typedef long long int ll;",
+			"using ll = long long;",
+			"// 大きい配列はグローバルで書く",
 			"",
 			"void solve(){",
+			"\tios::sync_with_stdio(false);",
+			"\tcin.tie(0);",
+			"\t// input",
 			"\t",
 			"}",
 			"",
