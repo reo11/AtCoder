@@ -1,8 +1,7 @@
 version: "3"
 services:
   atcoder:
-    build: .
-    image: bluexleoxgreen/atcoder
+    image: bluexleoxgreen/atcoder:latest
     tty: true
     container_name: atcoder
     volumes:
