@@ -55,5 +55,5 @@ RUN mkdir /work
 # RUN useradd -m -u ${UID} docker
 # USER ${UID}
 
-RUN cat "/tmp/.zshrc" >> ~/.bashrc
+# RUN cat "/tmp/.zshrc" >> ~/.bashrc
 WORKDIR /work
