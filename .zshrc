@@ -34,9 +34,14 @@ function submit_pypy(){
     contest_name=$(basename `pwd`)
     # rm -f root/.cache/online-judge-tools/download-history.jsonl
     dl $problem_name
-    oj t -c "pypy3 ${problem_name}.py"
+    number=$(echo $(oj t -c "pypy3 ${problem_name}.py") | grep -c "FAILURE")
     # 4047: PyPy3
-    oj s -l 4047 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
+    if [ $number -eq 0 ]; then
+        oj s -l 4047 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
+    else
+        echo "Wrong Answer"
+        oj t -c "pypy3 ${problem_name}.py"
+    fi
 }
 
 function submit_python(){
@@ -44,9 +49,14 @@ function submit_python(){
     contest_name=$(basename `pwd`)
     # rm -f root/.cache/online-judge-tools/download-history.jsonl
     dl $problem_name
-    oj t -c "python3.8 ${problem_name}.py"
+    number=$(echo $(oj t -c "python3.8 ${problem_name}.py") | grep -c "FAILURE")
     # 4047: PyPy3
-    oj s -l 4006 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
+    if [ $number -eq 0 ]; then
+        oj s -l 4006 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
+    else
+        echo "Wrong Answer"
+        oj t -c "python3.8 ${problem_name}.py"
+    fi
 }
 
 # バグってる
@@ -55,11 +65,16 @@ function submit_cpp(){
     contest_name=$(basename `pwd`)
     # rm -f root/.cache/online-judge-tools/download-history.jsonl
     dirname=$(pwd)
-    g++ -std=gnu++17 -Wall -Wextra -O2 -DONLINE_JUDGE -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o a.out ${problem_name}.cpp
     dl $problem_name
-    oj t
+    g++ -std=gnu++17 -Wall -Wextra -O2 -DONLINE_JUDGE -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o ${dirname}/a.out ${dirname}/${problem_name}.cpp
+    number=$(echo $(oj t) | grep -c "FAILURE")
     # 4047: PyPy3
-    oj s -l 4003 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.cpp
+    if [ $number -eq 0 ]; then
+        oj s -l 4003 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.cpp
+    else
+        echo "Wrong Answer"
+        oj t
+    fi
 }
 
 # cppファイルの生成

@@ -8,5 +8,8 @@ services:
     container_name: atcoder
     volumes:
       - ./:/work
+      - ./.tmp:/root/.local/share/online-judge-tools/
     working_dir: /work
     command: bash
+    environment:
+      BROWSER: chrome
