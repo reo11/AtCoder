@@ -2,7 +2,7 @@ alias python="python3.8"
 function cpp(){
     basename=$1
     dirname=$(pwd)
-    g++ -std=gnu++17 -Wall -Wextra -O2 -DONLINE_JUDGE -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o ${dirname}/a.out ${dirname}/${basename}
+    g++ -std=gnu++17 -Wall -Wextra -O2 -DONLINE_JUDGE -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o ${dirname}/a.out ${dirname}/${basename}.cpp
     ${dirname}/a.out
 }
 

@@ -54,6 +54,6 @@ RUN mkdir /work
 # ARG UID=1000
 # RUN useradd -m -u ${UID} docker
 # USER ${UID}
-
-# RUN cat "/tmp/.zshrc" >> ~/.bashrc
+COPY ./.zshrc /tmp/.zshrc
+RUN cat "/tmp/.zshrc" >> ~/.bashrc
 WORKDIR /work
