@@ -8,6 +8,7 @@ RUN export GOPATH=$HOME/go &&\
 # Python 3.8.2
 RUN add-apt-repository -y ppa:deadsnakes/ppa &&\
     apt install -y python3.8 python3.8-dev python3-pip &&\
+    python3.8 -m pip install --upgrade pip setuptools &&\
     python3.8 -m pip install -U Cython numba numpy scipy scikit-learn networkx
 
 # C++
@@ -41,19 +42,18 @@ RUN mkdir /work
 # RUN go get github.com/motemen/ghq
 
 # zsh
-RUN apt install -y sudo
-RUN mkdir /tmp/tmphome &&\
-    cd /tmp/tmphome &&\
-    git clone https://github.com/reo11/dotfiles.git &&\
-    ./dotfiles/.bin/dotsinstaller.sh --no-gui &&\
-    vim -c PlugInstall -c q -c q
+# RUN apt install -y sudo
+# RUN mkdir /tmp/tmphome &&\
+#     cd /tmp/tmphome &&\
+#     git clone https://github.com/reo11/dotfiles.git &&\
+#     ./dotfiles/.bin/dotsinstaller.sh --no-gui &&\
+#     vim -c PlugInstall -c q -c q
+# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # ユーザ名の指定
 # ARG UID=1000
 # RUN useradd -m -u ${UID} docker
 # USER ${UID}
-RUN exec zsh
-COPY ./.zshrc /tmp
-RUN echo "exec zsh" > ~/.bashrc
-RUN cat "/tmp/.zshrc" >> ~/.zshrc
+
+RUN cat "/tmp/.zshrc" >> ~/.bashrc
 WORKDIR /work
