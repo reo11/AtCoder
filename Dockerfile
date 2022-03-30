@@ -51,9 +51,11 @@ RUN mkdir /work
 # RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # ユーザ名の指定
-# ARG UID=1000
-# RUN useradd -m -u ${UID} docker
-# USER ${UID}
+# ARG UID
+# ARG UNAME
+# RUN useradd $UNAME -u $UID -m
+# USER $UNAME
+
 COPY ./.zshrc /tmp/.zshrc
 RUN cat "/tmp/.zshrc" >> ~/.bashrc
 WORKDIR /work

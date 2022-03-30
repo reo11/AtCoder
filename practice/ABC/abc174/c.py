@@ -1,1 +1,0 @@
-k = int(input())
