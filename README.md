@@ -29,3 +29,10 @@ submit_pypy a
 submit_python a
 submit_cpp a
 ```
+
+### python template
+```
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10000000)
+```
