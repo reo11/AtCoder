@@ -55,7 +55,7 @@ class RMQ:
 e = (2 ** 31) - 1
 rmq = RMQ(n, e)
 
-for i in range(q):
+for _ in range(q):
     com, x, y = map(int, input().split())
     if com == 0:
         rmq.update_min(x, y)

@@ -1,7 +1,7 @@
 import sys
 from collections import Counter
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 MAX = 1000001
 dp = [True for _ in range(MAX)]

@@ -1,3 +1,6 @@
+MOD = 10 ** 9 + 7
+
+
 class Facts:
     # O(max_num)
     def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):

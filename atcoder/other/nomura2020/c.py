@@ -2,7 +2,7 @@ import sys
 from collections import defaultdict
 from math import ceil
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 INF = 2 ** 50
 n = int(input())

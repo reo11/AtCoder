@@ -1,5 +1,3 @@
-from copy import deepcopy
-
 n = int(input())
 s = input().rstrip()
 

@@ -35,15 +35,15 @@ def fact(n):
     return arr
 
 
-l = fact(m)
+l_ = fact(m)
 ans = 1
 
-if l[0][0] == 1 and len(l) == 1:
+if l_[0][0] == 1 and len(l_) == 1:
     print(1)
     exit()
 
-for i in range(len(l)):
-    b = l[i][1]
+for i in range(len(l_)):
+    b = l_[i][1]
     ans *= cmb(b + n - 1, b)
     ans %= MOD
 

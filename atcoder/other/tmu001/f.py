@@ -2,7 +2,7 @@
 q = int(input())
 
 ans = []
-for i in range(q):
+for _ in range(q):
     s = str(input())
     count = 0
     j = 0

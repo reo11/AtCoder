@@ -20,7 +20,7 @@ counter = trial_division_sqrt(n)
 counter = sorted(counter.items())
 ans_list = []
 for (key, value) in counter:
-    for i in range(value):
+    for _ in range(value):
         ans_list.append(int(key))
 
 

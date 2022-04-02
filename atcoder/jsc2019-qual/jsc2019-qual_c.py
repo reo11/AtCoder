@@ -18,13 +18,13 @@ def mul(a, b):
 
 
 a = "L"
-l = ["L", "R"]
+l_ = ["L", "R"]
 c = 0
 
 for i in range(1, len(s)):
     if s[i] == s[i - 1]:
         c = not c
-    a = a + l[c]
+    a = a + l_[c]
 
 ans = 1
 num = 0

@@ -32,7 +32,7 @@ for i in range(-2 * M, 2 * M + 1):
     for j in range(-2 * M, 2 * M + 1):
         if ab[i + base] or ac[j + base] or bc[j - i + base]:
             continue
-        l = min(0, min(i, j))
+        l_ = min(0, min(i, j))
         r = max(A, max(B + i, C + j))
-        ans = min(ans, r - l)
+        ans = min(ans, r - l_)
 print(ans)

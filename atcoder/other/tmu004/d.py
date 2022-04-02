@@ -1,17 +1,17 @@
 n = int(input())
 d = {}
-for i in range(n):
+for _ in range(n):
     s = input()
     try:
         d[s] += 1
-    except:
+    except Exception:
         d[s] = 1
 m = int(input())
-for i in range(m):
+for _ in range(m):
     s = input()
     try:
         d[s] -= 1
-    except:
+    except Exception:
         d[s] = -1
 ans = 0
 for v in d.values():

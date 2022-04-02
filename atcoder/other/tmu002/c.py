@@ -6,7 +6,7 @@ w = []
 v = []
 max_w = 0
 max_v = 0
-for i in range(n):
+for _ in range(n):
     v_, w_ = map(int, input().split())
     if max_v < v_:
         max_v = v_
@@ -14,6 +14,7 @@ for i in range(n):
         max_w = w_
     w.append(w_)
     v.append(v_)
+
 
 # N <= 30
 def solve1():

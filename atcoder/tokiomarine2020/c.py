@@ -1,11 +1,13 @@
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
 # A = 0, 0, 0, ..., 0でも最小値は2^(N-1)で増える
 # k > 50くらいでnを超えるのでそれくらいまで考えればよい
+
+
 def print_ans(ans):
     ans = list(map(lambda x: str(x) if x <= n else str(n), ans))
     print(" ".join(ans))
@@ -22,10 +24,10 @@ for _ in range(k):
     pre_a = a[:]
     imos = [0 for _ in range(n + 1)]
     for i in range(n):
-        l = max(0, i - pre_a[i])
-        r = min(n, i + pre_a[i] + 1)
-        imos[l] += 1
-        imos[r] -= 1
+        left = max(0, i - pre_a[i])
+        right = min(n, i + pre_a[i] + 1)
+        imos[left] += 1
+        imos[right] -= 1
     # process
     v = 0
     for i in range(n):

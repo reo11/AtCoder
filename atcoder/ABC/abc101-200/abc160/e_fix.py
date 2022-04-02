@@ -13,5 +13,4 @@ reds = deque(p)
 greens = deque(q)
 uncolor = deque(r)
 
-for i in range(a + b + c - (x + y)):
-    
+# for i in range(a + b + c - (x + y)):

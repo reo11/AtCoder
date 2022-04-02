@@ -1,6 +1,3 @@
-# Multiple Gift
-import math
-
 x, y = map(int, input().split())
 
 i = 0

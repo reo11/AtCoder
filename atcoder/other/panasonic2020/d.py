@@ -4,11 +4,11 @@ sys.setrecursionlimit(20000000)
 n = int(input())
 
 
-def dfs(num, l):
+def dfs(num, l_):
     if num == 0:
-        return l
+        return l_
     l_new = []
-    for s, set_size in l:
+    for s, set_size in l_:
         for i in range(set_size + 1):
             s_size = set_size if i < set_size else set_size + 1
             l_new.append((s + chr(ord("a") + i), s_size))

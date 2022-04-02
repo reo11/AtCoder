@@ -8,7 +8,7 @@ for i in range(n):
         a[i] //= 2
     try:
         d[a[i]] += 1
-    except:
+    except: Exception
         d[a[i]] = 1
         count += 1
 print(count)

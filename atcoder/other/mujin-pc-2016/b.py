@@ -1,8 +1,8 @@
 from math import pi
 
-l = list(map(int, input().split()))
-max_r = sum(l)
-min_r = max(0, max(l) - (sum(l) - max(l)))
+l_ = list(map(int, input().split()))
+max_r = sum(l_)
+min_r = max(0, max(l_) - (sum(l_) - max(l_)))
 
 
 def area(r):

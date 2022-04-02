@@ -96,5 +96,5 @@ try:
     ans = dinic.flow(s, g)
 
     print(ans)
-except:
+except: Exception
     print(0)

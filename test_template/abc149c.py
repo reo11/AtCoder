@@ -1,4 +1,7 @@
-def primes(n):
+from typing import List
+
+
+def primes(n: int) -> List[bool]:
     is_prime = [True] * (n + 1)
     is_prime[0] = False
     is_prime[1] = False

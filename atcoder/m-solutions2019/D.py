@@ -7,7 +7,7 @@ connection = defaultdict(lambda: [])
 n = int(input())
 
 ab = []
-for i in range(n - 1):
+for _ in range(n - 1):
     a, b = map(int, input().split())
     connection[a].append(b)
     connection[b].append(a)
@@ -29,11 +29,11 @@ def dfs(num):
             dfs(next_num)
 
 
-l = []
+l_ = []
 for i in range(1, n + 1):
-    l.append([i, len(connection[i])])
-l.sort(key=lambda x: x[1], reverse=True)
-dfs(l[0][0])
+    l_.append([i, len(connection[i])])
+l_.sort(key=lambda x: x[1], reverse=True)
+dfs(l_[0][0])
 
 score = 0
 

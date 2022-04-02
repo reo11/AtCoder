@@ -1,14 +1,13 @@
 def display_ans_list(max_n):
 
     for n in range(1, max_n + 1):
-        l = []
+        l_ = []
         for i in range(2 ** n):
             if format(i, "b").zfill(n) == format(i, "b").zfill(n)[::-1]:
-                l.append(format(i, "b").zfill(n))
-        count = 0
+                l_.append(format(i, "b").zfill(n))
         for k in range(n):
             count_positive = 0
-            for s in l:
+            for s in l_:
                 count_k = 0
                 for i, c in enumerate(s):
                     if c == "1":
@@ -53,7 +52,7 @@ def solve(n, k):
 
 if __name__ == "__main__":
     q = int(input())
-    for i in range(q):
+    for _ in range(q):
         n, k = map(int, input().split())
         print(solve(n, k))
     # display_ans_list(20)

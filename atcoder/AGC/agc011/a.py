@@ -1,6 +1,6 @@
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 from collections import deque
 
 n, c, k = map(int, input().split())

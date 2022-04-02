@@ -2,7 +2,7 @@ import sys
 from collections import defaultdict
 from heapq import heapify, heappop, heappush
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 
 class RMQ:

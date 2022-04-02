@@ -1,7 +1,7 @@
 import sys
 from heapq import heapify, heappop, heappush
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 from collections import defaultdict
 
 n, m = map(int, input().split())

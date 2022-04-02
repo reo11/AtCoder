@@ -7,7 +7,7 @@ connection = defaultdict(lambda: [])
 n = int(input())
 
 ab = []
-for i in range(n - 1):
+for _ in range(n - 1):
     a, b = map(int, input().split())
     connection[a].append(b)
     connection[b].append(a)

@@ -5,7 +5,7 @@ n, m = map(int, input().split())
 ab = {}
 for i in range(n + 1):
     ab[i] = []
-for i in range(m):
+for _ in range(m):
     a, b = map(int, input().split())
     ab[a].append(b)
     ab[b].append(a)

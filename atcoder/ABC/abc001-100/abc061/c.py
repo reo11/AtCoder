@@ -4,7 +4,7 @@ for i in range(n):
     a, b = map(int, input().split())
     try:
         ab[a] += b
-    except:
+    except: Exception
         ab[a] = b
 count = 0
 ans = 0

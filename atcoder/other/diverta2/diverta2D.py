@@ -12,7 +12,7 @@ if n > 5001:
             feat.append(dp1[i - sa] + sb)
         if i - ba >= 0:
             feat.append(dp1[i - ba] + bb)
-        dp[i] = max(feat)
+        dp1[i] = max(feat)
     for i in range(5001, n + 1):
         dp1[i] = max(i, dp1[i - ga] + gb, dp1[i - sa] + sb, dp1[i - ba] + bb)
 else:

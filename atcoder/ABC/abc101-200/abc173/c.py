@@ -1,7 +1,7 @@
 import sys
 from itertools import product
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 h, w, k = map(int, input().split())
 c = [[i for i in list(str(input()))] for i in range(h)]

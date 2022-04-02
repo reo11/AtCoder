@@ -26,6 +26,10 @@ run-lint: build-test
 run-auto-lint: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run format
 
+.PHONY: run-lint-generate
+run-lint-generate: build-test
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen generate .
+
 .PHONY: build-atcoder
 build-atcoder:
 	docker build -t $(ATCODER_IMAGE) .

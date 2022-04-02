@@ -15,19 +15,19 @@ INIT = -1
 dp = [[INIT for _ in range(n + 1)] for _ in range(n + 1)]
 
 
-def solve(l, r):
-    if dp[l][r] != -1:
-        return dp[l][r]
+def solve(left, r):
+    if dp[left][r] != -1:
+        return dp[left][r]
 
-    if abs(l - r) == 0:
+    if abs(left - r) == 0:
         return 0
 
     res = 10 ** 12
-    for mid in range(l, r):
-        res = min(res, solve(l, mid) + solve(mid + 1, r))
+    for mid in range(left, r):
+        res = min(res, solve(left, mid) + solve(mid + 1, r))
 
-    dp[l][r] = res + (b[r] - b[l - 1])
-    return dp[l][r]
+    dp[left][r] = res + (b[r] - b[left - 1])
+    return dp[left][r]
 
 
 print(solve(1, n))

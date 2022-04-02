@@ -16,18 +16,18 @@ for s in S:
     if gcd(s, gcds[-1]) != 1:
         ans.append(gcd(s, gcds[-1]))
     else:
-        l = -1
-        r = n + 1
-        mid = (l + r) // 2
+        left = -1
+        right = n + 1
+        mid = (left + right) // 2
         while True:
-            if r - l <= 1:
+            if right - left <= 1:
                 break
-            mid = (l + r) // 2
+            mid = (left + right) // 2
             # print(s, l, r, mid)
             if gcd(gcds[mid], s) == 1:
-                r = mid
+                right = mid
             else:
-                l = mid
+                left = mid
         for i in range(mid - 1, mid + 2):
             if 0 <= i <= n - 1:
                 if gcd(gcds[i], s) == 1:

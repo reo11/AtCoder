@@ -7,6 +7,7 @@ for i, v in enumerate(a):
     for j in range(v):
         place.append([i, j])
 
+
 # 　全探索
 def check(box):
     f = True

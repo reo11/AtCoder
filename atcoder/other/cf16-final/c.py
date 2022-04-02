@@ -1,8 +1,10 @@
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 n, m = map(int, input().split())
 # 人: 0~n, 言語:n~n+m
+
+
 class UnionFind:
     def __init__(self, n):
         self.n = n
@@ -53,8 +55,8 @@ class UnionFind:
 
 uf = UnionFind(n + m)
 for i in range(n):
-    _, *l = list(map(int, input().split()))
-    for lang in l:
+    _, *l_ = list(map(int, input().split()))
+    for lang in l_:
         uf.union(i, n + lang - 1)
 
 f = True

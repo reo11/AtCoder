@@ -4,9 +4,9 @@ n = len(s)
 
 dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 
-for l in range(1, n + 1):
-    for i in range(n - l + 1):
-        e = i + l - 1
+for l_ in range(1, n + 1):
+    for i in range(n - l_ + 1):
+        e = i + l_ - 1
         for j in range(i + 1, e):
             dp[i][e] = max(dp[i][e], dp[i][j] + dp[j + 1][e])
         if s[i] == "i" and s[e] == "i":

@@ -1,5 +1,3 @@
-from math import ceil
-
 MOD = 10 ** 9 + 7
 n, k = map(int, input().split())
 a = list(map(int, input().split()))

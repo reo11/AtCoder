@@ -4,7 +4,7 @@ tail_a = 0
 head_b = 0
 hb_ta = 0
 ans = 0
-for i in range(n):
+for _ in range(n):
     s = str(input())
     if s[0] == "B" and s[-1] == "A":
         hb_ta += 1

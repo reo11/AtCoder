@@ -1,7 +1,7 @@
 from heapq import heapify, heappop, heappush
 
 
-def dijkstra(s, n, w, cost, create_path=False, goal=None):
+def dijkstra(edges, s, n, w, cost, create_path=False, goal=None):
     # 始点sから各頂点への最短距離
     # n:頂点数,　w:辺の数, cost[u][v] : 辺uvのコスト(存在しないときはinf)
     d = [float("inf")] * n

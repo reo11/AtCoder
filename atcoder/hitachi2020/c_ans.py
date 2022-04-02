@@ -6,7 +6,7 @@ sys.setrecursionlimit(100000000)
 
 n = int(input())
 edges = defaultdict(lambda: defaultdict(lambda: False))
-for i in range(n - 1):
+for _ in range(n - 1):
     a, b = map(int, input().split())
     edges[a][b] = True
     edges[b][a] = True

@@ -1,12 +1,11 @@
 import sys
-from bisect import bisect_left
 
 input = sys.stdin.readline
 
 n, t = map(int, input().split())
 ab = []
 a0 = []
-for i in range(n):
+for _ in range(n):
     a, b = map(int, input().split())
     if a == 0:
         a0.append(b)

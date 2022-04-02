@@ -7,8 +7,8 @@ blue = list(filter(lambda x: x[1] == "B", xc))
 ans = []
 red.sort()
 blue.sort()
-for v, c in red:
+for v, _ in red:
     ans.append(str(v))
-for v, c in blue:
+for v, _ in blue:
     ans.append(str(v))
 print("\n".join(ans))

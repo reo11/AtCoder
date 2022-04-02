@@ -1,9 +1,9 @@
 n, m = map(int, input().split())
 ss = []
-for i in range(m):
+for _ in range(m):
     k, *s = list(map(int, input().split()))
-    s = set(s)
-    ss.append(s)
+    s_set = set(s)
+    ss.append(s_set)
 p = list(map(int, input().split()))
 
 ans = 0

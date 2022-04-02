@@ -12,6 +12,6 @@ class OneDimSum:
         for v in range(a):
             self.s.append(self.s[-1] + v)
 
-    def solve(self, l, r):
+    def solve(self, left, right):
         # 1-indexed
-        return self.s[r] - self.s[l - 1]
+        return self.s[right] - self.s[left - 1]

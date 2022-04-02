@@ -1,3 +1,8 @@
+import sys
+
+input = sys.stdin.readline
+
+
 class UnionFind:
     def __init__(self, n):
         self.tree = [-1] * n
@@ -24,14 +29,10 @@ class UnionFind:
         return self.root(a) == self.root(b)
 
 
-import sys
-
-input = sys.stdin.readline
-
 n, q = map(int, input().split())
 uf = UnionFind(n)
 ans = []
-for i in range(q):
+for _ in range(q):
     p, a, b = map(int, input().split())
     a -= 1
     b -= 1

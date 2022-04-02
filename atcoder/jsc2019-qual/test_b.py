@@ -2,7 +2,7 @@ MOD = 1000000007
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
 tmp = a[:]
-for i in range(k - 1):
+for _ in range(k - 1):
     a.extend(tmp)
 ans = 0
 # 単調減少

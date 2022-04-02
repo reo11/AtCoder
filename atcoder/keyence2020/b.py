@@ -5,9 +5,9 @@ input = sys.stdin.readline
 
 n = int(input())
 query = []
-for i in range(n):
-    x, l = map(int, input().split())
-    query.append([x + l, x - l])
+for _ in range(n):
+    x, l_ = map(int, input().split())
+    query.append([x + l_, x - l_])
 
 # 貪欲
 heapq.heapify(query)

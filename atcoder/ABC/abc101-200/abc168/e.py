@@ -2,7 +2,7 @@ import sys
 from collections import defaultdict
 from math import gcd
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 MOD = 10 ** 9 + 7
 MAX = 2 * (10 ** 5) + 1
 sqr = [1 for _ in range(MAX)]

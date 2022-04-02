@@ -1,7 +1,7 @@
 # unionfindでいい感じにする
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 sys.setrecursionlimit(20000000)
 
 

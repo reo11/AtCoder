@@ -1,7 +1,7 @@
 import sys
 from itertools import combinations
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 sys.setrecursionlimit(20000000)
 
 n, m, q = map(int, input().split())

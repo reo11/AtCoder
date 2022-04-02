@@ -55,7 +55,7 @@ class RMQ:
 e = 0
 rmq = RMQ(n, e)
 
-for i in range(q):
+for _ in range(q):
     com, x, y = map(int, input().split())
     x -= 1
     if com == 0:

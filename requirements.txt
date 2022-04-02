@@ -1,9 +1,4 @@
-flake8==3.9.1
-autopep8==1.5.7
-isort==5.8.0
-black==20.8b0
-mypy==0.812
-pysen==0.9.1
+pysen[lint]==0.10.1
 pytest==7.1.1
 werkzeug==2.0.3  # https://stackoverflow.com/questions/71661851/typeerror-init-got-an-unexpected-keyword-argument-as-tuple
 click==8.0.2

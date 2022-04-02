@@ -13,5 +13,5 @@ def bin_search_value(range_min, range_max):
             right = m
         else:
             left = m
-    size = right - left + 1
+    # size = right - left + 1
     return left

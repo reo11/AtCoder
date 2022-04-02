@@ -1,6 +1,6 @@
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 n, k = map(int, input().split())
 a = list(map(int, input().split()))

@@ -1,9 +1,9 @@
-def f(m):
+def f(m: int) -> bool:
     global a, b, x
     return m * a + b * len(str(m)) > x
 
 
-def bin_search(range_min, range_max):
+def bin_search(range_min: int, range_max: int) -> int:
     left = range_min - 1
     right = range_max + 1
     while left < right - 1:

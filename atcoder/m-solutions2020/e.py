@@ -1,6 +1,6 @@
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 n = int(input())
 xyp = []
@@ -17,10 +17,10 @@ for i in range(n):
     cost += min(x, y) * p
 ans.append(cost)
 
-# k=1~n-1
-for k in range(1, n):
+# # k=1~n-1
+# for k in range(1, n):
 
 
-# k=nで絶対に0
-ans.append(0)
-print("\n".join(list(map(str, ans))))
+# # k=nで絶対に0
+# ans.append(0)
+# print("\n".join(list(map(str, ans))))

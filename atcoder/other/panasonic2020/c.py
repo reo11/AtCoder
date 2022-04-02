@@ -1,5 +1,3 @@
-from math import sqrt
-
 a, b, c = map(int, input().split())
 
 # sqrt(a) + sqrt(b) < sqrt(c)

@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict
 
-input = lambda: sys.stdin.readline().rstrip()
+input = sys.stdin.readline
 
 n, a, b, c = map(int, input().split())
 l = [[a, "A"], [b, "B"], [c, "C"]]

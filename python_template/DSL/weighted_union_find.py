@@ -47,7 +47,7 @@ n, q = map(int, input().split())
 
 tree = WeightedUnionFind(n)
 
-for i in range(q):
+for _ in range(q):
     query = list(map(int, input().split()))
     if query[0] == 0:
         x, y, z = query[1:4]
