@@ -1,8 +1,9 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 n, m = map(int, input().split())
 # 人: 0~n, 言語:n~n+m
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -47,13 +48,14 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
-uf = UnionFind(n+m)
+
+uf = UnionFind(n + m)
 for i in range(n):
     _, *l = list(map(int, input().split()))
     for lang in l:
-        uf.union(i, n+lang-1)
+        uf.union(i, n + lang - 1)
 
 f = True
 for i in range(1, n):
@@ -63,4 +65,3 @@ if f:
     print("YES")
 else:
     print("NO")
-

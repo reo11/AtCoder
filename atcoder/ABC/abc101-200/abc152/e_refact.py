@@ -1,12 +1,14 @@
 from collections import defaultdict
 
+
 class LCM_mod:
     """
     最小公倍数の計算を行う
     オーバーフローが発生しないように素因数分解し,
     因数の積を逐次余りに置き換えて最小公倍数を導出する.
     """
-    def __init__(self, max_num, p=10**9+7):
+
+    def __init__(self, max_num, p=10 ** 9 + 7):
         self.max_num = max_num + 1
         self.p = p
         self.prime = [0 for _ in range(self.max_num)]
@@ -59,7 +61,7 @@ class LCM_mod:
 
 
 class FLT:
-    def __init__(self, mod=10**9+7):
+    def __init__(self, mod=10 ** 9 + 7):
         self.mod = mod
 
     def rep_sqr(self, base, k):
@@ -72,11 +74,12 @@ class FLT:
 
     def inv(self, a):
         """ 逆元を取る """
-        return self.rep_sqr(a, self.mod-2)
+        return self.rep_sqr(a, self.mod - 2)
+
 
 n = int(input())
 a = list(map(int, input().split()))
-MOD = 10**9+7
+MOD = 10 ** 9 + 7
 
 lcm_mod = LCM_mod(max(a), MOD)
 lcm_all = lcm_mod.lcm_list_mod(a)

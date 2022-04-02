@@ -1,8 +1,9 @@
 def euler_phi(n):
     phi = n
     for i in set(prime_factorize(n)):
-        phi *= (1 - (1 / i))
+        phi *= 1 - (1 / i)
     return phi
+
 
 def prime_factorize(n):
     # Return list of prime factorized result
@@ -20,6 +21,7 @@ def prime_factorize(n):
     if n != 1:
         a.append(n)
     return a
+
 
 n = int(input())
 print(int(euler_phi(n)))

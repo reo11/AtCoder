@@ -1,5 +1,5 @@
-class ModInt():
-    def __init__(self, init, p = 10**9+7):
+class ModInt:
+    def __init__(self, init, p=10 ** 9 + 7):
         self.out = init
         self.p = p
 
@@ -25,4 +25,4 @@ class ModInt():
         return ret
 
     def inv(self, a):
-        return self.rep_sqr(a, self.p-2)
+        return self.rep_sqr(a, self.p - 2)

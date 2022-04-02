@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 s_dict = defaultdict(lambda: 0)
 t_dict = defaultdict(lambda: 0)
 
@@ -15,7 +16,16 @@ for i in range(n):
 # 駒が端にあり、高橋くんが場外に移動させることができる場合、落ちる
 ans = "NO"
 first = False
-if sr == 1 and s_dict["L"] > 0 or sr == w and s_dict["R"] > 0 or sc == 1 and s_dict["U"] > 0 or sc == h and s_dict["D"] > 0:
+if (
+    sr == 1
+    and s_dict["L"] > 0
+    or sr == w
+    and s_dict["R"] > 0
+    or sc == 1
+    and s_dict["U"] > 0
+    or sc == h
+    and s_dict["D"] > 0
+):
     first = True
 
 s_sum = defaultdict(lambda: 0)
@@ -45,7 +55,6 @@ if not first:
             break
         elif h - sc < s_sum["D"] - t_sum["U"]:
             break
-        if i == n-1:
+        if i == n - 1:
             ans = "YES"
 print(ans)
-

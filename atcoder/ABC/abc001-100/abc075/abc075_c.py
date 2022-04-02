@@ -1,5 +1,7 @@
 import sys
+
 sys.setrecursionlimit(20000000)
+
 
 def dfs(num):
     global visited, edge, has_edge
@@ -12,8 +14,8 @@ def dfs(num):
 
 
 n, m = map(int, input().split())
-edge = [[] for _ in range(n+1)]
-has_edge = [[0 for _ in range(n+1)] for _ in range(n+1)]
+edge = [[] for _ in range(n + 1)]
+has_edge = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 ab = []
 for i in range(m):
     a, b = map(int, input().split())
@@ -25,7 +27,7 @@ for i in range(m):
 
 count = 0
 for a, b in ab:
-    visited = [0 for _ in range(n+1)]
+    visited = [0 for _ in range(n + 1)]
     visited[1] = 1
     has_edge[a][b] = 0
     has_edge[b][a] = 0

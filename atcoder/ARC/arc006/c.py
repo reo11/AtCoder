@@ -1,8 +1,9 @@
 n = int(input())
 w = [int(input()) for _ in range(n)]
-INF = 10**12
+INF = 10 ** 12
 # 山の数を1～Nで全探索する
 ans = INF
+
 
 def check(v, hako):
     kouho = []
@@ -14,8 +15,9 @@ def check(v, hako):
     kouho.sort(key=lambda x: (x[0], x[1]))
     return kouho[0][1]
 
+
 cnt = 0
-for i in range(1, n+1):
+for i in range(1, n + 1):
     f = True
     hako = [INF for _ in range(i)]
     que = w[::-1]

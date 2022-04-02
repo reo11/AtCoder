@@ -1,7 +1,9 @@
 from fractions import gcd
 
+
 def lcm(x, y):
     return (x * y) // gcd(x, y)
+
 
 a, b, c, d = map(int, input().split())
 g = lcm(c, d)

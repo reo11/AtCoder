@@ -15,10 +15,10 @@ for i in range(h):
             cnt_continue += 1
             board_w[i][j] = cnt_continue
 
-    for j in reversed(range(w-1)):
+    for j in reversed(range(w - 1)):
         if board_w[i][j] == 0:
             continue
-        board_w[i][j] = max(board_w[i][j], board_w[i][j+1])
+        board_w[i][j] = max(board_w[i][j], board_w[i][j + 1])
 
 for i in range(w):
     cnt_continue = 0
@@ -29,10 +29,10 @@ for i in range(w):
             cnt_continue += 1
             board_h[j][i] = cnt_continue
 
-    for j in reversed(range(h-1)):
+    for j in reversed(range(h - 1)):
         if board_h[j][i] == 0:
             continue
-        board_h[j][i] = max(board_h[j][i], board_h[j+1][i])
+        board_h[j][i] = max(board_h[j][i], board_h[j + 1][i])
 
 
 ans = 0

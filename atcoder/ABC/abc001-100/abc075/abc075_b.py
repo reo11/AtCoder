@@ -15,7 +15,7 @@ for i in range(h):
                         continue
                     if i_ == 0 and j_ == 0:
                         continue
-                    if s[i+i_][j+j_] == "#":
+                    if s[i + i_][j + j_] == "#":
                         count += 1
             s[i][j] = str(count)
 for i in range(h):

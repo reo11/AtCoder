@@ -1,14 +1,15 @@
 import math
+
 n, x = map(int, input().split())
 
-blu =  [[0 for i in range(4)] for j in range(n)]
+blu = [[0 for i in range(4)] for j in range(n)]
 for i in range(n):
-    blu[i][0], blu[i][1], blu[i][2]  = map(int, input().split())
+    blu[i][0], blu[i][1], blu[i][2] = map(int, input().split())
     blu[i][3] = i
 win_point_list = []
 
 # uが大きい順にソート
-blu_u = sorted(blu,  key=lambda x: x[2], reverse=True)
+blu_u = sorted(blu, key=lambda x: x[2], reverse=True)
 # lが小さい順にソート
 # blu_l = sorted(blu,  key=lambda x: x[1])
 
@@ -30,7 +31,7 @@ score_list.sort(key=lambda x: x[2], reverse=True)
 
 #
 a_index = 0
-b_index = n-1
+b_index = n - 1
 
 a_point = 0
 b_point = 0
@@ -73,8 +74,3 @@ print(cost)
 #     m = max(a_point, b_point)
 #     a_point -= m
 #     b_point -= m
-
-
-
-
-

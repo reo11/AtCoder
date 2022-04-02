@@ -1,1 +1,1 @@
-print(int(not(int(input()))))
+print(int(not (int(input()))))

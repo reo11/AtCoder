@@ -9,6 +9,7 @@ def is_prime(n):
             return False
     return n != 1
 
+
 ans = x
 while True:
     if is_prime(ans):

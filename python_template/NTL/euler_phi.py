@@ -1,10 +1,12 @@
 # https://mathtrain.jp/phi
 
+
 def euler_phi(n):
     phi = n
     for i in set(prime_factorize(n)):
-        phi *= (1 - (1 / i))
+        phi *= 1 - (1 / i)
     return int(phi)
+
 
 def prime_factorize(n):
     # Return list of prime factorized result

@@ -6,8 +6,8 @@ cost = 0
 #     cost += a[0] - x
 #     a[0] = x
 for i in range(1, n):
-    if a[i-1] + a[i] > x:
-        c = a[i-1] + a[i] - x
+    if a[i - 1] + a[i] > x:
+        c = a[i - 1] + a[i] - x
         cost += c
         a[i] = a[i] - c
         if a[i] < 0:

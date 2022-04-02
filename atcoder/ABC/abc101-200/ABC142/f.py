@@ -1,5 +1,6 @@
-from collections import defaultdict, deque
 import sys
+from collections import defaultdict, deque
+
 input = sys.stdin.readline
 sys.setrecursionlimit(20000000)
 
@@ -22,6 +23,7 @@ while q:
         if ins[v2] == 0:
             q.append(v2)
 
+
 def dfs(n, l):
     global outs
     for out in outs[n]:
@@ -35,9 +37,9 @@ def dfs(n, l):
             dfs(out, l[:] + [out])
 
 
-if len(res) == v+1:
+if len(res) == v + 1:
     pass
 else:
-    for i in range(1, v+1):
+    for i in range(1, v + 1):
         dfs(i, [])
 print("-1")

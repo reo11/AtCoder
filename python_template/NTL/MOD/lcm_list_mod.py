@@ -1,13 +1,15 @@
 # https://atcoder.jp/contests/abc152/tasks/abc152_e
 from collections import defaultdict
 
+
 class LCM_mod:
     """
     最小公倍数の計算を行う
     オーバーフローが発生しないように素因数分解し,
     因数の積を逐次余りに置き換えて最小公倍数を導出する.
     """
-    def __init__(self, max_num, p=10**9+7):
+
+    def __init__(self, max_num, p=10 ** 9 + 7):
         self.max_num = max_num + 1
         self.p = p
         self.prime = [0 for _ in range(self.max_num)]

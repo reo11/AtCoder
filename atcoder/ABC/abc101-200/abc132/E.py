@@ -9,9 +9,10 @@ u = [0] * m
 v = [0] * m
 for i in range(m):
     u, v = map(int, input().split())
-    node[u-1].append(v-1)
-    node[v-1].append(u-1)
+    node[u - 1].append(v - 1)
+    node[v - 1].append(u - 1)
 s, t = map(int, input().split())
+
 
 def dfs(t, num):
     t += 1
@@ -22,6 +23,7 @@ def dfs(t, num):
         node_num.append(t)
     for n in node[num]:
         dfs(t, n)
+
 
 dfs(0, t)
 

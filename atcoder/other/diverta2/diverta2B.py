@@ -1,4 +1,5 @@
 from collections import Counter
+
 n = int(input())
 
 x = [0] * n

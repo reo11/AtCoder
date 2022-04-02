@@ -1,4 +1,6 @@
 n = int(input())
+
+
 def prime_factorize(n):
     a = []
     while n % 2 == 0:
@@ -14,4 +16,6 @@ def prime_factorize(n):
     if n != 1:
         a.append(n)
     return a
+
+
 print(f"{n}:", " ".join(list(map(str, prime_factorize(n)))))

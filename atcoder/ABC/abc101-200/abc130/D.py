@@ -1,4 +1,5 @@
 import numpy as np
+
 n, k = map(int, input().split())
 a = list(int(i) for i in input().split())
 

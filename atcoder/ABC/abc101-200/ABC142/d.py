@@ -1,19 +1,21 @@
-def divisor(n): #nの約数を全て求める
+def divisor(n):  # nの約数を全て求める
     i = 1
     table = []
     while i * i <= n:
-        if n%i == 0:
+        if n % i == 0:
             table.append(i)
-            table.append(n//i)
+            table.append(n // i)
         i += 1
     table = list(set(table))
     return table
 
-#a,bの最大公約数
+
+# a,bの最大公約数
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return a
+
 
 def is_prime(n):
     for i in range(2, n + 1):
@@ -22,6 +24,7 @@ def is_prime(n):
         if n % i == 0:
             return False
     return n != 1
+
 
 a, b = map(int, input().split())
 
@@ -35,6 +38,3 @@ for i in ans:
         count += 1
 
 print(count + 1)
-
-
-

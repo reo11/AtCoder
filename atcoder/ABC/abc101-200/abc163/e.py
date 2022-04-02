@@ -1,4 +1,5 @@
 from collections import deque
+
 n = int(input())
 a = list(map(int, input().split()))
 
@@ -7,6 +8,7 @@ point = [[0 for _ in range(n)] for _ in range(n)]
 for i in range(n):
     for j in range(n):
         point[i][j] = (a[i] + a[j]) * abs(i - j)
+
 
 class Dinic:
     def __init__(self, N):
@@ -26,7 +28,7 @@ class Dinic:
         self.G[v2].append(edge2)
 
     def bfs(self, s, t):
-        self.level = level = [None]*self.N
+        self.level = level = [None] * self.N
         deq = deque([s])
         level[s] = 0
         G = self.G
@@ -55,15 +57,16 @@ class Dinic:
 
     def flow(self, s, t):
         flow = 0
-        INF = 10**9 + 7
+        INF = 10 ** 9 + 7
         G = self.G
         while self.bfs(s, t):
-            *self.it, = map(iter, self.G)
+            (*self.it,) = map(iter, self.G)
             f = INF
             while f:
                 f = self.dfs(s, t, INF)
                 flow += f
         return flow
+
 
 s = 0
 g = 2 * n + 1
@@ -72,10 +75,10 @@ for i in range(1, n + 1):
     edge.append([0, i, 1])
 for i in range(n + 1, g):
     edge.append([i, g, 1])
-for i in range(1, n+1):
-    for j in range(1, n+1):
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
         if i != j:
-            edge.append([i, j+n, 1])
+            edge.append([i, j + n, 1])
 
 dinic = Dinic(len(edge))
 for i in range(len(edge)):

@@ -1,12 +1,13 @@
-from collections import defaultdict
 import sys
+from collections import defaultdict
+
 sys.setrecursionlimit(20000000)
 connection = defaultdict(lambda: [])
 
 n = int(input())
 
 ab = []
-for i in range(n-1):
+for i in range(n - 1):
     a, b = map(int, input().split())
     connection[a].append(b)
     connection[b].append(a)
@@ -15,9 +16,11 @@ for i in range(n-1):
 c = list(map(int, input().split()))
 c.sort()
 
-ans = [0] * (n+1)
+ans = [0] * (n + 1)
 
 checked_list = []
+
+
 def dfs(num):
     checked_list.append(num)
     ans[num] = c.pop()
@@ -27,7 +30,7 @@ def dfs(num):
 
 
 l = []
-for i in range(1, n+1):
+for i in range(1, n + 1):
     l.append([i, len(connection[i])])
 l.sort(key=lambda x: x[1], reverse=True)
 dfs(l[0][0])

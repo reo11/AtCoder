@@ -1,7 +1,9 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 ans = []
+
 
 def solve():
     n = int(input())
@@ -10,7 +12,9 @@ def solve():
     groups = [[] for _ in range(3)]
     for i in range(n):
         k, l, r = map(int, input().split())
-        klr[i][0] = k; klr[i][1] = l; klr[i][2] = r;
+        klr[i][0] = k
+        klr[i][1] = l
+        klr[i][2] = r
         score = l - r
         if score == 0:
             groups[1].append([score, k, l, r])
@@ -24,7 +28,7 @@ def solve():
 
     # 後ろから埋めていく
     out = 0
-    for i, day in enumerate(reversed(range(1, len(groups[0])+1))):
+    for i, day in enumerate(reversed(range(1, len(groups[0]) + 1))):
         if groups[0][i][1] <= day:
             out += groups[0][i][2]
         else:

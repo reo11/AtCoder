@@ -1,4 +1,5 @@
 from math import pi
+
 n = int(input())
 r = []
 ans = 0

@@ -6,20 +6,24 @@ class UnionFind:
     def union(self, a, b):
         a = self.root(a)
         b = self.root(b)
-        if(a == b):
+        if a == b:
             return
         self.tree[b] = a
+
     # 木の根を求める
     def root(self, a):
-        if(self.tree[a] < 0):
+        if self.tree[a] < 0:
             return a
         else:
             res = self.root(self.tree[a])
             self.tree[a] = res
             return res
+
     # xとyが同じ集合に属するか否か
     def same(self, a, b):
         return self.root(a) == self.root(b)
+
+
 import sys
 
 input = sys.stdin.readline

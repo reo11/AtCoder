@@ -1,7 +1,7 @@
 x = int(input())
 d = []
 for i in range(-1000, 1000):
-    d.append([i**5, i])
+    d.append([i ** 5, i])
 
 for j in range(len(d)):
     for i in range(len(d)):

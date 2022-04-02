@@ -1,6 +1,7 @@
 h, w, k = map(int, input().split())
 s = [[i for i in list(map(int, list(input())))] for i in range(h)]
 
+
 def solve(l):
     choco = [0 for _ in range(len(l))]
     ans = 0
@@ -27,12 +28,12 @@ def solve(l):
 
 
 ans = 10 ** 9
-for i in range(2 ** (h-1)):
+for i in range(2 ** (h - 1)):
     div = []
     tmp = []
     for j in range(h):
         tmp.append(j)
-        if ((i >> j) & 1):
+        if (i >> j) & 1:
             div.append(tmp)
             tmp = []
     div.append(tmp)

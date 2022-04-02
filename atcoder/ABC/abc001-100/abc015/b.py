@@ -1,4 +1,5 @@
 from math import ceil
+
 n = int(input())
 a = list(map(int, input().split()))
 
@@ -8,4 +9,3 @@ for i in range(n):
         size += 1
 
 print(ceil(sum(a) / size))
-

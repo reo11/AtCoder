@@ -17,7 +17,7 @@ for s in S:
         ans.append(gcd(s, gcds[-1]))
     else:
         l = -1
-        r = n+1
+        r = n + 1
         mid = (l + r) // 2
         while True:
             if r - l <= 1:
@@ -28,8 +28,8 @@ for s in S:
                 r = mid
             else:
                 l = mid
-        for i in range(mid-1, mid+2):
-            if 0 <= i <= n-1:
+        for i in range(mid - 1, mid + 2):
+            if 0 <= i <= n - 1:
                 if gcd(gcds[i], s) == 1:
                     ans.append(i + 1)
                     break

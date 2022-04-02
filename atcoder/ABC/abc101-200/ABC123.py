@@ -10,18 +10,20 @@ def pro_a():
             if abs(a[i] - a[j]) > k:
                 ans = False
     if ans:
-        print('Yay!')
+        print("Yay!")
     else:
-        print(':(')
+        print(":(")
+
 
 def pro_b():
     import math
-    a = [[0]*3 for i in range(5)]
+
+    a = [[0] * 3 for i in range(5)]
     min_inp = 0
     for i in range(5):
         inp = int(input())
-        inp_ceil = math.ceil(inp/10)
-        first = inp - int(inp/10) * 10
+        inp_ceil = math.ceil(inp / 10)
+        first = inp - int(inp / 10) * 10
         a[i][0].append(inp)
         a[i][1].append(inp_ceil)
         a[i][2].append(first)
@@ -34,9 +36,11 @@ def pro_c():
     a = input()
     print(a)
 
+
 def pro_d():
     a = input()
     print(a)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     pro_b()

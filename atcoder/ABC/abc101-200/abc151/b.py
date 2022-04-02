@@ -1,5 +1,7 @@
-import numpy as np
 import math
+
+import numpy as np
+
 n, k, m = map(int, input().split())
 a = list(map(int, input().split()))
 

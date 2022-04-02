@@ -1,5 +1,6 @@
 import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, a, b, c = map(int, input().split())
@@ -76,5 +77,3 @@ elif [a, b, c].count(0) == 2:
 else:
     print("Yes")
     # 0とやりとりし続けて後で残りをやればok
-
-

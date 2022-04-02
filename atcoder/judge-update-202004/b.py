@@ -1,9 +1,9 @@
 n = int(input())
 xc = [input().split() for _ in range(n)]
-xc = [(int(x[0]), str(x[1]))for x in xc]
+xc = [(int(x[0]), str(x[1])) for x in xc]
 
-red = list(filter(lambda x: x[1] == 'R', xc))
-blue = list(filter(lambda x: x[1] == 'B', xc))
+red = list(filter(lambda x: x[1] == "R", xc))
+blue = list(filter(lambda x: x[1] == "B", xc))
 ans = []
 red.sort()
 blue.sort()

@@ -3,9 +3,9 @@ s = input()
 
 cnts = [0, 0, 0]
 for i in range(n):
-    if s[i] == 'R':
+    if s[i] == "R":
         cnts[0] += 1
-    elif s[i] == 'G':
+    elif s[i] == "G":
         cnts[1] += 1
     else:
         cnts[2] += 1
@@ -13,7 +13,7 @@ for i in range(n):
 ans = cnts[0] * cnts[1] * cnts[2]
 
 for i in range(n):
-    for j in range(i+1, n):
+    for j in range(i + 1, n):
         k = j + (j - i)
         if k >= n:
             continue

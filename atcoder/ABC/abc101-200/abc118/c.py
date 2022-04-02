@@ -1,5 +1,7 @@
 from functools import reduce
+
 # python > pypy
+
 
 def gcd(a, b):
     while b:

@@ -1,6 +1,7 @@
 # pypyだと通らない
 # pythonだと通る
 import sys
+
 sys.setrecursionlimit(20000000)
 
 h, w = map(int, input().split())
@@ -15,6 +16,7 @@ for i in range(h):
             s_x = j
             s_y = i
             break
+
 
 def dfs(x, y):
     # 移動先が範囲内かどうか
@@ -31,9 +33,10 @@ def dfs(x, y):
     # ゴールならTrueを返して終わり
     if board[y][x] == "g":
         return True
-    if (dfs(x + 1, y) or dfs(x - 1, y) or dfs(x, y + 1) or dfs(x, y - 1)):
+    if dfs(x + 1, y) or dfs(x - 1, y) or dfs(x, y + 1) or dfs(x, y - 1):
         return True
     return False
+
 
 if dfs(s_x, s_y):
     print("Yes")

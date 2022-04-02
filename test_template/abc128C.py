@@ -12,7 +12,7 @@ for i in range(2 ** n):
     for k in range(m):
         cnt = 0
         for j in range(n):
-            if ((i >> j) & 1 and j+1 in ss[k]):
+            if (i >> j) & 1 and j + 1 in ss[k]:
                 cnt += 1
         if cnt % 2 != p[k]:
             f = False

@@ -1,5 +1,6 @@
 import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, a, b, c = map(int, input().split())
@@ -37,5 +38,3 @@ if f:
     print("\n".join(outputs))
 else:
     print("No")
-
-

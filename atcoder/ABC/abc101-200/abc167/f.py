@@ -1,7 +1,9 @@
 import sys
 from collections import deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
+
 
 def remove(s):
     n = len(s)
@@ -12,6 +14,7 @@ def remove(s):
         else:
             que.append(s[i])
     return "".join(que)
+
 
 n = int(input())
 

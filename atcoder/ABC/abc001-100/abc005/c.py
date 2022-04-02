@@ -14,7 +14,7 @@ for i in range(m):
         if takoyaki[j][1] == 0:
             continue
 
-        if  b[i]-t <= takoyaki[j][0] <= b[i]:
+        if b[i] - t <= takoyaki[j][0] <= b[i]:
             takoyaki[j][1] = 0
             flag = True
             break
@@ -22,4 +22,3 @@ for i in range(m):
         print("no")
         exit()
 print("yes")
-

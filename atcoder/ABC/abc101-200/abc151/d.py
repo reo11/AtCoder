@@ -1,5 +1,6 @@
 import queue
 
+
 class BreadthFirstSearch:
     def __init__(self, h, w, start_xy, board):
         self.h, self.w = h, w
@@ -8,11 +9,11 @@ class BreadthFirstSearch:
         self.hist = [[False] * w for i in range(h)]
 
     def get_step(self, wall="#"):
-        '''
+        """
         区切り文字を指定する(デフォルトは#)
         ゴールに着くまでの最短距離を出力
         ゴールにたどり着かない場合は0を出力
-        '''
+        """
         q = queue.Queue()
         q.put((self.sx, self.sy))
         self.hist[self.sy][self.sx] = True
@@ -31,17 +32,17 @@ class BreadthFirstSearch:
             # ゴールにたどり着くまでのステップ
             for (i, j) in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 # 範囲内か
-                if not(0 <= x+i <= w - 1) or not(0 <= y+j <= h - 1):
+                if not (0 <= x + i <= w - 1) or not (0 <= y + j <= h - 1):
                     continue
                 # 壁では無いか
-                if self.board[y+j][x+i] == wall:
+                if self.board[y + j][x + i] == wall:
                     continue
                 # 既に通ったところか
-                if self.hist[y+j][x+i]:
+                if self.hist[y + j][x + i]:
                     continue
                 # 通った印をつける
-                self.hist[y+j][x+i] = True
-                q.put((x+i, y+j))
+                self.hist[y + j][x + i] = True
+                q.put((x + i, y + j))
                 next_count += 1
         return step
 

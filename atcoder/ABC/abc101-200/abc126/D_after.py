@@ -2,7 +2,7 @@ import queue
 
 n = int(input())
 links = [set() for _ in [0] * n]
-for i in range(n-1):
+for i in range(n - 1):
     u, v, w = map(int, input().split())
     u -= 1
     v -= 1

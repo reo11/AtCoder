@@ -10,7 +10,7 @@ for i in range(n):
             for j_ in range(j, n):
                 t[i][j] += d[i_][j_]
 
-scores = [0 for _ in range(n*n+1)]
+scores = [0 for _ in range(n * n + 1)]
 
 for i in range(n):
     for j in range(n):
@@ -19,11 +19,11 @@ for i in range(n):
                 area = (i_ - i + 1) * (j_ - j + 1)
                 score = t[i][j]
                 if i_ + 1 < n:
-                    score -= t[i_+1][j]
+                    score -= t[i_ + 1][j]
                 if j_ + 1 < n:
-                    score -= t[i][j_+1]
+                    score -= t[i][j_ + 1]
                 if i_ + 1 < n and j_ + 1 < n:
-                    score += t[i_+1][j_+1]
+                    score += t[i_ + 1][j_ + 1]
 
                 scores[area] = max(scores[area], score)
 

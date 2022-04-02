@@ -1,4 +1,4 @@
-def rep_pow(a, k, p=10**9+7):
+def rep_pow(a, k, p=10 ** 9 + 7):
     # calculate exponentiation: a^k mod p
     # O(log(p))
     ans = 1

@@ -1,9 +1,12 @@
 from math import sqrt
+
 n, d = map(int, input().split())
 xy = []
 
+
 def dist(x, y):
-    return sqrt(x**2 + y**2)
+    return sqrt(x ** 2 + y ** 2)
+
 
 ans = 0
 for _ in range(n):

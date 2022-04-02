@@ -2,6 +2,7 @@ def f(m):
     global a, b, x
     return m * a + b * len(str(m)) > x
 
+
 def bin_search_value(range_min, range_max):
     # f(x)が真になるものの最小と最大
     left = range_min - 1

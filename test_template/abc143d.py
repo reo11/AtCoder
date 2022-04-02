@@ -15,10 +15,10 @@ l.sort()
 
 ans = 0
 for i in range(n):
-    for j in range(i+1, n):
+    for j in range(i + 1, n):
         a = l[i]
         b = l[j]
-        left, right, size = bin_search_list(l, max(a-b, b-a)+1, a+b-1)
+        left, right, size = bin_search_list(l, max(a - b, b - a) + 1, a + b - 1)
         tmp = size
         if right >= n:
             tmp -= 1
@@ -26,5 +26,4 @@ for i in range(n):
             if left <= k <= right:
                 tmp -= 1
         ans = ans + max(tmp, 0)
-print(ans//3)
-
+print(ans // 3)

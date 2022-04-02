@@ -12,13 +12,13 @@ for i in range(n):
         head_b += 1
     elif s[-1] == "A":
         tail_a += 1
-    for j in range(len(s)-1):
-        if s[j:j+2] == "AB":
+    for j in range(len(s) - 1):
+        if s[j : j + 2] == "AB":
             count_ab += 1
 
 if tail_a > 0 and head_b > 0:
     ans = 1 + hb_ta
-    ans += min(tail_a-1, head_b-1)
+    ans += min(tail_a - 1, head_b - 1)
 elif tail_a > 0 or head_b > 0:
     # head_bかtail_aが0の時
     ans = hb_ta
@@ -30,5 +30,3 @@ else:
         ans = 0
 ans += count_ab
 print(ans)
-
-

@@ -1,11 +1,13 @@
 import sys
+
 input = sys.stdin.readline
 
-n, k =map(int, input().split())
+n, k = map(int, input().split())
 td = [list(map(int, input().split())) for _ in range(n)]
 td.sort(key=lambda x: x[1], reverse=True)
 
-base = []; other = []
+base = []
+other = []
 val = set()
 yum = 0
 for t, d in td[:k]:
@@ -24,13 +26,12 @@ for t, d in td[k:]:
 kouho.sort()
 
 v = len(val)
-ans = yum + (v*v)
+ans = yum + (v * v)
 
 
 while len(other) > 0 and len(kouho) > 0:
     yum -= other.pop()
     yum += kouho.pop()
     v += 1
-    ans = max(ans, yum+(v*v))
+    ans = max(ans, yum + (v * v))
 print(ans)
-

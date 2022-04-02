@@ -11,7 +11,7 @@ for i in range(h):
             points.append((i, j))
             count += 1
 
+
 def dfs(i, j):
     global ans
     ans
-

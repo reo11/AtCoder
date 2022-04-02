@@ -1,6 +1,8 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 from collections import defaultdict
+
 INF = 10**12
 n = int(input())
 

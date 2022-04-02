@@ -9,7 +9,7 @@ for v in a:
         d[v] = 1
 
 ans = 0
-for i,j in d.items():
-    a=j-i if j>=i else j
-    ans+=a
+for i, j in d.items():
+    a = j - i if j >= i else j
+    ans += a
 print(ans)

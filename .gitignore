@@ -6,3 +6,5 @@ coding_test
 PAST
 .tmp
 .ipynb_checkpoints
+
+input/*

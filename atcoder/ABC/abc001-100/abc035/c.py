@@ -1,8 +1,8 @@
 n, q = map(int, input().split())
-b = [0] * (n+1)
+b = [0] * (n + 1)
 for i in range(q):
     l, r = map(int, input().split())
-    b[l-1] += 1
+    b[l - 1] += 1
     b[r] -= 1
 
 cur = 0

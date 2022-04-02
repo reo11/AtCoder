@@ -7,4 +7,4 @@ for i in range(n):
         if i == j:
             continue
         ans += d[i] * d[j]
-print(ans//2)
+print(ans // 2)

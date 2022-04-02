@@ -1,4 +1,5 @@
 from heapq import heapify, heappop, heappush
+
 k, t = map(int, input().split())
 a = list(map(int, input().split()))
 
@@ -31,7 +32,7 @@ while len(que) > 0:
                 heappush(que, (a_i, idx_i))
 
 cnt = 0
-for i in range(len(s)-1):
-    if s[i] == s[i+1]:
+for i in range(len(s) - 1):
+    if s[i] == s[i + 1]:
         cnt += 1
 print(cnt)

@@ -1,4 +1,5 @@
 import itertools
+
 n = int(input())
 a_ = list(map(int, input().split()))
 q_ = list(map(int, input().split()))
@@ -8,7 +9,7 @@ for i in range(n):
     a += str(a_[i])
     q += str(q_[i])
 
-l = list(map(str, range(1, n+1)))
+l = list(map(str, range(1, n + 1)))
 p = itertools.permutations(l, n)
 
 d_ = []

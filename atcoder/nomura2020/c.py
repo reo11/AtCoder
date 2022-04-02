@@ -1,6 +1,7 @@
 import sys
-from math import ceil
 from collections import defaultdict
+from math import ceil
+
 input = lambda: sys.stdin.readline().rstrip()
 
 INF = 2 ** 50
@@ -13,9 +14,9 @@ if n == 0 and a[0] == 0:
 max_i = defaultdict(lambda: INF)
 max_i[0] = 1
 
-for i in range(1, n+1):
-    if max_i[i-1] * 2 - a[i] < INF:
-        max_i[i] = max_i[i-1] * 2 - a[i]
+for i in range(1, n + 1):
+    if max_i[i - 1] * 2 - a[i] < INF:
+        max_i[i] = max_i[i - 1] * 2 - a[i]
     else:
         break
 for i in max_i.keys():

@@ -1,5 +1,5 @@
-from collections import deque
 from bisect import bisect_left
+from collections import deque
 
 n = int(input())
 a = [int(input()) for _ in range(n)]
@@ -14,6 +14,6 @@ for ai in a:
             b.appendleft(ai)
         else:
             idx = bisect_left(b, ai)
-            b[idx-1] = ai
+            b[idx - 1] = ai
 
 print(len(b))

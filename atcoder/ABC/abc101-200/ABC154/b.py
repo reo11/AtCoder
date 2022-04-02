@@ -1,3 +1,3 @@
 s = str(input().rstrip())
 
-print('x' * len(s))
+print("x" * len(s))

@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.buffer.readline
 
 n, C = map(int, input().split())
@@ -9,12 +10,12 @@ for i in range(n):
     max_t = max(max_t, t)
     stc.append([s, t, c])
 
-len_imos = max_t+1
+len_imos = max_t + 1
 imos = [[0 for _ in range(len_imos)] for _ in range(C)]
 for i in range(n):
     s, t, c = stc[i]
-    imos[c-1][s-1] += 1
-    imos[c-1][t] -= 1
+    imos[c - 1][s - 1] += 1
+    imos[c - 1][t] -= 1
 
 for j in range(C):
     v = 0

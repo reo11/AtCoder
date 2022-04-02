@@ -6,6 +6,6 @@ for i in range(4):
 l = [[] for _ in range(4)]
 for i in range(4):
     for j in range(4):
-        l[i].append(c[3-i][3-j])
+        l[i].append(c[3 - i][3 - j])
 for i in range(4):
     print(" ".join(l[i]))

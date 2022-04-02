@@ -27,10 +27,10 @@ for i in range(c):
             if i - l < 0 or i + l > c - 1:
                 flag = False
                 break
-            if s_[j][i-l][0] < k - l or s_[j][i-l][1] < k - l:
+            if s_[j][i - l][0] < k - l or s_[j][i - l][1] < k - l:
                 flag = False
                 break
-            if s_[j][i+l][0] < k - l or s_[j][i+l][1] < k - l:
+            if s_[j][i + l][0] < k - l or s_[j][i + l][1] < k - l:
                 flag = False
                 break
         if flag:

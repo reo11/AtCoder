@@ -1,5 +1,5 @@
 n = int(input())
-MOD = 10**9+7
+MOD = 10 ** 9 + 7
 if n == 1:
     print(0)
 else:
@@ -16,6 +16,6 @@ else:
     for i in range(n):
         p2 *= 9
         p2 %= MOD
-    ans -= (-p1 + p2 + p2)
+    ans -= -p1 + p2 + p2
     ans %= MOD
     print(ans)

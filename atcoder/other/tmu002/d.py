@@ -1,8 +1,9 @@
 # トランプ挿入ソート
 import bisect
 import sys
+
 input = sys.stdin.readline
-INF = 10**10
+INF = 10 ** 10
 
 n = int(input())
 c = [0] * n
@@ -10,7 +11,7 @@ c = [0] * n
 for i in range(n):
     c[i] = int(input())
 
-dp = [INF] * (n+1)
+dp = [INF] * (n + 1)
 dp[0] = -INF
 
 for i in range(n):
@@ -25,4 +26,3 @@ for i in range(1, len(dp)):
         ans += 1
 ans = n - ans
 print(ans)
-

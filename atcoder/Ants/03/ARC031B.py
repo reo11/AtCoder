@@ -12,8 +12,9 @@ for row in board:
         if i == "o":
             count_o += 1
 
+
 def dfs(x, y):
-    if not(0 <= x <= 9) or not(0 <= y <= 9):
+    if not (0 <= x <= 9) or not (0 <= y <= 9):
         return 0
     if hist[y][x]:
         return 0
@@ -23,7 +24,8 @@ def dfs(x, y):
     global count
     if board[y][x] == "o":
         count += 1
-    (dfs(x+1, y), dfs(x-1, y), dfs(x, y+1), dfs(x, y-1))
+    (dfs(x + 1, y), dfs(x - 1, y), dfs(x, y + 1), dfs(x, y - 1))
+
 
 ans = False
 for i in range(10):
@@ -47,4 +49,3 @@ if ans:
     print("YES")
 else:
     print("NO")
-

@@ -10,6 +10,6 @@ for v in a:
             f = False
 
 if f:
-    print('APPROVED')
+    print("APPROVED")
 else:
-    print('DENIED')
+    print("DENIED")

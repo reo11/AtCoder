@@ -3,7 +3,7 @@ s = input()
 
 ans = ""
 for i in range(len(s)):
-    num = (ord(s[i]) + n)
+    num = ord(s[i]) + n
     if num > ord("Z"):
         num %= ord("Z")
         num += ord("A") - 1

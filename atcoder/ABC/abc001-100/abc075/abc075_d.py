@@ -1,8 +1,10 @@
 n, k = map(int, input().split())
 xy = [list(map(int, input().split())) for _ in range(n)]
 
-MAX = 10**9
+MAX = 10 ** 9
 MIN = -1 * MAX
+
+
 def check(x_r, x_l, y_t, y_b):
     tl = [MIN, MAX]
     br = [MAX, MIN]
@@ -24,7 +26,8 @@ def check(x_r, x_l, y_t, y_b):
     area = (br[0] - tl[0]) * (tl[1] - br[1])
     return True, area
 
-INF = 10**20
+
+INF = 10 ** 20
 ans = INF
 for a in range(n):
     for b in range(n):

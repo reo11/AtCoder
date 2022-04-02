@@ -21,10 +21,10 @@ def main():
     for v in range(n):
         for u, d in g[v]:
             if dis[v] + d != dis[u]:
-                print('No')
+                print("No")
                 return
-    print('Yes')
+    print("Yes")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

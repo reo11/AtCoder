@@ -1,5 +1,6 @@
 import math
 from fractions import Fraction
+
 N = int(input())
 
 ta = [0] * N
@@ -11,8 +12,8 @@ for i in range(N):
         ta[i] = t
         ao[i] = a
     else:
-        tmp = max(math.ceil(Fraction(ta[i-1],t)), math.ceil(Fraction(ao[i-1],a)))
-        ta[i] = t*tmp
-        ao[i] = a*tmp
+        tmp = max(math.ceil(Fraction(ta[i - 1], t)), math.ceil(Fraction(ao[i - 1], a)))
+        ta[i] = t * tmp
+        ao[i] = a * tmp
 
-print(ta[-1]+ao[-1])
+print(ta[-1] + ao[-1])

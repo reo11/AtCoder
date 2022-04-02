@@ -7,10 +7,10 @@ for i in range(q):
     count = 0
     j = 0
     while j < len(s) - 4:
-        if s[j:j+5] == "kyoto":
+        if s[j : j + 5] == "kyoto":
             count += 1
             j += 5
-        elif s[j:j+5] == "tokyo":
+        elif s[j : j + 5] == "tokyo":
             count += 1
             j += 5
         else:

@@ -16,7 +16,7 @@ for _ in range(m):
     ab[b].append((a, b))
     count[a] += 1
 
-for i in range(1, n+1):
+for i in range(1, n + 1):
     if count[i] % 2 == 1:
         q.put(i)
 
@@ -48,5 +48,5 @@ else:
             ans.add((a, b))
     ans_str = []
     for (a, b) in ans:
-        ans_str.append(str(a) + " " +  str(b))
+        ans_str.append(str(a) + " " + str(b))
     print("\n".join(ans_str))

@@ -1,11 +1,12 @@
 s = str(input())
 t = int(input())
 
-x = 0; y = 0
+x = 0
+y = 0
 q = 0
 for c in list(s):
     if c == "L":
-        x -=1
+        x -= 1
     elif c == "R":
         x += 1
     elif c == "U":

@@ -14,7 +14,7 @@ f = False
 for i in range(3):
     f_tmp = True
     for j in range(3):
-        if not(bingo[i][j] and f_tmp):
+        if not (bingo[i][j] and f_tmp):
             f_tmp = False
     if f_tmp:
         f = True
@@ -22,26 +22,26 @@ for i in range(3):
 for j in range(3):
     f_tmp = True
     for i in range(3):
-        if not(bingo[i][j] and f_tmp):
+        if not (bingo[i][j] and f_tmp):
             f_tmp = False
     if f_tmp:
         f = True
 
 f_tmp = True
 for i in range(3):
-    if not(bingo[i][i] and f_tmp):
+    if not (bingo[i][i] and f_tmp):
         f_tmp = False
 if f_tmp:
     f = True
 
 f_tmp = True
 for i in range(3):
-    if not(bingo[2-i][i] and f_tmp):
+    if not (bingo[2 - i][i] and f_tmp):
         f_tmp = False
 if f_tmp:
     f = True
 
 if f:
-    print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

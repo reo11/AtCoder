@@ -9,6 +9,6 @@ for i in range(n):
 for i in range(n):
     for j in range(n):
         if i != j:
-            ans = min(ans, abs(d[i]-d[j]))
+            ans = min(ans, abs(d[i] - d[j]))
 
 print(ans)

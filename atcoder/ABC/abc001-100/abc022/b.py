@@ -8,4 +8,3 @@ for _ in range(n):
     d[a] += 1
 
 print(count)
-

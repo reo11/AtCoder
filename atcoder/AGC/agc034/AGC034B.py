@@ -4,7 +4,7 @@ s = str(input())
 AD_s = ""
 index = 0
 while index < len(s):
-    if s[index:index+2] == "BC":
+    if s[index : index + 2] == "BC":
         AD_s += "D"
         index += 1
     else:

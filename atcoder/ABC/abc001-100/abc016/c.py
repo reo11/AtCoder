@@ -1,13 +1,13 @@
 n, m = map(int, input().split())
-INF = 10**10
+INF = 10 ** 10
 ab = [[INF for _ in range(n)] for _ in range(n)]
 for i in range(n):
     ab[i][i] = 0
 
 for i in range(m):
     a, b = map(int, input().split())
-    ab[a-1][b-1] = 1
-    ab[b-1][a-1] = 1
+    ab[a - 1][b - 1] = 1
+    ab[b - 1][a - 1] = 1
 
 # warshall_floyd
 for k in range(n):

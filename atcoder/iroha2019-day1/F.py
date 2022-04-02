@@ -1,5 +1,7 @@
-import math
 import collections
+import math
+
+
 def trial_division_sqrt(n):
     prime_count = collections.Counter()
 
@@ -11,6 +13,7 @@ def trial_division_sqrt(n):
         prime_count[n] += 1
 
     return prime_count
+
 
 n, k = map(int, input().split())
 counter = trial_division_sqrt(n)
@@ -33,7 +36,7 @@ else:
     for i in range(k - 1):
         new_ans_list.append(ans_list[i])
     multi = 1
-    for v in ans_list[k-1:]:
+    for v in ans_list[k - 1 :]:
         multi *= v
     new_ans_list.append(multi)
     ans = str(new_ans_list[0])

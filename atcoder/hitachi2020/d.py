@@ -1,5 +1,6 @@
-from bisect import bisect_left
 import sys
+from bisect import bisect_left
+
 input = sys.stdin.readline
 
 n, t = map(int, input().split())
@@ -17,21 +18,21 @@ ab.sort(reverse=True)
 INF = 10 ** 12
 N = 40
 m = len(ab)
-dp = [[INF for _ in range(N)] for _ in range(m+1)]
+dp = [[INF for _ in range(N)] for _ in range(m + 1)]
 dp[0][0] = 0
-for i in range(1, m+1):
-    a, b = ab[i-1][1], ab[i-1][2]
+for i in range(1, m + 1):
+    a, b = ab[i - 1][1], ab[i - 1][2]
     dp[i][0] = 0
     for j in range(1, N):
-        tmp = 1 + dp[i-1][j-1]
-        dp[i][j] = min(dp[i-1][j], tmp + (a * tmp + b))
+        tmp = 1 + dp[i - 1][j - 1]
+        dp[i][j] = min(dp[i - 1][j], tmp + (a * tmp + b))
 ans = 0
 for i in range(N):
     time = dp[-1][i]
     ans_tmp = i
     if time <= t:
         for v in a0:
-            time += (1 + v)
+            time += 1 + v
             if time <= t:
                 ans_tmp += 1
             else:

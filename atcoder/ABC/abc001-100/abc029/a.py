@@ -1,1 +1,1 @@
-print(input() + "s" )
+print(input() + "s")

@@ -1,12 +1,13 @@
-import sys
 import heapq
+import sys
+
 input = sys.stdin.readline
 
 n = int(input())
 query = []
 for i in range(n):
     x, l = map(int, input().split())
-    query.append([x+l, x-l])
+    query.append([x + l, x - l])
 
 # 貪欲
 heapq.heapify(query)

@@ -4,6 +4,7 @@ C = [[int(i) for i in input().split()] for _ in range(3)]
 p = [0] * 9
 m = {}
 
+
 def solve(t, a):
     if t == 9:
         s = 0
@@ -18,7 +19,7 @@ def solve(t, a):
     if a and (a in m):
         return m[a]
 
-    r, n = -10 ** 10, (-1 if t % 2 == 1 else 1)
+    r, n = -(10 ** 10), (-1 if t % 2 == 1 else 1)
     for i in range(9):
         if p[i] == 0:
             p[i] = n
@@ -26,6 +27,7 @@ def solve(t, a):
             p[i] = 0
     m[tuple(i for i in p)] = n * r
     return n * r
+
 
 su = sum(map(sum, B)) + sum(map(sum, C))
 ans = solve(0, None)

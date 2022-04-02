@@ -1,5 +1,8 @@
 from collections import Counter
+
 n = int(input())
+
+
 def prime_factorize(n):
     # Return list of prime factorized result
     # O(sqrt(n))
@@ -17,6 +20,8 @@ def prime_factorize(n):
     if n != 1:
         a.append(n)
     return a
+
+
 l = prime_factorize(n)
 cnt = Counter(l)
 

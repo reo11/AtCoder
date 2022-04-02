@@ -6,7 +6,7 @@ c = 0
 while c < 2019:
     if c > r - l:
         break
-    list_.append((l+c) % 2019)
+    list_.append((l + c) % 2019)
     c += 1
 
 list_.sort()

@@ -6,7 +6,7 @@ c = [[0 for _ in range(w)] for _ in range(h)]
 s = []
 for i in range(len(a)):
     for j in range(a[i]):
-        s.append(i+1)
+        s.append(i + 1)
 
 idx = 0
 for i in range(h):
@@ -21,5 +21,3 @@ for i in range(h):
 
 for i in range(len(c)):
     print(" ".join(list(map(str, c[i]))))
-
-

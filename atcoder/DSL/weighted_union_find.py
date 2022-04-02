@@ -1,9 +1,9 @@
 class WeightedUnionFind:
     def __init__(self, n):
-        self.par = [i for i in range(n+1)]
-        self.rank = [0] * (n+1)
+        self.par = [i for i in range(n + 1)]
+        self.rank = [0] * (n + 1)
         # 根への距離を管理
-        self.weight = [0] * (n+1)
+        self.weight = [0] * (n + 1)
 
     # 検索
     def find(self, x):

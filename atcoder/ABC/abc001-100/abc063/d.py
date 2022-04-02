@@ -1,6 +1,8 @@
 from math import ceil
+
 n, a, b = map(int, input().split())
 h = [int(input()) for _ in range(n)]
+
 
 def can_beet(t):
     ans = False
@@ -12,6 +14,7 @@ def can_beet(t):
     if d <= t:
         ans = True
     return ans
+
 
 l = -1
 r = 10 ** 9 + 1

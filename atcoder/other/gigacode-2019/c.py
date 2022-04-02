@@ -2,7 +2,7 @@ d = int(input())
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 
-INF = 10**10
+INF = 10 ** 10
 money = 0
 ans = INF
 

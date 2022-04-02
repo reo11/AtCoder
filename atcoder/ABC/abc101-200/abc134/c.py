@@ -16,5 +16,3 @@ for a_value in a:
         ans.append(str(a_max2))
 
 print("\n".join(ans))
-
-

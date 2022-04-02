@@ -1,4 +1,5 @@
 ATCODER_IMAGE := atcoder:latest
+TEST_IMAGE := actoder-test:latest
 
 .PHONY: help
 help: ## this is help message
@@ -13,13 +14,25 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
+.PHONY: build-test
+build-test:
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(TEST_IMAGE) -f dockerfiles/Dockerfile.test .
+
+.PHONY: run-lint
+run-lint: build-test
+	docker run --rm $(TEST_IMAGE) pysen run lint
+
+.PHONY: run-auto-lint
+run-auto-lint: build-test
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run format
+
 .PHONY: build-atcoder
 build-atcoder:
 	docker build -t $(ATCODER_IMAGE) .
 
 .PHONY: run-atcoder
 run-atcoder: build-atcoder
-	docker run -t -d --rm -v ${PWD}:/work -v ${PWD}/.tmp:/root/.local/share/online-judge-tools/ $(AUTO_LINT_IMAGE) -e "BROWSER=chrome" --name atcoder-container bash
+	docker run -t -d --rm -v ${PWD}:/work -v ${PWD}/.tmp:/root/.local/share/online-judge-tools/ $(ATCODER_IMAGE) -e "BROWSER=chrome" --name atcoder-container bash
 
 .PHONY: exec-atcoder
 exec-atcoder: 

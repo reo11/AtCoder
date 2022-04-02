@@ -1,6 +1,7 @@
 n, k = map(int, input().split())
 wp = [list(map(int, input().split())) for _ in range(n)]
 
+
 def check(target_per):
     l = []
     for w, p in wp:
@@ -10,7 +11,7 @@ def check(target_per):
     solt = 0
     for _, w, p in l[:k]:
         s = w * p / 100
-        water += (w - s)
+        water += w - s
         solt += s
     ret = False
     per = solt / (water + solt) * 100
@@ -21,7 +22,7 @@ def check(target_per):
 
 l = 0
 r = 100
-while (r - l) > 10**(-9):
+while (r - l) > 10 ** (-9):
     mid = (r + l) / 2
     if check(mid):
         l = mid

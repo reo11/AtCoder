@@ -1,6 +1,6 @@
 import sys
-from math import ceil
 from collections import deque
+from math import ceil
 
 input = sys.stdin.readline
 
@@ -24,5 +24,5 @@ for i in range(n):
         xh[i][1] -= a_num * a
         ans += a_num
         dam += a_num * a
-        q.append((xh[i][0] + 2*d, a_num * a))
+        q.append((xh[i][0] + 2 * d, a_num * a))
 print(ans)

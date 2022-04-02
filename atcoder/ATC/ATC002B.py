@@ -9,6 +9,7 @@ def rep_sqr(base, k, mod):
     else:
         return (rep_sqr(base, k - 1, mod) * base) % mod
 
+
 ans = rep_sqr(n, p, mod)
 
 print(ans)

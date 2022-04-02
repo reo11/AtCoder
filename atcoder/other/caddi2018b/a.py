@@ -1,2 +1,2 @@
 n = str(input())
-print(n.count('2'))
+print(n.count("2"))

@@ -9,7 +9,6 @@ for i in range(m):
     b.append(list(input()))
 
 
-
 for s_h in range(n - m + 1):
     for s_w in range(n - m + 1):
         flag = True

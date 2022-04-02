@@ -19,7 +19,7 @@ for X in range(2 ** n):
         f = True
         if X & (2 ** num) >= 1:
             for x, y in xy[num]:
-                t = 1 if X & 2 ** (x-1) >= 1 else 0
+                t = 1 if X & 2 ** (x - 1) >= 1 else 0
                 if t != y:
                     f = False
                     break

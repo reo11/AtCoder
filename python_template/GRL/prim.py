@@ -17,5 +17,5 @@ def prim(n, ignore_set, cost):
         used[v] = True
         res += mincost[v]
         for i in range(n):
-            mincost[i] = min(mincost[i],cost[v][i])
+            mincost[i] = min(mincost[i], cost[v][i])
     return res

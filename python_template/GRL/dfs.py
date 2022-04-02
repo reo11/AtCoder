@@ -1,15 +1,19 @@
 import sys
-sys.setrecursionlimit(10**7)
+
+sys.setrecursionlimit(10 ** 7)
+
 
 class DepthFirsSearch:
     """ 深さ優先探索 """
+
     def __init__(self, h, w, board, s_xy, g_xy):
         self.h, self.w = h, w
         self.board = board
         self.hist = [[False] * w for i in range(h)]
         self.s_xy = s_xy
         self.g_xy = g_xy
-    def dfs(self, x, y, wall = "#"):
+
+    def dfs(self, x, y, wall="#"):
         # 移動先が範囲内かどうか
         if x < 0 or self.w - 1 < x or y < 0 or self.h - 1 < y:
             return False
@@ -24,9 +28,15 @@ class DepthFirsSearch:
         # ゴールならTrueを返して終わり
         if (x, y) == self.g_xy:
             return True
-        if (self.dfs(x + 1, y) or self.dfs(x - 1, y) or self.dfs(x, y + 1) or self.dfs(x, y - 1)):
+        if (
+            self.dfs(x + 1, y)
+            or self.dfs(x - 1, y)
+            or self.dfs(x, y + 1)
+            or self.dfs(x, y - 1)
+        ):
             return True
         return False
+
 
 h, w = map(int, input().split())
 

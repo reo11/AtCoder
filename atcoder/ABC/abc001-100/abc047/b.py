@@ -16,4 +16,3 @@ for i in range(n):
 
 
 print(max(0, a_r - a_l) * max(0, a_u - a_d))
-

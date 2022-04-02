@@ -1,7 +1,7 @@
 n = int(input())
 k = int(input())
 
-min_ans = 10**10
+min_ans = 10 ** 10
 for i in range(2 ** n):
     ans = 1
     for j in range(n):
@@ -11,4 +11,3 @@ for i in range(2 ** n):
             ans *= 2
     min_ans = min(min_ans, ans)
 print(min_ans)
-

@@ -25,4 +25,3 @@ for i in range(n):
         takahashi = max(takahashi, t)
 
 print(takahashi)
-

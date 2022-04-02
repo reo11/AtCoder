@@ -13,6 +13,6 @@ base //= 2
 for i in range(n)[::-1]:
     base = a[i] - base
     ans.append(base)
-ans = list(map(lambda x: str(x*2), ans))
+ans = list(map(lambda x: str(x * 2), ans))
 ans = ans[::-1]
 print(" ".join(ans))

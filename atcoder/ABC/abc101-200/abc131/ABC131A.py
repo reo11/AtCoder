@@ -1,8 +1,8 @@
-s =  str(input())
+s = str(input())
 
 flag = True
 for i in range(3):
-    if s[i] == s[i+1]:
+    if s[i] == s[i + 1]:
         flag = False
 
 if flag:

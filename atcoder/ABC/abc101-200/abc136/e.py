@@ -1,14 +1,17 @@
 from math import ceil
+
+
 def make_divisors(n):
     divisors = []
-    for i in range(1, int(n**0.5)+1):
+    for i in range(1, int(n ** 0.5) + 1):
         if n % i == 0:
             divisors.append(i)
             if i != n // i:
-                divisors.append(n//i)
+                divisors.append(n // i)
 
     divisors.sort()
     return divisors
+
 
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
@@ -32,10 +35,10 @@ else:
                 k_s += mod_
                 mod += mod_
             else:
-                k_s += (gcd - mod_)
-                mod -= (gcd - mod_)
+                k_s += gcd - mod_
+                mod -= gcd - mod_
 
-        if int(k_s/2) + 1 < k and mod == 0:
+        if int(k_s / 2) + 1 < k and mod == 0:
             ans = max(ans, gcd)
 
     print(ans)

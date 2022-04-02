@@ -3,8 +3,8 @@ kuku = []
 s_ = 0
 for i in range(1, 10):
     for j in range(1, 10):
-        kuku.append(["{} x {}".format(i, j), i*j])
-        s_ += i*j
+        kuku.append(["{} x {}".format(i, j), i * j])
+        s_ += i * j
 
 m = s_ - n
 ans = []

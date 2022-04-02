@@ -3,7 +3,7 @@ a = [list(map(int, input().split())) for i in range(h)]
 
 i = 0
 j = 0
-direction = 'r'
+direction = "r"
 ans = []
 route = []
 is_selected = False
@@ -13,14 +13,14 @@ while True:
         break
     next_i = i
     next_j = j
-    if j == 0 and direction == 'l':
+    if j == 0 and direction == "l":
         next_i = i + 1
-        direction = 'r'
-    elif j == w-1 and direction == 'r':
+        direction = "r"
+    elif j == w - 1 and direction == "r":
         next_i = i + 1
-        direction = 'l'
+        direction = "l"
     else:
-        if direction == 'r':
+        if direction == "r":
             next_j += 1
         else:
             next_j -= 1
@@ -31,11 +31,11 @@ while True:
             route = []
             is_selected = False
         else:
-            route.append([i+1, j+1, next_i+1, next_j+1])
+            route.append([i + 1, j + 1, next_i + 1, next_j + 1])
             is_selected = True
     else:
         if is_selected:
-            route.append([i+1, j+1, next_i+1, next_j+1])
+            route.append([i + 1, j + 1, next_i + 1, next_j + 1])
     i = next_i
     j = next_j
     cnt += 1

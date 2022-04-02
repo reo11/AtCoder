@@ -1,16 +1,17 @@
 import sys
 from collections import defaultdict
+
 input = sys.stdin.readline
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
-        self.root = [-1]*(n+1)
-        self.rank = [0]*(n+1)
+        self.root = [-1] * (n + 1)
+        self.rank = [0] * (n + 1)
 
     def Find_Root(self, x):
-        if(self.root[x] < 0):
+        if self.root[x] < 0:
             return x
         else:
             self.root[x] = self.Find_Root(self.root[x])
@@ -20,7 +21,7 @@ class UnionFind():
         x_root = self.Find_Root(x)
         y_root = self.Find_Root(y)
 
-        if(x_root == y_root):
+        if x_root == y_root:
             return
         # 違う木に属していた場合rankを見てくっつける方を決める
         if self.rank[x_root] >= self.rank[y_root]:
@@ -33,6 +34,7 @@ class UnionFind():
     # xとyが同じグループに属するか判断
     def isSameGroup(self, x, y):
         return self.Find_Root(x) == self.Find_Root(y)
+
 
 n, k, l = map(int, input().split())
 pq = [list(map(int, input().split())) for _ in range(k)]
@@ -50,7 +52,7 @@ for i in range(l):
 pairs = []
 d = defaultdict(int)
 
-for i in range(1, n+1):
+for i in range(1, n + 1):
     name = "{} {}".format(uf1.Find_Root(i), uf2.Find_Root(i))
     pairs.append(name)
     d[name] += 1
@@ -60,5 +62,3 @@ for i in range(n):
     ans.append(d[pairs[i]])
 
 print(*ans)
-
-

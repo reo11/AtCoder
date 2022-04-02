@@ -15,7 +15,7 @@ for i in range(k):
                 s = r
             if s >= t:
                 break
-        out.append(str(i+1))
+        out.append(str(i + 1))
     # 左側へ
     else:
         for i in range(d):
@@ -24,5 +24,5 @@ for i in range(k):
                 s = l
             if s <= t:
                 break
-        out.append(str(i+1))
+        out.append(str(i + 1))
 print("\n".join(out))

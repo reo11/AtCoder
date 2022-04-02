@@ -3,10 +3,10 @@ s = str(input())
 
 lr = 0
 rl = 0
-for i in range(n-1):
-    if s[i:i+2] == "LR":
+for i in range(n - 1):
+    if s[i : i + 2] == "LR":
         lr += 1
-    if s[i:i+2] == "RL":
+    if s[i : i + 2] == "RL":
         rl += 1
 m = min(lr, rl)
 ans = n - (lr + rl + 1) + (2 * min(m, k))

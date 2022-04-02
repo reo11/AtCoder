@@ -1,4 +1,5 @@
 import math
+
 n, h = map(int, input().split())
 
 a = []

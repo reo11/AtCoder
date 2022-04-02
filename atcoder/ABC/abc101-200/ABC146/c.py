@@ -1,4 +1,5 @@
 import math
+
 a, b, x = map(int, input().split())
 
 cur = 10 ** 9
@@ -14,12 +15,10 @@ while True:
         cur -= dis
     if dis == 1:
         l.append(cur)
-    dis = math.ceil(dis/2)
+    dis = math.ceil(dis / 2)
 ans = 0
 for i in l:
     cal = (a * i) + (b * len(str(i)))
     if cal <= x:
         ans = max(ans, i)
-print(min(ans, 10**9))
-
-
+print(min(ans, 10 ** 9))

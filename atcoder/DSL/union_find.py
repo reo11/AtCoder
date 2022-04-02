@@ -1,13 +1,14 @@
 n, q = map(int, input().split())
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n):
         self.n = n
-        self.root = [-1]*(n+1)
-        self.rank = [0]*(n+1)
+        self.root = [-1] * (n + 1)
+        self.rank = [0] * (n + 1)
 
     def Find_Root(self, x):
-        if(self.root[x] < 0):
+        if self.root[x] < 0:
             return x
         else:
             self.root[x] = self.Find_Root(self.root[x])
@@ -17,7 +18,7 @@ class UnionFind():
         x_root = self.Find_Root(x)
         y_root = self.Find_Root(y)
 
-        if(x_root == y_root):
+        if x_root == y_root:
             return
         # 違う木に属していた場合rankを見てくっつける方を決める
         if self.rank[x_root] >= self.rank[y_root]:
@@ -34,6 +35,7 @@ class UnionFind():
     # ノードxが属する木のサイズを返す
     def Count(self, x):
         return self.rank[self.Find_Root(x)]
+
 
 tree = UnionFind(n)
 

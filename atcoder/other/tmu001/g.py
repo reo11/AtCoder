@@ -2,6 +2,7 @@
 s_d = list(str(input()))
 t = list(str(input()))
 
+
 def check(s, t):
     flag = True
     for j in range(len(t)):
@@ -11,11 +12,12 @@ def check(s, t):
             flag = False
     return flag
 
+
 flag = False
-for i in range(len(s_d) - len(t)+1):
-    flag = check(s_d[len(s_d) - i - len(t):len(s_d) - i], t)
+for i in range(len(s_d) - len(t) + 1):
+    flag = check(s_d[len(s_d) - i - len(t) : len(s_d) - i], t)
     if flag:
-        for idx, j in enumerate(range(len(s_d) - i - len(t), len(s_d)-i)):
+        for idx, j in enumerate(range(len(s_d) - i - len(t), len(s_d) - i)):
             s_d[j] = t[idx]
         break
 for i in range(len(s_d)):
@@ -25,4 +27,3 @@ if flag:
     print("".join(s_d))
 else:
     print("UNRESTORABLE")
-

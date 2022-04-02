@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+
 y, m, d = map(int, input().split("/"))
 date = datetime(y, m, d)
 print(date)

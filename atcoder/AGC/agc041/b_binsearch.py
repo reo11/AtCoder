@@ -1,14 +1,16 @@
-import math
 import bisect
+import math
+
 n, m, v, p = map(int, input().split())
 a = list(map(int, input().split()))
 a.sort(reverse=True)
 
+
 def check(x):
     global n, a, m, v, p
-    if x <= p-2:
+    if x <= p - 2:
         return True
-    if a[x] + m < a[p-1]:
+    if a[x] + m < a[p - 1]:
         return False
     else:
         vote = m * v - m * (p - 1) - m * (n - x - 1) - m
@@ -18,11 +20,12 @@ def check(x):
         else:
             return False
 
+
 idx = n // 2
 step = math.ceil(n / 4)
 
 left = -1
-right = n-1
+right = n - 1
 while left + 1 < right:
     x = (left + right) // 2
     if check(x):

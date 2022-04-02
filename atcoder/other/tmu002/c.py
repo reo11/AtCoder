@@ -1,6 +1,6 @@
 import bisect
 
-INF = 10**15
+INF = 10 ** 15
 n, W = map(int, input().split())
 w = []
 v = []
@@ -28,7 +28,7 @@ def solve1():
         w_ = 0
         v_ = 0
         for j in range(a):
-            if i & 2**j > 0:
+            if i & 2 ** j > 0:
                 w_ += w[j]
                 v_ += v[j]
         items1.append([w_, v_])
@@ -37,9 +37,9 @@ def solve1():
         w_ = 0
         v_ = 0
         for j in range(b):
-            if i & 2**j > 0:
-                w_ += w[a+j]
-                v_ += v[a+j]
+            if i & 2 ** j > 0:
+                w_ += w[a + j]
+                v_ += v[a + j]
         items2.append([w_, v_])
     items2 = sorted(items2, key=lambda x: (x[0], -x[1]))
 
@@ -62,7 +62,7 @@ def solve1():
             b_items.append(items2[i])
             pre_v = items2[i][1]
     b_items.insert(0, [0, 0])
-    b_items.append([10**20, 0])
+    b_items.append([10 ** 20, 0])
     b_w = [x[0] for x in b_items]
 
     ans = 0
@@ -81,15 +81,15 @@ def solve1():
 def solve2():
     global n, W, items
     # wのdp
-    dp = [[0 for _ in range(W+1)]for _ in range(n+1)]
+    dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
 
     for i in range(n):
         for j in range(w[i]):
-            dp[i+1][j] = dp[i][j]
-        for j in range(w[i], W+1):
-            dp[i+1][j] = max(dp[i][j], dp[i+1][j-1], dp[i][j - w[i]] + v[i])
+            dp[i + 1][j] = dp[i][j]
+        for j in range(w[i], W + 1):
+            dp[i + 1][j] = max(dp[i][j], dp[i + 1][j - 1], dp[i][j - w[i]] + v[i])
     ans = 0
-    for i in range(W+1):
+    for i in range(W + 1):
         ans = max(ans, dp[n][i])
     print(ans)
 
@@ -101,20 +101,21 @@ def solve3():
     sum_v = 0
     for i in range(n):
         sum_v += v[i]
-    dp = [[INF for _ in range(sum_v+1)]for _ in range(n+1)]
+    dp = [[INF for _ in range(sum_v + 1)] for _ in range(n + 1)]
 
-    for i in range(n+1):
+    for i in range(n + 1):
         dp[i][0] = 0
     for i in range(n):
         for j in range(v[i]):
-            dp[i+1][j] = dp[i][j]
-        for j in range(v[i], sum_v+1):
-            dp[i+1][j] = min(dp[i][j], dp[i][j - v[i]] + w[i])
+            dp[i + 1][j] = dp[i][j]
+        for j in range(v[i], sum_v + 1):
+            dp[i + 1][j] = min(dp[i][j], dp[i][j - v[i]] + w[i])
     ans = 0
     for i in range(len(dp[n])):
         if dp[n][i] <= W:
             ans = i
     print(ans)
+
 
 if n <= 30:
     solve1()

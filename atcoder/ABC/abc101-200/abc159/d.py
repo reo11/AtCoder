@@ -9,12 +9,14 @@ for v in a:
 
 max_ans = 0
 for k, v in d.items():
-    max_ans += v * (v-1) // 2
+    max_ans += v * (v - 1) // 2
 
 ans = []
 for v in a:
     if d[v] > 1:
-        ans.append(max_ans - ((d[v]) * (d[v]-1) // 2) + ((d[v]-1) * (d[v]-2) // 2))
+        ans.append(
+            max_ans - ((d[v]) * (d[v] - 1) // 2) + ((d[v] - 1) * (d[v] - 2) // 2)
+        )
     else:
         ans.append(max_ans)
 

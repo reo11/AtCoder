@@ -1,5 +1,7 @@
-import numpy as np
 import math
+
+import numpy as np
+
 n, d = map(int, input().split())
 x = []
 for i in range(n):
@@ -12,4 +14,4 @@ for i in range(n):
             d = np.linalg.norm(x[i] - x[j])
             if math.floor(d) == d:
                 count += 1
-print(count//2)
+print(count // 2)

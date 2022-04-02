@@ -11,6 +11,6 @@ for i in range(n):
 ans = 0
 for i, b in enumerate(bits):
     if b > 0:
-        ans += (2 ** i) * (b * (n-b))
+        ans += (2 ** i) * (b * (n - b))
         ans %= MOD
 print(ans)

@@ -1,5 +1,5 @@
 s = input()
-l = ["SUN","MON","TUE","WED","THU","FRI","SAT"]
+l = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 
 for i in range(len(l)):
     if l[i] == s:

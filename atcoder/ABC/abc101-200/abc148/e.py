@@ -1,5 +1,6 @@
 n = int(input())
 
+
 def f(num):
     num = num - int(str(num)[-1])
     count = 0
@@ -7,7 +8,7 @@ def f(num):
     while True:
         if ((5 ** i) * (2)) > num:
             break
-        count += (num // ((5 ** i) * (2)))
+        count += num // ((5 ** i) * (2))
         i += 1
     return count
 

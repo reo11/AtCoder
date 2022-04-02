@@ -1,6 +1,8 @@
 # 二部グラフの最大マッチング
 # 最大流
 from collections import deque
+
+
 class Dinic:
     def __init__(self, N):
         self.N = N
@@ -19,7 +21,7 @@ class Dinic:
         self.G[v2].append(edge2)
 
     def bfs(self, s, t):
-        self.level = level = [None]*self.N
+        self.level = level = [None] * self.N
         deq = deque([s])
         level[s] = 0
         G = self.G
@@ -48,26 +50,27 @@ class Dinic:
 
     def flow(self, s, t):
         flow = 0
-        INF = 10**9 + 7
+        INF = 10 ** 9 + 7
         G = self.G
         while self.bfs(s, t):
-            *self.it, = map(iter, self.G)
+            (*self.it,) = map(iter, self.G)
             f = INF
             while f:
                 f = self.dfs(s, t, INF)
                 flow += f
         return flow
 
+
 n = int(input())
 ab = []
 cd = []
 for i in range(n):
     a, b = map(int, input().split())
-    ab.append([i+1, a, b])
+    ab.append([i + 1, a, b])
 
 for i in range(n):
     c, d = map(int, input().split())
-    cd.append([n+1+i, c, d])
+    cd.append([n + 1 + i, c, d])
 
 s = 0
 g = 2 * n + 1

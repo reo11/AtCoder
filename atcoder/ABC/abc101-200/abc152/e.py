@@ -3,6 +3,7 @@ mod = 1000000007
 prime = [0 for i in range(MAX)]
 max_map = dict()
 
+
 def power(a, n):
     if n == 0:
         return 1
@@ -12,6 +13,7 @@ def power(a, n):
         p = (p * a) % mod
     return p
 
+
 def sieve():
     prime[0], prime[1] = 1, 1
     for i in range(2, MAX):
@@ -20,6 +22,7 @@ def sieve():
                 if prime[j] == 0:
                     prime[j] = i
             prime[i] = i
+
 
 def lcmModuloM(arr, n):
     for i in range(n):
@@ -56,17 +59,19 @@ def rep_sqr(base, k, mod):
     else:
         return (rep_sqr(base, k - 1, mod) * base) % mod
 
+
 # a^(-1) == a^(m-2)
 
 
 def flt(a, mod):
-    return rep_sqr(a, mod-2, mod)
+    return rep_sqr(a, mod - 2, mod)
+
 
 # Driver code
 sieve()
 
 # python > pypy
-MOD = 10**9 + 7
+MOD = 10 ** 9 + 7
 
 n = int(input())
 a = list(map(int, input().split()))

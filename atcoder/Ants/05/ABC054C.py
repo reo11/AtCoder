@@ -1,5 +1,5 @@
-from collections import defaultdict
 import itertools
+from collections import defaultdict
 
 n, m = map(int, input().split())
 connected_dict = defaultdict(lambda: [])

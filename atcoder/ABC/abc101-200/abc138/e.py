@@ -1,5 +1,6 @@
-from collections import deque
 import bisect
+from collections import deque
+
 s = str(input())
 t = str(input())
 

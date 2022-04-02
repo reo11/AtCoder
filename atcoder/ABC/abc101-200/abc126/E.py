@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, size):
         self.table = [-1 for _ in range(size)]
         self.size = [1 for _ in range(size)]
@@ -26,11 +26,9 @@ class UnionFind():
                 self.size[s1] = 0
         return
 
+
 n, m = map(int, input().split())
 
 x = [0] * m
 y = [0] * m
 z = [0] * m
-
-
-

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 d = defaultdict(int)
 s = list(input())
 
@@ -18,5 +19,3 @@ if flag:
     print("Yes")
 else:
     print("No")
-
-

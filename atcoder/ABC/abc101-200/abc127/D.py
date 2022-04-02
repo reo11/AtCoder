@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 d = defaultdict(int)
 
 n, m = map(int, input().split())
@@ -19,10 +20,9 @@ ans_list.reverse()
 ans = 0
 for (value, count) in ans_list:
     if 0 > n - count:
-        ans += n*value
+        ans += n * value
         break
     else:
         n -= count
-        ans += count*value
+        ans += count * value
 print(ans)
-
