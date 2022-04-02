@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Test & Lint
 
 on:
   push:
@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: Run Lint
       run: make run-lint
