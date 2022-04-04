@@ -16,4 +16,3 @@ RUN useradd $UNAME -u $UID -m
 USER $UNAME
 
 WORKDIR /work
-COPY . /work/

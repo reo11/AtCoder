@@ -5,7 +5,7 @@ d = {}
 for v in a:
     try:
         d[v] += 1
-    except: Exception
+    except Exception:
         d[v] = 1
 
 ans = 0

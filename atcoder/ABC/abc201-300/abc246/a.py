@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 x = defaultdict(int)
 y = defaultdict(int)
 ans_x = 0

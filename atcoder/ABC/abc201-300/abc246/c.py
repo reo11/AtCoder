@@ -15,5 +15,5 @@ nokori.sort(reverse=True)
 if full_discount >= k:
     sum_cost = sum(nokori) + (full_discount - k) * x
 else:
-    sum_cost = sum(nokori[k-full_discount:])
+    sum_cost = sum(nokori[k - full_discount :])
 print(sum_cost)

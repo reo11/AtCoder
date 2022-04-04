@@ -20,7 +20,7 @@ build-test:
 
 .PHONY: run-lint
 run-lint: build-test
-	docker run --rm $(TEST_IMAGE) pysen run lint
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run lint
 
 .PHONY: run-auto-lint
 run-auto-lint: build-test

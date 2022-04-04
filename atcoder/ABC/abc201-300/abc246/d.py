@@ -1,7 +1,9 @@
 n = int(input())
 
+
 def func(a, b):
     return a ** 3 + a ** 2 * b + a * b ** 2 + b ** 3
+
 
 ans = 10 ** 18
 j = 10 ** 6
