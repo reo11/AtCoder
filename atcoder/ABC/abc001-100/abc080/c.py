@@ -1,3 +1,16 @@
+from typing import Iterator, List
+
+
+def bit_full_search(max_bit: int) -> Iterator[List[int]]:
+    for i in range(2 ** max_bit):
+        bit_list = [0 for _ in range(max_bit)]
+        for j in range(10):
+            if i & 2 ** j > 0:
+                bit_list[j] = 1
+        yield bit_list
+
+
+
 n = int(input())
 
 f = []
@@ -11,11 +24,9 @@ for i in range(n):
 # bit全探索
 ans = -(10 ** 10)
 
-for i in range(1, 2 ** 10):
-    l = [0 for _ in range(10)]
-    for j in range(10):
-        if i & 2 ** j > 0:
-            l[j] = 1
+for l in bit_full_search(10):
+    if sum(l) == 0:
+        continue
     score = 0
     for j in range(n):
         count = 0

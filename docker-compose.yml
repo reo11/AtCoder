@@ -13,3 +13,4 @@ services:
     command: bash
     environment:
       BROWSER: chrome
+      PYTHONPATH: $PYTHONPATH:/work

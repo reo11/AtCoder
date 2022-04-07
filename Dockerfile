@@ -56,6 +56,8 @@ RUN mkdir /work
 # RUN useradd $UNAME -u $UID -m
 # USER $UNAME
 
+ENV PYTHONPATH=$PYTHONPATH:/work
+
 COPY ./.zshrc /tmp/.zshrc
 RUN cat "/tmp/.zshrc" >> ~/.bashrc
 WORKDIR /work

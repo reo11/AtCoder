@@ -1,4 +1,5 @@
 def prime_factorize(n):
+    # 素因数分解
     # Return list of prime factorized result
     # O(sqrt(n))
     a = []

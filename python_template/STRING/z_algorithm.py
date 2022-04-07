@@ -1,4 +1,7 @@
-def z_algo(S):
+from typing import List
+
+
+def z_algo(S: str) -> List[int]:
     N = len(S)
     A = [0] * N
     i = 1

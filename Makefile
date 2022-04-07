@@ -18,6 +18,10 @@ clean-pyc: ## remove Python file artifacts
 build-test:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(TEST_IMAGE) -f dockerfiles/Dockerfile.test .
 
+.PHONY: run-test
+run-test: build-test
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pytest test/*
+
 .PHONY: run-lint
 run-lint: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run lint
