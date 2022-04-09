@@ -9,3 +9,5 @@ PAST
 input/*
 *.in
 *.out
+__pycache__
+*.pyc
