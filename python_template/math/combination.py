@@ -3,7 +3,7 @@ MOD = 10 ** 9 + 7
 
 class Facts:
     # O(max_num)
-    def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)
@@ -11,7 +11,7 @@ class Facts:
             self.fact[i] = self.fact[i - 1] * i
             self.fact[i] %= self.p
 
-    def comb(self, n, k):
+    def comb(self, n: int, k: int) -> int:
         # nCk mod p with memo
         # O(log(p))
         if n < 0 or k < 0 or n < k:
@@ -25,7 +25,7 @@ class Facts:
             a * self.power_func(b, self.p - 2) * self.power_func(c, self.p - 2)
         ) % self.p
 
-    def comb_base(self, n, k):
+    def comb_base(self, n: int, k: int) -> int:
         # nCk mod p w/o memo
         # O(min(n, k)) ?
         if n < 0 or k < 0 or n < k:
@@ -41,7 +41,7 @@ class Facts:
             b %= MOD
         return (a * self.power_func(b, self.p - 2)) % self.p
 
-    def perm(self, n, k):
+    def perm(self, n: int, k: int) -> int:
         # nPk mod p
         # O(log(p))
         if n < 0 or k < 0 or n < k:
@@ -52,7 +52,7 @@ class Facts:
         b = self.fact[n - k]
         return (a * self.power_func(b, self.p - 2)) % self.p
 
-    def power_func(self, a, b):
+    def power_func(self, a: int, b: int) -> int:
         # a^b mod p
         # O(log(b))
         ans = 1

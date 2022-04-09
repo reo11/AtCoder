@@ -1,7 +1,7 @@
 from python_template.basic.bit_full_search import bit_full_search
 
 
-def test_bit_full_search():
+def test_bit_full_search() -> None:
     answer_list = []
     answer_list.append([[0], [1]])
     answer_list.append([[0, 0], [0, 1], [1, 0], [1, 1]])

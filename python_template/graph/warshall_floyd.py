@@ -1,4 +1,7 @@
-def warshall_floyd(n, d):
+from typing import List
+
+
+def warshall_floyd(n: int, d: List[List[int]]) -> List[List[int]]:
     # 空間計算量: O(n^2)
     # 時間計算量: O(n^3)
     # よって、n <= 10^2程度が限界

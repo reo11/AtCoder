@@ -1,23 +1,31 @@
 import queue
+from typing import List, Tuple
 
 
 class BreadthFirstSearch:
     """ 幅優先探索 """
 
-    def __init__(self, h, w, start_xy, goal_xy, board):
+    def __init__(
+        self,
+        h: int,
+        w: int,
+        start_xy: Tuple[int, int],
+        goal_xy: Tuple[int, int],
+        board: List[List[str]],
+    ) -> None:
         self.h, self.w = h, w
         (self.sx, self.sy) = start_xy
         (self.gx, self.gy) = goal_xy
         self.board = board
         self.hist = [[False] * w for i in range(h)]
 
-    def get_step(self, wall="#"):
+    def get_step(self, wall: str = "#") -> int:
         """
         区切り文字を指定する(デフォルトは#)
         ゴールに着くまでの最短距離を出力
         ゴールにたどり着かない場合は0を出力
         """
-        q = queue.Queue()
+        q: queue.Queue = queue.Queue()
         q.put((self.sx, self.sy))
         step = 0
         count = 1

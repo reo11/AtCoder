@@ -22,7 +22,8 @@ def solve(a: List[int], k: int, length: int) -> bool:
             count += 1
             cur_length = 0
 
-    return count >= k + 1 # k + 1ピース以上になっているか
+    return count >= k + 1  # k + 1ピース以上になっているか
+
 
 # めぐる式二分探索
 # https://qiita.com/drken/items/97e37dd6143e33a64c8c
@@ -37,5 +38,6 @@ def bin_search_value(range_min, range_max):
         else:
             left = mid
     return left
+
 
 print(bin_search_value(0, l))

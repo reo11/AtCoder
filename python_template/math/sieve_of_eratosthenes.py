@@ -1,7 +1,9 @@
 from typing import List, Union
 
 
-def sieve_of_eratosthenes(n: int, return_num: bool = False) -> List[Union[bool, int]]:
+def sieve_of_eratosthenes(
+    n: int, return_num: bool = False
+) -> Union[List[bool], List[int]]:
     # O(nlognlogn)
     is_prime_list = [True] * (n + 1)
     is_prime_list[0] = False

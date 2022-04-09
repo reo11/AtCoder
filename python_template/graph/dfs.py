@@ -1,4 +1,5 @@
 import sys
+from typing import List, Tuple
 
 sys.setrecursionlimit(10 ** 7)
 
@@ -6,14 +7,21 @@ sys.setrecursionlimit(10 ** 7)
 class DepthFirsSearch:
     """ 深さ優先探索 """
 
-    def __init__(self, h, w, board, s_xy, g_xy):
+    def __init__(
+        self,
+        h: int,
+        w: int,
+        board: List[List[str]],
+        s_xy: Tuple[int, int],
+        g_xy: Tuple[int, int],
+    ) -> None:
         self.h, self.w = h, w
         self.board = board
         self.hist = [[False] * w for i in range(h)]
         self.s_xy = s_xy
         self.g_xy = g_xy
 
-    def dfs(self, x, y, wall="#"):
+    def dfs(self, x: int, y: int, wall: str = "#") -> bool:
         # 移動先が範囲内かどうか
         if x < 0 or self.w - 1 < x or y < 0 or self.h - 1 < y:
             return False

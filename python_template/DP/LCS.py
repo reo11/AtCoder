@@ -1,4 +1,7 @@
-def lcs(s1, s2):
+from typing import List
+
+
+def lcs(s1: str, s2: str) -> List[List[int]]:
     n, m = len(s1), len(s2)
     dp = [[0 for _ in range(m + 1)] for _ in range(n + 1)]
     for i in range(n):

@@ -1,4 +1,4 @@
-def levenshtein_distance(a: str, b: str):
+def levenshtein_distance(a: str, b: str) -> int:
     m = len(a)
     n = len(b)
     ld = [[m + n for j in range(n + 1)] for i in range(m + 1)]

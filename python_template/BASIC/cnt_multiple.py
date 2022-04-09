@@ -1,7 +1,8 @@
 from collections import defaultdict
+from typing import Dict
 
 
-def cnt_multiple(s, p):
+def cnt_multiple(s: str, p: int) -> int:
     # ABC158E, ABC164D
     n = len(s)
     if p != 2 and p != 5:
@@ -14,7 +15,7 @@ def cnt_multiple(s, p):
         for v in a:
             cum.append((cum[-1] + v) % p)
 
-        dic = defaultdict(int)
+        dic: Dict[int, int] = defaultdict(int)
         ans = 0
         for v in cum:
             ans += dic[v]

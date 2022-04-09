@@ -1,5 +1,6 @@
 # https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_A
 import sys
+from typing import List
 
 input = sys.stdin.readline
 
@@ -7,14 +8,14 @@ n, q = map(int, input().split())
 
 
 class RMQ:
-    def __init__(self, n, e):
+    def __init__(self, n: int, e: int) -> None:
         # 単位元
         self.e = e
         # num_min:n以上の最小の2のべき乗
         self.num_min = 2 ** (n - 1).bit_length()
         self.seg_min = [self.e] * 2 * self.num_min
 
-    def init_min(self, init_min_val):
+    def init_min(self, init_min_val: List[int]) -> None:
         # 初期値が指定されている場合
         # set_val
         for i in range(n):
@@ -23,14 +24,14 @@ class RMQ:
         for i in range(self.num_min - 2, -1, -1):
             self.seg_min[i] = min(self.seg_min[2 * i + 1], self.seg_min[2 * i + 2])
 
-    def update_min(self, k, x):
+    def update_min(self, k: int, x: int) -> None:
         k += self.num_min - 1
         self.seg_min[k] = x
         while k:
             k = (k - 1) // 2
             self.seg_min[k] = min(self.seg_min[k * 2 + 1], self.seg_min[k * 2 + 2])
 
-    def query_min(self, p, q):
+    def query_min(self, p: int, q: int) -> int:
         q += 1
         if q <= p:
             return self.e

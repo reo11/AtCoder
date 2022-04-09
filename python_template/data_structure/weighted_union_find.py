@@ -1,12 +1,12 @@
 class WeightedUnionFind:
-    def __init__(self, n):
+    def __init__(self, n: int) -> None:
         self.par = [i for i in range(n + 1)]
         self.rank = [0] * (n + 1)
         # 根への距離を管理
         self.weight = [0] * (n + 1)
 
     # 検索
-    def find(self, x):
+    def find(self, x: int) -> int:
         if self.par[x] == x:
             return x
         else:
@@ -17,7 +17,7 @@ class WeightedUnionFind:
             return y
 
     # 併合
-    def union(self, x, y, w):
+    def union(self, x: int, y: int, w: int) -> None:
         rx = self.find(x)
         ry = self.find(y)
         # xの木の高さ < yの木の高さ
@@ -33,13 +33,13 @@ class WeightedUnionFind:
                 self.rank[rx] += 1
 
     # 同じ集合に属するか
-    def same(self, x, y):
+    def same(self, x: int, y: int) -> bool:
         return self.find(x) == self.find(y)
 
     # xからyへのコスト
-    def diff(self, x, y):
+    def diff(self, x: int, y: int) -> int:
         if self.find(x) != self.find(y):
-            return "?"
+            return -1  # コスト算出不可
         return self.weight[x] - self.weight[y]
 
 

@@ -1,5 +1,6 @@
 # https://atcoder.jp/contests/abc152/tasks/abc152_e
 from collections import defaultdict
+from typing import Dict, List
 
 
 class LCM_mod:
@@ -9,14 +10,14 @@ class LCM_mod:
     因数の積を逐次余りに置き換えて最小公倍数を導出する.
     """
 
-    def __init__(self, max_num, p=10 ** 9 + 7):
+    def __init__(self, max_num: int, p: int = 10 ** 9 + 7) -> None:
         self.max_num = max_num + 1
         self.p = p
         self.prime = [0 for _ in range(self.max_num)]
-        self.max_map = defaultdict(int)
+        self.max_map: Dict[int, int] = defaultdict(int)
         self.sieve()
 
-    def rep_sqr(self, base, k):
+    def rep_sqr(self, base: int, k: int) -> int:
         # 繰り返し二乗法
         ans = 1
         while k > 0:
@@ -26,7 +27,7 @@ class LCM_mod:
             k >>= 1
         return ans
 
-    def sieve(self):
+    def sieve(self) -> None:
         """
         エラトステネスの篩　O(n)
         nまでに含まれる素数を導出
@@ -39,14 +40,14 @@ class LCM_mod:
                         self.prime[j] = i
                 self.prime[i] = i
 
-    def lcm_list_mod(self, arr):
+    def lcm_list_mod(self, arr: List[int]) -> int:
         """
         listのそれぞれの要素について、素因数分解する
         それぞれの因数について最大であれば更新する
         """
         for i in range(len(arr)):
             num = arr[i]
-            d = defaultdict(int)
+            d: Dict[int, int] = defaultdict(int)
 
             while num > 1:
                 fact = self.prime[num]

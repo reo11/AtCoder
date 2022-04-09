@@ -1,4 +1,7 @@
-def prime_factorize(n):
+from typing import List
+
+
+def prime_factorize(n: int) -> List[int]:
     # 素因数分解
     # Return list of prime factorized result
     # O(sqrt(n))

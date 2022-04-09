@@ -1,4 +1,7 @@
-def extgcd(a, b):
+from typing import Tuple
+
+
+def extgcd(a: int, b: int) -> Tuple[int, int, int]:
     if b == 0:
         return a, 1, 0
     else:

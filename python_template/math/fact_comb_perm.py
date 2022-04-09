@@ -3,7 +3,7 @@ MOD = 10 ** 9 + 7
 
 class Facts:
     # O(max_num)
-    def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)
@@ -14,7 +14,7 @@ class Facts:
         for i in range(self.max_num - 1, 0, -1):
             self.rev[i] = self.rev[i + 1] * (i + 1) % self.p
 
-    def comb(self, n, k):
+    def comb(self, n: int, k: int) -> int:
         if n < 0 or k < 0 or n < k:
             return 0
         if n == 0 or k == 0:
@@ -22,7 +22,7 @@ class Facts:
         res = ((self.fact[n] * self.rev[k] % self.p) * self.rev[n - k]) % self.p
         return res
 
-    def comb_base(self, n, k):
+    def comb_base(self, n: int, k: int) -> int:
         if n < 0 or k < 0 or n < k:
             return 0
         if n == 0 or k == 0:
@@ -36,7 +36,7 @@ class Facts:
             b %= MOD
         return (a * self.mod_pow(b, self.p - 2)) % self.p
 
-    def perm(self, n, k):
+    def perm(self, n: int, k: int) -> int:
         if n < 0 or k < 0 or n < k:
             return 0
         if n == 0 or k == 0:
@@ -45,7 +45,7 @@ class Facts:
         b = self.fact[n - k]
         return (a * self.mod_pow(b, self.p - 2)) % self.p
 
-    def mod_pow(self, a, b):
+    def mod_pow(self, a: int, b: int) -> int:
         ans = 1
         while b > 0:
             if b & 1:
