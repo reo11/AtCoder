@@ -7,3 +7,5 @@ PAST
 .ipynb_checkpoints
 
 input/*
+*.in
+*.out

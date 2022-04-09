@@ -13,7 +13,7 @@ def counting_primes(n: int) -> int:
     roughs = [2 * i + 1 for i in range(s)]
     larges = [(n // (2 * i + 1) + 1) // 2 for i in range(s)]
     skip = [False] * (v + 1)
-    
+
     pc = 0
     for p in range(3, v + 1, 2):
         if skip[p]:
@@ -47,7 +47,7 @@ def counting_primes(n: int) -> int:
                 smalls[i] -= c
                 i -= 1
     ret = larges[0] + (s + 2 * (pc - 1)) * (s - 1) // 2 - sum(larges[1:s])
-    
+
     for l in range(1, s):
         q = roughs[l]
         m = n // q
@@ -55,7 +55,7 @@ def counting_primes(n: int) -> int:
         if e <= l:
             break
         t = 0
-        for r in roughs[l + 1:e + 1]:
+        for r in roughs[l + 1 : e + 1]:
             t += smalls[m // r]
         ret += t - (e - l) * (pc + l - 1)
     return ret

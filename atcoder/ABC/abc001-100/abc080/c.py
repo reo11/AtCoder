@@ -10,7 +10,6 @@ def bit_full_search(max_bit: int) -> Iterator[List[int]]:
         yield bit_list
 
 
-
 n = int(input())
 
 f = []

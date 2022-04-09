@@ -8,4 +8,3 @@ def bit_full_search(max_bit: int) -> Iterator[List[int]]:
             if i & (2 ** j) > 0:
                 bit_list[max_bit - j - 1] = 1
         yield bit_list
-

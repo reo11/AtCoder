@@ -1,5 +1,6 @@
 from typing import List, Union
 
+
 def sieve_of_eratosthenes(n: int, return_num: bool = False) -> List[Union[bool, int]]:
     # O(nlognlogn)
     is_prime_list = [True] * (n + 1)
@@ -10,7 +11,7 @@ def sieve_of_eratosthenes(n: int, return_num: bool = False) -> List[Union[bool, 
             continue
         for j in range(i * 2, n + 1, i):
             is_prime_list[j] = False
-    
+
     if return_num:
         num_list = []
         for i, is_prime in enumerate(is_prime_list):
