@@ -36,3 +36,7 @@ import sys
 input = sys.stdin.readline
 sys.setrecursionlimit(10000000)
 ```
+
+
+### python標準ライブラリの計算量
+https://qiita.com/bee2/items/4ab87d05cc03d53e19f9
