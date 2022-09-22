@@ -1,6 +1,4 @@
 {
-// tasks.json 形式の詳細についての資料は、
-    // https://go.microsoft.com/fwlink/?LinkId=733558 をご覧ください
     "version": "2.0.0",
     "tasks": [
         {
@@ -8,7 +6,7 @@
             "label": "g++.exe build active file",
             "command": "C:/Users/reo/Documents/GitHub/AtCoder/build.bat",
             "args": [
-                "${file}",
+                "${file}"
             ],
             "options": {
                 "cwd": "C:/MinGW/bin"
@@ -17,6 +15,29 @@
                 "$gcc"
             ],
             "group": "build"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++-8 アクティブなファイルのビルド",
+            "command": "/usr/bin/g++-8",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "デバッガーによって生成されたタスク。"
         }
     ]
 }
