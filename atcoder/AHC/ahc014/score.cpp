@@ -700,115 +700,43 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
+    REP(i, 50){
+        std::ostringstream oss;
+        oss << i;
+        string file_name = oss.str();
+        while(file_name.size() < 4){
+            file_name = "0" + file_name;
+        }
+        file_name = file_name + ".txt";
+        ifstream in("in/" + file_name);
 
-    ll N, M, x, y;
-    in >> N >> M;
+        ll N, M, x, y;
+        in >> N >> M;
 
-    vector<Coordinate> initial_coordinates = {};
+        vector<Coordinate> initial_coordinates = {};
 
-    REP(i, M) {
-        in >> x >> y;
-        Coordinate c(x, y);
-        initial_coordinates.push_back(c);
-    }
+        REP(i, M) {
+            in >> x >> y;
+            Coordinate c(x, y);
+            initial_coordinates.push_back(c);
+        }
 
-    // priority_queue<pair<ll, CoordinateController>, vector<pair<ll, CoordinateController>>, greater<pair<ll, CoordinateController>>> cc_pq;
-    CoordinateController answer_cc = {N, M};
-    answer_cc.set_initial_coordinates(initial_coordinates);
-    // ll score = default_cc.calc_score();
-    // pair<ll, CoordinateController> tmp_pair = make_pair(score, default_cc);
+        out << N << endl;
 
-    ll ti = clock();
-    ll loop_count = 0;
-    float time_limit = 4.9;
-    while (clock() - ti < time_limit * CLOCKS_PER_SEC) {
-        loop_count += 1;
-        CoordinateController tmp_cc = {N, M};
-        tmp_cc.set_initial_coordinates(initial_coordinates);
-        ll s_type1 = rand() % 2;
-        ll s_type2 = rand() % 2;
-        while (clock() - ti < time_limit * CLOCKS_PER_SEC) {
-            vector<Square> squares = tmp_cc.get_squares();
+        ifstream in("out/" + file_name);
 
-            // out << squares.size() << endl;
-            if (squares.size() == 0){
-                break;
-            } else {
-                vector<Square> min_squares = {};
-                float min_size = INF;
-                REP(i, squares.size()){
-                    min_size = min(squares[i].get_size(), min_size);
-                }
-                REP (i, squares.size()){
-                    Square s = squares[i];
-                    if (min_size == s.get_size()){
-                        if (min_size == 4){
-                            ll square_type = s.get_type();
-                            if (square_type == 0){
-                                Coordinate c = s.get_left_c();
-                                if ((c.x + c.y) % 2 == s_type1){
-                                    min_squares.push_back(s);
-                                } else {
-                                    continue;
-                                }
-                            } else {
-                                Coordinate c = s.get_left_c();
-                                if ((c.x + c.y) % 2 == s_type2){
-                                    min_squares.push_back(s);
-                                } else {
-                                    continue;
-                                }
-                            }
-                        } else {
-                            min_squares.push_back(s);
-                        }
-                    }
-                }
+        ll out_N;
+        in >> out_N;
+        vector<vector<Coordinate>> answer_coordinates = {};
 
-                // TODO: 四角を追加すると連鎖的に追加できるものを優先的に
-                // Square s = min_squares[0];
-
-                // REP_AB(i, 1, min_squares.size()){
-                //     if (tmp_cc.get_squares_from_new_square(s).size() < tmp_cc.get_squares_from_new_square(min_squares[i]).size()){
-                //         s = min_squares[i];
-                //     }
-                // }
-
-                // rule
-
-
-                // ルールに従って無くなると困るので入れる
-                if (min_squares.size() == 0){
-                    if (squares.size() == 0){
-                        break;
-                    } else {
-                        float min_size = INF;
-                        REP(i, squares.size()){
-                            min_size = min(squares[i].get_size(), min_size);
-                        }
-                        REP (i, squares.size()){
-                            Square s = squares[i];
-                            if (s.get_size() == min_size){
-                                min_squares.push_back(s);
-                            }
-                        }
-                    }
-                }
-
-                Square s = min_squares[rand() % min_squares.size()];
-                tmp_cc.add_square(s);
-
-                if (answer_cc.calc_score() < tmp_cc.calc_score()){
-                    answer_cc = tmp_cc;
-                }
+        ll x1, x2, x3, x4;
+        ll y1, y2, y3, y4;
+        REP(i, out_N){
+            in >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
+            REP(i, 4){
+                continue;
             }
         }
     }
-    answer_cc.display_answers();
-    // out << loop_count << endl;
-    // REP(i, cc_v.size()){
-    //     out << cc_v[i].calc_score() << endl;
-    // }
-    // out << answer_cc.calc_score() << endl;
     return 0;
 }
