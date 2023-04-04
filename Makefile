@@ -22,7 +22,7 @@ build-atcoder:
 	docker build -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
 
 run-atcoder: build-atcoder
-	docker run -t -d --rm -v ${PWD}:/work -v ${PWD}/.tmp:/root/.local/share/online-judge-tools/ $(ATCODER_IMAGE) -e "BROWSER=chrome" --name atcoder-container bash
+	docker run -t -d --rm -v ${PWD}:/work -v ${PWD}/.tmp:/root/.local/share/online-judge-tools/ -e "BROWSER=chrome" --name atcoder-container $(ATCODER_IMAGE) bash
 
 exec-atcoder:
 	docker exec -it atcoder-container bash
