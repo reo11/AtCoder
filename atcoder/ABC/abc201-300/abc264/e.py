@@ -1,9 +1,10 @@
 import sys
-from typing import Dict, List
 from collections import defaultdict
+from typing import Dict, List
 
 sys.setrecursionlimit(20000000)
 input = lambda: sys.stdin.readline().rstrip()
+
 
 class UnionFind:
     def __init__(self, n: int) -> None:
@@ -51,6 +52,7 @@ class UnionFind:
 
     def __str__(self) -> str:
         return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
+
 
 tree = UnionFind(n=200001)
 n, m, e = map(int, input().split())
