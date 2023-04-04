@@ -9,6 +9,7 @@ def bit_full_search(max_bit: int) -> Iterator[List[int]]:
                 bit_list[max_bit - j - 1] = 1
         yield bit_list
 
+
 def solve(s: List[Set[str]]):
     ans = 0
 
@@ -21,6 +22,7 @@ def solve(s: List[Set[str]]):
         if count == k:
             ans += 1
     return ans
+
 
 n, k = map(int, input().split())
 s = []
@@ -37,5 +39,3 @@ for l in bit_full_search(n):
     ans = max(ans, solve(batch_s))
 
 print(ans)
-
-

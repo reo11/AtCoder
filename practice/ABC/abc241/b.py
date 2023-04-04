@@ -7,17 +7,17 @@ from collections import defaultdict
 d = defaultdict(lambda: 0)
 
 for a_i in a:
-  d[a_i] += 1
+    d[a_i] += 1
 
 flag = True
 for b_i in b:
-  if d[b_i] > 0:
-    d[b_i] -= 1
-  else:
-    flag = False
-    break
+    if d[b_i] > 0:
+        d[b_i] -= 1
+    else:
+        flag = False
+        break
 
 if flag:
-  print("Yes")
+    print("Yes")
 else:
-  print("No")
+    print("No")

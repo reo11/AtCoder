@@ -1,5 +1,6 @@
 from typing import Dict, List
 
+
 class UnionFind:
     def __init__(self, n: int) -> None:
         self.n = n
@@ -47,11 +48,12 @@ class UnionFind:
     def __str__(self) -> str:
         return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
+
 MERGIN = 3000
 HALF = MERGIN // 2
 
 n = int(input())
-uf = UnionFind(n=MERGIN*MERGIN)
+uf = UnionFind(n=MERGIN * MERGIN)
 
 xy_list = []
 xy = [[False for _ in range(MERGIN)] for _ in range(MERGIN)]
@@ -74,4 +76,3 @@ for v in xy_list:
                 uf.union((y + dy) * MERGIN + (x + dx), y * MERGIN + x)
                 ans -= 1
 print(ans)
-

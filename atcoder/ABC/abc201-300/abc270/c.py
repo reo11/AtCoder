@@ -1,15 +1,15 @@
-from collections import deque
-from collections import defaultdict
 import sys
+from collections import defaultdict, deque
+
 sys.setrecursionlimit(10000000)
 
 input = sys.stdin.readline
 n, x, y = map(int, input().split())
 
 edges = defaultdict(lambda: [])
-visited = [False for _ in range(n+1)]
+visited = [False for _ in range(n + 1)]
 
-for i in range(n-1):
+for i in range(n - 1):
     u_i, v_i = map(int, input().split())
     edges[u_i].append(v_i)
     edges[v_i].append(u_i)
@@ -17,6 +17,7 @@ for i in range(n-1):
 
 q = deque()
 q.append(x)
+
 
 def dfs(current_edge, pre_edge):
     if current_edge == y:
@@ -29,6 +30,7 @@ def dfs(current_edge, pre_edge):
             return True
         q.pop()
     return False
+
 
 dfs(x, -1)
 print(*q)

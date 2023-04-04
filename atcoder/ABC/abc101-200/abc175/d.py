@@ -19,8 +19,8 @@ for i in range(until):
             memo[i][idx][1] = c[idx]
     for idx in range(n):
         p_i = memo[i][idx][0]
-        memo[i+1][p_i][0] = memo[i][idx][0]
-        memo[i+1][p_i][1] = memo[i][idx][1] + memo[i][p_i][1]
+        memo[i + 1][p_i][0] = memo[i][idx][0]
+        memo[i + 1][p_i][1] = memo[i][idx][1] + memo[i][p_i][1]
 
 for i in reversed(range(until)):
     if 2 ** i <= k:

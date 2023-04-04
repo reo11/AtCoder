@@ -25,7 +25,6 @@ while(sum_c < k):
 
     if sum_c + ((dq[0][0] - count) * len(dq)) < k:
         count = dq[0][0]
-        sum_c -= 
+        # sum_c -=
     else:
         dq_list = sorted(dq, key=lambda x: x[1])
-        

@@ -1,8 +1,7 @@
+import queue
+import sys
 from collections import defaultdict
 from typing import Dict
-import sys
-import queue
-
 
 input = sys.stdin.readline
 INF = 10 ** 12

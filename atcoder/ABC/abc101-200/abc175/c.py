@@ -10,5 +10,6 @@ def solve(x, k, d):
     else:
         return x
 
+
 x, k, d = map(int, input().split())
 print(solve(x, k, d))

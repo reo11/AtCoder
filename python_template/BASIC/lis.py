@@ -1,8 +1,10 @@
 # Longest Increasing Subsequence
 # 最長増加部分列
 import bisect
+from typing import List
 
-def lis(seq):
+
+def lis(seq: List[int]) -> int:
     LIS = [seq[0]]
     for i in range(len(seq)):
         if seq[i] > LIS[-1]:

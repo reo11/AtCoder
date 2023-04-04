@@ -8,7 +8,7 @@ d = deque(a)
 
 money = n - len(d)
 ans = 1
-while(len(d) > 0 or len(d) + money >= 2):
+while len(d) > 0 or len(d) + money >= 2:
     if len(d) > 0 and d[0] == ans:
         d.popleft()
         ans += 1

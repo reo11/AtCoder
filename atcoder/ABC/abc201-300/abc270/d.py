@@ -1,6 +1,6 @@
 import bisect
-from typing import List
 import time
+from typing import List
 
 n, k = map(int, input().split())
 a = list(map(int, input().split()))

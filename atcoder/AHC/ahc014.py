@@ -1,18 +1,14 @@
 import math
-from typing import Any, List
-import time
 import random
+import time
 from collections import deque
+from typing import Any, List
 
 start_time = time.time()
 EPS = 0.0000001
 DIRECTIONS = [-1, 0, 1]
-SIDE_SIMBOLS = {
-    "|": 0,
-    "-": 1,
-    "/": 2,
-    "\\": 3
-}
+SIDE_SIMBOLS = {"|": 0, "-": 1, "/": 2, "\\": 3}
+
 
 class Coordinate:
     def __init__(self, x: int, y: int) -> None:
@@ -25,8 +21,11 @@ class Coordinate:
     def __repr__(self):
         return self.__str__()
 
+
 class Process:
-    def __init__(self, c: Coordinate, sides: List[Any], coordinates: List[Coordinate]) -> None:
+    def __init__(
+        self, c: Coordinate, sides: List[Any], coordinates: List[Coordinate]
+    ) -> None:
         self.coordinate = c
         self.sides = sides
         self.coordinates = coordinates
@@ -36,6 +35,7 @@ class Process:
 
     def __repr__(self):
         return self.__str__()
+
 
 class CoordinateController:
     def __init__(self, size: int, m: int) -> None:
@@ -47,7 +47,9 @@ class CoordinateController:
         # 座標一覧を高速に取得できるように
         self.coordinates_list = []
         # 辺が存在しているか
-        self.sides = [[[False for _ in range(4)] for _ in range(size)] for _ in range(size)]
+        self.sides = [
+            [[False for _ in range(4)] for _ in range(size)] for _ in range(size)
+        ]
         self.answers = []
         self.processes = []
 
@@ -59,7 +61,9 @@ class CoordinateController:
         座標に点を追加
         """
         self.coordinates[c.y][c.x] = True
-        self.coordinates_list.append([abs(self.center - c.x) + abs(self.center - c.y), c])
+        self.coordinates_list.append(
+            [abs(self.center - c.x) + abs(self.center - c.y), c]
+        )
         self.coordinates_list = sorted(self.coordinates_list, key=lambda c: c[0])
 
     def delete_coordinate(self, c: Coordinate) -> None:
@@ -88,23 +92,23 @@ class CoordinateController:
         y = sorted_c[0].y
         if sorted_c[0].x == sorted_c[1].x:
             # 上
-            while(y <= sorted_c[1].y):
+            while y <= sorted_c[1].y:
                 sides.append(Coordinate(x=x, y=y))
                 y += 1
         elif sorted_c[0].y == sorted_c[1].y:
             # 右
-            while(x <= sorted_c[1].x):
+            while x <= sorted_c[1].x:
                 sides.append(Coordinate(x=x, y=y))
                 x += 1
         elif (sorted_c[1].x - sorted_c[0].x) == (sorted_c[1].y - sorted_c[0].y):
             # 右上
-            while(x <= sorted_c[1].x and y <= sorted_c[1].y):
+            while x <= sorted_c[1].x and y <= sorted_c[1].y:
                 sides.append(Coordinate(x=x, y=y))
                 x += 1
                 y += 1
         else:
             # 右下
-            while(x <= sorted_c[1].x and y >= sorted_c[1].y):
+            while x <= sorted_c[1].x and y >= sorted_c[1].y:
                 sides.append(Coordinate(x=x, y=y))
                 x += 1
                 y -= 1
@@ -144,7 +148,7 @@ class CoordinateController:
         uni_sides_list = []
 
         for i in range(len(coordinates) - 1):
-            uni_sides_list.append(self.add_uni_side(coordinates[i], coordinates[i+1]))
+            uni_sides_list.append(self.add_uni_side(coordinates[i], coordinates[i + 1]))
         return uni_sides_list
 
     def delete_sides(self, sides: List[List[int]]):
@@ -169,9 +173,11 @@ class CoordinateController:
             return abs(c1.x - c2.x) == abs(c1.y - c2.y)
 
         def not_same_coordinate(c1: Coordinate, c2: Coordinate):
-            return not(c1.x == c2.x and c1.y == c2.y)
+            return not (c1.x == c2.x and c1.y == c2.y)
 
-        return (is_parallel(c1, c2) or is_forty_five(c1, c2)) and not_same_coordinate(c1, c2)
+        return (is_parallel(c1, c2) or is_forty_five(c1, c2)) and not_same_coordinate(
+            c1, c2
+        )
 
     def is_single_unit(self, c1: Coordinate, c2: Coordinate) -> bool:
         """
@@ -204,11 +210,17 @@ class CoordinateController:
         is_valid = True
         for i in range(4):
             if i < 3:
-                all_coordinates = self.all_side_coordinates(coordinates[i], coordinates[i+1])
+                all_coordinates = self.all_side_coordinates(
+                    coordinates[i], coordinates[i + 1]
+                )
             else:
-                all_coordinates = self.all_side_coordinates(coordinates[3], coordinates[0])
+                all_coordinates = self.all_side_coordinates(
+                    coordinates[3], coordinates[0]
+                )
             for i in range(len(all_coordinates) - 1):
-                is_valid &= not self.uni_side_already_exist(all_coordinates[i], all_coordinates[i+1])
+                is_valid &= not self.uni_side_already_exist(
+                    all_coordinates[i], all_coordinates[i + 1]
+                )
             if not is_valid:
                 break
         return is_valid
@@ -217,9 +229,13 @@ class CoordinateController:
         is_valid = True
         for i in range(4):
             if i < 3:
-                all_coordinates = self.all_side_coordinates(coordinates[i], coordinates[i+1])
+                all_coordinates = self.all_side_coordinates(
+                    coordinates[i], coordinates[i + 1]
+                )
             else:
-                all_coordinates = self.all_side_coordinates(coordinates[3], coordinates[0])
+                all_coordinates = self.all_side_coordinates(
+                    coordinates[3], coordinates[0]
+                )
             for c in all_coordinates[1:-1]:
                 is_valid &= not self.coordinates[c.y][c.x]
             if not is_valid:
@@ -237,11 +253,13 @@ class CoordinateController:
         assert len(coordinates) == 4
         uni_sides_list = []
         for i in range(3):
-            uni_sides_list.extend(self.add_side(coordinates[i], coordinates[i+1]))
+            uni_sides_list.extend(self.add_side(coordinates[i], coordinates[i + 1]))
         uni_sides_list.extend(self.add_side(coordinates[-1], coordinates[0]))
         return uni_sides_list
 
-    def add_square(self, new_coordinate: Coordinate, four_coordinates: List[Coordinate]) -> List[List[int]]:
+    def add_square(
+        self, new_coordinate: Coordinate, four_coordinates: List[Coordinate]
+    ) -> List[List[int]]:
         self.add_coordinate(new_coordinate)
         sides = self.add_square_sides(four_coordinates)
         return sides
@@ -250,14 +268,21 @@ class CoordinateController:
         def sum_q():
             q_score = 0
             s = 0
-            w = [[(x - self.center)**2 + (y - self.center)**2 + 1 for x in range(self.size)] for y in range(self.size)]
+            w = [
+                [
+                    (x - self.center) ** 2 + (y - self.center) ** 2 + 1
+                    for x in range(self.size)
+                ]
+                for y in range(self.size)
+            ]
             for i in range(self.size):
                 for j in range(self.size):
                     s += w[i][j]
                     if self.coordinates[i][j]:
                         q_score += w[i][j]
             return q_score / s
-        return round(10**6 * (self.size**2 / self.m) * sum_q())
+
+        return round(10 ** 6 * (self.size ** 2 / self.m) * sum_q())
 
     def add_process(self, sides: List[Any], coordinates: List[Coordinate]) -> None:
         p = Process(c=coordinates[0], sides=sides, coordinates=coordinates)
@@ -290,8 +315,10 @@ class CoordinateController:
 
 # 探索
 
+
 def is_valid_area(x: int, size: int) -> bool:
     return 0 <= x and x < size
+
 
 def solve_one() -> CoordinateController:
     """
@@ -313,7 +340,7 @@ def solve_one() -> CoordinateController:
     # print(f"Before: {coordinate_controller.calc_score()}")
 
     count = 0
-    while(time.time() - start_time < 4.7):
+    while time.time() - start_time < 4.7:
         # step1
         c_num = process_queue.popleft()
         coordinate_controller = coordinate_controllers[c_num]
@@ -326,17 +353,19 @@ def solve_one() -> CoordinateController:
             if dist == 0:
                 dist = 0.5
             choice_w.append(1)
-        _, first_coordinate = random.choices(coordinate_controller.coordinates_list, weights=choice_w)[0]
+        _, first_coordinate = random.choices(
+            coordinate_controller.coordinates_list, weights=choice_w
+        )[0]
         dx = 0
         dy = 0
-        while(dx == 0 and dy == 0):
+        while dx == 0 and dy == 0:
             dx = random.choice(DIRECTIONS)
             dy = random.choice(DIRECTIONS)
 
         second_x = first_coordinate.x + dx
         second_y = first_coordinate.y + dy
         rand = random.random()
-        while(is_valid_area(second_x, n) and is_valid_area(second_y, n)):
+        while is_valid_area(second_x, n) and is_valid_area(second_y, n):
             if coordinate_controller.coordinates[second_y][second_x]:
                 # 見つかった
                 rand = 1.0
@@ -361,24 +390,62 @@ def solve_one() -> CoordinateController:
             dx = dxy[0]
             dy = dxy[1]
             for i in range(1, n):
-                if is_valid_area(first_coordinate.x + i * dx, n) and is_valid_area(second_coordinate.x + i * dx, n) and\
-                    is_valid_area(first_coordinate.y + i * dy, n) and is_valid_area(second_coordinate.y + i * dy, n):
-                    if coordinate_controller.coordinates[first_coordinate.y + i * dy][first_coordinate.x + i * dx] ^\
-                        coordinate_controller.coordinates[second_coordinate.y + i * dy][second_coordinate.x + i * dx]:
-                        if coordinate_controller.coordinates[first_coordinate.y + i * dy][first_coordinate.x + i * dx]:
-                            forth_coordinate = Coordinate(x=first_coordinate.x + i * dx, y=first_coordinate.y + i * dy)
-                            third_coordinate = Coordinate(x=second_coordinate.x + i * dx, y=second_coordinate.y + i * dy)
+                if (
+                    is_valid_area(first_coordinate.x + i * dx, n)
+                    and is_valid_area(second_coordinate.x + i * dx, n)
+                    and is_valid_area(first_coordinate.y + i * dy, n)
+                    and is_valid_area(second_coordinate.y + i * dy, n)
+                ):
+                    if (
+                        coordinate_controller.coordinates[first_coordinate.y + i * dy][
+                            first_coordinate.x + i * dx
+                        ]
+                        ^ coordinate_controller.coordinates[
+                            second_coordinate.y + i * dy
+                        ][second_coordinate.x + i * dx]
+                    ):
+                        if coordinate_controller.coordinates[
+                            first_coordinate.y + i * dy
+                        ][first_coordinate.x + i * dx]:
+                            forth_coordinate = Coordinate(
+                                x=first_coordinate.x + i * dx,
+                                y=first_coordinate.y + i * dy,
+                            )
+                            third_coordinate = Coordinate(
+                                x=second_coordinate.x + i * dx,
+                                y=second_coordinate.y + i * dy,
+                            )
                             add_c = third_coordinate
-                            answer_coordinates = [third_coordinate, forth_coordinate, first_coordinate, second_coordinate]
+                            answer_coordinates = [
+                                third_coordinate,
+                                forth_coordinate,
+                                first_coordinate,
+                                second_coordinate,
+                            ]
                         else:
-                            third_coordinate = Coordinate(x=second_coordinate.x + i * dx, y=second_coordinate.y + i * dy)
-                            forth_coordinate = Coordinate(x=first_coordinate.x + i * dx, y=first_coordinate.y + i * dy)
+                            third_coordinate = Coordinate(
+                                x=second_coordinate.x + i * dx,
+                                y=second_coordinate.y + i * dy,
+                            )
+                            forth_coordinate = Coordinate(
+                                x=first_coordinate.x + i * dx,
+                                y=first_coordinate.y + i * dy,
+                            )
                             add_c = forth_coordinate
-                            answer_coordinates = [forth_coordinate, first_coordinate, second_coordinate, third_coordinate]
+                            answer_coordinates = [
+                                forth_coordinate,
+                                first_coordinate,
+                                second_coordinate,
+                                third_coordinate,
+                            ]
 
                         if coordinate_controller.is_valid_square(answer_coordinates):
-                            sides = coordinate_controller.add_square(add_c, answer_coordinates)
-                            coordinate_controller.add_process(sides=sides, coordinates=answer_coordinates)
+                            sides = coordinate_controller.add_square(
+                                add_c, answer_coordinates
+                            )
+                            coordinate_controller.add_process(
+                                sides=sides, coordinates=answer_coordinates
+                            )
                             break
                 else:
                     break
@@ -396,6 +463,7 @@ def solve_one() -> CoordinateController:
         if coordinate_controller.calc_score() < coordinate_controllers[i].calc_score():
             coordinate_controller = coordinate_controllers[i]
     return coordinate_controller
+
 
 coordinate_controller = solve_one()
 coordinate_controller.display_answers()

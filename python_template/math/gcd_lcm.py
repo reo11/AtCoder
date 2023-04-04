@@ -9,6 +9,7 @@ def gcd(a: int, b: int) -> int:
         a, b = b, a % b
     return a
 
+
 def gcd_list(numbers: List[int]) -> int:
     # 与えられた全ての数字の最大公約数
     return reduce(gcd, numbers)

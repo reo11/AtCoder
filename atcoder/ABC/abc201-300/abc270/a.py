@@ -2,7 +2,7 @@ a, b = map(int, input().split())
 
 
 def solve(score):
-    answers = [0, 0 ,0]
+    answers = [0, 0, 0]
     if score % 2 == 1:
         answers[0] = 1
         score -= 1
@@ -14,6 +14,7 @@ def solve(score):
     if score == 2:
         answers[1] = 2
     return answers
+
 
 answers_a = solve(a)
 answers_b = solve(b)

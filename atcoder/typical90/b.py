@@ -9,6 +9,7 @@ def bit_full_search(max_bit: int) -> Iterator[List[int]]:
                 bit_list[max_bit - j - 1] = 1
         yield bit_list
 
+
 # bit全探索、カッコの条件で追加するか判定
 def solve(bit_list: List[int]) -> str:
     ans = ""
@@ -29,6 +30,7 @@ def solve(bit_list: List[int]) -> str:
     else:
         return ""
 
+
 n = int(input())
 ans = []
 for bit_list in bit_full_search(n):
@@ -36,4 +38,3 @@ for bit_list in bit_full_search(n):
 ans = list(filter(lambda x: x != "", ans))
 ans = sorted(ans)
 print("\n".join(ans))
-

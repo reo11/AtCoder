@@ -9,6 +9,7 @@ for i in range(N):
     AB.append([A[i], B[i]])
 AB.sort()
 
+
 def lis(seq):
     LIS = [seq[0]]
     for i in range(len(seq)):
@@ -18,6 +19,7 @@ def lis(seq):
             LIS[bisect.bisect_left(LIS, seq[i])] = seq[i]
 
     return len(LIS)
+
 
 B_dash = []
 for i in range(N):

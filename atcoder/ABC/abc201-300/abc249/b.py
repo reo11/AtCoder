@@ -1,7 +1,9 @@
 from collections import defaultdict
+
 s = input()
 
 large_chars = [chr(ord("A") + i) for i in range(26)]
+
 
 def solve(text):
     d = defaultdict(lambda: 0)
@@ -21,6 +23,7 @@ def solve(text):
         return True
     else:
         return False
+
 
 if solve(s):
     print("Yes")

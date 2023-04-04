@@ -58,6 +58,6 @@ RUN mkdir /work
 
 ENV PYTHONPATH=$PYTHONPATH:/work
 
-COPY ./.zshrc /tmp/.zshrc
+COPY ./config/.zshrc /tmp/.zshrc
 RUN cat "/tmp/.zshrc" >> ~/.bashrc
 WORKDIR /work
