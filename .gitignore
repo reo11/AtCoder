@@ -13,3 +13,6 @@ __pycache__
 *.pyc
 *.txt
 !requirements.txt
+# rust
+target
+Cargo.lock

@@ -451,4 +451,17 @@
 		],
 		"description": "cpp template"
 	},
+
+	// rust
+	"rust_template": {
+		"scope": "rust",
+		"prefix": "temp",
+		"body": [
+			"use proconio::input;",
+			"",
+			"fn main() {",
+			"",
+			"}"
+		]
+	},
 }

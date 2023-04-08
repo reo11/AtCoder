@@ -18,6 +18,13 @@ function pypy(){
     pypy3 ${dirname}/${basename}
 }
 
+function rust(){
+    basename=$1
+    dirname=$(pwd)
+    rustc ${dirname}/${basename} -o ${dirname}/${basename}.out
+    ${dirname}/${basename}.out
+}
+
 function login_atcoder(){
     oj login https://atcoder.jp/
 }

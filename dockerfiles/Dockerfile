@@ -34,6 +34,9 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
     apt update &&\
     apt install -y pypy pypy3
 
+# Rust
+RUN apt -y install rust-all
+
 # online-judge-tools
 RUN python3.8 -m pip install online-judge-tools
 
@@ -55,6 +58,10 @@ RUN mkdir /work
 # ARG UNAME
 # RUN useradd $UNAME -u $UID -m
 # USER $UNAME
+ARG UID
+ARG UNAME
+RUN useradd $UNAME -u $UID -m
+USER $UNAME
 
 ENV PYTHONPATH=$PYTHONPATH:/work
 

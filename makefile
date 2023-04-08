@@ -19,7 +19,7 @@ run-lint-generate: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen generate .
 
 build-atcoder:
-	docker build -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
 
 run-atcoder: build-atcoder
 	docker run -t -d --rm -v ${PWD}:/work -v ${PWD}/.tmp:/root/.local/share/online-judge-tools/ -e "BROWSER=chrome" --name atcoder-container $(ATCODER_IMAGE) bash
