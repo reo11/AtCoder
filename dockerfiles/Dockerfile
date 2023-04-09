@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update &&\
-    apt-get install -yq software-properties-common wget zlib1g lbzip2 apt-utils libboost-all-dev git peco golang
+    apt-get install -yq software-properties-common curl wget zlib1g lbzip2 apt-utils libboost-all-dev git peco golang
 
 RUN export GOPATH=$HOME/go &&\
     export PATH="$GOPATH/bin:$PATH"
@@ -35,7 +35,9 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
     apt install -y pypy pypy3
 
 # Rust
+ENV RUST_VERSION stable
 RUN apt -y install rust-all
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain ${RUST_VERSION}
 
 # online-judge-tools
 RUN python3.8 -m pip install online-judge-tools
@@ -63,6 +65,7 @@ ARG UNAME
 RUN useradd $UNAME -u $UID -m
 USER $UNAME
 
+ENV PATH $PATH:$HOME/.cargo/bin
 ENV PYTHONPATH=$PYTHONPATH:/work
 
 COPY ./config/.zshrc /tmp/.zshrc
