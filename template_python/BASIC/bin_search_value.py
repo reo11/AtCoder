@@ -17,9 +17,8 @@ def bin_search_value(range_min: int, range_max: int) -> int:
     right = range_max + 1
     while right - left > 1:
         mid = left + (right - left) // 2
-        # FIXME: 任意の判定式にする
         if sample_f(mid):
             right = mid
         else:
             left = mid
-    return left
+    return left, right
