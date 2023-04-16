@@ -3,6 +3,7 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
+
 def make_divisors(n):
     divisors = []
     for i in range(1, int(n ** 0.5) + 1):
@@ -11,6 +12,7 @@ def make_divisors(n):
             if i != n // i:
                 divisors.append(n // i)
     return divisors
+
 
 a, b = map(int, input().split())
 

@@ -1,4 +1,5 @@
 import numpy as np
+
 points = []
 
 for _ in range(4):

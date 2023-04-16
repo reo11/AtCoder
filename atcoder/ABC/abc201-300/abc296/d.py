@@ -1,5 +1,6 @@
 import math
 
+
 def solve():
     ans = 10 ** 13
     n, m = map(int, input().split())
@@ -11,4 +12,6 @@ def solve():
         print(ans)
     else:
         print(-1)
+
+
 solve()

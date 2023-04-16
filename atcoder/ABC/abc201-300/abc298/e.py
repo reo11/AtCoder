@@ -1,6 +1,7 @@
 MOD = 998244353
 n, a, b, p, q = map(int, input().split())
 
+
 class FLT:
     def __init__(self, mod) -> None:
         self.mod = mod
@@ -17,6 +18,7 @@ class FLT:
     def inv(self, a: int) -> int:
         """ 逆元を取る """
         return self.rep_sqr(a, self.mod - 2)
+
 
 flt = FLT(mod=MOD)
 

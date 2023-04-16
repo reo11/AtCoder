@@ -10,7 +10,7 @@ for b_i in b:
 ab.sort()
 ans = [[], []]
 
-for i, (ab_i, num) in enumerate(ab, start = 1):
+for i, (ab_i, num) in enumerate(ab, start=1):
     ans[num].append(i)
 print(" ".join(list(map(str, ans[0]))))
 print(" ".join(list(map(str, ans[1]))))

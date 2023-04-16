@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
@@ -15,7 +16,11 @@ for i in range(1, 100001):
     for j in range(1, 6):
         if i in txa and txa[i][0] == j - 1:
             # すぬけ君を捕まえる
-            dp[i][j] = max(dp[i - 1][j] + txa[i][1], dp[i - 1][j - 1] + txa[i][1], dp[i - 1][j + 1] + txa[i][1])
+            dp[i][j] = max(
+                dp[i - 1][j] + txa[i][1],
+                dp[i - 1][j - 1] + txa[i][1],
+                dp[i - 1][j + 1] + txa[i][1],
+            )
         else:
             # 移動するだけ
             dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - 1], dp[i - 1][j + 1])

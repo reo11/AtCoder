@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n = int(input())
 
 counter_r = defaultdict(int)

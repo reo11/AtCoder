@@ -1,5 +1,6 @@
 MOD = 998244353
 
+
 class Facts:
     # O(max_num)
     def __init__(self, max_num, p) -> None:
@@ -52,6 +53,7 @@ class Facts:
             a = a * a % self.p
             b >>= 1
         return ans
+
 
 r, g, b, k = map(int, input().split())
 r -= k

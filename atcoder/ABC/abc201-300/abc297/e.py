@@ -1,6 +1,7 @@
 import heapq
 import time
 
+
 def solve():
     n, k = map(int, input().split())
     a = list(map(int, input().split()))
@@ -32,4 +33,6 @@ def solve():
         for a_i in a:
             heapq.heappush(q, min_a + a_i)
     return ans
+
+
 print(solve())

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 s = list(input())
 s = list(map(int, s))
 

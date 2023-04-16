@@ -1,9 +1,10 @@
+import math
 import pprint
 from collections import defaultdict
 from itertools import combinations
-import math
 
 MAX_VALUE = 2 * 10 ** 9
+
 
 def score(l1, l2, l3):
     # スコア計算
@@ -11,6 +12,7 @@ def score(l1, l2, l3):
     for i in range(5):
         maxes[i] = max(maxes[i], l1[i], l2[i], l3[i])
     return min(maxes)
+
 
 def check(s):
     # 判定
@@ -21,6 +23,7 @@ def check(s):
         l3 = l[2]
         m = max(m, score(l1, l2, l3))
     return m
+
 
 def comp(l, x):
     # 圧縮
@@ -44,6 +47,7 @@ def comp(l, x):
             res.append(r_i)
     return res
 
+
 def bin_search(lists, l, r):
     left = l - 1
     right = r + 1
@@ -57,6 +61,7 @@ def bin_search(lists, l, r):
         else:
             left = mid
     return left
+
 
 n = int(input())
 l = []

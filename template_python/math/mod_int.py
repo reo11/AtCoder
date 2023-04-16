@@ -1,38 +1,69 @@
 class ModInt:
-    def __init__(self, init: int, p: int = 10 ** 9 + 7) -> None:
-        self.out = init
-        self.p = p
+    def __init__(self, x, p=998244353):
+        self.mod = p
+        self.x = x % self.mod
 
-    def add(self, a: int) -> int:
-        # 加算
-        self.out = (self.out + a) % self.p
-        return self.out
+    def __str__(self):
+        return str(self.x)
 
-    def sub(self, a: int) -> int:
-        # 減算
-        self.out = (self.out - a) % self.p
-        return self.out
+    __repr__ = __str__
 
-    def mul(self, a: int) -> int:
-        # 乗算
-        self.out = (self.out - a) % self.p
-        return self.out
+    def __add__(self, other):
+        return (
+            ModInt(self.x + other.x)
+            if isinstance(other, ModInt)
+            else ModInt(self.x + other)
+        )
 
-    def div(self, a: int) -> int:
-        # 除算
-        self.out = (self.out * self.inv(a)) % self.p
-        return self.out
+    def __sub__(self, other):
+        return (
+            ModInt(self.x - other.x)
+            if isinstance(other, ModInt)
+            else ModInt(self.x - other)
+        )
 
-    def rep_sqr(self, a: int, b: int) -> int:
-        # 繰り返し二乗法
-        ret = 1
-        while b > 0:
-            if b & 1:
-                ret = ret * a % self.p
-            a = a * a % self.p
-            b >>= 1
-        return ret
+    def __mul__(self, other):
+        return (
+            ModInt(self.x * other.x)
+            if isinstance(other, ModInt)
+            else ModInt(self.x * other)
+        )
 
-    def inv(self, a: int) -> int:
-        # 逆元
-        return self.rep_sqr(a, self.p - 2)
+    def __truediv__(self, other):
+        return (
+            ModInt(self.x * pow(other.x, self.mod - 2, self.mod))
+            if isinstance(other, ModInt)
+            else ModInt(self.x * pow(other, self.mod - 2, self.mod))
+        )
+
+    def __pow__(self, other):
+        return (
+            ModInt(pow(self.x, other.x, self.mod))
+            if isinstance(other, ModInt)
+            else ModInt(pow(self.x, other, self.mod))
+        )
+
+    __radd__ = __add__
+
+    def __rsub__(self, other):
+        return (
+            ModInt(other.x - self.x)
+            if isinstance(other, ModInt)
+            else ModInt(other - self.x)
+        )
+
+    __rmul__ = __mul__
+
+    def __rtruediv__(self, other):
+        return (
+            ModInt(other.x * pow(self.x, self.mod - 2, self.mod))
+            if isinstance(other, ModInt)
+            else ModInt(other * pow(self.x, self.mod - 2, self.mod))
+        )
+
+    def __rpow__(self, other):
+        return (
+            ModInt(pow(other.x, self.x, self.mod))
+            if isinstance(other, ModInt)
+            else ModInt(pow(other, self.x, self.mod))
+        )

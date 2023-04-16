@@ -1,7 +1,10 @@
 import sys
+
 sys.setrecursionlimit(1000000)
 
 MOD = 10 ** 9 + 7
+
+
 class Facts:
     def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
         self.p = p
@@ -69,6 +72,7 @@ for i in range(n - 1):
     node[b - 1].append(a - 1)
 
 checked = [False for _ in range(n)]
+
 
 def dfs(num, pre_num):
     if checked[num]:

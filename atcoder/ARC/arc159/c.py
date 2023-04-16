@@ -1,8 +1,9 @@
-from collections import defaultdict
 import time
+from collections import defaultdict
 
 n = int(input())
 a = list(map(int, input().split()))
+
 
 def process(d):
     if len(d) > 2:
@@ -26,6 +27,7 @@ def process(d):
         sorted_d[0][2].append(2)
         sorted_d[1][2].append(1)
         return sorted_d, 1
+
 
 def solve():
     s = sum(a)
@@ -65,5 +67,6 @@ def solve():
             print("\n".join(ans_print_all))
     else:
         print("No")
+
 
 solve()

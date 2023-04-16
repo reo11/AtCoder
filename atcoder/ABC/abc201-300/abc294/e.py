@@ -1,4 +1,5 @@
 from collections import deque
+
 l, n1, n2 = map(int, input().split())
 x1 = deque()
 x2 = deque()

@@ -22,6 +22,7 @@ def check(a, b):
                     flag = False
     return flag
 
+
 flag = False
 for i in range(4):
     if check(a, b):

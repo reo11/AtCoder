@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def strongly_connected_components(graph):
     """
     強連結成分分解を行う関数
@@ -48,6 +49,7 @@ def strongly_connected_components(graph):
             strongconnect(node)
 
     return result
+
 
 n = int(input())
 a = list(map(int, input().split()))

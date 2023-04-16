@@ -1,6 +1,6 @@
+import bisect
 import functools
 import operator
-import bisect
 
 
 @functools.lru_cache(maxsize=None)
