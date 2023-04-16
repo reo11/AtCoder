@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update &&\
-    apt-get install -yq software-properties-common curl wget zlib1g lbzip2 apt-utils libboost-all-dev git peco golang
+    apt-get install -yq software-properties-common curl wget zlib1g lbzip2 apt-utils libboost-all-dev libssl-dev git peco golang
 
 RUN export GOPATH=$HOME/go &&\
     export PATH="$GOPATH/bin:$PATH"
