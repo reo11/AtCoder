@@ -1,0 +1,9 @@
+-- https://topsic-contest.jp/contests/practice/problems/practice002
+
+SELECT
+    PREFECTURE.PF_CODE as '都道府県コード',
+    PREFECTURE.PF_NAME as '都道府県名',
+    ROUND(100.0 * INP_YES / (INP_YES + INP_NO + UNIDENTIFIED), 1) as '入院率'
+FROM HOSPITALIZATION
+JOIN PREFECTURE ON PREFECTURE.PF_CODE = HOSPITALIZATION.PF_CODE
+ORDER BY 3 DESC, 1
