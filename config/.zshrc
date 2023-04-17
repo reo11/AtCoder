@@ -105,7 +105,7 @@ function rust_atcoder(){
 function rust_c(){
     cargo compete n $1
     for f in $1/src/bin/*.rs; do
-        cp /work/template_rust/template.rs $f
+        cp /work/template_rust/rust_template.rs $f
     done
 }
 
