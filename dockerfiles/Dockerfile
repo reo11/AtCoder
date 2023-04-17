@@ -51,6 +51,7 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
 
 # Rust
 ENV RUST_VERSION 1.66.1
+ENV RUSTUP_TOOLCHAIN 1.42.0
 ENV RUST_HOME /home/${UNAME}/.cargo
 ENV RUSTUP_HOME ${RUST_HOME}/rustup
 ENV CARGO_HOME ${RUST_HOME}/cargo
@@ -66,9 +67,11 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rus
 
 RUN rustup update
 RUN rustup install $RUST_VERSION
-# RUN rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt rust-analyzer
+RUN rustup install 1.42.0
+RUN rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
+
 # RUN cargo +stable install racer
-RUN cargo install cargo-compete
+RUN cargo +1.66.1 install cargo-compete
 # RUN cargo install clippy
 # RUN cargo install cargo-cache
 # RUN cargo +nightly install racer
