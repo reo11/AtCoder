@@ -22,7 +22,13 @@ build-atcoder:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
 
 run-atcoder: build-atcoder
-	docker run -t -d --rm -v ${PWD}:/work -v ${PWD}/.tmp:/root/.local/share/online-judge-tools/ -e "BROWSER=chrome" --name atcoder-container $(ATCODER_IMAGE) bash
+	mkdir -p ${PWD}/.tmp/online-judge-tools && \
+	mkdir -p ${PWD}/.tmp/cargo-compete && \
+	docker run -t -d --rm \
+		-v ${PWD}:/work \
+		-v ${PWD}/.tmp/online-judge-tools:/home/$(shell whoami)/.local/share/online-judge-tools/ \
+		-v ${PWD}/.tmp/cargo-compete:/home/$(shell whoami)/.local/share/cargo-compete/ \
+		-e "BROWSER=chrome" --name atcoder-container $(ATCODER_IMAGE) bash
 
 exec-atcoder:
 	docker exec -it atcoder-container bash

@@ -1,6 +1,21 @@
 FROM ubuntu:18.04
-RUN apt-get update &&\
-    apt-get install -yq software-properties-common curl wget zlib1g lbzip2 apt-utils libboost-all-dev libssl-dev git peco golang
+
+ARG UID
+ARG UNAME
+RUN useradd $UNAME -u $UID -m
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
+    software-properties-common build-essential \
+    curl wget apt-utils libboost-all-dev libssl-dev git peco golang \
+    dconf-tools \
+    apt-transport-https ppa-purge \
+    ca-certificates\
+    tar zip unzip zlib1g-dev bzip2 libbz2-dev \
+    openssl libssl-dev \
+    zsh vim screen tree htop \
+    net-tools lynx iftop traceroute \
+    sudo
 
 RUN export GOPATH=$HOME/go &&\
     export PATH="$GOPATH/bin:$PATH"
@@ -35,9 +50,39 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
     apt install -y pypy pypy3
 
 # Rust
-ENV RUST_VERSION stable
-RUN apt -y install rust-all
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain ${RUST_VERSION}
+ENV RUST_VERSION 1.66.1
+ENV RUST_HOME /home/${UNAME}/.cargo
+ENV RUSTUP_HOME ${RUST_HOME}/rustup
+ENV CARGO_HOME ${RUST_HOME}/cargo
+ENV PATH $PATH:$HOME/.cargo/bin
+ENV PATH $PATH:$CARGO_HOME/bin
+
+RUN mkdir $RUST_HOME && \
+    chown -R $UNAME $RUST_HOME
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rustup.sh && \
+    chmod +x ${RUST_HOME}/rustup.sh && \
+    ${RUST_HOME}/rustup.sh -y --default-toolchain $RUST_VERSION --no-modify-path
+
+RUN rustup update
+RUN rustup install $RUST_VERSION
+# RUN rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt rust-analyzer
+# RUN cargo +stable install racer
+RUN cargo install cargo-compete
+# RUN cargo install clippy
+# RUN cargo install cargo-cache
+# RUN cargo +nightly install racer
+# RUN cargo install cargo-src
+# RUN cargo install cargo-watch
+# RUN cargo install cargo-tree
+# RUN cargo install cargo-asm
+# RUN cargo install cargo-expand
+# RUN cargo install --git https://github.com/japaric/cargo-binutils
+# RUN cargo install cargo-check
+# # rootけんげんが必要とか言われるので消す
+# RUN cargo cache -a
+
+RUN chown -R $UNAME $RUST_HOME
 
 # online-judge-tools
 RUN python3.8 -m pip install online-judge-tools
@@ -60,9 +105,7 @@ RUN mkdir /work
 # ARG UNAME
 # RUN useradd $UNAME -u $UID -m
 # USER $UNAME
-ARG UID
-ARG UNAME
-RUN useradd $UNAME -u $UID -m
+
 USER $UNAME
 
 ENV PATH $PATH:$HOME/.cargo/bin
