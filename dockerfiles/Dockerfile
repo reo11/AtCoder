@@ -51,7 +51,6 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
 
 # Rust
 ENV RUST_VERSION 1.66.1
-ENV RUSTUP_TOOLCHAIN 1.42.0
 ENV RUST_HOME /home/${UNAME}/.cargo
 ENV RUSTUP_HOME ${RUST_HOME}/rustup
 ENV CARGO_HOME ${RUST_HOME}/cargo
@@ -113,6 +112,12 @@ USER $UNAME
 
 ENV PATH $PATH:$HOME/.cargo/bin
 ENV PYTHONPATH=$PYTHONPATH:/work
+# ENV RUSTUP_TOOLCHAIN 1.42.0
+
+# fix symbolic link for rust 1.42.0
+# https://zenn.dev/yajamon/articles/be689814d242f8
+# RUN cd /home/reo/.cargo/rustup/toolchains/1.42.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust && \
+#     ln -sv src library
 
 COPY ./config/.zshrc /tmp/.zshrc
 RUN cat "/tmp/.zshrc" >> ~/.bashrc
