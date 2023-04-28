@@ -1,49 +1,52 @@
 import sys
-from collections import Counter
+from collections import defaultdict
+from pprint import pprint
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
-
-s = input()
-
 MOD = 998244353
 
+s = list(input())
+n = len(s)
+memo = defaultdict(lambda: -1)
+alphabets = [chr(ord('a') + i) for i in range(26)]
 
-def generate_subsequences(s):
-    subsequences = set()
+for i in reversed(range(n + 1)):
+    for c in alphabets:
+        if s[i - 1] == c:
+            memo[f"{i}_{c}"] = i
+        else:
+            memo[f"{i}_{c}"] = memo[f"{i + 1}_{c}"]
 
-    def helper(current, index):
-        if index == len(s):
-            if current:
-                subsequences.add(current)
-            return
+def sigma(idx, c):
+    # idxより右で初めてcが出現するi
+    pattern = f"{idx}_{c}"
+    return memo[pattern]
 
-        helper(current, index + 1)
-        helper(current + s[index], index + 1)
+# 配るDP
+ans = 0
+for x in range(1, n):
+    # S1はxより左だけで構成される
+    # S2はxを含む右で構成される
+    dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 
-    helper("", 0)
-    return subsequences
+    # ''と''を部分列の初期状態として定義
+    dp[0][x] = 1
+    for i in range(n):
+        for j in range(i + 1, n):
+            for c in alphabets:
+                i_sigma = sigma(i + 1, c)
+                if i_sigma > x:
+                    # xより左だけで構成しないといけない
+                    continue
+                j_sigma = sigma(j + 1, c)
+                # print(c, " ", i_sigma, " ", j_sigma)
+                if i_sigma == -1 or j_sigma == -1:
+                    # i, jより右にcが存在しない
+                    continue
+                dp[i_sigma][j_sigma] += dp[i][j]
+                dp[i_sigma][j_sigma] %= MOD
+    for i in range(x, n + 1):
+        ans += dp[x][i]
+        ans %= MOD
 
-def count_common_subsequences(s1, s2):
-    s1_subsequences = generate_subsequences(s1)
-    s2_subsequences = generate_subsequences(s2)
-
-    s1_counter = Counter(s1_subsequences)
-    s2_counter = Counter(s2_subsequences)
-
-    common_subsequences = s1_counter & s2_counter
-    return dict(common_subsequences)
-
-# 区切りを全探索
-# i = 左の最後の要素
-ans = set()
-for i in range(1, len(s)):
-    s1 = s[:i]
-    s2 = s[i:]
-    # print(s1, s2)
-    d = count_common_subsequences(s1, s2)
-    for sub_s in d.keys():
-        # print(sub_s)
-        ans.add(sub_s)
-
-# print(ans)
-print(len(ans) % MOD)
+pprint(ans)
