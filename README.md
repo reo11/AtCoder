@@ -1,20 +1,23 @@
 # AtCoder
-AtCoderやる
+AtCoderのコードを置いておく場所
 
 ## 新環境のAtCoder用Dockerfile
-https://docs.google.com/spreadsheets/d/1PmsqufkF3wjKN6g1L0STS80yP4a6u-VdGiEv5uOHe0M/edit#gid=1059691052
+[AtCoder 2019/7 Language Update](https://docs.google.com/spreadsheets/d/1PmsqufkF3wjKN6g1L0STS80yP4a6u-VdGiEv5uOHe0M/edit#gid=1059691052)
 から適当に取ってきて動くようにした。
-dockerとdocker-composeがあれば動くはず。
+dockerが入っていれば動くはず．
 
-### buildとか
-バックグラウンドで実行します。
-作業する時はdocker内で。
+### build
+makeコマンドでコンテナを出入りできます。
 ```
-docker-compose up --build -d
-docker exec -it atcoder bash
+make
 ```
 
-### aliasについて
+WSL環境で`ERROR [internal] load metadata`が出る場合、ubuntuをpullした後makeすると良い。
+```
+docker pull ubuntu:18.04
+```
+
+### alias
 とりあえず公式で使われてるコマンドのaliasを`config/.zshrc`に書いたので、適当にやれば使えるはず。
 ```
 python a.py
@@ -29,14 +32,6 @@ submit_pypy a
 submit_python a
 submit_cpp a
 ```
-
-### python template
-```
-import sys
-input = sys.stdin.readline
-sys.setrecursionlimit(10000000)
-```
-
 
 ### python標準ライブラリの計算量
 https://qiita.com/bee2/items/4ab87d05cc03d53e19f9
