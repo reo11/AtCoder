@@ -20,4 +20,4 @@ for i in range(n):
     if visited[current_pos[0]][current_pos[1]]:
         x = True
     visited[current_pos[0]][current_pos[1]] = True
-print(['No', 'Yes'][x])
+print(["No", "Yes"][x])

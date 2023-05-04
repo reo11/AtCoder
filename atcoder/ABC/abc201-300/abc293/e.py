@@ -1,5 +1,6 @@
 a, x, m = map(int, input().split())
 
+
 def rep_pow(a: int, k: int, p: int = 10 ** 9 + 7) -> int:
     # calculate exponentiation: a^k mod p
     # O(log(p))

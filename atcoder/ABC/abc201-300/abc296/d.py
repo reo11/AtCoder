@@ -1,5 +1,6 @@
 import math
 
+
 def solve():
     ans = float("inf")
     n, m = map(int, input().split())

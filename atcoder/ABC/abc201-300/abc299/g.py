@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 n, m = map(int, input().split())
 a = list(map(int, input().split()))
 
@@ -18,8 +19,8 @@ for i in range(n):
     else:
         while True:
             if len(ans[0]) > 0 and ans[0][-1] > a_i and memo[ans[0][-1]] > i:
-                    ans[1].discard(ans[0][-1])
-                    ans[0].pop()
+                ans[1].discard(ans[0][-1])
+                ans[0].pop()
             else:
                 break
         ans[0].append(a_i)

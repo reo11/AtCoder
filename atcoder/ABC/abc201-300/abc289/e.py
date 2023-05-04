@@ -1,5 +1,7 @@
 from collections import defaultdict, deque
+
 t = int(input())
+
 
 def solve(n, m, c, edges):
     visited = defaultdict(lambda: False)
@@ -19,6 +21,7 @@ def solve(n, m, c, edges):
             visited[next_num] = True
             q.append([next_num, cost + 1])
     return ans
+
 
 ans = []
 for _ in range(t):

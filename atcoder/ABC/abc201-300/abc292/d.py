@@ -1,11 +1,13 @@
 from collections import defaultdict
+
 n, m = map(int, input().split())
 
 # UnionFind木を辺の情報を保持して更新すれば行ける
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n):
-        self.n = (n + 1)
+        self.n = n + 1
         self.parents = [-1] * (n + 1)
 
     def find(self, x):
@@ -48,7 +50,8 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return ''.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "".join("{}: {}".format(r, self.members(r)) for r in self.roots())
+
 
 tree = UnionFind(n)
 uv = []
@@ -65,4 +68,4 @@ for i in range(1, n + 1):
     if p_size != e_size:
         flag = False
 
-print(['No', 'Yes'][flag])
+print(["No", "Yes"][flag])

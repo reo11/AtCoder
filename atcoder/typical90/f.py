@@ -13,6 +13,7 @@ s = input()
 # O(KlogN)の計算量で実装可能（アルファベット数は26で固定なので含めず）
 # 無限で初期化して、最小を保持するセグ木を実装する
 
+
 def gcd(a: int, b: int) -> int:
     # 最大公約数
     # (12, 18) -> 6
@@ -24,7 +25,13 @@ def gcd(a: int, b: int) -> int:
 class SegTree:
     def __init__(self, n: int, mode: str = "min") -> None:
         self.mode = mode
-        unit_elements = {"min": 10 ** 13, "max": -10 ** 13, "sum": 0, "mul": 1, "gcd": 0}
+        unit_elements = {
+            "min": 10 ** 13,
+            "max": -(10 ** 13),
+            "sum": 0,
+            "mul": 1,
+            "gcd": 0,
+        }
         self.e = unit_elements[self.mode]  # 単位元
         self.tree_size = 2 ** (n - 1).bit_length()  # n以上の最小の2のべき乗数
         self.tree_value = [self.e] * 2 * self.tree_size
@@ -33,14 +40,18 @@ class SegTree:
         if self.tree_size > 2 ** 4:
             return "Segtree size too big"
         out = ""
-        i = 0; j = 0; count = 1
+        i = 0
+        j = 0
+        count = 1
         while i < self.tree_size - 1:
             if self.tree_value[i] == self.e:
                 s = "-"
             else:
                 s = str(self.tree_value[i])
             s = s.center((self.tree_size * 2) // count, " ")
-            out += s; i += 1; j += 1
+            out += s
+            i += 1
+            j += 1
             if j == count:
                 count *= 2
                 j = 0
@@ -71,14 +82,18 @@ class SegTree:
             self.tree_value[i + self.tree_size - 1] = init_val[i]
         # built
         for i in range(self.tree_size - 2, -1, -1):
-            self.tree_value[i] = self._op(self.tree_value[2 * i + 1], self.tree_value[2 * i + 2])
+            self.tree_value[i] = self._op(
+                self.tree_value[2 * i + 1], self.tree_value[2 * i + 2]
+            )
 
     def update(self, pos: int, value: int) -> None:
         pos += self.tree_size - 1
         self.tree_value[pos] = value
         while pos:
             pos = (pos - 1) // 2
-            self.tree_value[pos] = self._op(self.tree_value[pos * 2 + 1], self.tree_value[pos * 2 + 2])
+            self.tree_value[pos] = self._op(
+                self.tree_value[pos * 2 + 1], self.tree_value[pos * 2 + 2]
+            )
 
     def query(self, l: int, r: int) -> int:
         r += 1
@@ -101,8 +116,9 @@ class SegTree:
             res = self._op(self._op(res, self.tree_value[l]), self.tree_value[r])
         return res
 
+
 seg_tree = [SegTree(n=n, mode="min") for _ in range(26)]
-alphabets = [chr(ord('a') + i) for i in range(26)]
+alphabets = [chr(ord("a") + i) for i in range(26)]
 for c_i, c in enumerate(alphabets):
     for i in range(n):
         if s[i] == c:

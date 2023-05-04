@@ -1,5 +1,6 @@
-from collections import defaultdict, deque
 import heapq
+from collections import defaultdict, deque
+
 
 def solve():
     n, m = map(int, input().split())
@@ -63,7 +64,6 @@ def solve():
                     q.append(adj)
         return ans
 
-
     # なんか重いのでトポロジカルソートする
     tmp_into_num = into_num.copy()
     l = topological_sort1(edges, tmp_into_num, n)
@@ -79,5 +79,6 @@ def solve():
         ans = [[num, str(i)] for i, num in enumerate(l, start=1)]
         ans.sort()
         print(" ".join([x[1] for x in ans]))
+
 
 solve()

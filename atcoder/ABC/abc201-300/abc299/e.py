@@ -20,10 +20,11 @@ for i in range(k):
 # 最短距離メモ
 dist_list = defaultdict(lambda: defaultdict(lambda: []))
 
+
 def bfs(n, start):
     visited = [False] * n
     visited[start] = True
-    dist = [float('inf')] * n
+    dist = [float("inf")] * n
 
     dist[start] = 0
     dist_list[start][0].append(start)
@@ -36,6 +37,7 @@ def bfs(n, start):
                 dist[neighbor] = dist[node] + 1
                 dist_list[start][dist[node] + 1].append(neighbor)
                 queue.append(neighbor)
+
 
 for i in range(1, n + 1):
     # i からjまでの最短

@@ -1,9 +1,12 @@
+from collections import defaultdict, deque
 from typing import List, Union
-from collections import deque, defaultdict
 
 n, p = map(int, input().split())
 
-def sieve_of_eratosthenes(n: int, return_num: bool = False) -> Union[List[bool], List[int]]:
+
+def sieve_of_eratosthenes(
+    n: int, return_num: bool = False
+) -> Union[List[bool], List[int]]:
     # O(nlognlogn)
     is_prime_list = [True] * (n + 1)
     is_prime_list[0] = False
@@ -23,7 +26,9 @@ def sieve_of_eratosthenes(n: int, return_num: bool = False) -> Union[List[bool],
     else:
         return is_prime_list
 
+
 l = sieve_of_eratosthenes(p, True)
+
 
 def make_combination(l):
     result = [1]
@@ -40,9 +45,10 @@ def make_combination(l):
         result.sort()
     return result
 
+
 # 半分全列挙
-l_list = l[:len(l) // 3]
-r_list = l[len(l) // 3:]
+l_list = l[: len(l) // 3]
+r_list = l[len(l) // 3 :]
 all_l = sorted(make_combination(l_list))
 all_r = sorted(make_combination(r_list))
 

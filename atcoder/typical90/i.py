@@ -1,5 +1,7 @@
 # https://atcoder.jp/contests/typical90/submissions/40437360
-import math, cmath, bisect
+import bisect
+import cmath
+import math
 
 N = int(input())
 P = []
@@ -11,10 +13,10 @@ for pz in P:
     q = []
     for p in P:
         if p != pz:
-            q.append(math.degrees(180+cmath.phase(p-pz)))
+            q.append(math.degrees(180 + cmath.phase(p - pz)))
     q.sort()
     for d in q:
-        dn = d+180
+        dn = d + 180
         if dn > 360:
             dn -= 360
         p = bisect.bisect_left(q, dn)

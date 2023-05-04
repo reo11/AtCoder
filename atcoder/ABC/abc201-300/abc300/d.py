@@ -1,5 +1,6 @@
-from typing import List, Union
 import math
+from typing import List, Union
+
 
 def sieve_of_eratosthenes(
     n: int, return_num: bool = False
@@ -22,6 +23,7 @@ def sieve_of_eratosthenes(
         return num_list
     else:
         return is_prime_list
+
 
 n = int(input())
 sqrt_n = math.sqrt(n)

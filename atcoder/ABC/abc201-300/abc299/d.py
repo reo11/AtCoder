@@ -1,11 +1,14 @@
 n = int(input())
 
+
 def question(i):
     print(f"? {i}")
     return int(input())
 
+
 def answer(i):
     print(f"! {i}")
+
 
 def solve():
     left = 0
@@ -23,5 +26,6 @@ def solve():
             left = mid
         mid = (left + right) // 2
     return left
+
 
 answer(solve())

@@ -1,9 +1,11 @@
-
-from collections import defaultdict
 import sys
+from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 MOD = 998244353
+
+
 class ModInt:
     def __init__(self, x, p=MOD):
         self.mod = p
@@ -74,6 +76,7 @@ class ModInt:
             else ModInt(pow(other, self.x, self.mod))
         )
 
+
 N = int(input())
 
 n_tmp = N
@@ -97,6 +100,8 @@ if n_tmp != 1:
     exit()
 
 memo = defaultdict(lambda: -1)
+
+
 def dp(i):
     if i >= N:
         if i == N:
@@ -111,6 +116,7 @@ def dp(i):
     res = res / 5
     memo[i] = res
     return res
+
 
 print(dp(1))
 # print(counter)

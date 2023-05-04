@@ -11,4 +11,3 @@ for a_i in range(10000):
         if (n - a * a_i - b * b_i) % c == 0:
             ans = min(ans, a_i + b_i + (n - a * a_i - b * b_i) // c)
 print(ans)
-

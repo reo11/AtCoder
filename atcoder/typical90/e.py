@@ -66,6 +66,7 @@ c = list(map(int, input().split()))
 #     # print(ma)
 #     return int(ma[0][0]) % MOD
 
+
 def solve3(n, b, c):
     # 10^mを前計算しておく
     ten_pow = [10 for _ in range(62)]
@@ -99,6 +100,7 @@ def solve3(n, b, c):
         # print(n, num, ans)
     # print(dp)
     return ans[0]
+
 
 # print(solve1(n, b, c))
 # print(solve2(n, b, c))

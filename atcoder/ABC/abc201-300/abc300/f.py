@@ -7,17 +7,20 @@ for i in range(n):
     else:
         count_x.append(count_x[-1])
 
+
 def count_holiday(start_idx, holiday_count, yukyu):
     # start_idx: 1-indexed
     # holiday_count連休をstart_idxから作成可能か判定
     t_count = 1
     yukyu_needed = 0
-    yukyu_needed += count_x[min(n, start_idx + holiday_count - 1)] - count_x[start_idx - 1]
+    yukyu_needed += (
+        count_x[min(n, start_idx + holiday_count - 1)] - count_x[start_idx - 1]
+    )
     first_len = min(n - start_idx + 1, holiday_count)
     if n - start_idx + 1 < holiday_count:
         if holiday_count - first_len >= n:
             yukyu_needed += ((holiday_count - first_len) // n) * count_x[-1]
-            t_count += ((holiday_count - first_len) // n)
+            t_count += (holiday_count - first_len) // n
         if (holiday_count - first_len) % n > 0:
             yukyu_needed += count_x[(holiday_count - first_len) % n]
             t_count += 1
@@ -26,6 +29,7 @@ def count_holiday(start_idx, holiday_count, yukyu):
     else:
         return False
 
+
 def can(holiday_count, yukyu):
     flag = False
     for i in range(1, n + 1):
@@ -33,6 +37,7 @@ def can(holiday_count, yukyu):
         if flag:
             break
     return flag
+
 
 l = 0
 r = n * m + 1

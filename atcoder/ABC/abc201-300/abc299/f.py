@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
 from pprint import pprint
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 MOD = 998244353
@@ -8,7 +9,7 @@ MOD = 998244353
 s = list(input())
 n = len(s)
 memo = defaultdict(lambda: -1)
-alphabets = [chr(ord('a') + i) for i in range(26)]
+alphabets = [chr(ord("a") + i) for i in range(26)]
 
 for i in reversed(range(n + 1)):
     for c in alphabets:
@@ -17,10 +18,12 @@ for i in reversed(range(n + 1)):
         else:
             memo[f"{i}_{c}"] = memo[f"{i + 1}_{c}"]
 
+
 def sigma(idx, c):
     # idxより右で初めてcが出現するi
     pattern = f"{idx}_{c}"
     return memo[pattern]
+
 
 # 配るDP
 ans = 0

@@ -1,7 +1,9 @@
-from typing import Dict, List
 import sys
+from typing import Dict, List
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
+
 
 class UnionFind:
     def __init__(self, n: int) -> None:
@@ -60,12 +62,14 @@ for _ in range(q):
 
 # UnionFindで各頂点を繋ぐ
 def point_num(i, j):
-    return (i * w + j)
+    return i * w + j
+
 
 def in_board(i, j):
     return 0 <= i and i < h and 0 <= j and j < w
 
-tree = UnionFind(n = h * w)
+
+tree = UnionFind(n=h * w)
 red = [[False for _ in range(w)] for _ in range(h)]
 ans = []
 for query in queries:
@@ -85,7 +89,10 @@ for query in queries:
         # print(point_num(ra, ca), point_num(rb, cb))
         # print(tree.find(point_num(ra, ca)))
         if red[ra][ca] and red[rb][cb]:
-            if tree.same(point_num(ra, ca), point_num(rb, cb)) and tree.find(point_num(ra, ca)) != -1:
+            if (
+                tree.same(point_num(ra, ca), point_num(rb, cb))
+                and tree.find(point_num(ra, ca)) != -1
+            ):
                 ans.append("Yes")
             elif ra == rb and ca == cb:
                 ans.append("Yes")

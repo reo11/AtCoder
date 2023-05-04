@@ -1,4 +1,5 @@
 import numpy as np
+
 h, w = map(int, input().split())
 a = []
 b = []

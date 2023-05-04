@@ -24,7 +24,7 @@ while q and len(dist_from_1) < n:
     # ダイクストラなので、popした瞬間に最適が確定する
     cost, current_num = heapq.heappop(q)
     if current_num in dist_from_1:
-            continue
+        continue
     dist_from_1[current_num] = cost
 
     for next_num in edges[current_num].keys():
