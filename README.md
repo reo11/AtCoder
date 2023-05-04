@@ -1,3 +1,5 @@
+[![Test & Lint](https://github.com/reo11/AtCoder/actions/workflows/docker-image.yml/badge.svg)](https://github.com/reo11/AtCoder/actions/workflows/docker-image.yml)
+
 # AtCoder
 AtCoderのコードを置いておく場所
 
