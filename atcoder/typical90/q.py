@@ -1,11 +1,13 @@
 import sys
 from collections import defaultdict
 from typing import List
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
 n, m = map(int, input().split())
 lr = [list(map(int, input().split())) for _ in range(m)]
+
 
 def gcd(a: int, b: int) -> int:
     # 最大公約数
@@ -13,6 +15,7 @@ def gcd(a: int, b: int) -> int:
     while b:
         a, b = b, a % b
     return a
+
 
 class SegTree:
     def __init__(self, n: int, mode: str = "min") -> None:
@@ -109,15 +112,16 @@ class SegTree:
         return res
 
 
-
 def solve1(n, m, lr):
     ans = 0
     for s in range(m):
         for t in range(s + 1, m):
-            if (lr[s][0] < lr[t][0] and lr[t][0] < lr[s][1] and lr[s][1] < lr[t][1]) or \
-                (lr[t][0] < lr[s][0] and lr[s][0] < lr[t][1] and lr[t][1] < lr[s][1]):
+            if (
+                lr[s][0] < lr[t][0] and lr[t][0] < lr[s][1] and lr[s][1] < lr[t][1]
+            ) or (lr[t][0] < lr[s][0] and lr[s][0] < lr[t][1] and lr[t][1] < lr[s][1]):
                 ans += 1
     return ans
+
 
 def solve2(n, m, lr):
     ans = m * (m - 1) // 2
@@ -157,6 +161,7 @@ def solve2(n, m, lr):
         pre_r = r
     return ans
 
+
 def solve3(n, m, lr):
     ans = m * (m - 1) // 2
     # pattern1
@@ -193,5 +198,6 @@ def solve3(n, m, lr):
         ans -= segtree.query(l + 1, r - 1)
         pre_r = r
     return ans
+
 
 print(solve3(n, m, lr))

@@ -13,4 +13,3 @@ for i in range(n):
         dp[0][j] = max(dp[0][j], dp[1][j])
 # print(dp)
 print(max(dp[-1]))
-

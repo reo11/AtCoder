@@ -5,6 +5,7 @@ ans = []
 # N <= 10**5
 # dp[i]: iまで見たときに、差をi以内に収めつつ生成できる数
 
+
 class Facts:
     # O(max_num)
     def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
@@ -67,9 +68,9 @@ ans_l = []
 for k_i in range(1, n + 1):
     ans = 0
     for a_i in range(1, n + 1):
-        if (k_i - 1)  * (a_i - 1) >= n:
+        if (k_i - 1) * (a_i - 1) >= n:
             break
-        ans += facts.comb(n - ((k_i - 1)  * (a_i - 1)), a_i)
+        ans += facts.comb(n - ((k_i - 1) * (a_i - 1)), a_i)
         ans %= MOD
     ans_l.append(ans)
 print(*ans_l, sep="\n")
