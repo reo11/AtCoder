@@ -59,3 +59,8 @@ def counting_primes(n: int) -> int:
             t += smalls[m // r]
         ret += t - (e - l) * (pc + l - 1)
     return ret
+
+
+if __name__ == "__main__":
+    n = int(input())
+    print(counting_primes(n))

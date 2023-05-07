@@ -19,3 +19,8 @@ def prime_factorize(n: int) -> List[int]:
     if n != 1:
         a.append(n)
     return a
+
+
+if __name__ == "__main__":
+    n = int(input())
+    print(" ".join(map(str, prime_factorize(n))))

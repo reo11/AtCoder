@@ -22,3 +22,8 @@ def sieve_of_eratosthenes(
         return num_list
     else:
         return is_prime_list
+
+
+if __name__ == "__main__":
+    n = int(input())
+    print(" ".join(map(str, sieve_of_eratosthenes(n, return_num=True))))
