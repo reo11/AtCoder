@@ -74,10 +74,35 @@ def write_readme(language: str):
                 else:
                     data.append([category_name, feature["name"], "❌"])
         df = pd.DataFrame(data, columns=["category", "feature", "status"])
-        text = markdown_template + df.to_markdown()
+        text = markdown_template + df.to_markdown(index=False)
 
     with open(md_file_path, 'w') as file:
         file.write(text)
+
+
+def update_status_file(language: str, filepath: str, status: str):
+    status_file_path = f"{os.getcwd()}/algorithm_libraries/{language}/status.yml"
+    obj = {"categories": []}
+    if os.path.exists(status_file_path):
+        with open(status_file_path) as file:
+            obj = yaml.safe_load(file)
+    category_name = filepath.split("/")[-2]
+    feature_name = filepath.split("/")[-1].split(".")[0]
+    caterogies = []
+    for category in obj["categories"]:
+        if category["name"] != category_name:
+            caterogies.append(category)
+            continue
+
+        c = []
+        for feature in category["features"]:
+            if feature["name"] == feature_name:
+                feature["status"] = status
+            c.append(feature)
+        caterogies.append({"name": category["name"], "features": c})
+    obj["categories"] = caterogies
+    with open(status_file_path, 'w') as file:
+        yaml.dump(obj, file)
 
 
 if __name__ == "__main__":
@@ -90,6 +115,10 @@ if __name__ == "__main__":
             ans_text = x["out"].rstrip().encode()
             output_text = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE).communicate(input_text)[0]
             output_text = output_text.rstrip()
-            assert ans_text == output_text, f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
-
+            try:
+                assert ans_text == output_text, f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
+                update_status_file(args.lang, args.filepath, "ok")
+            except:
+                update_status_file(args.lang, args.filepath, "ng")
+                raise
     write_readme(args.lang)

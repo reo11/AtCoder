@@ -1,0 +1,26 @@
+cases:
+  - name: sample1
+    in: |
+      1
+    out: |
+      1
+  - name: sample2
+    in: |
+      5
+    out: |
+      42
+  - name: sample3
+    in: |
+      8
+    out: |
+      1430
+  - name: sample4
+    in: |
+      11
+    out: |
+      58786
+  - name: sample5
+    in: |
+      13
+    out: |
+      742900

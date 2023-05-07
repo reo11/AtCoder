@@ -58,3 +58,6 @@ exec-test:
 	clear && \
 	docker exec -it $(ATCODER_TEST_CONTAINER_NAME) bash
 endif
+
+stop-test:
+	docker stop $(ATCODER_TEST_CONTAINER_NAME)

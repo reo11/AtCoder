@@ -2,7 +2,7 @@ class Facts:
     # O(max_num)
     def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
         self.p = p
-        self.max_num = max_num
+        self.max_num = max_num * 2
         self.fact = [1] * (self.max_num + 1)
         for i in range(1, self.max_num + 1):
             self.fact[i] = self.fact[i - 1] * i
@@ -35,3 +35,9 @@ class Facts:
 
     def catalan(self, a: int) -> int:
         return (self.comb(a * 2, a) - self.comb(a * 2, a - 1)) % self.p
+
+
+if __name__ == "__main__":
+    n = int(input())
+    facts = Facts(n)
+    print(facts.catalan(n))

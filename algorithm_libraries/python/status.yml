@@ -1,13 +1,13 @@
 categories:
 - features:
   - name: sample
-    status: unknown
+    status: ok
   name: misc
 - features:
   - name: sort
-    status: "\u2705"
+    status: ok
   - name: catalan_number
-    status: unknown
+    status: ok
   - name: combination
     status: unknown
   - name: counting_primes
