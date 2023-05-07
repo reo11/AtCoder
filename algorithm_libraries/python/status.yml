@@ -1,9 +1,97 @@
 categories:
-  - name: misc
-    features:
-      - name: sample
-        status: unknown
-  - name: math
-    features:
-      - name: sort
-        status: unknown
+- features:
+  - name: sample
+    status: unknown
+  name: misc
+- features:
+  - name: sort
+    status: "\u2705"
+  - name: catalan_number
+    status: unknown
+  - name: combination
+    status: unknown
+  - name: counting_primes
+    status: unknown
+  - name: euler_phi
+    status: unknown
+  - name: ext_gcd
+    status: unknown
+  - name: fact_comb_perm
+    status: unknown
+  - name: flt
+    status: unknown
+  - name: gcd_lcm
+    status: unknown
+  - name: lcm_list_mod
+    status: unknown
+  - name: mod_int
+    status: unknown
+  - name: prime_factorize
+    status: unknown
+  - name: rep_pow
+    status: unknown
+  - name: sieve_of_eratosthenes
+    status: unknown
+  name: math
+- features:
+  - name: bin_search_list
+    status: unknown
+  - name: bin_search_value
+    status: unknown
+  - name: bit_full_search
+    status: unknown
+  - name: cnt_multiple
+    status: unknown
+  - name: cum_sum
+    status: unknown
+  - name: lis
+    status: unknown
+  - name: two_dim_sum
+    status: unknown
+  name: basic
+- features:
+  - name: convolution
+    status: unknown
+  name: convolution
+- features:
+  - name: RMQ
+    status: unknown
+  - name: RSQ
+    status: unknown
+  - name: segtree
+    status: unknown
+  - name: segtree_kai
+    status: unknown
+  - name: union_find
+    status: unknown
+  - name: weighted_union_find
+    status: unknown
+  name: data_structure
+- features:
+  - name: LCS
+    status: unknown
+  - name: levenshtein_dist
+    status: unknown
+  name: dp
+- features:
+  - name: bfs
+    status: unknown
+  - name: dfs
+    status: unknown
+  - name: dijkstra
+    status: unknown
+  - name: max_flow
+    status: unknown
+  - name: prim
+    status: unknown
+  - name: warshall_floyd
+    status: unknown
+  name: graph
+- features:
+  - name: z_algorithm
+    status: unknown
+  name: string
+- features:
+  - name: create_snippet
+    status: unknown
+  name: utils

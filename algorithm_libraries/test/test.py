@@ -4,6 +4,7 @@ import yaml
 import subprocess
 import markdown
 import pandas as pd
+import glob
 from typing import List
 
 parser = argparse.ArgumentParser(description='Process some integers.')
@@ -35,10 +36,32 @@ def get_command(language: str, filepath: str) -> List[str]:
     if language == "python":
         return ["python3", get_excution_file(language, filepath)]
 
+def find_status_file(language: str) -> None:
+    status_file_path = f"{os.getcwd()}/algorithm_libraries/{language}/status.yml"
+    obj = {"categories": []}
+    if os.path.exists(status_file_path):
+        with open(status_file_path) as file:
+            obj = yaml.safe_load(file)
+    files = glob.glob(f"{os.getcwd()}/algorithm_libraries/{language}/**/*.{extension}")
+
+    for file in files:
+        category_name = file.split("/")[-2]
+        feature_name = file.split("/")[-1].split(".")[0]
+        if category_name not in [x["name"] for x in obj["categories"]]:
+            obj["categories"].append({"name": category_name, "features": []})
+        category = [x for x in obj["categories"] if x["name"] == category_name][0]
+        if feature_name not in [x["name"] for x in category["features"]]:
+            category["features"].append({"name": feature_name, "status": "unknown"})
+    with open(status_file_path, 'w') as file:
+        yaml.dump(obj, file)
+
+
 def write_readme(language: str):
     md_file_path = f"{os.getcwd()}/algorithm_libraries/{language}/README.md"
     status_file_path = f"{os.getcwd()}/algorithm_libraries/{language}/status.yml"
     data = []
+    # statusの読み込みor作成
+
     with open(status_file_path) as file:
         obj = yaml.safe_load(file)
         for category in obj["categories"]:
@@ -46,6 +69,8 @@ def write_readme(language: str):
             for feature in category["features"]:
                 if feature["status"] == "ok":
                     data.append([category_name, feature["name"], "✅"])
+                elif feature["status"] == "unknown":
+                    data.append([category_name, feature["name"], "❓"])
                 else:
                     data.append([category_name, feature["name"], "❌"])
         df = pd.DataFrame(data, columns=["category", "feature", "status"])
@@ -56,6 +81,7 @@ def write_readme(language: str):
 
 
 if __name__ == "__main__":
+    find_status_file(args.lang)
     with open(get_test_yml(args.filepath)) as file:
         obj = yaml.safe_load(file)
         cmd = get_command(args.lang, args.filepath)
@@ -65,4 +91,5 @@ if __name__ == "__main__":
             output_text = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE).communicate(input_text)[0]
             output_text = output_text.rstrip()
             assert ans_text == output_text, f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
+
     write_readme(args.lang)
