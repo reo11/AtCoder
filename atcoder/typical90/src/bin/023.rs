@@ -2,12 +2,12 @@ use proconio::input;
 
 fn main() {
     input! {
-        n: usize,
-
+        h: usize,
+        w: usize,
+        c: [String; h],
     }
 
-    let mut ans = 0;
-
-
-    println!("{}", ans);
+    for i in 0..h {
+        println!("{}", c[i]);
+    }
 }
