@@ -1,11 +1,7 @@
-# 競技プログラミングで使えるテンプレ集 (python3)
 
+# Libraries for python
 
-| 名称 | 説明 |
-|------|------|
-| BASIC     | 基礎 |
-| DP        | DPテンプレ |
-| DSL       | データ集合とクエリ処理 |
-| GRL       | グラフ |
-| NTL       | 整数論 |
-| STRING    | 文字列 |
+|    | category   | feature   | status   |
+|---:|:-----------|:----------|:---------|
+|  0 | misc       | sample    | ❌        |
+|  1 | math       | sort      | ❌        |
