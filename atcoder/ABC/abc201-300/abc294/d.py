@@ -1,4 +1,5 @@
 import heapq
+
 n, q = map(int, input().split())
 
 events = []

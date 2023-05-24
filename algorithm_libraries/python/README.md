@@ -1,0 +1,44 @@
+
+# Libraries for python
+
+| category       | feature               | status   |
+|:---------------|:----------------------|:---------|
+| misc           | sample                | ✅        |
+| math           | sort                  | ✅        |
+| math           | catalan_number        | ✅        |
+| math           | combination           | ❓        |
+| math           | counting_primes       | ❓        |
+| math           | euler_phi             | ❓        |
+| math           | ext_gcd               | ❓        |
+| math           | fact_comb_perm        | ❓        |
+| math           | flt                   | ❓        |
+| math           | gcd_lcm               | ❓        |
+| math           | lcm_list_mod          | ❓        |
+| math           | mod_int               | ❓        |
+| math           | prime_factorize       | ❓        |
+| math           | rep_pow               | ❓        |
+| math           | sieve_of_eratosthenes | ❓        |
+| basic          | bin_search_list       | ❓        |
+| basic          | bin_search_value      | ❓        |
+| basic          | bit_full_search       | ❓        |
+| basic          | cnt_multiple          | ❓        |
+| basic          | cum_sum               | ❓        |
+| basic          | lis                   | ❓        |
+| basic          | two_dim_sum           | ❓        |
+| convolution    | convolution           | ❓        |
+| data_structure | RMQ                   | ❓        |
+| data_structure | RSQ                   | ❓        |
+| data_structure | segtree               | ❓        |
+| data_structure | segtree_kai           | ❓        |
+| data_structure | union_find            | ❓        |
+| data_structure | weighted_union_find   | ❓        |
+| dp             | LCS                   | ❓        |
+| dp             | levenshtein_dist      | ❓        |
+| graph          | bfs                   | ❓        |
+| graph          | dfs                   | ❓        |
+| graph          | dijkstra              | ❓        |
+| graph          | max_flow              | ❓        |
+| graph          | prim                  | ❓        |
+| graph          | warshall_floyd        | ❓        |
+| string         | z_algorithm           | ❓        |
+| utils          | create_snippet        | ❓        |

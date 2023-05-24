@@ -111,5 +111,9 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
+  ],
+  "editor.mouseWheelZoom": true,
+  "rust-analyzer.linkedProjects": [
+    "./atcoder/ABC/abc201-300/abc288/Cargo.toml"
   ]
 }

@@ -1,5 +1,7 @@
-import numpy as np
 import sys
+
+import numpy as np
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, k = map(int, input().split())
@@ -25,7 +27,9 @@ distance_matrix = a.copy()
 for k in range(len(distance_matrix)):
     for i in range(len(distance_matrix)):
         for j in range(len(distance_matrix)):
-            distance_matrix[i][j] = min(distance_matrix[i][j], distance_matrix[i][k] + distance_matrix[k][j])
+            distance_matrix[i][j] = min(
+                distance_matrix[i][j], distance_matrix[i][k] + distance_matrix[k][j]
+            )
 
 for s, t in st:
     ans_i = distance_matrix[(s - 1) % n][(t - 1) % n]

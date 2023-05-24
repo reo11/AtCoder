@@ -1,4 +1,31 @@
 {
+	"MOD_1000000007": {
+		"scope": "python",
+		"prefix": "MOD_1000000007",
+		"body": [
+			"MOD = 1000000007"
+		],
+		"description": "MOD_1000000007 template"
+	},
+	"MOD_998244353": {
+		"scope": "python",
+		"prefix": "MOD_998244353",
+		"body": [
+			"MOD = 998244353"
+		],
+		"description": "MOD_998244353 template"
+	},
+	"Yes_No": {
+		"scope": "python",
+		"prefix": "Yes_No",
+		"body": [
+			"if flag:",
+			"\tprint(\"Yes\")",
+			"else:",
+			"\tprint(\"No\")"
+		],
+		"description": "Yes No template"
+	},
 	"for": {
 		"scope": "python",
 		"prefix": "for",
@@ -160,8 +187,8 @@
 		"body": [
 			"class UnionFind():",
 			"    def __init__(self, n):",
-			"        self.n = n",
-			"        self.parents = [-1] * n",
+			"        self.n = n + 1",
+			"        self.parents = [-1] * (n + 1)",
 			"",
 			"    def find(self, x):",
 			"        if self.parents[x] < 0:",
@@ -203,7 +230,7 @@
 			"        return {r: self.members(r) for r in self.roots()}",
 			"",
 			"    def __str__(self):",
-			"        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())",
+			"        return '\\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())",
 		],
 		"description": "union-find tree"
 	},

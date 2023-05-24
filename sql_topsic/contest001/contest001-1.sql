@@ -1,0 +1,6 @@
+SELECT
+    DISTRICT_CODE as '地区コード',
+    DISTRICT_NAME as '地区名',
+    TOTAL_AMT as '総人口'
+FROM POPULATION
+ORDER BY 3 DESC, 1 DESC

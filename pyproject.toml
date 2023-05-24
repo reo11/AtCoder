@@ -10,7 +10,7 @@ mypy_preset = "strict"
 py_version = "py38"
 
 [[tool.pysen.lint.mypy_targets]]
-  paths = ["test", "python_template/basic", "python_template/convolution", "python_template/data_structure", "python_template/dp", "python_template/graph", "python_template/math", "python_template/string"]
+  paths = ["test"]
 
 [tool.flake8]
 max-line-length = 88

@@ -7,8 +7,6 @@ PAST
 .ipynb_checkpoints
 
 input/*
-*.in
-*.out
 __pycache__
 *.pyc
 *.txt

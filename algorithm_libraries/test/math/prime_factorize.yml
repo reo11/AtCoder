@@ -1,0 +1,11 @@
+cases:
+  - name: sample1
+    in: |
+      10
+    out: |
+      2 5
+  - name: sample2
+    in: |
+      20
+    out: |
+      2 2 5

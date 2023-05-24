@@ -97,3 +97,22 @@ function cpp_create_short(){
     cp /work/cpp_template/short_template.cpp ${dirname}/${problem_name}.cpp
 }
 
+# rust用エイリアス集
+function rust_atcoder(){
+    cargo compete init atcoder
+}
+
+function rust_c(){
+    cargo compete n $1
+    for f in $1/src/bin/*.rs; do
+        cp /work/algorithm_libraries/rust/rust_template.rs $f
+    done
+}
+
+function rust_s(){
+    cargo compete s $1
+}
+
+function rust_t(){
+    cargo compete t $1
+}
