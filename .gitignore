@@ -9,7 +9,6 @@ PAST
 input/*
 __pycache__
 *.pyc
-*.txt
 !requirements.txt
 # rust
 target
