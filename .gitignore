@@ -2,7 +2,8 @@
 a.out
 CF
 coding_test
-PAST
+PAST/*
+AHC/*
 .tmp
 .ipynb_checkpoints
 
@@ -13,3 +14,7 @@ __pycache__
 # rust
 target
 Cargo.lock
+
+# exclude
+!PAST/open/*
+!AHC/open/*
