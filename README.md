@@ -38,4 +38,4 @@ submit_cpp a
 ### python標準ライブラリの計算量
 https://qiita.com/bee2/items/4ab87d05cc03d53e19f9
 
-aaaa
+bbbb
