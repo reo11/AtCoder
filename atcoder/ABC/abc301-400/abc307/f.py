@@ -10,3 +10,9 @@ k = int(input())
 a = list(map(int, input().split()))
 d = int(input())
 x = list(map(int, input().split()))
+
+def solve1():
+    # 愚直解(TLE)
+    ans = [-1 for _ in range(n)]
+    for a_i in a:
+        ans[a_i - 1] = 0
