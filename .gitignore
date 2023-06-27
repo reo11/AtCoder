@@ -3,7 +3,7 @@ a.out
 CF
 coding_test
 PAST/*
-atcoder/AHC/**
+atcoder/AHC/not_open**
 .tmp
 .ipynb_checkpoints
 
@@ -16,5 +16,4 @@ target
 Cargo.lock
 
 # exclude
-!PAST/open/*
-!AHC/open/*
+!atcoder/PAST/open/**
