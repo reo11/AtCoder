@@ -1,6 +1,9 @@
-from collections import defaultdict
+import sys
 from typing import List
+from collections import defaultdict
 
+input = lambda: sys.stdin.readline().rstrip()
+numbers = defaultdict(lambda: len(numbers))
 
 def count_substring(string_list: List[str], sub_string: List[str]) -> int:
     """
@@ -23,7 +26,7 @@ def count_substring(string_list: List[str], sub_string: List[str]) -> int:
                     dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
             else:
                 dp[i][j] = dp[i - 1][j]
-    return dp[len(string_list)][len(sub_string)]
+    return dp[-1][-1]
 
 
 n = int(input())
@@ -32,7 +35,7 @@ mex = ["M", "E", "X"]
 l = []
 s = list(input())
 for a_i, s_i in zip(a, s):
-    l.append(f"{s_i}{a_i}")
+    l.append(numbers[f"{s_i}{a_i}"])
 
 # dp
 ans = 0
@@ -40,9 +43,9 @@ target_set = {0, 1, 2, 3}
 for i in range(3):
     for j in range(3):
         for k in range(3):
-            set_i = {i, j, k}
+            set_i = set([i, j, k])
             count_set = target_set - set_i
             count = sorted(list(count_set))[0]
-            c = count_substring(l, [f"M{i}", f"E{j}", f"X{k}"])
+            c = count_substring(l, [numbers[x] for x in [f"M{i}", f"E{j}", f"X{k}"]])
             ans += count * c
 print(ans)

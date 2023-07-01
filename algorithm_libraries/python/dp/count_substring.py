@@ -6,6 +6,7 @@ def count_substring(string_list: List[str], sub_string: List[str]) -> int:
     string_listに含まれる部分文字列sub_stringの個数を返す
     例: ["s", "t", "t", "r", "r"], ["s", "t", "r"] -> 4
     計算量: O(len(string_list) * len(sub_string))
+    文字列が長い場合は数字とかで置き換えて使うと良い
     Args:
         string_list (List[str]): 検索対象の文字列
         sub_string (List[str]): 検索したい部分文字列
