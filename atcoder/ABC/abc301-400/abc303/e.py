@@ -12,9 +12,11 @@ for edge, vs in edges.items():
     if len(vs) == 1:
         q.append(edge)
 
+
 def delete_edge(u, v):
     edges[u].discard(v)
     edges[v].discard(u)
+
 
 ans = []
 # 次数から端を探して、その連結成分を星の中心と考えると良い

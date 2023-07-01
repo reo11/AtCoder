@@ -1,12 +1,13 @@
-import sys
 import heapq
+import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 
 
 n, k, q = map(int, input().split())
 xy = []
-for _ in [0]*q:
+for _ in [0] * q:
     x, y = map(int, input().split())
     xy.append((x, y))
 
@@ -45,7 +46,7 @@ for i in range(q):
             # secondにいる場合
             fa = fa + y - min_value
             second_set.discard(x - 1)
-            first_set.add(x - 1) # secondのに元々いたやつは移動
+            first_set.add(x - 1)  # secondのに元々いたやつは移動
             first_set.discard(idx)
             second_set.add(idx)  # firstのminは移動
         heapq.heappush(first_queue, [y, x - 1, i])
@@ -72,7 +73,7 @@ for i in range(q):
                 first_set.discard(x - 1)
                 second_set.add(x - 1)  # firstのに元々いたやつは移動
                 second_set.discard(s_idx)
-                first_set.add(s_idx)   # secondのmaxは移動
+                first_set.add(s_idx)  # secondのmaxは移動
                 heapq.heappush(second_queue, [-y, x - 1, i])
         else:
             heapq.heappush(second_queue, [-y, x - 1, i])
@@ -80,5 +81,4 @@ for i in range(q):
     print("second_queue", fa, second_queue)
     ans.append(fa)
     user_memo[x - 1] = i
-print(*ans, sep='\n')
-
+print(*ans, sep="\n")

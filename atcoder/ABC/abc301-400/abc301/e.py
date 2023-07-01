@@ -1,6 +1,7 @@
-import sys
-from collections import deque, defaultdict
 import heapq
+import sys
+from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 
 h, w, t = map(int, input().split())

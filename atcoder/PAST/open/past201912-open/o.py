@@ -1,10 +1,12 @@
 import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
 m = 6 * n
 a = [list(map(int, input().split())) for i in range(n)]
+
 
 def compression(a):
     numbers = []
@@ -20,9 +22,10 @@ def compression(a):
             a[i][j] = d[a[i][j]]
     return a
 
+
 # aを座圧
 a = compression(a)
-dp = [1 for _ in range(n+1)]
+dp = [1 for _ in range(n + 1)]
 
 # 出目が入力された時に、対応するダイスの番号を引けるようにしておく
 dise = defaultdict(lambda: [])

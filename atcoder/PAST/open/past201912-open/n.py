@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+
 input = lambda: sys.stdin.readline().rstrip()
 INF = float("inf")
 n, w, c = map(int, input().split())
@@ -9,7 +10,7 @@ for i in range(n):
     l, r, p = map(int, input().split())
     # (x, start:1/end:0, price)
     que.append((r, 0, -p))
-    que.append((max(l-c+1, 0), 1, p))
+    que.append((max(l - c + 1, 0), 1, p))
 que.sort()
 que = deque(que)
 ans = INF

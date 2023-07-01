@@ -72,6 +72,8 @@ categories:
     status: unknown
   - name: levenshtein_dist
     status: unknown
+  - name: count_substring
+    status: unknown
   name: dp
 - features:
   - name: bfs

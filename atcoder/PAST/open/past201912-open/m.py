@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, m = map(int, input().split())
@@ -13,10 +14,11 @@ for i in range(m):
 # 決め打ち二分探索
 # 0 <= ans <= 100000 あたりを誤差10^(-8)くらいで探索すれば良さそう
 
+
 def check(target_power):
     l = []
     for weight, power, is_otasuke in monsters:
-        l.append(((power/weight - target_power)*weight, weight, power, is_otasuke))
+        l.append(((power / weight - target_power) * weight, weight, power, is_otasuke))
     l.sort(reverse=True)
     i = 0
     max_power = 0
@@ -40,8 +42,8 @@ def check(target_power):
 
 
 l = 0
-r = 10**6
-while (r - l) > 10**(-8):
+r = 10 ** 6
+while (r - l) > 10 ** (-8):
     mid = (r + l) / 2
     if check(mid):
         l = mid

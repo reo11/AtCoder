@@ -28,6 +28,7 @@ def solve1(n, k, a):
             ans.append(sum(a) + i)
     return ans
 
+
 def solve2(n, k, l):
     def make_combination(l):
         result = [0]
@@ -85,12 +86,14 @@ def solve2(n, k, l):
         ans.append(all_l[-1] + all_r[-1] + i)
     return ans[:k]
 
+
 def solve3(n, k, l):
     ans = []
     current_num = 1
     while len(ans) < k:
         # current_num以上で最小のXを探す
         ans.append()
+
 
 ans = solve1(n, k, a)
 # print(dp[-1][:20])

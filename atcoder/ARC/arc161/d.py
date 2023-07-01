@@ -1,5 +1,7 @@
 from collections import defaultdict
+
 n, d = map(int, input().split())
+
 
 def solve(n, d):
     if n <= 1:
@@ -51,9 +53,11 @@ def solve(n, d):
                         break
                 if len(ans) >= n * d:
                     break
-            return list(ans)[:n*d]
+            return list(ans)[: n * d]
         else:
             return []
+
+
 def count_number_in_ans(ans):
     c = defaultdict(int)
     for s in ans:
@@ -61,6 +65,7 @@ def count_number_in_ans(ans):
         c[num1] += 1
         c[num2] += 1
     return c
+
 
 ans = solve(n, d)
 # print(ans)
@@ -70,4 +75,4 @@ else:
     ans.sort()
     # print(count_number_in_ans(ans))
     ans = ["Yes"] + ans
-print(*ans, sep='\n')
+print(*ans, sep="\n")

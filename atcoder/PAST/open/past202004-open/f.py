@@ -1,5 +1,6 @@
-from heapq import heapify, heappop, heappush
 from collections import deque
+from heapq import heapify, heappop, heappush
+
 n = int(input())
 ab = [list(map(int, input().split())) for _ in range(n)]
 ab.sort()
@@ -9,7 +10,7 @@ que = []
 ans = []
 money = 0
 heapify(que)
-for i in range(1, n+1):
+for i in range(1, n + 1):
     while len(ab) > 0:
         if i == ab[0][0]:
             _, b = ab.popleft()

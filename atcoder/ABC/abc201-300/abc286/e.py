@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
-from heapq import heapify, heappush, heappop
+from heapq import heapify, heappop, heappush
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
@@ -16,6 +17,7 @@ uv = [list(map(int, input().split())) for _ in range(q)]
 uv = [[x - 1, y - 1] for x, y in uv]
 
 # ダイクストラで距離と価値を埋めていく
+
 
 def dijkstra(x):
     # dictで返す
@@ -39,6 +41,7 @@ def dijkstra(x):
                 continue
             heappush(hq, [dist + 1, value + a[next_num], next_num])
     return res
+
 
 ans = dict()
 for i in range(n):

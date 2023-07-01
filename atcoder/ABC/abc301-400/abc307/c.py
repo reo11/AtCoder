@@ -1,17 +1,18 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 h_a, w_a = map(int, input().split())
 a = []
-for _ in [0]*h_a:
+for _ in [0] * h_a:
     a.append(list(input()))
 h_b, w_b = map(int, input().split())
 b = []
-for _ in [0]*h_b:
+for _ in [0] * h_b:
     b.append(list(input()))
 h_x, w_x = map(int, input().split())
 x = []
-for _ in [0]*h_x:
+for _ in [0] * h_x:
     x.append(list(input()))
 x_sharp_count = 0
 

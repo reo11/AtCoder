@@ -5,5 +5,3 @@ for _ in range(t):
     ms = []
     for _ in range(n):
         ms.append(list(map(int, input().split())))
-
-    

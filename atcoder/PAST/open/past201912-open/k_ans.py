@@ -1,10 +1,11 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
 n = int(input())
 p = [int(input()) for _ in range(n)]
-buka = [[] for _ in range(n+1)]
+buka = [[] for _ in range(n + 1)]
 num_chokudai = -1
 for i, v in enumerate(p, start=1):
     if v == -1:
@@ -12,9 +13,11 @@ for i, v in enumerate(p, start=1):
         continue
     buka[v].append(i)
 
-tree_len = [-1 for _ in range(n+1)]
-tree_range = [[0, 0] for _ in range(n+1)]
+tree_len = [-1 for _ in range(n + 1)]
+tree_range = [[0, 0] for _ in range(n + 1)]
 g_i = 0
+
+
 def dfs(cur_len, num):
     global g_i
     tree_range[num][0] = g_i
@@ -28,8 +31,9 @@ def dfs(cur_len, num):
     tree_len[num] = tmp_len - 1
     return tmp_len
 
+
 dfs(1, num_chokudai)
-for num in range(1, n+1):
+for num in range(1, n + 1):
     tree_range[num][1] = tree_range[num][0] + tree_len[num]
 
 q = int(input())

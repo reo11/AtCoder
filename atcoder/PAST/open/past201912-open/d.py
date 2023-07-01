@@ -1,9 +1,10 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 d = dict()
 n = int(input())
-for i in range(1, n+1):
+for i in range(1, n + 1):
     d[i] = 0
 
 for i in range(n):

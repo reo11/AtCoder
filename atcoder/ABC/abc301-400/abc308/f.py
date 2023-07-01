@@ -1,6 +1,7 @@
+import heapq
 import sys
 from collections import deque
-import heapq
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, m = map(int, input().split())
@@ -43,5 +44,5 @@ while len(p) > 0:
                 l_i = tmp_l_i
                 break
     # print(ans, p_i, d_i, l_i, p_i - d_i)
-    ans += (p_i - d_i)
+    ans += p_i - d_i
 print(ans)

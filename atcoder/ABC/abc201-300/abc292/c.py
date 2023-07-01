@@ -18,4 +18,3 @@ for k_i in d.keys():
     else:
         ans += d[k_i] * d[k_j]
 print(ans)
-

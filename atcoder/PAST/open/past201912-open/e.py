@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, q = map(int, input().split())
 
 d = defaultdict(lambda: defaultdict(lambda: False))
@@ -11,7 +12,7 @@ for i in range(q):
         d[a][b] = True
     elif s[0] == 2:
         a = s[1]
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             if i == a:
                 continue
             if a in d[i].keys():
@@ -26,14 +27,13 @@ for i in range(q):
                 d[a][ff] = True
 
 ans = []
-for i in range(1, n+1):
+for i in range(1, n + 1):
     row = []
-    for j in range(1, n+1):
+    for j in range(1, n + 1):
         if i == j:
-            fij = 'N'
+            fij = "N"
         else:
-            fij = 'Y' if d[i][j] else 'N'
+            fij = "Y" if d[i][j] else "N"
         row.append(fij)
     ans.append("".join(row))
 print("\n".join(ans))
-

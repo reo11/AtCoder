@@ -34,6 +34,7 @@
 | data_structure | weighted_union_find   | ❓        |
 | dp             | LCS                   | ❓        |
 | dp             | levenshtein_dist      | ❓        |
+| dp             | count_substring       | ❓        |
 | graph          | bfs                   | ❓        |
 | graph          | dfs                   | ❓        |
 | graph          | dijkstra              | ❓        |

@@ -31,10 +31,14 @@ for c in alphabets:
             ans = False
             break
 
-if ans and minus["s_atcoder"] <= counter_s["@"] and minus["t_atcoder"] <= counter_t["@"]:
+if (
+    ans
+    and minus["s_atcoder"] <= counter_s["@"]
+    and minus["t_atcoder"] <= counter_t["@"]
+):
     ans = True
 else:
     ans = False
 # print(minus)
 # print(counter_s, counter_t)
-print(['No', 'Yes'][ans])
+print(["No", "Yes"][ans])

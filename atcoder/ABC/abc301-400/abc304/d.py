@@ -1,6 +1,7 @@
-import sys
 import bisect
+import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 
 w, h = map(int, input().split())

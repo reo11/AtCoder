@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 h, w = map(int, input().split())
@@ -20,8 +21,8 @@ for y, x in l:
 
 ans = [-1, -1]
 
-for i in range(bb[0], bb[1]+1):
-    for j in range(bb[2], bb[3]+1):
+for i in range(bb[0], bb[1] + 1):
+    for j in range(bb[2], bb[3] + 1):
         if s[i][j] == ".":
             ans = [i, j]
             break

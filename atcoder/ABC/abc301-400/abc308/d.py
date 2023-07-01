@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -12,7 +13,9 @@ for _ in range(h):
 snuke = ["s", "n", "u", "k", "e"]
 dxy = [[1, 0], [-1, 0], [0, 1], [0, -1]]
 visited = [[False] * w for _ in range(h)]
-def dfs(x, y, step = 0):
+
+
+def dfs(x, y, step=0):
     if snuke[(step % 5)] != s[y][x]:
         return False
     # print(x, y, step)
@@ -34,6 +37,8 @@ def dfs(x, y, step = 0):
         else:
             continue
     return False
+
+
 if dfs(0, 0):
     print("Yes")
 else:

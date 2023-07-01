@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -28,10 +29,11 @@ def dfs(past_set, last_str):
             ret |= dfs(past_set | {next_num}, next_str)
     return ret
 
+
 ans = False
 
 for i in range(n):
     ans |= dfs({i}, s[i])
     # print(i, ans)
 
-print(['No', 'Yes'][ans])
+print(["No", "Yes"][ans])

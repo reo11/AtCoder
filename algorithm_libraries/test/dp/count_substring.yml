@@ -1,0 +1,7 @@
+cases:
+  - name: sample1
+    in: |
+      sttrr
+      str
+    out: |
+      4

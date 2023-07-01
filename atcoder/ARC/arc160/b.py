@@ -1,6 +1,8 @@
 import math
+
 MOD = 998244353
 t = int(input())
+
 
 def solve_base(n):
     ans = []
@@ -11,6 +13,7 @@ def solve_base(n):
                     ans.append(f"{x}_{y}_{z}")
     ans = set(ans)
     return len(ans) % MOD
+
 
 def solve1(n):
     sqrt_n = math.floor(math.sqrt(n))
@@ -27,6 +30,7 @@ def solve1(n):
     sum1 += s * 3
     sum1 %= MOD
     return sum1
+
 
 ans = []
 ans_base = []

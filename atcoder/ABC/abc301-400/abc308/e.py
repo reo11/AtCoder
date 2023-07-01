@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import List
 
+
 def count_substring(string_list: List[str], sub_string: List[str]) -> int:
     """
     string_listに含まれる部分文字列sub_stringの個数を返す
@@ -45,5 +46,3 @@ for i in range(3):
             c = count_substring(l, [f"M{i}", f"E{j}", f"X{k}"])
             ans += count * c
 print(ans)
-
-

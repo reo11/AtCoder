@@ -118,7 +118,6 @@ class SegTree:
         return res
 
 
-
 # 座標を圧縮する
 idxs = set(a) | set(l_list) | set(r_list)
 idxs = sorted(list(idxs))

@@ -1,6 +1,7 @@
 import sys
-from typing import List
 from collections import defaultdict
+from typing import List
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, m = map(int, input().split())
@@ -13,13 +14,14 @@ for _ in range(n):
         all.append(j)
 all.sort()
 indexes = defaultdict(lambda: -1)
-for i, all_i in enumerate(all, start = 1):
+for i, all_i in enumerate(all, start=1):
     indexes[all_i] = i
 
 for i in range(n):
     for j in range(m):
         a[i][j] = indexes[a[i][j]]
     a[i] = sorted(a[i])
+
 
 class SegTree:
     def __init__(self, n: int, mode: str = "min") -> None:
@@ -115,7 +117,8 @@ class SegTree:
             res = self._op(self._op(res, self.tree_value[l]), self.tree_value[r])
         return res
 
-seg_tree = SegTree((n * m) + 1, mode = "sum")
+
+seg_tree = SegTree((n * m) + 1, mode="sum")
 seg_tree.init([1] * ((n * m) + 1))
 seg_tree.update(0, 0)
 # print(a)

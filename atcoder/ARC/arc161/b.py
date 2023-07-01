@@ -1,7 +1,9 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 t = int(input())
+
 
 def solve(n):
     ans = []
@@ -9,7 +11,7 @@ def solve(n):
         if n < 3:
             ans = -1
             break
-        bin_list = list(str(bin(n)).replace('0b', ''))
+        bin_list = list(str(bin(n)).replace("0b", ""))
         # 上位ビットはできるだけ残す
         one_count = bin_list.count("1")
         if one_count >= 3:
@@ -27,8 +29,9 @@ def solve(n):
             n -= 1
     return ans
 
+
 ans = []
 for _ in range(t):
     n = int(input())
     ans.append(solve(n))
-print(*ans, sep='\n')
+print(*ans, sep="\n")

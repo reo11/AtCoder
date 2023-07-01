@@ -1,7 +1,8 @@
 import sys
 from math import ceil
+
 input = lambda: sys.stdin.readline().rstrip()
-INF = 10**10
+INF = 10 ** 10
 
 n = int(input())
 c = list(map(int, input().split()))

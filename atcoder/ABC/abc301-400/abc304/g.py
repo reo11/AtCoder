@@ -4,6 +4,7 @@ a = list(map(int, input().split()))
 # n個の要素の過半数をmにできるかどうか
 # 二分探索
 
+
 def is_ok(m):
     return True
 

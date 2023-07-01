@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 n, m = map(int, input().split())
@@ -10,6 +11,7 @@ k = int(input())
 a = list(map(int, input().split()))
 d = int(input())
 x = list(map(int, input().split()))
+
 
 def solve1():
     # 愚直解(TLE)

@@ -1,10 +1,11 @@
-from collections import defaultdict, deque
 import sys
+from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
 p = [int(input()) for _ in range(n)]
-buka = [[] for _ in range(n+1)]
+buka = [[] for _ in range(n + 1)]
 num_chokudai = -1
 for i, v in enumerate(p, start=1):
     if v == -1:
@@ -69,7 +70,7 @@ while q:
         if ins[v2] == 0:
             q.append(v2)
 
-print(', '.join(res))
+print(", ".join(res))
 
 outs = []
 for i in range(q):

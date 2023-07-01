@@ -1,5 +1,6 @@
 n, d = map(int, input().split())
 
+
 def solve(n, d):
     if n <= 1:
         # 1頂点しかない場合は不可能
@@ -34,6 +35,7 @@ def solve(n, d):
         else:
             return []
 
+
 ans = solve(n, d)
 # print(ans)
 if len(ans) == 0:
@@ -41,4 +43,4 @@ if len(ans) == 0:
 else:
     ans.sort()
     ans = ["Yes"] + ans
-print(*ans, sep='\n')
+print(*ans, sep="\n")

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, m = map(int, input().split())
 c = list(input().split())
 d = list(input().split())

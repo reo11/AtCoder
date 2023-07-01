@@ -2,8 +2,8 @@ n = int(input())
 a = list(map(int, input().split()))
 a.sort(reverse=True)
 ans = [-1 for _ in range(n)]
-big_a = a[:n // 2]
-small_a = a[n // 2:]
+big_a = a[: n // 2]
+small_a = a[n // 2 :]
 
 for i in range(n):
     if i % 2 == 0:
@@ -21,4 +21,4 @@ for i in range(1, n - 1):
             flag = False
             break
 # print(ans)
-print(['No', 'Yes'][flag])
+print(["No", "Yes"][flag])

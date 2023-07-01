@@ -16,4 +16,4 @@ for i in range(n):
         continue
     flag = False
     break
-print(['No', 'Yes'][flag])
+print(["No", "Yes"][flag])

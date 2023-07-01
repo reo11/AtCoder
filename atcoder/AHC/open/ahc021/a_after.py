@@ -1,19 +1,20 @@
-from typing import List, Tuple
-import time
-import random
 import math
+import random
+import time
 from collections import defaultdict, deque
+from typing import List, Tuple
 
 TIMELIMIT = 1.8
 HEIGHT = 30
 start_time = time.time()
+
 
 class Model:
     def __init__(self, init_pos) -> None:
         self.init_pos = init_pos
         self.init_places = {
             "place": defaultdict(lambda: [-1, -1]),  # 番号→座標
-            "number": defaultdict(lambda: -1) # 座標→番号
+            "number": defaultdict(lambda: -1),  # 座標→番号
         }
         for i in range(HEIGHT):
             for j in range(i + 1):

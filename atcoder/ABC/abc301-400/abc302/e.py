@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, q = map(int, input().split())
 q = [list(map(int, input().split())) for _ in range(q)]
 edges = defaultdict(lambda: set())

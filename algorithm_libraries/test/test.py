@@ -1,15 +1,16 @@
 import argparse
-import os
-import yaml
-import subprocess
-import markdown
-import pandas as pd
 import glob
+import os
+import subprocess
 from typing import List
 
-parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('--lang', type=str, default="python")
-parser.add_argument('--filepath', type=str, default="misc/sample")
+import markdown
+import pandas as pd
+import yaml
+
+parser = argparse.ArgumentParser(description="Process some integers.")
+parser.add_argument("--lang", type=str, default="python")
+parser.add_argument("--filepath", type=str, default="misc/sample")
 
 args = parser.parse_args()
 extension = {"python": "py", "rust": "rs", "cpp": "cpp"}[args.lang]
@@ -19,15 +20,18 @@ markdown_template = f"""
 
 """
 
+
 def get_test_yml(filepath: str) -> List[str]:
     path = f"{os.getcwd()}/algorithm_libraries/test/{filepath}.yml"
     assert os.path.exists(path), f"file not found: {path}"
     return path
 
+
 def get_excution_file(language: str, filepath: str) -> List[str]:
     path = f"{os.getcwd()}/algorithm_libraries/{language}/{filepath}.{extension}"
     assert os.path.exists(path), f"file not found: {path}"
     return path
+
 
 def get_command(language: str, filepath: str) -> List[str]:
     target_languages = ["python"]
@@ -35,6 +39,7 @@ def get_command(language: str, filepath: str) -> List[str]:
 
     if language == "python":
         return ["python3", get_excution_file(language, filepath)]
+
 
 def find_status_file(language: str) -> None:
     status_file_path = f"{os.getcwd()}/algorithm_libraries/{language}/status.yml"
@@ -52,7 +57,7 @@ def find_status_file(language: str) -> None:
         category = [x for x in obj["categories"] if x["name"] == category_name][0]
         if feature_name not in [x["name"] for x in category["features"]]:
             category["features"].append({"name": feature_name, "status": "unknown"})
-    with open(status_file_path, 'w') as file:
+    with open(status_file_path, "w") as file:
         yaml.dump(obj, file)
 
 
@@ -76,7 +81,7 @@ def write_readme(language: str):
         df = pd.DataFrame(data, columns=["category", "feature", "status"])
         text = markdown_template + df.to_markdown(index=False)
 
-    with open(md_file_path, 'w') as file:
+    with open(md_file_path, "w") as file:
         file.write(text)
 
 
@@ -101,7 +106,7 @@ def update_status_file(language: str, filepath: str, status: str):
             c.append(feature)
         caterogies.append({"name": category["name"], "features": c})
     obj["categories"] = caterogies
-    with open(status_file_path, 'w') as file:
+    with open(status_file_path, "w") as file:
         yaml.dump(obj, file)
 
 
@@ -113,10 +118,14 @@ if __name__ == "__main__":
         for x in obj["cases"]:
             input_text = x["in"].rstrip().encode()
             ans_text = x["out"].rstrip().encode()
-            output_text = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE).communicate(input_text)[0]
+            output_text = subprocess.Popen(
+                cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE
+            ).communicate(input_text)[0]
             output_text = output_text.rstrip()
             try:
-                assert ans_text == output_text, f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
+                assert (
+                    ans_text == output_text
+                ), f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
                 update_status_file(args.lang, args.filepath, "ok")
             except:
                 update_status_file(args.lang, args.filepath, "ng")

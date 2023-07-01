@@ -1,9 +1,10 @@
 from typing import List
 
+
 def count_substring(string_list: List[str], sub_string: List[str]) -> int:
     """
     string_listに含まれる部分文字列sub_stringの個数を返す
-    例: ["s", "t", "t", "r", "r"], ["s", "t", "r"] -> 2
+    例: ["s", "t", "t", "r", "r"], ["s", "t", "r"] -> 4
     計算量: O(len(string_list) * len(sub_string))
     Args:
         string_list (List[str]): 検索対象の文字列
@@ -22,3 +23,9 @@ def count_substring(string_list: List[str], sub_string: List[str]) -> int:
             else:
                 dp[i][j] = dp[i - 1][j]
     return dp[len(string_list)][len(sub_string)]
+
+
+if __name__ == "__main__":
+    string_list = list(input())
+    sub_string = list(input())
+    print(count_substring(string_list, sub_string))

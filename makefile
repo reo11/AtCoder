@@ -35,7 +35,7 @@ build-test:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(TEST_IMAGE) -f dockerfiles/Dockerfile.test .
 
 run-test: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pytest test/*
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pytest algorithm_libraries/test/*
 
 lint: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run lint

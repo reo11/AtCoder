@@ -1,8 +1,8 @@
-from typing import List
-import time
-import random
 import math
+import random
+import time
 from collections import defaultdict, deque
+from typing import List
 
 TIMELIMIT = 1.8
 HEIGHT = 30
@@ -12,12 +12,13 @@ start_time = time.time()
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
+
 class Model:
     def __init__(self, init_pos) -> None:
         self.init_pos = init_pos
         self.init_places = {
             "place": defaultdict(lambda: [-1, -1]),  # 番号→座標
-            "number": defaultdict(lambda: -1) # 座標→番号
+            "number": defaultdict(lambda: -1),  # 座標→番号
         }
         for i in range(HEIGHT):
             for j in range(i + 1):
@@ -99,46 +100,80 @@ class Model:
                         # 横に移動
                         # print("横移動")
                         if current_y > j:
-                            process.append([current_x, current_y, current_x, current_y - 1])
+                            process.append(
+                                [current_x, current_y, current_x, current_y - 1]
+                            )
                         elif current_y < j:
-                            process.append([current_x, current_y, current_x, current_y + 1])
+                            process.append(
+                                [current_x, current_y, current_x, current_y + 1]
+                            )
                         else:
                             break
                     elif current_x > i:
                         # print("上移動")
                         # 上に移動
                         upper_x = current_x - 1
-                        upper_ys = list(filter(lambda x: x >= 0 and x <= upper_x, [current_y - 1, current_y]))
+                        upper_ys = list(
+                            filter(
+                                lambda x: x >= 0 and x <= upper_x,
+                                [current_y - 1, current_y],
+                            )
+                        )
                         # print("upper_ys", upper_ys)
                         if len(upper_ys) == 0:
                             break
                         elif len(upper_ys) == 1:
-                            process.append([current_x, current_y, current_x - 1, upper_ys[0]])
+                            process.append(
+                                [current_x, current_y, current_x - 1, upper_ys[0]]
+                            )
                         else:
                             # 大きい方を下に下げる
-                            upper_y1_num = self.places["number"][self.place_str(upper_x, upper_ys[0])]
-                            upper_y2_num = self.places["number"][self.place_str(upper_x, upper_ys[1])]
+                            upper_y1_num = self.places["number"][
+                                self.place_str(upper_x, upper_ys[0])
+                            ]
+                            upper_y2_num = self.places["number"][
+                                self.place_str(upper_x, upper_ys[1])
+                            ]
                             if upper_y1_num > upper_y2_num:
-                                process.append([current_x, current_y, current_x - 1, upper_ys[0]])
+                                process.append(
+                                    [current_x, current_y, current_x - 1, upper_ys[0]]
+                                )
                             else:
-                                process.append([current_x, current_y, current_x - 1, upper_ys[1]])
+                                process.append(
+                                    [current_x, current_y, current_x - 1, upper_ys[1]]
+                                )
                     elif current_x < i:
                         # 下移動
                         lower_x = current_x + 1
-                        lower_ys = list(filter(lambda x: x >= 0 and x <= lower_x, [current_y + 1, current_y]))
+                        lower_ys = list(
+                            filter(
+                                lambda x: x >= 0 and x <= lower_x,
+                                [current_y + 1, current_y],
+                            )
+                        )
                         # print("lower_ys", lower_ys)
                         if len(lower_ys) == 0:
                             break
                         elif len(lower_ys) == 1:
-                            process.append([current_x, current_y, current_x - 1, lower_ys[0]])
+                            process.append(
+                                [current_x, current_y, current_x - 1, lower_ys[0]]
+                            )
                         else:
                             # 小さい方を上に上げる
-                            lower_y1_num = self.places["number"][self.place_str(lower_x, lower_ys[0])]
-                            lower_y2_num = self.places["number"][self.place_str(lower_x, lower_ys[1])]
+                            lower_y1_num = self.places["number"][
+                                self.place_str(lower_x, lower_ys[0])
+                            ]
+                            lower_y2_num = self.places["number"][
+                                self.place_str(lower_x, lower_ys[1])
+                            ]
                             if lower_y1_num < lower_y2_num:
-                                process.append([current_x, current_y, current_x + 1, lower_ys[0]])
+                                process.append(
+                                    [current_x, current_y, current_x + 1, lower_ys[0]]
+                                )
                             else:
-                                process.append([current_x, current_y, current_x + 1, lower_ys[1]])
+                                process.append(
+                                    [current_x, current_y, current_x + 1, lower_ys[1]]
+                                )
                     # valid check
                     assert self.is_valid(process[-1])
                     self.update_places(process[-1])
@@ -150,12 +185,14 @@ class Model:
         x0, y0, xd0, yd0 = process
         if y0 > x0 or yd0 > xd0:
             return False
-        if (x0 == xd0 - 1 and y0 == yd0 - 1) or \
-            (x0 == xd0 - 1 and y0 == yd0) or \
-            (x0 == xd0 and y0 == yd0 - 1) or \
-            (x0 == xd0 and y0 == yd0 + 1) or \
-            (x0 == xd0 + 1 and y0 == yd0) or \
-            (x0 == xd0 + 1 and y0 == yd0 + 1):
+        if (
+            (x0 == xd0 - 1 and y0 == yd0 - 1)
+            or (x0 == xd0 - 1 and y0 == yd0)
+            or (x0 == xd0 and y0 == yd0 - 1)
+            or (x0 == xd0 and y0 == yd0 + 1)
+            or (x0 == xd0 + 1 and y0 == yd0)
+            or (x0 == xd0 + 1 and y0 == yd0 + 1)
+        ):
             return True
         else:
             return False
@@ -181,8 +218,16 @@ class Model:
             while True:
                 if current_x == HEIGHT - 1:
                     break
-                lower_1 = [self.places["number"][self.place_str(current_x + 1, current_y)], current_x + 1, current_y]
-                lower_2 = [self.places["number"][self.place_str(current_x + 1, current_y + 1)], current_x + 1, current_y + 1]
+                lower_1 = [
+                    self.places["number"][self.place_str(current_x + 1, current_y)],
+                    current_x + 1,
+                    current_y,
+                ]
+                lower_2 = [
+                    self.places["number"][self.place_str(current_x + 1, current_y + 1)],
+                    current_x + 1,
+                    current_y + 1,
+                ]
                 if lower_1[0] > target_num and lower_2[0] > target_num:
                     break
                 elif lower_1[0] < target_num and lower_2[0] < target_num:
@@ -226,12 +271,21 @@ class Model:
                     target_num = target_nums[0]
 
             current_x, current_y = self.places["place"][target_num]
+
             def go_down(target_num, current_x, current_y):
                 if current_x == HEIGHT - 1:
                     completed[target_num] = True
                     return None
-                lower_1 = [self.places["number"][self.place_str(current_x + 1, current_y)], current_x + 1, current_y]
-                lower_2 = [self.places["number"][self.place_str(current_x + 1, current_y + 1)], current_x + 1, current_y + 1]
+                lower_1 = [
+                    self.places["number"][self.place_str(current_x + 1, current_y)],
+                    current_x + 1,
+                    current_y,
+                ]
+                lower_2 = [
+                    self.places["number"][self.place_str(current_x + 1, current_y + 1)],
+                    current_x + 1,
+                    current_y + 1,
+                ]
                 if lower_1[0] > target_num and lower_2[0] > target_num:
                     completed[target_num] = True
                     return None
@@ -245,12 +299,23 @@ class Model:
                     return [current_x, current_y, lower_1[1], lower_1[2]]
                 else:
                     return [current_x, current_y, lower_2[1], lower_2[2]]
+
             def go_up(target_num, current_x, current_y):
                 if current_x == 0:
                     return None
-                upper_1 = [self.places["number"][self.place_str(current_x - 1, current_y)], current_x - 1, current_y]
+                upper_1 = [
+                    self.places["number"][self.place_str(current_x - 1, current_y)],
+                    current_x - 1,
+                    current_y,
+                ]
                 if current_y > 0:
-                    upper_2 = [self.places["number"][self.place_str(current_x - 1, current_y - 1)], current_x - 1, current_y - 1]
+                    upper_2 = [
+                        self.places["number"][
+                            self.place_str(current_x - 1, current_y - 1)
+                        ],
+                        current_x - 1,
+                        current_y - 1,
+                    ]
                     if upper_1[0] > target_num and upper_2[0] > target_num:
                         if upper_1[0] > upper_2[0]:
                             return [current_x, current_y, upper_1[1], upper_1[2]]
@@ -267,6 +332,7 @@ class Model:
                         return [current_x, current_y, upper_1[1], upper_1[2]]
                     else:
                         return None
+
             if not_random:
                 process_i = go_down(target_num, current_x, current_y)
             else:

@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 s = list(input())
@@ -21,5 +22,5 @@ words.sort()
 ans = []
 for word in words:
     m = len(word)
-    ans.append(word[0].upper() + word[1:m-1] + word[m-1].upper())
+    ans.append(word[0].upper() + word[1 : m - 1] + word[m - 1].upper())
 print("".join(ans))

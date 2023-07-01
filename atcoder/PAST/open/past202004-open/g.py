@@ -1,5 +1,6 @@
 import sys
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 
 q = int(input())
@@ -7,7 +8,7 @@ que = deque([])
 ans = []
 for i in range(q):
     query = input().split()
-    if query[0] == '1':
+    if query[0] == "1":
         c = query[1]
         x = int(query[2])
         que.append((c, x))
@@ -26,7 +27,6 @@ for i in range(q):
                 d -= x
         ans_i = 0
         for _, v in deleted.items():
-            ans_i += v**2
+            ans_i += v ** 2
         ans.append(ans_i)
 print("\n".join(list(map(str, ans))))
-

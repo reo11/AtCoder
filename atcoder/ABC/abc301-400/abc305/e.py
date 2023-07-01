@@ -1,6 +1,7 @@
-from sys import stdin
-from collections import defaultdict
 import heapq
+from collections import defaultdict
+from sys import stdin
+
 input = stdin.readline
 
 n, m, k = map(int, input().split())

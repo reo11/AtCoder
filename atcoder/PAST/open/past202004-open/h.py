@@ -1,7 +1,8 @@
 # ダイクストラ
 import sys
 from collections import defaultdict
-from heapq import heappush, heappop, heapify
+from heapq import heapify, heappop, heappush
+
 input = lambda: sys.stdin.readline().rstrip()
 INF = float("inf")
 
@@ -15,12 +16,13 @@ for i in range(n):
         memo[c].append((j, i))
 
 # パスの作成
-route = ['S'] + list(map(str, range(1, 10))) + ['G']
+route = ["S"] + list(map(str, range(1, 10))) + ["G"]
 # 全ての数字が無いといけない
 for r in route:
     if len(memo[r]) == 0:
         print(-1)
         exit()
+
 
 def dijkstra(s, n):
     d = defaultdict(lambda: INF)
@@ -41,5 +43,6 @@ def dijkstra(s, n):
                 heappush(que, (alt, (v_x, v_y), v))
     return d
 
+
 start = memo["S"][0]
-d = dijkstra((start[0], start[1]), n*m)
+d = dijkstra((start[0], start[1]), n * m)

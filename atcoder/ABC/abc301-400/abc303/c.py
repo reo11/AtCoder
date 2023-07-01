@@ -12,11 +12,11 @@ for s_i in s:
     if hp <= 0:
         ans = False
         break
-    if s_i == 'R':
+    if s_i == "R":
         current_pos[0] += 1
-    elif s_i == 'L':
+    elif s_i == "L":
         current_pos[0] -= 1
-    elif s_i == 'U':
+    elif s_i == "U":
         current_pos[1] += 1
     else:
         current_pos[1] -= 1
@@ -27,4 +27,4 @@ for s_i in s:
             hp = k
             xy.discard(f"{current_pos[0]}_{current_pos[1]}")
 
-print(['No', 'Yes'][ans])
+print(["No", "Yes"][ans])

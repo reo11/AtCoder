@@ -1,4 +1,5 @@
 from collections import deque
+
 n, d = map(int, input().split())
 xy = []
 for _ in range(n):
@@ -9,8 +10,10 @@ is_x = [False for _ in range(n)]
 is_x[0] = True
 q = deque([0])
 
+
 def dist(x1, y1, x2, y2):
-    return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** (1/2)
+    return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** (1 / 2)
+
 
 while len(q) > 0:
     now = q.popleft()

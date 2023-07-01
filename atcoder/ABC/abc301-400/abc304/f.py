@@ -1,7 +1,9 @@
 from collections import defaultdict
+
 MOD = 998244353
 n = int(input())
 s = input()
+
 
 def make_divisors(n):
     divisors = []
@@ -15,6 +17,7 @@ def make_divisors(n):
                     continue
                 divisors.append(n // i)
     return divisors
+
 
 # 約数列挙
 divs = make_divisors(n)

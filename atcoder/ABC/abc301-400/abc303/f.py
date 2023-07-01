@@ -12,6 +12,7 @@ td_list.reverse()
 # 2分探索する
 # iターンまでの間に倒す方法があるか
 
+
 def solve(turn):
     # 最初の方の最適はjターン目までに出せるダメージの最大
     current_turn = turn
@@ -27,7 +28,8 @@ def solve(turn):
     print("no", turn, damage_sum)
     return False
 
-r = h # hターン掛ければ絶対倒せる
+
+r = h  # hターン掛ければ絶対倒せる
 l = 0
 m = (r + l) // 2
 # めぐる式二分探索
