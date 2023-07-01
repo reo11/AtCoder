@@ -17,7 +17,6 @@ extension = {"python": "py", "rust": "rs", "cpp": "cpp"}[args.lang]
 
 markdown_template = f"""
 # Libraries for {args.lang}
-
 """
 
 
@@ -112,22 +111,31 @@ def update_status_file(language: str, filepath: str, status: str):
 
 if __name__ == "__main__":
     find_status_file(args.lang)
-    with open(get_test_yml(args.filepath)) as file:
-        obj = yaml.safe_load(file)
-        cmd = get_command(args.lang, args.filepath)
-        for x in obj["cases"]:
-            input_text = x["in"].rstrip().encode()
-            ans_text = x["out"].rstrip().encode()
-            output_text = subprocess.Popen(
-                cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE
-            ).communicate(input_text)[0]
-            output_text = output_text.rstrip()
-            try:
-                assert (
-                    ans_text == output_text
-                ), f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
-                update_status_file(args.lang, args.filepath, "ok")
-            except:
-                update_status_file(args.lang, args.filepath, "ng")
-                raise
+    for file in glob.glob(
+        f"{os.getcwd()}/algorithm_libraries/{args.lang}/**/*.{extension}"
+    ):
+        category_name = file.split("/")[-2]
+        feature_name = file.split("/")[-1].split(".")[0]
+        filepath = f"{category_name}/{feature_name}"
+        try:
+            with open(get_test_yml(filepath)) as file:
+                obj = yaml.safe_load(file)
+                cmd = get_command(args.lang, filepath)
+                for x in obj["cases"]:
+                    input_text = x["in"].rstrip().encode()
+                    ans_text = x["out"].rstrip().encode()
+                    output_text = subprocess.Popen(
+                        cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE
+                    ).communicate(input_text)[0]
+                    output_text = output_text.rstrip()
+                    try:
+                        assert (
+                            ans_text == output_text
+                        ), f"input: {input_text}\n ans: {ans_text}\n output: {output_text}"
+                        update_status_file(args.lang, filepath, "ok")
+                    except:
+                        update_status_file(args.lang, filepath, "ng")
+                        raise
+        except:
+            print(f"skip {filepath}")
     write_readme(args.lang)

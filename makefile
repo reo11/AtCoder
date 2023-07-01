@@ -7,6 +7,7 @@ default: run-atcoder
 run: run-atcoder
 build: build-atcoder
 stop: stop-atcoder
+test: run-test
 
 build-atcoder:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
@@ -35,7 +36,7 @@ build-test:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(TEST_IMAGE) -f dockerfiles/Dockerfile.test .
 
 run-test: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pytest algorithm_libraries/test/*
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) python algorithm_libraries/test/test.py
 
 lint: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run lint

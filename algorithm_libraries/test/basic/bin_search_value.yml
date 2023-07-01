@@ -1,0 +1,6 @@
+cases:
+  - name: sample1
+    in: |
+      0 100
+    out: |
+      10 11

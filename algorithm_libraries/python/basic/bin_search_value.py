@@ -1,24 +1,32 @@
-def sample_f(m: int) -> bool:
-    return m < 10
+from typing import Callable, Generator, Tuple
 
 
-# めぐる式二分探索
-# https://qiita.com/drken/items/97e37dd6143e33a64c8c
-"""
-- leftは常にTrue
-- rightは常にFalse
-- right - left = 1になるまで狭める
-"""
-
-
-def bin_search_value(range_min: int, range_max: int) -> int:
-    # f(x)が真になるものの最小と最大
+def bin_search_value(
+    range_min: int, range_max: int, f: Callable[[int], bool]
+) -> Generator[Tuple[int, int], None, None]:
+    """
+    f(x)が真になる最大のxと偽になる最小のxを求める
+    Args:
+        range_min (int): 最小値
+        range_max (int): 最大値
+    Returns:
+        int: _description_
+    """
     left = range_min - 1
     right = range_max + 1
     while right - left > 1:
         mid = left + (right - left) // 2
-        if sample_f(mid):
+        if f(mid):
             right = mid
         else:
             left = mid
     return left, right
+
+
+if __name__ == "__main__":
+    def f(x: int) -> bool:
+        return x > 10
+
+    a, b = map(int, input().split())
+    l, r = bin_search_value(a, b, f)
+    print(f"{l} {r}")

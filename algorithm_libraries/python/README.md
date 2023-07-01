@@ -1,13 +1,12 @@
 
 # Libraries for python
-
 | category       | feature               | status   |
 |:---------------|:----------------------|:---------|
 | misc           | sample                | ✅        |
 | math           | sort                  | ✅        |
 | math           | catalan_number        | ✅        |
 | math           | combination           | ❓        |
-| math           | counting_primes       | ❓        |
+| math           | counting_primes       | ✅        |
 | math           | euler_phi             | ❓        |
 | math           | ext_gcd               | ❓        |
 | math           | fact_comb_perm        | ❓        |
@@ -15,11 +14,11 @@
 | math           | gcd_lcm               | ❓        |
 | math           | lcm_list_mod          | ❓        |
 | math           | mod_int               | ❓        |
-| math           | prime_factorize       | ❓        |
-| math           | rep_pow               | ❓        |
-| math           | sieve_of_eratosthenes | ❓        |
+| math           | prime_factorize       | ✅        |
+| math           | rep_pow               | ✅        |
+| math           | sieve_of_eratosthenes | ✅        |
 | basic          | bin_search_list       | ❓        |
-| basic          | bin_search_value      | ❓        |
+| basic          | bin_search_value      | ✅        |
 | basic          | bit_full_search       | ❓        |
 | basic          | cnt_multiple          | ❓        |
 | basic          | cum_sum               | ❓        |
@@ -34,7 +33,7 @@
 | data_structure | weighted_union_find   | ❓        |
 | dp             | LCS                   | ❓        |
 | dp             | levenshtein_dist      | ❓        |
-| dp             | count_substring       | ❓        |
+| dp             | count_substring       | ✅        |
 | graph          | bfs                   | ❓        |
 | graph          | dfs                   | ❓        |
 | graph          | dijkstra              | ❓        |

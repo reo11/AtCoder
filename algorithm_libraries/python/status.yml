@@ -11,7 +11,7 @@ categories:
   - name: combination
     status: unknown
   - name: counting_primes
-    status: unknown
+    status: ok
   - name: euler_phi
     status: unknown
   - name: ext_gcd
@@ -27,17 +27,15 @@ categories:
   - name: mod_int
     status: unknown
   - name: prime_factorize
-    status: unknown
+    status: ok
   - name: rep_pow
-    status: unknown
+    status: ok
   - name: sieve_of_eratosthenes
-    status: unknown
+    status: ok
   name: math
 - features:
-  - name: bin_search_list
-    status: unknown
   - name: bin_search_value
-    status: unknown
+    status: ok
   - name: bit_full_search
     status: unknown
   - name: cnt_multiple
@@ -73,7 +71,7 @@ categories:
   - name: levenshtein_dist
     status: unknown
   - name: count_substring
-    status: unknown
+    status: ok
   name: dp
 - features:
   - name: bfs
