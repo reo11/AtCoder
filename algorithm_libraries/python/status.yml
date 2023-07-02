@@ -46,6 +46,8 @@ categories:
     status: unknown
   - name: two_dim_sum
     status: unknown
+  - name: sample_generator
+    status: unknown
   name: basic
 - features:
   - name: convolution
@@ -64,6 +66,8 @@ categories:
     status: unknown
   - name: weighted_union_find
     status: unknown
+  - name: multiset
+    status: ok
   name: data_structure
 - features:
   - name: LCS

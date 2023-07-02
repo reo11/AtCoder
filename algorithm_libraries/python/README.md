@@ -17,13 +17,13 @@
 | math           | prime_factorize       | ✅        |
 | math           | rep_pow               | ✅        |
 | math           | sieve_of_eratosthenes | ✅        |
-| basic          | bin_search_list       | ❓        |
 | basic          | bin_search_value      | ✅        |
 | basic          | bit_full_search       | ❓        |
 | basic          | cnt_multiple          | ❓        |
 | basic          | cum_sum               | ❓        |
 | basic          | lis                   | ❓        |
 | basic          | two_dim_sum           | ❓        |
+| basic          | sample_generator      | ❓        |
 | convolution    | convolution           | ❓        |
 | data_structure | RMQ                   | ❓        |
 | data_structure | RSQ                   | ❓        |
@@ -31,6 +31,7 @@
 | data_structure | segtree_kai           | ❓        |
 | data_structure | union_find            | ❓        |
 | data_structure | weighted_union_find   | ❓        |
+| data_structure | multiset              | ✅        |
 | dp             | LCS                   | ❓        |
 | dp             | levenshtein_dist      | ❓        |
 | dp             | count_substring       | ✅        |
