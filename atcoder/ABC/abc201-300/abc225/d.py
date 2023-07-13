@@ -26,12 +26,11 @@ for q_i in queries:
     else:
         # 列挙
         x = q_i[1]
-
-        # 自分が先頭の場合
         out = []
+        # 先頭まで移動
         while trains[x][0] != -1:
             x = trains[x][0]
-        # dowhile suru
+        # 末尾まで記録しながら移動
         while True:
             out.append(x)
             x = trains[x][1]
