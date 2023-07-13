@@ -1,12 +1,5 @@
 from typing import List
-
-
-def gcd(a: int, b: int) -> int:
-    # 最大公約数
-    # (12, 18) -> 6
-    while b:
-        a, b = b, a % b
-    return a
+from math import gcd
 
 
 class SegTree:

@@ -125,19 +125,19 @@
 		],
 		"description": "S_1 V_1, S_2 V_2, ... S_N V_N"
 	},
-	"e_str": {
+	"matrix_str": {
 		"scope": "python",
 		"prefix": "input",
 		"body": [
-			"[[i for i in list(str(input()))] for i in range(h)]"
+			"[[i for i in list(str(input()))] for _ in range(h)]"
 		],
 		"description": "e .#.#.#"
 	},
-	"e_int": {
+	"matrix_int": {
 		"scope": "python",
 		"prefix": "input",
 		"body": [
-			"[list(map(int, input().split())) for i in range(h)]"
+			"[list(map(int, input().split())) for _ in range(h)]"
 		],
 		"description": "e .#.#.#"
 	},
@@ -146,6 +146,8 @@
 		"prefix": "template, sys",
 		"body": [
 			"import sys",
+			"import pypyjit",
+			"pypyjit.set_param('max_unroll_recursion=-1')",
 			"input = lambda: sys.stdin.readline().rstrip()",
 			"sys.setrecursionlimit(20000000)"
 		],
