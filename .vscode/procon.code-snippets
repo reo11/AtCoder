@@ -455,6 +455,19 @@
 		],
 		"description": "累積和"
 	},
+	"permutations": {
+		"scope": "python",
+		"prefix": "permutations",
+		"body": [
+			"# 順列列挙",
+			"from itertools import permutations",
+			"",
+			"l = [1, 2, 3]",
+			"for v in permutations(l):",
+			"\tpass"
+		],
+		"description": "順列列挙"
+	},
 
 
 	// cpp
