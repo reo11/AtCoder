@@ -1,5 +1,5 @@
-from typing import List
 from math import gcd
+from typing import List
 
 
 class SegTree:

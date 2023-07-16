@@ -1,7 +1,7 @@
 N = int(input())
 dims = [0] * N
-for _ in range(N-1):
-    a, b = map(int,input().split())
+for _ in range(N - 1):
+    a, b = map(int, input().split())
     dims[a - 1] += 1
     dims[b - 1] += 1
 

@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 n, q = map(int, input().split())
@@ -39,4 +40,4 @@ for q_i in queries:
         out = [str(x) for x in out]
         ans.append(f"{len(out)} {' '.join(out)}")
 
-print(*ans, sep='\n')
+print(*ans, sep="\n")

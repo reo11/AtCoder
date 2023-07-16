@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, w = map(int, input().split())
 stp = []
 for _ in range(n):

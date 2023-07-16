@@ -1,9 +1,10 @@
 import sys
-from typing import List
 from collections import defaultdict
+from typing import List
 
 input = lambda: sys.stdin.readline().rstrip()
 numbers = defaultdict(lambda: len(numbers))
+
 
 def count_substring(string_list: List[str], sub_string: List[str]) -> int:
     """

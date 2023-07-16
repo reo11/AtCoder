@@ -4,11 +4,13 @@ from collections import deque
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
-MAX = 10**9
+MAX = 10 ** 9
+
 
 def sep(n):
     # エジプト分数
     return [n + 1, n * (n + 1)]
+
 
 def solve():
     n = int(input())
@@ -56,8 +58,9 @@ def solve():
     else:
         return "No"
 
+
 t = int(input())
 ans = []
 for _ in range(t):
     ans.append(solve())
-print(*ans, sep='\n')
+print(*ans, sep="\n")

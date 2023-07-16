@@ -1,5 +1,6 @@
 import sys
 from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -16,8 +17,8 @@ c = list(map(int, input().split()))
 # 探索数は最大でO(2 * M) = O(M)程度
 
 dp = [[[False for _ in range(2)] for _ in range(2)] for _ in range(n + 1)]
-dp[1][c[0]][0] = True # 頂点1をc[0]で初期化
-dp[1][c[0]][1] = True # 頂点1をc[0]で初期化
+dp[1][c[0]][0] = True  # 頂点1をc[0]で初期化
+dp[1][c[0]][1] = True  # 頂点1をc[0]で初期化
 
 for i in range(1, n + 1):
     dp[i][c[i - 1]][0] = True

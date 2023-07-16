@@ -1,4 +1,6 @@
 t = int(input())
+
+
 def solve():
     n = int(input())
     a = list(map(int, input().split()))
@@ -8,7 +10,8 @@ def solve():
             count += 1
     return count
 
+
 ans = []
 for _ in range(t):
     ans.append(solve())
-print(*ans, sep='\n')
+print(*ans, sep="\n")

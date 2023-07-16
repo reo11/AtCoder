@@ -1,4 +1,5 @@
 from collections import deque
+
 s = list("(" + input() + ")")
 n = len(s)
 

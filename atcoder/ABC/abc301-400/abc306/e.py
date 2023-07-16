@@ -2,8 +2,9 @@ import heapq
 import sys
 from collections import defaultdict
 from typing import List
-import sys
+
 input = lambda: sys.stdin.readline().rstrip()
+
 
 class MultiSet:
     def __init__(self) -> None:
@@ -40,6 +41,7 @@ class MultiSet:
 
     def include(self, num: int) -> bool:
         return self.cnt_dict.get(num, 0) > 0
+
 
 class Solver:
     def __init__(self, A: List[int], k: int) -> None:
@@ -94,6 +96,7 @@ class Solver:
         self.erase(current_y)
         self.add(y)
         return self.X.sum
+
 
 n, k, q = map(int, input().split())
 xy = []

@@ -14,7 +14,7 @@ for t_i in t:
 
 flag = True
 for i in range(26):
-    c = chr(ord('a') + i)
+    c = chr(ord("a") + i)
     if count_s[c] != count_t[c]:
         flag = False
         break

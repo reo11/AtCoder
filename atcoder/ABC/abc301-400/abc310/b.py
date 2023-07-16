@@ -20,7 +20,9 @@ for i in range(n):
 
         over_lap = fi_set - fj_set
         plus = fj_set - fi_set
-        if (pj < pi and len(over_lap) == 0) or (pj <= pi and len(over_lap) == 0 and len(plus) > 0):
+        if (pj < pi and len(over_lap) == 0) or (
+            pj <= pi and len(over_lap) == 0 and len(plus) > 0
+        ):
             flag = True
             break
     if flag:

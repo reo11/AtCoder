@@ -1,5 +1,6 @@
 import sys
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, m = map(int, input().split())
@@ -18,7 +19,7 @@ for x, y in xy:
     hoken[x] = max(hoken[x], y + 1)
 # 自分の子孫の情報をdictで持つ
 children = defaultdict(lambda: [])
-for i, p_i in enumerate(p, start = 2):
+for i, p_i in enumerate(p, start=2):
     children[p_i].append(i)
 
 # dfs with queue

@@ -1,4 +1,3 @@
-
 def base10int(num_10, n):
     str_n = []
     while num_10:
@@ -7,6 +6,7 @@ def base10int(num_10, n):
         str_n.append(num_10 % n)
         num_10 //= n
     return str_n[::-1]
+
 
 def solve():
     n, k = map(int, input().split())
@@ -24,6 +24,7 @@ def solve():
     else:
         return False
 
+
 t = int(input())
 ans = []
 
@@ -32,4 +33,4 @@ for _ in range(t):
         ans.append("Yes")
     else:
         ans.append("No")
-print(*ans, sep='\n')
+print(*ans, sep="\n")

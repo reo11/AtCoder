@@ -12,6 +12,7 @@ def cumsum(a):
         r.append(r[-1] + v)
     return r
 
+
 ans_l = [0, 0]
 ans_r = [0, 0]
 left_a = cumsum(a)

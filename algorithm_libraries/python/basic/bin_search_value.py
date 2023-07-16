@@ -24,6 +24,7 @@ def bin_search_value(
 
 
 if __name__ == "__main__":
+
     def f(x: int) -> bool:
         return x > 10
 

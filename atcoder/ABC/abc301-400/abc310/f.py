@@ -1,6 +1,7 @@
 n = int(input())
 a = list(map(int, input().split()))
 
+
 class ModInt:
     def __init__(self, x, p=998244353):
         self.mod = p
@@ -70,6 +71,7 @@ class ModInt:
             if isinstance(other, ModInt)
             else ModInt(pow(other, self.x, self.mod))
         )
+
 
 # 確率DP
 # 1~10の数字が出る確率をそれぞれ求める

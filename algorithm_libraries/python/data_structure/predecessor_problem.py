@@ -1,5 +1,6 @@
 from typing import List
 
+
 class SegTree:
     def __init__(self, n: int, mode: str = "min") -> None:
         self.mode = mode
@@ -62,6 +63,7 @@ class SegTree:
             res = self._op(self._op(res, self.tree_value[l]), self.tree_value[r])
         return res
 
+
 class PredecessorProblem:
     def __init__(self, n: int):
         self.n = n
@@ -100,6 +102,7 @@ class PredecessorProblem:
             return -1
         else:
             return max_value
+
 
 if __name__ == "__main__":
     n, q = map(int, input().split())

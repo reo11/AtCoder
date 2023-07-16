@@ -5,12 +5,12 @@ version = "0.10.1"
 enable_black = true
 enable_flake8 = false
 enable_isort = true
-enable_mypy = true
+enable_mypy = false
 mypy_preset = "strict"
 py_version = "py38"
 
 [[tool.pysen.lint.mypy_targets]]
-  paths = ["test"]
+  paths = ["algorithm_libraries/test"]
 
 [tool.flake8]
 max-line-length = 88

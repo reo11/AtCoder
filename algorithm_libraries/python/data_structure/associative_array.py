@@ -1,6 +1,8 @@
 import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
+
 
 class AssociativeArray:
     def __init__(self):
@@ -11,6 +13,7 @@ class AssociativeArray:
 
     def update(self, pos, value):
         self.d[pos] = value
+
 
 if __name__ == "__main__":
     q = int(input())
@@ -27,4 +30,4 @@ if __name__ == "__main__":
         else:
             pos = q_i[1]
             ans.append(aa.get(pos))
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

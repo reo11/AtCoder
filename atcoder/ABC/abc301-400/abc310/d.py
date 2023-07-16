@@ -1,6 +1,7 @@
-import sys
 import copy
+import sys
 from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -40,7 +41,3 @@ while q:
         q.appendleft([ts, current_member + 1])
 
 print(ans)
-
-
-
-

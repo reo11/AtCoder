@@ -1,12 +1,13 @@
 import sys
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n1, n2, m = map(int, input().split())
 ab = []
 edges = defaultdict(lambda: [])
 
-for _ in [0]*m:
+for _ in [0] * m:
     a, b = map(int, input().split())
     ab.append((a, b))
 for a, b in ab:
@@ -54,5 +55,3 @@ for i in range(1, n1 + 1):
 for i in range(n1 + 1, n1 + n2 + 1):
     count[1] = max(count[1], dist[i])
 print(sum(count) + 1)
-
-

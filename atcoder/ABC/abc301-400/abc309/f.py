@@ -1,6 +1,8 @@
 import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
+
 
 class SegTree:
     def __init__(self, n: int) -> None:
@@ -41,6 +43,7 @@ class SegTree:
             res = self._op(self._op(res, self.tree_value[l]), self.tree_value[r])
         return res
 
+
 n = int(input())
 hwd = []
 values = set()
@@ -68,7 +71,7 @@ nums = sorted(nums)
 
 # セグ木で判定する
 # 区間最小と1点更新ができれば良い
-segtree = SegTree(n=max_value+1)
+segtree = SegTree(n=max_value + 1)
 flag = False
 for h in nums:
     # hが小さいものから見ているので、hを比較する必要はない

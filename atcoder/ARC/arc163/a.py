@@ -1,4 +1,3 @@
-
 def solve():
     n = int(input())
     s = list(input())
@@ -10,8 +9,9 @@ def solve():
             flag = True
     return "Yes" if flag else "No"
 
+
 t = int(input())
 ans = []
 for _ in range(t):
     ans.append(solve())
-print(*ans, sep='\n')
+print(*ans, sep="\n")
