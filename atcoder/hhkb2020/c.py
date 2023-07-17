@@ -1,6 +1,8 @@
 from collections import defaultdict
+
 n = int(input())
 p = list(map(int, input().split()))
+
 
 def mex(array) -> int:
     array_set = set(array)
@@ -11,6 +13,7 @@ def mex(array) -> int:
         else:
             return m
     return n
+
 
 # mex
 # 先読みする

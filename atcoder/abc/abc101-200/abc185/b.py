@@ -16,4 +16,4 @@ for a, b in ab:
 if status[1] - (t - status[0]) <= 0:
     ans = False
 
-print(['No', 'Yes'][ans])
+print(["No", "Yes"][ans])

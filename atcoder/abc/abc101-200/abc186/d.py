@@ -7,6 +7,7 @@ def base10int(num_10, n):
         num_10 //= n
     return str_n[::-1]
 
+
 n = int(input())
 
 ans = 0
