@@ -1,5 +1,6 @@
 import random
 from typing import List
+
 # https://judge.yosupo.jp/problem/unionfind
 
 
@@ -53,8 +54,8 @@ if __name__ == "__main__":
 
     sample_size = 10
 
-    n = random.randint(1, 2 * 10**5)
-    q = random.randint(1, 2 * 10**5)
+    n = random.randint(1, 2 * 10 ** 5)
+    q = random.randint(1, 2 * 10 ** 5)
     out = [f"{n} {q}"]
     ans = []
     for _ in range(q):

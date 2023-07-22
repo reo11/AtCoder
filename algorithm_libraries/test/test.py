@@ -16,6 +16,7 @@ extension = {"python": "py", "rust": "rs", "cpp": "cpp"}[args.lang]
 
 markdown_template = f"# Libraries for {args.lang}"
 
+
 def get_test_yml(filepath: str) -> List[str]:
     path = f"{os.getcwd()}/algorithm_libraries/test/{filepath}.yml"
     assert os.path.exists(path), f"file not found: {path}"
@@ -35,7 +36,15 @@ def get_command(language: str, filepath: str) -> List[str]:
     if language == "python":
         return ["python3", get_excution_file(language, filepath)]
     elif language == "cpp":
-        return ["g++", "-std=c++17", "-o", "a.out", get_excution_file(language, filepath), "&&", "./a.out"]
+        return [
+            "g++",
+            "-std=c++17",
+            "-o",
+            "a.out",
+            get_excution_file(language, filepath),
+            "&&",
+            "./a.out",
+        ]
 
 
 def find_status_file(language: str) -> None:

@@ -3,7 +3,7 @@ s = [list(input()) for _ in range(n)]
 x = [0 for _ in range(d)]
 for i in range(n):
     for j in range(d):
-        if s[i][j] == 'x':
+        if s[i][j] == "x":
             x[j] += 1
 
 ans = 0
@@ -15,4 +15,3 @@ for x_i in x:
     else:
         count = 0
 print(ans)
-    

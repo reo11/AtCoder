@@ -1,5 +1,6 @@
 import sys
 from functools import lru_cache
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -19,5 +20,5 @@ for i in range(1, h + 1):
 ans = 0
 for i in range(1, h + 1):
     for j in range(1, w + 1):
-        ans +=  dp[i][j]
+        ans += dp[i][j]
 print(ans)

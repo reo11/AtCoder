@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n = int(input())
 s = [input() for _ in range(n)]
 
@@ -17,4 +18,3 @@ for s_i in s:
             ans = s_i
             break
 print(ans)
-        

@@ -36,5 +36,5 @@ while num <= n:
                     if ans_v == u:
                         ans = ans[::-1]
                         print(len(ans))
-                        print(' '.join(map(str, ans)))
+                        print(" ".join(map(str, ans)))
                         exit()
