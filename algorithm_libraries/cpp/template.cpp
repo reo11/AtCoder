@@ -1,4 +1,3 @@
-// template
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
@@ -14,9 +13,7 @@ typedef pair<long long, long long> LP;
     v.erase(unique(ALL(v)), v.end());
 #define SIZE(x) ((ll)(x).size())
 #define REVERSE(v) reverse(ALL(v))
-// true / false
 #define BIN_SEARCH(v, a) binary_search(ALL(v), a)
-// index
 #define BIN_LEFT(v, a) (lower_bound(ALL(v), a) - v.begin())
 #define BIN_RIGHT(v, a) (upper_bound(ALL(v), a) - v.begin())
 #define BIN_INSERT(v, a) (v.insert(v.begin() + BIN_LEFT(v, a), a))

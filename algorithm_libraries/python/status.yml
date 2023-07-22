@@ -32,6 +32,8 @@ categories:
     status: ok
   - name: sieve_of_eratosthenes
     status: ok
+  - name: mex
+    status: unknown
   name: math
 - features:
   - name: bin_search_value
@@ -63,11 +65,15 @@ categories:
   - name: segtree_kai
     status: unknown
   - name: union_find
-    status: unknown
+    status: ok
   - name: weighted_union_find
     status: unknown
   - name: multiset
     status: ok
+  - name: associative_array
+    status: unknown
+  - name: predecessor_problem
+    status: unknown
   name: data_structure
 - features:
   - name: LCS
@@ -99,3 +105,9 @@ categories:
   - name: create_snippet
     status: unknown
   name: utils
+- features:
+  - name: a_plus_b
+    status: unknown
+  - name: many_a_plus_b
+    status: unknown
+  name: sample

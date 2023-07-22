@@ -49,6 +49,8 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
     apt update &&\
     apt install -y pypy pypy3
 
+RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
+
 # Rust
 ENV RUST_VERSION 1.66.1
 ENV RUST_HOME /home/${UNAME}/.cargo

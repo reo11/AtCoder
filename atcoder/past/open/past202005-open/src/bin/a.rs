@@ -2,12 +2,15 @@ use proconio::input;
 
 fn main() {
     input! {
-        n: usize,
-
+        s: String,
+        t: String,
     }
 
-    let mut ans = 0;
-
-
-    println!("{}", ans);
+    if s == t {
+        println!("same")
+    } else if s.to_lowercase() == t.to_lowercase() {
+        println!("case-insensitive")
+    } else {
+        println!("different")
+    }
 }

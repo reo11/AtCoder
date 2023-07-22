@@ -1,4 +1,6 @@
+import random
 from typing import List
+# https://judge.yosupo.jp/problem/unionfind
 
 
 class UnionFind:
@@ -44,14 +46,20 @@ class UnionFind:
 
 
 if __name__ == "__main__":
-    N, Q = map(int, input().split())
-    uf = UnionFind(N + 1)
-    for i in range(Q):
-        T, U, V = map(int, input().split())
-        if T == 0:
-            uf.unite(U, V)
-        else:
-            if uf.same(U, V):
-                print(1)
-            else:
-                print(0)
+    # 1 <= n <= 2 * 10**5
+    # 1 <= q <= 2 * 10**5
+    # t_i in {0, 1}
+    # 0 <= u_i, v_i < N
+
+    sample_size = 10
+
+    n = random.randint(1, 2 * 10**5)
+    q = random.randint(1, 2 * 10**5)
+    out = [f"{n} {q}"]
+    ans = []
+    for _ in range(q):
+        t = random.randint(0, 1)
+        u = random.randint(0, n - 1)
+        v = random.randint(0, n - 1)
+        out.append(f"{t} {u} {v}")
+    print("\n".join(out))

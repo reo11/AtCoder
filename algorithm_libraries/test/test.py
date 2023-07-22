@@ -4,7 +4,6 @@ import os
 import subprocess
 from typing import List
 
-import markdown
 import pandas as pd
 import yaml
 
@@ -15,10 +14,7 @@ parser.add_argument("--filepath", type=str, default="misc/sample")
 args = parser.parse_args()
 extension = {"python": "py", "rust": "rs", "cpp": "cpp"}[args.lang]
 
-markdown_template = f"""
-# Libraries for {args.lang}
-"""
-
+markdown_template = f"# Libraries for {args.lang}"
 
 def get_test_yml(filepath: str) -> List[str]:
     path = f"{os.getcwd()}/algorithm_libraries/test/{filepath}.yml"
@@ -38,6 +34,8 @@ def get_command(language: str, filepath: str) -> List[str]:
 
     if language == "python":
         return ["python3", get_excution_file(language, filepath)]
+    elif language == "cpp":
+        return ["g++", "-std=c++17", "-o", "a.out", get_excution_file(language, filepath), "&&", "./a.out"]
 
 
 def find_status_file(language: str) -> None:

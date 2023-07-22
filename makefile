@@ -29,14 +29,20 @@ run-atcoder:
 	docker exec -it $(ATCODER_CONTAINER_NAME) bash
 endif
 
+run-new-atcoder:
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile.new .
+
 stop-atcoder:
 	docker stop $(ATCODER_CONTAINER_NAME)
 
 build-test:
-	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(TEST_IMAGE) -f dockerfiles/Dockerfile.test .
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
 
 run-test: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) python algorithm_libraries/test/test.py
+
+run-cpp-test: build-test
+	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) python algorithm_libraries/test/test.py --lang=cpp
 
 lint: build-test
 	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run lint

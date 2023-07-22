@@ -1,14 +1,46 @@
-FROM python:3.8.2
+FROM ubuntu:18.04
 LABEL maintainer "Reo Hirao <reohirao116@gmail.com>"
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends sudo vim unzip bash git && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
+    software-properties-common build-essential \
+    curl wget apt-utils libboost-all-dev libssl-dev git peco golang \
+    dconf-tools \
+    apt-transport-https ppa-purge \
+    ca-certificates\
+    tar zip unzip zlib1g-dev bzip2 libbz2-dev \
+    openssl libssl-dev \
+    zsh vim screen tree htop \
+    net-tools lynx iftop traceroute \
+    sudo
+
+# Python 3.8.2
+RUN add-apt-repository -y ppa:deadsnakes/ppa &&\
+    apt install -y python3.8 python3.8-dev python3-pip &&\
+    python3.8 -m pip install --upgrade pip setuptools &&\
+    python3.8 -m pip install -U Cython numba numpy scipy scikit-learn networkx pandas
 
 COPY ./config/requirements.txt /tmp/
-RUN pip install --upgrade pip
-RUN pip install -r /tmp/requirements.txt
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /tmp/requirements.txt
+
+# C++
+RUN apt-get install -y software-properties-common &&\
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test &&\
+    apt install -y gcc-9 g++-9 gdc-9 gfortran-9
+
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 &&\
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 &&\
+    update-alternatives --install /usr/bin/gdc gdc /usr/bin/gdc-9 10 &&\
+    update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-9 10
+
+RUN git clone https://github.com/boostorg/boost.git &&\
+    cd boost &&\
+    git submodule update --init &&\
+    chmod 777 bootstrap.sh &&\
+    ./bootstrap.sh --with-toolset=gcc --without-libraries=mpi,graph_parallel --with-python=python3.8 &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" stage &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" --prefix=/opt/boost/gcc install
 
 ARG UID
 ARG UNAME

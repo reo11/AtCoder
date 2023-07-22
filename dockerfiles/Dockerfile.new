@@ -1,0 +1,205 @@
+FROM ubuntu:22.04
+
+ARG UID
+ARG UNAME
+RUN useradd $UNAME -u $UID -m
+
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
+    software-properties-common build-essential \
+    curl wget apt-utils libboost-all-dev libssl-dev git peco golang \
+    apt-transport-https ppa-purge \
+    ca-certificates\
+    tar zip unzip zlib1g-dev bzip2 libbz2-dev \
+    openssl libssl-dev \
+    zsh vim screen tree htop \
+    net-tools lynx iftop traceroute \
+    sudo gpg-agent
+
+RUN export GOPATH=$HOME/go &&\
+    export PATH="$GOPATH/bin:$PATH"
+
+# Python3.11.4
+RUN cd /tmp &&\
+# 依存関係のインストール。 参考:https://devguide.python.org/getting-started/setup-building/#build-dependencies
+    sudo env DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true apt install -y build-essential gdb lcov pkg-config \
+        libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
+        libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+        lzma lzma-dev tk-dev uuid-dev zlib1g-dev git &&\
+    wget https://www.python.org/ftp/python/3.11.4/Python-3.11.4.tar.xz -O Python-3.11.4.tar.xz &&\
+    tar xf Python-3.11.4.tar.xz &&\
+    cd Python-3.11.4 &&\
+    ./configure --enable-optimizations &&\
+    make &&\
+    sudo make altinstall &&\
+    cd .. &&\
+    python3.11 -m pip install \
+        numpy==1.24.1 \
+        scipy==1.10.1 \
+        networkx==3.0 \
+        sympy==1.11.1 \
+        sortedcontainers==2.4.0  \
+        more-itertools==9.0.0 \
+        shapely==2.0.0 \
+        bitarray==2.6.2 \
+        PuLP==2.7.0 \
+        mpmath==1.2.1 \
+        pandas==1.5.2 \
+        z3-solver==4.12.1.0 \
+        scikit-learn==1.2.0 \
+        ortools==9.5.2237 \
+        polars==0.15.15 \
+        gmpy2==2.1.5 \
+        numba==0.57.0 \
+        git+https://github.com/not522/ac-library-python &&\
+    python3.11 -m pip install -U setuptools==66.0.0 &&\
+    python3.11 -m pip install cppyy==2.4.1
+
+# C++
+RUN apt-get install -y software-properties-common &&\
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test &&\
+    apt install -y gcc-9 g++-9 gdc-9 gfortran-9
+
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 &&\
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 &&\
+    update-alternatives --install /usr/bin/gdc gdc /usr/bin/gdc-9 10 &&\
+    update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-9 10
+
+RUN git clone https://github.com/boostorg/boost.git &&\
+    cd boost &&\
+    git submodule update --init &&\
+    chmod 777 bootstrap.sh &&\
+    ./bootstrap.sh --with-toolset=gcc --without-libraries=mpi,graph_parallel --with-python=python3.8 &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" stage &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" --prefix=/opt/boost/gcc install
+
+# C++
+RUN sudo apt install -y g++-12 &&\
+    #GMP
+    sudo apt install -y libgmp3-dev &&\
+    cd /tmp &&\
+
+    # ac library
+    sudo mkdir /opt/ac-library &&\
+    wget https://github.com/atcoder/ac-library/releases/download/v1.5.1/ac-library.zip -O ac-library.zip &&\
+    sudo unzip /tmp/ac-library.zip -d /opt/ac-library &&\
+    # boost
+    sudo apt install -y build-essential &&\
+    wget https://boostorg.jfrog.io/artifactory/main/release/1.82.0/source/boost_1_82_0.tar.gz -O boost_1_82_0.tar.gz &&\
+    tar xf boost_1_82_0.tar.gz &&\
+    cd boost_1_82_0 &&\
+    ./bootstrap.sh --with-toolset=gcc --without-libraries=mpi,graph_parallel &&\
+    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags=""-std=c++20"" stage &&\
+    sudo ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags=""-std=c++20"" --prefix=/opt/boost/gcc install &&\
+    #Eigen
+    sudo apt install -y libeigen3-dev=3.4.0-2ubuntu2
+
+# PyPy3 (7.3.0)
+RUN cd /tmp &&\
+    sudo apt update &&\
+    # git : ac-library-pythonのインストールなどに使う
+    # wget, bzip2 : バイナリのDLと展開に必要
+    sudo apt install -y git wget bzip2 &&\
+    # pypy3.10-v7.3.12-linux64.tar.bz2をダウンロードして手動でインストール
+    wget https://downloads.python.org/pypy/pypy3.10-v7.3.12-linux64.tar.bz2 &&\
+    sudo tar -xvf pypy3.10-v7.3.12-linux64.tar.bz2 -C /usr/local &&\
+    sudo ln -s /usr/local/pypy3.10-v7.3.12-linux64/bin/pypy3 /usr/local/bin/pypy3 &&\
+    # pipを使えるようにする
+    wget https://bootstrap.pypa.io/get-pip.py &&\
+    pypy3 get-pip.py --break-system-packages &&\
+    # numpyなど各種ライブラリを入れるのに必要
+    sudo apt install -y gcc g++ gfortran libopenblas-dev liblapack-dev pkg-config libgeos-dev &&\
+    pypy3 -mpip install --break-system-packages \
+        numpy==1.24.1 \
+        scipy==1.10.1 \
+        networkx==3.0 \
+        sympy==1.11.1 \
+        sortedcontainers==2.4.0  \
+        more-itertools==9.0.0 \
+        shapely==2.0.0 \
+        bitarray==2.6.2 \
+        PuLP==2.7.0 \
+        mpmath==1.2.1 \
+        pandas==1.5.2 \
+        z3-solver==4.12.1.0 \
+        scikit-learn==1.2.0 \
+        typing-extensions==4.4.0 \
+        cppyy==2.4.1 \
+        git+https://github.com/not522/ac-library-python
+
+# Rust
+ENV RUST_VERSION 1.70.0
+ENV RUST_HOME /home/${UNAME}/.cargo
+ENV RUSTUP_HOME ${RUST_HOME}/rustup
+ENV CARGO_HOME ${RUST_HOME}/cargo
+ENV PATH $PATH:$HOME/.cargo/bin
+ENV PATH $PATH:$CARGO_HOME/bin
+
+RUN mkdir $RUST_HOME && \
+    chown -R $UNAME $RUST_HOME
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rustup.sh && \
+    chmod +x ${RUST_HOME}/rustup.sh && \
+    ${RUST_HOME}/rustup.sh -y --default-toolchain $RUST_VERSION --no-modify-path
+
+RUN rustup update
+RUN rustup install $RUST_VERSION
+RUN rustup install 1.42.0
+RUN rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
+
+# RUN cargo +stable install racer
+RUN cargo +1.66.1 install cargo-compete
+# RUN cargo install clippy
+# RUN cargo install cargo-cache
+# RUN cargo +nightly install racer
+# RUN cargo install cargo-src
+# RUN cargo install cargo-watch
+# RUN cargo install cargo-tree
+# RUN cargo install cargo-asm
+# RUN cargo install cargo-expand
+# RUN cargo install --git https://github.com/japaric/cargo-binutils
+# RUN cargo install cargo-check
+# # rootけんげんが必要とか言われるので消す
+# RUN cargo cache -a
+
+RUN chown -R $UNAME $RUST_HOME
+
+# online-judge-tools
+RUN python3.8 -m pip install online-judge-tools
+
+# その他のコマンド
+RUN mkdir /work
+# RUN go get github.com/motemen/ghq
+
+# zsh
+# RUN apt install -y sudo
+# RUN mkdir /tmp/tmphome &&\
+#     cd /tmp/tmphome &&\
+#     git clone https://github.com/reo11/dotfiles.git &&\
+#     ./dotfiles/.bin/dotsinstaller.sh --no-gui &&\
+#     vim -c PlugInstall -c q -c q
+# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
+# ユーザ名の指定
+# ARG UID
+# ARG UNAME
+# RUN useradd $UNAME -u $UID -m
+# USER $UNAME
+
+USER $UNAME
+
+ENV PATH $PATH:$HOME/.cargo/bin
+ENV PYTHONPATH=$PYTHONPATH:/work
+# ENV RUSTUP_TOOLCHAIN 1.42.0
+
+# fix symbolic link for rust 1.42.0
+# https://zenn.dev/yajamon/articles/be689814d242f8
+# RUN cd /home/reo/.cargo/rustup/toolchains/1.42.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust && \
+#     ln -sv src library
+
+COPY ./config/.zshrc /tmp/.zshrc
+RUN cat "/tmp/.zshrc" >> ~/.bashrc
+WORKDIR /work

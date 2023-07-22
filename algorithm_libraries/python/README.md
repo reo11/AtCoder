@@ -17,6 +17,7 @@
 | math           | prime_factorize       | ✅        |
 | math           | rep_pow               | ✅        |
 | math           | sieve_of_eratosthenes | ✅        |
+| math           | mex                   | ❓        |
 | basic          | bin_search_value      | ✅        |
 | basic          | bit_full_search       | ❓        |
 | basic          | cnt_multiple          | ❓        |
@@ -29,9 +30,11 @@
 | data_structure | RSQ                   | ❓        |
 | data_structure | segtree               | ❓        |
 | data_structure | segtree_kai           | ❓        |
-| data_structure | union_find            | ❓        |
+| data_structure | union_find            | ✅        |
 | data_structure | weighted_union_find   | ❓        |
 | data_structure | multiset              | ✅        |
+| data_structure | associative_array     | ❓        |
+| data_structure | predecessor_problem   | ❓        |
 | dp             | LCS                   | ❓        |
 | dp             | levenshtein_dist      | ❓        |
 | dp             | count_substring       | ✅        |
@@ -43,3 +46,5 @@
 | graph          | warshall_floyd        | ❓        |
 | string         | z_algorithm           | ❓        |
 | utils          | create_snippet        | ❓        |
+| sample         | a_plus_b              | ❓        |
+| sample         | many_a_plus_b         | ❓        |
