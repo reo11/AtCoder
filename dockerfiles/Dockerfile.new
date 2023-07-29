@@ -129,28 +129,24 @@ RUN cd /tmp && \
         cppyy==2.4.1 \
         git+https://github.com/not522/ac-library-python
 
-# Rust
+# RUST
 ENV RUST_VERSION 1.70.0
 ENV RUST_HOME /home/${UNAME}/.cargo
 ENV RUSTUP_HOME ${RUST_HOME}/rustup
 ENV CARGO_HOME ${RUST_HOME}/cargo
 ENV PATH $PATH:$HOME/.cargo/bin
 ENV PATH $PATH:$CARGO_HOME/bin
-
 RUN mkdir $RUST_HOME && \
     chown -R $UNAME $RUST_HOME
-
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rustup.sh && \
     chmod +x ${RUST_HOME}/rustup.sh && \
     ${RUST_HOME}/rustup.sh -y --default-toolchain $RUST_VERSION --no-modify-path
-
 RUN rustup update
 RUN rustup install $RUST_VERSION
-RUN rustup install 1.42.0
+# RUN rustup install 1.42.0
 RUN rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
-
 # RUN cargo +stable install racer
-RUN cargo +1.66.1 install cargo-compete
+RUN cargo install cargo-compete
 # RUN cargo install clippy
 # RUN cargo install cargo-cache
 # RUN cargo +nightly install racer
@@ -167,7 +163,7 @@ RUN cargo +1.66.1 install cargo-compete
 RUN chown -R $UNAME $RUST_HOME
 
 # online-judge-tools
-RUN python3.8 -m pip install online-judge-tools
+RUN pip install online-judge-tools
 
 # その他のコマンド
 RUN mkdir /work
