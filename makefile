@@ -1,7 +1,5 @@
-ATCODER_IMAGE := atcoder:latest
+ATCODER_IMAGE := bluexleoxgreen/atcoder:latest
 ATCODER_CONTAINER_NAME := atcoder-container
-TEST_IMAGE := actoder-test:latest
-ATCODER_TEST_CONTAINER_NAME := atcoder-test-container
 
 default: run-atcoder
 run: run-atcoder
@@ -9,11 +7,20 @@ build: build-atcoder
 stop: stop-atcoder
 test: run-test
 
+# requier `docker login` before push
+
+
 build-atcoder:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
+	docker push $(ATCODER_IMAGE)
+
+build-new-image:
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile.new .
+	docker push $(ATCODER_IMAGE)
+
 
 ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_CONTAINER_NAME)),)
-run-atcoder: build-atcoder
+run-atcoder:
 	mkdir -p ${PWD}/.tmp/online-judge-tools && \
 	mkdir -p ${PWD}/.tmp/cargo-compete && \
 	docker run -t -d --rm \
@@ -29,42 +36,20 @@ run-atcoder:
 	docker exec -it $(ATCODER_CONTAINER_NAME) bash
 endif
 
-run-new-atcoder:
-	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile.new .
-
 stop-atcoder:
 	docker stop $(ATCODER_CONTAINER_NAME)
 
-build-test:
-	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
+run-test:
+	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) python algorithm_libraries/test/test.py
 
-run-test: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) python algorithm_libraries/test/test.py
+run-cpp-test:
+	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) python algorithm_libraries/test/test.py --lang=cpp
 
-run-cpp-test: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) python algorithm_libraries/test/test.py --lang=cpp
+lint:
+	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) pysen run lint
 
-lint: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run lint
+auto-lint:
+	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) pysen run format
 
-auto-lint: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen run format
-
-run-lint-generate: build-test
-	docker run --rm -v ${PWD}:/work $(TEST_IMAGE) pysen generate .
-
-ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_TEST_CONTAINER_NAME)),)
-exec-test: build-test
-	docker run -t -d --rm \
-		-v ${PWD}:/work \
-		--name $(ATCODER_TEST_CONTAINER_NAME) $(TEST_IMAGE) bash && \
-	clear && \
-	docker exec -it $(ATCODER_TEST_CONTAINER_NAME) bash
-else
-exec-test:
-	clear && \
-	docker exec -it $(ATCODER_TEST_CONTAINER_NAME) bash
-endif
-
-stop-test:
-	docker stop $(ATCODER_TEST_CONTAINER_NAME)
+run-lint-generate:
+	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) pysen generate .
