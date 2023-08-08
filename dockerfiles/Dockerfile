@@ -96,13 +96,13 @@ RUN mkdir /work
 # RUN go get github.com/motemen/ghq
 
 # zsh
-# RUN apt install -y sudo
-# RUN mkdir /tmp/tmphome &&\
-#     cd /tmp/tmphome &&\
-#     git clone https://github.com/reo11/dotfiles.git &&\
-#     ./dotfiles/.bin/dotsinstaller.sh --no-gui &&\
-#     vim -c PlugInstall -c q -c q
-# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+RUN apt install -y sudo
+RUN mkdir /tmp/tmphome &&\
+    cd /tmp/tmphome &&\
+    git clone https://github.com/reo11/dotfiles.git &&\
+    ./dotfiles/.bin/dotsinstaller.sh --no-gui &&\
+    vim -c PlugInstall -c q -c q
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # ユーザ名の指定
 # ARG UID
