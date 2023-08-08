@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM ubuntu:22.04
 
 # AtCoder Language Update
 # https://docs.google.com/spreadsheets/d/1HXyOXt5bKwhKWXruzUvfMFHQtBxfZQ0047W7VVObnXI/edit#gid=521804310
@@ -25,17 +25,6 @@ RUN apt-get update && \
     sudo gpg-agent
 
 RUN chsh -s /bin/zsh
-
-RUN export GOPATH=$HOME/go &&\
-    export PATH="$GOPATH/bin:$PATH"
-
-RUN git clone https://github.com/boostorg/boost.git &&\
-    cd boost &&\
-    git submodule update --init &&\
-    chmod 777 bootstrap.sh &&\
-    ./bootstrap.sh --with-toolset=gcc --without-libraries=mpi,graph_parallel --with-python=python3.8 &&\
-    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" stage &&\
-    ./b2 -j3 toolset=gcc variant=release link=static runtime-link=static cxxflags="-std=c++17" --prefix=/opt/boost/gcc install
 
 # C++
 RUN sudo apt install -y g++-12 &&\
@@ -116,6 +105,9 @@ RUN mkdir $RUST_HOME && \
     rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt && \
     cargo install cargo-compete && \
     chown -R $UNAME $RUST_HOME
+
+
+# TODO: Go 
 
 # online-judge-tools
 RUN python3.11 -m pip install online-judge-tools

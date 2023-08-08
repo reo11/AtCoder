@@ -1,4 +1,5 @@
-ATCODER_IMAGE := bluexleoxgreen/atcoder:latest
+ATCODER_IMAGE := bluexleoxgreen/atcoder:1.0.0
+ATCODER_NEW_IMAGE := bluexleoxgreen/atcoder:2.0.0
 ATCODER_CONTAINER_NAME := atcoder-container
 
 default: run-atcoder
@@ -9,15 +10,13 @@ test: run-test
 
 # requier `docker login` before push
 
-
 build-atcoder:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
 	docker push $(ATCODER_IMAGE)
 
 build-new-image:
-	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile.new .
-	docker push $(ATCODER_IMAGE)
-
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_NEW_IMAGE) -f dockerfiles/Dockerfile.new .
+	docker push $(ATCODER_NEW_IMAGE)
 
 ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_CONTAINER_NAME)),)
 run-atcoder:

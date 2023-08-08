@@ -43,6 +43,7 @@ function submit_pypy(){
     dl $problem_name
     number=$(echo $(oj t -c "pypy3 ${problem_name}.py") | grep -c "FAILURE")
     # 4047: PyPy3
+    # 5078: Python (PyPy 3.10-v7.3.12)
     if [ $number -eq 0 ]; then
         oj s -l 4047 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
     else
@@ -58,6 +59,7 @@ function submit_python(){
     dl $problem_name
     number=$(echo $(oj t -c "python3.8 ${problem_name}.py") | grep -c "FAILURE")
     # 4047: PyPy3
+    # 5055: CPython 3.11.4
     if [ $number -eq 0 ]; then
         oj s -l 4006 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
     else
