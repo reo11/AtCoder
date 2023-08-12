@@ -1,4 +1,4 @@
-alias python="python3.8"
+alias python="python3.11"
 function cpp(){
     basename=$1
     dirname=$(pwd)
@@ -9,7 +9,7 @@ function cpp(){
 function python(){
     basename=$1
     dirname=$(pwd)
-    python3.8 ${dirname}/${basename}
+    python3.11 ${dirname}/${basename}
 }
 
 function pypy(){
@@ -36,7 +36,7 @@ function dl(){
     oj d https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name}
 }
 
-function submit_pypy(){
+function submit_old_pypy(){
     problem_name=$1
     contest_name=$(basename `pwd`)
     # rm -f root/.cache/online-judge-tools/download-history.jsonl
@@ -46,6 +46,22 @@ function submit_pypy(){
     # 5078: Python (PyPy 3.10-v7.3.12)
     if [ $number -eq 0 ]; then
         oj s -l 4047 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
+    else
+        echo "Wrong Answer"
+        oj t -c "pypy3 ${problem_name}.py"
+    fi
+}
+
+function submit_pypy(){
+    problem_name=$1
+    contest_name=$(basename `pwd`)
+    # rm -f root/.cache/online-judge-tools/download-history.jsonl
+    dl $problem_name
+    number=$(echo $(oj t -c "pypy3 ${problem_name}.py") | grep -c "FAILURE")
+    # 4047: PyPy3
+    # 5078: Python (PyPy 3.10-v7.3.12)
+    if [ $number -eq 0 ]; then
+        oj s -l 5078 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
     else
         echo "Wrong Answer"
         oj t -c "pypy3 ${problem_name}.py"

@@ -26,7 +26,7 @@ run-atcoder:
 		-v ${PWD}:/work \
 		-v ${PWD}/.tmp/online-judge-tools:/home/$(shell whoami)/.local/share/online-judge-tools/ \
 		-v ${PWD}/.tmp/cargo-compete:/home/$(shell whoami)/.local/share/cargo-compete/ \
-		-e "BROWSER=chrome" --name $(ATCODER_CONTAINER_NAME) $(ATCODER_IMAGE) bash && \
+		-e "BROWSER=chrome" --name $(ATCODER_CONTAINER_NAME) $(ATCODER_NEW_IMAGE) bash && \
 	clear && \
 	docker exec -it $(ATCODER_CONTAINER_NAME) bash
 else
