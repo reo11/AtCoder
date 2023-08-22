@@ -1,9 +1,11 @@
 ATCODER_IMAGE := bluexleoxgreen/atcoder:1.0.0
 ATCODER_NEW_IMAGE := bluexleoxgreen/atcoder:2.0.0
-ATCODER_CONTAINER_NAME := atcoder-container
+ATCODER_CONTAINER_NAME := atcoder-old-container
+ATCODER_NEW_CONTAINER_NAME := atcoder-container
 
 default: run-atcoder
-run: run-atcoder
+run: run-new-atcoder
+run-old: run-atcoder
 build: build-atcoder
 stop: stop-atcoder
 test: run-test
@@ -18,7 +20,7 @@ build-new-image:
 	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_NEW_IMAGE) -f dockerfiles/Dockerfile.new .
 	docker push $(ATCODER_NEW_IMAGE)
 
-ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_CONTAINER_NAME)),)
+ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_NEW_CONTAINER_NAME)),)
 run-atcoder:
 	mkdir -p ${PWD}/.tmp/online-judge-tools && \
 	mkdir -p ${PWD}/.tmp/cargo-compete && \
@@ -26,11 +28,28 @@ run-atcoder:
 		-v ${PWD}:/work \
 		-v ${PWD}/.tmp/online-judge-tools:/home/$(shell whoami)/.local/share/online-judge-tools/ \
 		-v ${PWD}/.tmp/cargo-compete:/home/$(shell whoami)/.local/share/cargo-compete/ \
-		-e "BROWSER=chrome" --name $(ATCODER_CONTAINER_NAME) $(ATCODER_NEW_IMAGE) bash && \
+		-e "BROWSER=chrome" --name $(ATCODER_NEW_CONTAINER_NAME) $(ATCODER_NEW_IMAGE) bash && \
+	clear && \
+	docker exec -it $(ATCODER_NEW_CONTAINER_NAME) bash
+else
+run-atcoder:
+	clear && \
+	docker exec -it $(ATCODER_NEW_CONTAINER_NAME) bash
+endif
+
+ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_CONTAINER_NAME)),)
+run-old-atcoder:
+	mkdir -p ${PWD}/.tmp/online-judge-tools && \
+	mkdir -p ${PWD}/.tmp/cargo-compete && \
+	docker run -t -d --rm \
+		-v ${PWD}:/work \
+		-v ${PWD}/.tmp/online-judge-tools:/home/$(shell whoami)/.local/share/online-judge-tools/ \
+		-v ${PWD}/.tmp/cargo-compete:/home/$(shell whoami)/.local/share/cargo-compete/ \
+		-e "BROWSER=chrome" --name $(ATCODER_CONTAINER_NAME) $(ATCODER_IMAGE) bash && \
 	clear && \
 	docker exec -it $(ATCODER_CONTAINER_NAME) bash
 else
-run-atcoder:
+run-old-atcoder:
 	clear && \
 	docker exec -it $(ATCODER_CONTAINER_NAME) bash
 endif

@@ -1,12 +1,12 @@
-FROM ubuntu:22.04
+FROM --platform=linux/x86_64 ubuntu:22.04
 
 # AtCoder Language Update
 # https://docs.google.com/spreadsheets/d/1HXyOXt5bKwhKWXruzUvfMFHQtBxfZQ0047W7VVObnXI/edit#gid=521804310
 
 # ユーザの追加
 ARG UID
-ARG UNAME
-RUN useradd $UNAME -u $UID -m
+ENV USER_NAME=atcoder_user
+RUN useradd $USER_NAME -u $UID -m
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -87,16 +87,48 @@ RUN cd /tmp &&\
     python3.11 -m pip install -U setuptools==66.0.0 &&\
     python3.11 -m pip install cppyy==2.4.1
 
+# pypy3
+RUN cd /tmp
+
+# pypy3.10-v7.3.12-linux64.tar.bz2をダウンロードして手動でインストール
+RUN wget https://downloads.python.org/pypy/pypy3.10-v7.3.12-linux64.tar.bz2
+RUN sudo tar -xvf pypy3.10-v7.3.12-linux64.tar.bz2 -C /usr/local
+RUN sudo ln -s /usr/local/pypy3.10-v7.3.12-linux64/bin/pypy3 /usr/local/bin/pypy3
+
+# pipを使えるようにする
+RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN pypy3 get-pip.py --break-system-packages
+# numpyなど各種ライブラリを入れるのに必要
+RUN sudo apt install -y gcc g++ gfortran libopenblas-dev liblapack-dev pkg-config libgeos-dev
+
+RUN pypy3 -mpip install --break-system-packages \
+    numpy==1.24.1 \
+    scipy==1.10.1 \
+    networkx==3.0 \
+    sympy==1.11.1 \
+    sortedcontainers==2.4.0  \
+    more-itertools==9.0.0 \
+    shapely==2.0.0 \
+    bitarray==2.6.2 \
+    PuLP==2.7.0 \
+    mpmath==1.2.1 \
+    pandas==1.5.2 \
+    z3-solver==4.12.1.0 \
+    scikit-learn==1.2.0 \
+    typing-extensions==4.4.0 \
+    cppyy==2.4.1 \
+    git+https://github.com/not522/ac-library-python
+
 # RUST
 ENV RUST_VERSION 1.70.0
-ENV RUST_HOME /home/${UNAME}/.cargo
+ENV RUST_HOME /home/${USER_NAME}/.cargo
 ENV RUSTUP_HOME ${RUST_HOME}/rustup
 ENV CARGO_HOME ${RUST_HOME}/cargo
 ENV PATH $PATH:$HOME/.cargo/bin
 ENV PATH $PATH:$CARGO_HOME/bin
 
 RUN mkdir $RUST_HOME && \
-    chown -R $UNAME $RUST_HOME && \
+    chown -R $USER_NAME $RUST_HOME && \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rustup.sh && \
     chmod +x ${RUST_HOME}/rustup.sh && \
     ${RUST_HOME}/rustup.sh -y --default-toolchain $RUST_VERSION --no-modify-path && \
@@ -104,10 +136,10 @@ RUN mkdir $RUST_HOME && \
     rustup install $RUST_VERSION && \
     rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt && \
     cargo install cargo-compete && \
-    chown -R $UNAME $RUST_HOME
+    chown -R $USER_NAME $RUST_HOME
 
 
-# TODO: Go 
+# TODO: Go
 
 # online-judge-tools
 RUN python3.11 -m pip install online-judge-tools
@@ -116,7 +148,7 @@ RUN python3.11 -m pip install online-judge-tools
 RUN mkdir /work
 
 # ユーザ切り替え
-USER $UNAME
+USER $USER_NAME
 
 ENV PATH $PATH:$HOME/.cargo/bin
 ENV PYTHONPATH=$PYTHONPATH:/work
