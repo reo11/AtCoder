@@ -12,17 +12,21 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
     software-properties-common build-essential \
     curl wget apt-utils libboost-all-dev libssl-dev git peco golang \
-    apt-transport-https ppa-purge \
-    ca-certificates\
+    apt-transport-https ppa-purge ca-certificates\
     tar zip unzip zlib1g-dev bzip2 libbz2-dev \
-    openssl libssl-dev \
-    zsh vim screen tree htop \
+    openssl zsh vim screen tree htop \
     net-tools lynx iftop traceroute \
     sudo gpg-agent
+
+RUN apt-get install -y --no-install-recommends \
+    autoconf bison patch rustc \
+    libyaml-dev libreadline6-dev libgmp-dev \
+    libncurses5-dev libffi-dev libgdbm6 \
+    libgdbm-dev libdb-dev uuid-dev
 
 RUN chsh -s /bin/zsh
 
@@ -101,23 +105,22 @@ RUN pypy3 get-pip.py --break-system-packages
 # numpyなど各種ライブラリを入れるのに必要
 RUN sudo apt install -y gcc g++ gfortran libopenblas-dev liblapack-dev pkg-config libgeos-dev
 
-RUN pypy3 -mpip install --break-system-packages \
-    numpy==1.24.1 \
-    scipy==1.10.1 \
-    networkx==3.0 \
-    sympy==1.11.1 \
-    sortedcontainers==2.4.0  \
-    more-itertools==9.0.0 \
-    shapely==2.0.0 \
-    bitarray==2.6.2 \
-    PuLP==2.7.0 \
-    mpmath==1.2.1 \
-    pandas==1.5.2 \
-    z3-solver==4.12.1.0 \
-    scikit-learn==1.2.0 \
-    typing-extensions==4.4.0 \
-    cppyy==2.4.1 \
-    git+https://github.com/not522/ac-library-python
+RUN pypy3 -mpip install --break-system-packages numpy==1.24.1
+# RUN pypy3 -mpip install --break-system-packages scipy==1.10.1
+RUN pypy3 -mpip install --break-system-packages networkx==3.0
+RUN pypy3 -mpip install --break-system-packages sympy==1.11.1
+RUN pypy3 -mpip install --break-system-packages sortedcontainers==2.4.0
+RUN pypy3 -mpip install --break-system-packages more-itertools==9.0.0
+RUN pypy3 -mpip install --break-system-packages shapely==2.0.0
+RUN pypy3 -mpip install --break-system-packages bitarray==2.6.2
+RUN pypy3 -mpip install --break-system-packages PuLP==2.7.0
+RUN pypy3 -mpip install --break-system-packages mpmath==1.2.1
+RUN pypy3 -mpip install --break-system-packages pandas==1.5.2
+RUN pypy3 -mpip install --break-system-packages z3-solver==4.12.1.0
+# RUN pypy3 -mpip install --break-system-packages scikit-learn==1.2.0
+RUN pypy3 -mpip install --break-system-packages typing-extensions==4.4.0
+RUN pypy3 -mpip install --break-system-packages cppyy==2.4.1
+RUN pypy3 -mpip install --break-system-packages git+https://github.com/not522/ac-library-python
 
 # RUST
 ENV RUST_VERSION 1.70.0
@@ -138,6 +141,23 @@ RUN mkdir $RUST_HOME && \
     cargo install cargo-compete && \
     chown -R $USER_NAME $RUST_HOME
 
+# Ruby start
+RUN cd /tmp && \
+    wget https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz && \
+    tar -xf ruby-3.2.2.tar.gz && \
+    cd ruby-3.2.2 && \
+    export cflags=-fno-stack-clash-protection && \
+    ./configure && \
+    make && \
+    sudo make install && \
+# 以下、Library のインストール
+RUN sudo gem install rbtree
+RUN sudo gem install ac-library-rb
+RUN sudo gem install faster_prime
+RUN sudo gem install sorted_set
+RUN sudo gem install numo-narray
+RUN sudo gem install polars-df
+# Ruby end
 
 # TODO: Go
 
