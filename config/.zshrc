@@ -36,38 +36,6 @@ function dl(){
     oj d https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name}
 }
 
-function submit_old_pypy(){
-    problem_name=$1
-    contest_name=$(basename `pwd`)
-    # rm -f root/.cache/online-judge-tools/download-history.jsonl
-    dl $problem_name
-    number=$(echo $(oj t -c "pypy3 ${problem_name}.py") | grep -c "FAILURE")
-    # 4047: PyPy3
-    # 5078: Python (PyPy 3.10-v7.3.12)
-    if [ $number -eq 0 ]; then
-        oj s -l 4047 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
-    else
-        echo "Wrong Answer"
-        oj t -c "pypy3 ${problem_name}.py"
-    fi
-}
-
-function submit_old_python(){
-    problem_name=$1
-    contest_name=$(basename `pwd`)
-    # rm -f root/.cache/online-judge-tools/download-history.jsonl
-    dl $problem_name
-    number=$(echo $(oj t -c "python3.8 ${problem_name}.py") | grep -c "FAILURE")
-    # 4047: PyPy3
-    # 5055: CPython 3.11.4
-    if [ $number -eq 0 ]; then
-        oj s -l 4006 https://atcoder.jp/contests/${contest_name}/tasks/${contest_name}_${problem_name} ${problem_name}.py
-    else
-        echo "Wrong Answer"
-        oj t -c "python3.8 ${problem_name}.py"
-    fi
-}
-
 function submit_pypy(){
     problem_name=$1
     contest_name=$(basename `pwd`)

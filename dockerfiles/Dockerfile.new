@@ -123,23 +123,23 @@ RUN pypy3 -mpip install --break-system-packages cppyy==2.4.1
 RUN pypy3 -mpip install --break-system-packages git+https://github.com/not522/ac-library-python
 
 # RUST
-ENV RUST_VERSION 1.70.0
-ENV RUST_HOME /home/${USER_NAME}/.cargo
-ENV RUSTUP_HOME ${RUST_HOME}/rustup
-ENV CARGO_HOME ${RUST_HOME}/cargo
-ENV PATH $PATH:$HOME/.cargo/bin
-ENV PATH $PATH:$CARGO_HOME/bin
+# ENV RUST_VERSION 1.70.0
+# ENV RUST_HOME /home/${USER_NAME}/.cargo
+# ENV RUSTUP_HOME ${RUST_HOME}/rustup
+# ENV CARGO_HOME ${RUST_HOME}/cargo
+# ENV PATH $PATH:$HOME/.cargo/bin
+# ENV PATH $PATH:$CARGO_HOME/bin
 
-RUN mkdir $RUST_HOME && \
-    chown -R $USER_NAME $RUST_HOME && \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rustup.sh && \
-    chmod +x ${RUST_HOME}/rustup.sh && \
-    ${RUST_HOME}/rustup.sh -y --default-toolchain $RUST_VERSION --no-modify-path && \
-    rustup update && \
-    rustup install $RUST_VERSION && \
-    rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt && \
-    cargo install cargo-compete && \
-    chown -R $USER_NAME $RUST_HOME
+# RUN mkdir $RUST_HOME && \
+#     chown -R $USER_NAME $RUST_HOME && \
+#     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rustup.sh && \
+#     chmod +x ${RUST_HOME}/rustup.sh && \
+#     ${RUST_HOME}/rustup.sh -y --default-toolchain $RUST_VERSION --no-modify-path && \
+#     rustup update && \
+#     rustup install $RUST_VERSION && \
+#     rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt && \
+#     cargo install cargo-compete && \
+#     chown -R $USER_NAME $RUST_HOME
 
 # Ruby start
 RUN cd /tmp && \
