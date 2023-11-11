@@ -30,7 +30,7 @@ class Model:
 
     def score(self):
         return max(1, 10_000 - self.cost_spent)
-    
+
     def mv(self, v, to_i):
         # 数字vを山iの上に移動させる
         # コストを返す
@@ -48,7 +48,7 @@ class Model:
             self.v_positions[v] = to_i
         self.cost_spent += k + 1
         return k + 1
-    
+
     def update():
         pass
 
@@ -106,7 +106,7 @@ class Model:
                         count += 1
                         break
         return count > 0
-            
+
 
     def zero_fix(self, zero_fix_pattern = 1):
         # ゼロ山がある場合、一番下にない最も小さい数字を移動させる
@@ -156,7 +156,7 @@ class Model:
                 if to_mountain[0] >= len(self.mountains[mountain_i - 1]):
                     to_mountain = [len(self.mountains[mountain_i - 1]), mountain_i]
         return to_mountain[1]
-        
+
 
     def fix_mountains(self, target_num, mountain_num, max_diff = 1000):
         # queueに入ってる数字の登場が最も遅い山に移動させる
@@ -212,9 +212,9 @@ def main():
         "zero_fix_pattern": [0, 1, 2],
         "max_diff": [5, 10, 15, 20, 25, 30, 35, 40, 50, 55, 60, 65, 70, 75, 80, 90, 100, 1000],
     }
-    
+
     p = itertools.product(*config.values())
-    
+
     for v in p:
         if time.time() - start_at > TIME_LIMIT:
             break
