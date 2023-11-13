@@ -1,22 +1,34 @@
+import itertools
+import math
 s = []
 for _ in range(9):
     si = list(input())
     s.append(si)
 ans = 0
-for window_size in range(1, 8):
-    for i in range(9 - window_size + 1):
-        for j in range(9 - window_size + 1):
-            count = 0
-            if i + window_size >= 9 or j + window_size >= 9:
-                continue
-            if s[i][j] == "#":
-                count += 1
-            if s[i][j + window_size] == "#":
-                count += 1
-            if s[i + window_size][j] == "#":
-                count += 1
-            if s[i + window_size][j + window_size] == "#":
-                count += 1
-            if count == 4:
-                ans += 1
+
+def dist(xy1, xy2):
+    return math.sqrt((xy1[0] - xy2[0]) ** 2 + (xy1[1] - xy2[1]) ** 2)
+
+def check(xy):
+    xy1 = xy[0]
+    xy2 = xy[1]
+    xy3 = xy[2]
+    xy4 =
+    if xy1 == xy2 or xy1 == xy3 or xy2 == xy3:
+        return False
+    dist1 = dist(xy1, xy2)
+    dist2 = dist(xy2, xy3)
+    dist3 = dist(xy3, xy1)
+    if dist1 != dist2 or dist1 != dist3:
+        return False
+    return True
+
+ans = 0
+for p in itertools.product(range(9), repeat=6):
+    xy = []
+    for i in range(3):
+        xy.append([p[i], p[i+3]])
+    ans += check(xy)
+    print(ans)
+
 print(ans)
