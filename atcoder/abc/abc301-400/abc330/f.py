@@ -3,68 +3,67 @@ INF = float("inf")
 n, k = map(int, input().split())
 xy = []
 
-pos_counter = defaultdict(lambda: defaultdict(lambda: 0))
-min_max_x = [INF, -INF]
-min_max_y = [INF, -INF]
 for _ in range(n):
     x, y = map(int, input().split())
     xy.append((x, y))
-    min_max_x[0] = min(min_max_x[0], x)
-    min_max_x[1] = max(min_max_x[1], x)
-    min_max_y[0] = min(min_max_y[0], y)
-    min_max_y[1] = max(min_max_y[1], y)
-    pos_counter["x"][x] += 1
-    pos_counter["y"][y] += 1
+    if n == 1:
+        xy.append(x, y)
 
 # 作成可能な正方形の辺の長さを2分探索する
-l = 0
-r = 10 ** 9 + 1
+l = -1
+r = 10 ** 10 + 1
 
-def judge(value, max_cost):
-    counter = defaultdict(lambda: 0)
-    x_que = set()
-    y_que = set()
-    for x, y in xy:
-        x_que.add(x)
-        y_que.add(y)
-        counter["x"][x] += 1
-        counter["y"][y] += 1
-    x_que = deque(list(sorted(x_que)))
-    y_que = deque(list(sorted(y_que)))
-    left = min_max_x[0]
-    right = min_max_x[1]
-    counter["left"] = pos_counter["x"][left]
-    counter["right"] = pos_counter["x"][right]
+# queueに入ったデータの両端の差をvalueにする
+def calc_cost(value, queue):
+    counter = [1, 1]
+    left = queue.popleft()
+    right = queue.pop()
     cost = 0
     while right - left > value:
-        while len(x_que) > 0:
-            if x_que[0] <= left:
-                x_que.popleft()
-            else:
-                break
-        while len(x_que) > 0:
-            if x_que[-1] >= right:
-                x_que.pop()
-            else:
-                break
-        next_left, next_right = x_que[0], x_que[-1]
-        # valueより小さくなってしまう場合調整
-        if right - next_left < value:
+        if len(queue) == 0:
             next_left = right - value
-        if next_right - left < value:
             next_right = left + value
-        cost_left = next_left - left
-        cost_right = right - next_right
-        if
-        cost +=
+        else:
+            next_left = queue[0]
+            next_right = queue[-1]
+            if right - next_left < value:
+                next_left = right - value
+            if next_right - left < value:
+                next_right = left + value
+        cost1 = counter[0] * (next_left - left)
+        cost2 = counter[1] * (right - next_right)
+        if cost1 < cost2:
+            if len(queue) > 0:
+                queue.popleft()
+            left = next_left
+            counter[0] += 1
+            cost += cost1
+        else:
+            if len(queue) > 0:
+                queue.pop()
+            right = next_right
+            counter[1] += 1
+            cost += cost2
+    return cost, left, right
 
-
+def judge(value, max_cost):
+    x_queue = []
+    y_queue = []
+    for x, y in xy:
+        x_queue.append(x)
+        y_queue.append(y)
+    x_queue = deque(list(sorted(x_queue)))
+    y_queue = deque(list(sorted(y_queue)))
+    cost_x, left_x, right_x = calc_cost(value, x_queue)
+    cost_y, left_y, right_y = calc_cost(value, y_queue)
+    print(value, cost_x + cost_y, (k - (cost_x + cost_y)), right_x - left_x, right_y - left_y)
+    return cost_x + cost_y <= max_cost
 
 while r - l > 1:
     mid = (r + l) // 2
     if judge(mid, k):
-        l = mid
-    else:
         r = mid
-print(l)
+    else:
+        l = mid
+print(l, r)
 
