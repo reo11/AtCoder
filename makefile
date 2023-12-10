@@ -1,4 +1,5 @@
 ATCODER_IMAGE := bluexleoxgreen/atcoder:2.0.1
+PYTHON_TESTER_IMAGE := bluexleoxgreen/python-tester:1.0.0
 ATCODER_CONTAINER_NAME := atcoder-container
 
 default: run-atcoder
@@ -33,17 +34,20 @@ endif
 stop-atcoder:
 	docker stop $(ATCODER_CONTAINER_NAME)
 
-run-test:
-	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) python algorithm_libraries/test/test.py
+build-test:
+	docker build -t $(PYTHON_TESTER_IMAGE) -f dockerfiles/Dockerfile.test .
 
-run-cpp-test:
-	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) python algorithm_libraries/test/test.py --lang=cpp
+run-test: build-test
+	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) python algorithm_libraries/test/test.py
 
-lint:
-	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) pysen run lint
+# run-cpp-test:
+# 	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) python algorithm_libraries/test/test.py --lang=cpp
 
-auto-lint:
-	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) pysen run format
+lint: build-test
+	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) pysen run lint
 
-run-lint-generate:
-	docker run --rm -v ${PWD}:/work $(ATCODER_IMAGE) pysen generate .
+auto-lint: build-test
+	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) pysen run format
+
+run-lint-generate: build-test
+	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) pysen generate .
