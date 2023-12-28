@@ -1,50 +1,30 @@
 import sys
-import pypyjit
-pypyjit.set_param('max_unroll_recursion=-1')
-input = lambda: sys.stdin.readline().rstrip()
-sys.setrecursionlimit(20000000)
-
+import math
+import itertools
 from collections import defaultdict
+input = lambda: sys.stdin.readline().rstrip()
 INF = float('inf')
 
 n = int(input())
-costs = defaultdict(lambda: defaultdict(lambda: -INF))
-for i in range(1, n):
+costs = defaultdict(lambda: defaultdict(lambda: 0))
+for i in range(n - 1):
     di = list(map(int, input().split()))
-    for j, j_num in enumerate(range(i + 1, n + 1)):
+    for j, j_num in enumerate(range(i + 1, n)):
         costs[i][j_num] = di[j]
         costs[j_num][i] = di[j]
 
-def pair_combinations(lst):
-    if len(lst) < 2:
-        return []
-    elif len(lst) == 2:
-        return [[lst]]
-    else:
-        pairs = []
-        for i in range(1, len(lst)):
-            first = lst[0]
-            second = lst[i]
-            rest = lst[1:i] + lst[i + 1:]
-            for c in pair_combinations(rest):
-                pairs.append([[first, second]] + c)
-        return pairs
-
+# bitDP
+dp = [-INF for _ in range(2 ** (n + 1))]
+dp[0] = 0
 ans = -INF
-if n % 2 == 0:
-    for pairs in pair_combinations(list(range(1, n + 1))):
-        cost = 0
-        for p1, p2 in pairs:
-            cost += costs[p1][p2]
-        ans = max(ans, cost)
-else:
-    # どれかを使わない
-    for i in range(1, n + 1):
-        l = list(range(1, n + 1))
-        l.pop(i - 1)
-        for pairs in pair_combinations(l):
-            cost = 0
-            for p1, p2 in pairs:
-                cost += costs[p1][p2]
-            ans = max(ans, cost)
+for bit in range(0, 2 ** (n + 1)):
+    # 配るDP
+    # 0のビットの位置を列挙
+    zero_bits = []
+    for i in range(n + 1):
+        if bit & (1 << i) == 0:
+            zero_bits.append(i)
+    for bit_i, bit_j in itertools.combinations(zero_bits, 2):
+        dp[bit | (1 << bit_i) | (1 << bit_j)] = max(dp[bit | (1 << bit_i) | (1 << bit_j)], dp[bit] + costs[bit_i][bit_j])
+        ans = max(ans, dp[bit | (1 << bit_i) | (1 << bit_j)])
 print(ans)
