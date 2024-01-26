@@ -52,7 +52,7 @@ RUN add-apt-repository -y ppa:pypy/ppa &&\
 RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
 
 # Rust
-ENV RUST_VERSION 1.66.1
+ENV RUST_VERSION 1.70.0
 ENV RUST_HOME /home/${UNAME}/.cargo
 ENV RUSTUP_HOME ${RUST_HOME}/rustup
 ENV CARGO_HOME ${RUST_HOME}/cargo

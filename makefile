@@ -11,7 +11,7 @@ test: run-test
 # requier `docker login` before push
 
 build-atcoder:
-	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/python.Dockerfile .
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
 	docker push $(ATCODER_IMAGE)
 
 ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_CONTAINER_NAME)),)
