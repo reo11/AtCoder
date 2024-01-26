@@ -3,6 +3,7 @@ MOD = 998244353
 n, x = map(int, input().split())
 t = list(map(int, input().split()))
 
+
 class FLT:
     """
     フェルマーの小定理
@@ -22,8 +23,9 @@ class FLT:
         return ans
 
     def inv(self, a: int) -> int:
-        """ 逆元を取る """
+        """逆元を取る"""
         return self.rep_sqr(a, self.mod - 2)
+
 
 flt = FLT(MOD)
 inv_n = flt.inv(n)
@@ -47,4 +49,3 @@ for i in range(x + 1, x + t[0] + 1):
     ans %= MOD
 # print(dp)
 print(ans)
-

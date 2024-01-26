@@ -2,15 +2,15 @@
 import sys
 
 input = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10**6)
 from collections import defaultdict, deque
 from math import factorial
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 class Facts:
-    def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num=10**5, p=10**9 + 7):
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)

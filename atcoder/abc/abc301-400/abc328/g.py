@@ -1,15 +1,18 @@
 from collections import defaultdict, deque
+
 INF = float("inf")
 
 n, c = map(int, input().split())
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 
+
 def cost_k(a):
     cost = 0
     for i in range(n):
         cost += abs(a[i] - b[i])
     return cost
+
 
 # dp[i][j]: 集合iを使ってjが最後の時の最小コスト
 dp = defaultdict(lambda: defaultdict(lambda: INF))
@@ -33,9 +36,15 @@ for si in range(2**n):
                 continue
             next_si = si | 1 << next_num
             if next_num == last_num + 1:
-                dp[next_si][next_num] = min(dp[next_si][next_num], dp[si][last_num] + abs(b[bit_count] - a[next_num]))
+                dp[next_si][next_num] = min(
+                    dp[next_si][next_num],
+                    dp[si][last_num] + abs(b[bit_count] - a[next_num]),
+                )
             else:
-                dp[next_si][next_num] = min(dp[next_si][next_num], dp[si][last_num] + abs(b[bit_count] - a[next_num]) + c)
+                dp[next_si][next_num] = min(
+                    dp[next_si][next_num],
+                    dp[si][last_num] + abs(b[bit_count] - a[next_num]) + c,
+                )
 
 for i in range(n):
     ans = min(ans, dp[2**n - 1][i])

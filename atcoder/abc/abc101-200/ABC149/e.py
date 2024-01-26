@@ -1,10 +1,11 @@
 import bisect
+
 n, m = map(int, input().split())
 a = list(map(int, input().split()))
 a.sort()
 
 left = 0
-right = 10 ** 12
+right = 10**12
 while right - left > 1:
     mid = (left + right) // 2
     cnt = 0

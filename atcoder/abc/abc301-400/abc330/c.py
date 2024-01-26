@@ -1,4 +1,5 @@
 from math import sqrt
+
 d = int(input())
 
 heiho = []

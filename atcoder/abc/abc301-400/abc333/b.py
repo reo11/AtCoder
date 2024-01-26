@@ -7,15 +7,15 @@ groups = [
         set(["B", "C"]),
         set(["C", "D"]),
         set(["D", "E"]),
-        set(["A", "E"])
+        set(["A", "E"]),
     ],
     [
         set(["A", "C"]),
         set(["B", "D"]),
         set(["C", "E"]),
         set(["D", "A"]),
-        set(["E", "B"])
-    ]
+        set(["E", "B"]),
+    ],
 ]
 g1 = groups[0]
 g2 = groups[1]

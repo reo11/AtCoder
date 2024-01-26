@@ -6,5 +6,5 @@ s = list(input())
 ans = 0
 s.reverse()
 for i in range(len(s)):
-    ans += (ord(s[i]) - ord("A") + 1) * (26 ** i)
+    ans += (ord(s[i]) - ord("A") + 1) * (26**i)
 print(ans)

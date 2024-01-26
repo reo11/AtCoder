@@ -5,7 +5,7 @@ sum_a = sum(a)
 
 
 def solve1(n, k, a):
-    max_a = 10 ** 5
+    max_a = 10**5
     dp = [[False] * (max_a) for _ in range(n + 1)]
     # dp[i][j] := i番目までの数を使ってjを作れるか
     dp[0][0] = True

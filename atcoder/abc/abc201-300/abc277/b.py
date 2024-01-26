@@ -11,7 +11,7 @@ for i in range(n):
         flag = False
         break
     s_set.add(si)
-    
+
     if not si[0] in ["H", "D", "C", "S"]:
         flag = False
         break

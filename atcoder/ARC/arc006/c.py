@@ -1,6 +1,6 @@
 n = int(input())
 w = [int(input()) for _ in range(n)]
-INF = 10 ** 12
+INF = 10**12
 # 山の数を1～Nで全探索する
 ans = INF
 

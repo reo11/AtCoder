@@ -1,4 +1,5 @@
 import itertools
+
 h1, w1 = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(h1)]
 

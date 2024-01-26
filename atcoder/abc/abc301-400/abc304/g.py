@@ -10,7 +10,7 @@ def is_ok(m):
 
 
 l = 0
-r = 10 ** 12
+r = 10**12
 while r - l > 1:
     m = (l + r) // 2
     if is_ok(m):

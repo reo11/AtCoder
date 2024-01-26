@@ -14,7 +14,7 @@ for _ in range(n):
 a0.sort()
 ab.sort(reverse=True)
 
-INF = 10 ** 12
+INF = 10**12
 N = 40
 m = len(ab)
 dp = [[INF for _ in range(N)] for _ in range(m + 1)]

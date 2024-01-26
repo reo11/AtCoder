@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -11,5 +12,3 @@ for _ in range(n - 1):
 # 2頂点を選んだ時に通ることができない頂点の数を求める
 # 木DPっぽい
 # ある頂点を根とした時に、その頂点を通ることができない頂点の数を求める
-
-

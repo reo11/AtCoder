@@ -1,13 +1,13 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 r1, c1, r2, c2 = map(int, input().split())
-n = (2 * 10 ** 6) + 2
+n = (2 * 10**6) + 2
 from math import factorial
 
 
 class Facts:
     # 階乗のメモ化
     # 組み合わせ数、順列数の計算を高速に行う
-    def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num=10**5, p=10**9 + 7):
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)
@@ -52,7 +52,7 @@ class Facts:
 class FLT:
     # フェルマーの小定理
     # a^(-1) = a^(m-2) mod p
-    def __init__(self, mod=10 ** 9 + 7):
+    def __init__(self, mod=10**9 + 7):
         self.mod = mod
 
     def rep_sqr(self, base, k):

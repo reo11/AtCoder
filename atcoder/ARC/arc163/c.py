@@ -4,7 +4,7 @@ from collections import deque
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
-MAX = 10 ** 9
+MAX = 10**9
 
 
 def sep(n):

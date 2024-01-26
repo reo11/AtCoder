@@ -19,13 +19,13 @@ def solve1(n):
     sqrt_n = math.floor(math.sqrt(n))
     sum1 = 0
     # 1 ~ sqrt_nまでのx, y, zの組み合わせ数
-    sum1 += sqrt_n ** 3
+    sum1 += sqrt_n**3
     sum1 %= MOD
     # sqrt_n + 1 ~ nまでのx, y, zの組み合わせ数
     # sum1 -= 1
     s = 0
     for x in range(1, math.ceil(math.sqrt(n))):
-        s += (math.floor(n / x) - math.floor(n / (x + 1))) * (x ** 2)
+        s += (math.floor(n / x) - math.floor(n / (x + 1))) * (x**2)
         s %= MOD
     sum1 += s * 3
     sum1 %= MOD

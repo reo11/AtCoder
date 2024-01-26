@@ -1,4 +1,5 @@
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 n = int(input())
 ab = []
 path = defaultdict(lambda: [])

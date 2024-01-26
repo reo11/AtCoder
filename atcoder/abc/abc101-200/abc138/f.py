@@ -1,4 +1,4 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 l, r = map(int, input().split())
 
 # bit DP

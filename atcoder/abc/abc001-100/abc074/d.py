@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.buffer.readline
 
 n = int(input())
-INF = 10 ** 12
+INF = 10**12
 d = [[INF for _ in range(n)] for _ in range(n)]
 a = [list(map(int, input().split())) for i in range(n)]
 for i in range(n):

@@ -1,7 +1,9 @@
 from collections import deque
+
 n, t = input().split()
 n = int(n)
 s = [input() for _ in range(n)]
+
 
 def create_correct_set(t):
     correct_set = set()
@@ -11,18 +13,18 @@ def create_correct_set(t):
     # 2
     for pos in range(n + 1):
         for alph in range(26):
-            correct_set.add(t[:pos] + chr(ord('a') + alph) + t[pos:])
+            correct_set.add(t[:pos] + chr(ord("a") + alph) + t[pos:])
 
     # 3
     for pos in range(n):
         # O(n**2)
-        correct_set.add(t[:pos] + t[pos + 1:])
+        correct_set.add(t[:pos] + t[pos + 1 :])
 
     # 4
     for pos in range(n):
         for alph in range(26):
             # O(n**2)
-            correct_set.add(t[:pos] + chr(ord('a') + alph) + t[pos + 1:])
+            correct_set.add(t[:pos] + chr(ord("a") + alph) + t[pos + 1 :])
     return correct_set
 
 
@@ -34,12 +36,14 @@ def solve1(n, t, s):
             ans.append(i + 1)
     return ans
 
+
 def leavenshtain_distance(s1, s2):
     cnt = 0
     for si1, si2 in zip(s1, s2):
         if si1 != si2:
             cnt += 1
     return cnt
+
 
 def solve2(n, t, s):
     # 都度確認する
@@ -108,6 +112,7 @@ def solve2(n, t, s):
         else:
             continue
     return ans
+
 
 # ans = solve1(n, t, s)
 ans = solve2(n, t, s)

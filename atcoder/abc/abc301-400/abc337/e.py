@@ -24,4 +24,3 @@ response = "".join(response)
 x = int(response, 2) + 1
 
 print(x, flush=True)
-

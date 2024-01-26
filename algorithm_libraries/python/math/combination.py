@@ -1,9 +1,9 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 class Facts:
     # O(max_num)
-    def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
+    def __init__(self, max_num: int = 10**5, p: int = 10**9 + 7) -> None:
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)

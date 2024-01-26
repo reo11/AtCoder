@@ -11,14 +11,14 @@ def cmb(n, r):
     return over // under
 
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 n, m = map(int, input().split())
 
 
 def fact(n):
     arr = []
     temp = n
-    for i in range(2, int(-(-(n ** 0.5) // 1)) + 1):
+    for i in range(2, int(-(-(n**0.5) // 1)) + 1):
         if temp % i == 0:
             cnt = 0
             while temp % i == 0:

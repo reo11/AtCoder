@@ -16,8 +16,8 @@ for x in [0] + a:
     for bit_i in range(max_k):
         if (x >> bit_i) & 1:
             # xのbit_i桁目にbitが立っていた場合
-            ans_i += (2 ** bit_i) * (n - bit_sum[bit_i])
+            ans_i += (2**bit_i) * (n - bit_sum[bit_i])
         else:
-            ans_i += (2 ** bit_i) * bit_sum[bit_i]
+            ans_i += (2**bit_i) * bit_sum[bit_i]
     ans = max(ans, ans_i)
 print(ans)

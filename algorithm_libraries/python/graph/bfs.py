@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 
 class BreadthFirstSearch:
-    """ 幅優先探索 """
+    """幅優先探索"""
 
     def __init__(
         self,

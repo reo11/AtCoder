@@ -6,4 +6,3 @@ for _ in range(n):
     tx.append((t, x))
 
 tx.sort()
-

@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 DXY = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (-1, 1), (1, -1), (-1, -1)]

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n = int(input())
 p = list(map(int, input().split()))
 
@@ -8,7 +9,7 @@ for i in range(n):
     spins = []
 
     for j in range(3):
-            spins.append((n + (pi - i - 1 + j)) % n)
+        spins.append((n + (pi - i - 1 + j)) % n)
     for s in spins:
         counter[s] += 1
 

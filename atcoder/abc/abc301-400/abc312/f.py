@@ -1,9 +1,10 @@
-import sys
 import heapq
+import sys
 from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
-INF = 10 ** 20
+INF = 10**20
 
 n, m = map(int, input().split())
 tx = []
@@ -20,9 +21,9 @@ for _ in range(n):
     else:
         openers.append(x)
 
-can_without_opener.sort(reverse=True) # 満足度が高いものから
-can_with_opener.sort(reverse=True) # 満足度が高いものから
-openers.sort(reverse=True) # 多く開けられるものから
+can_without_opener.sort(reverse=True)  # 満足度が高いものから
+can_with_opener.sort(reverse=True)  # 満足度が高いものから
+openers.sort(reverse=True)  # 多く開けられるものから
 can_with_opener = deque(can_with_opener)
 
 # 缶抜きの数を累積和で管理する
@@ -31,6 +32,8 @@ def cumsum(a):
     for v in a:
         r.append(r[-1] + v)
     return r
+
+
 openers_cumsum = cumsum(openers)
 
 sum_value = 0

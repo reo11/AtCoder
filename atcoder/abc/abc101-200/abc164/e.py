@@ -4,7 +4,7 @@ from heapq import heapify, heappop, heappush
 
 input = sys.stdin.readline
 
-INF = 10 ** 19
+INF = 10**19
 n, m, s = map(int, input().split())
 edges = defaultdict(lambda: defaultdict(lambda: [INF, INF]))
 cd = []
@@ -34,7 +34,7 @@ def dijakstra():
     goals = set({0})
     que = [(0, 0, s)]
     heapify(que)
-    while 10 ** 6 > len(que) > 0:
+    while 10**6 > len(que) > 0:
         if len(goals) >= n:
             break
         cost, num, silver = heappop(que)

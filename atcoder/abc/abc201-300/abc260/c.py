@@ -1,5 +1,7 @@
 from collections import defaultdict
+
 n, x, y = map(int, input().split())
+
 
 def process(color, level):
     if level <= 1:
@@ -7,6 +9,7 @@ def process(color, level):
             return 0
         else:
             return 1
+
 
 stones = defaultdict(lambda: defaultdict(lambda: 0))
 stones["red"][n] = 1

@@ -1,15 +1,16 @@
-import time
+import itertools
 import os
 import random
-import itertools
+import time
 from collections import defaultdict, deque
 from typing import List
 
 TIME_LIMIT = 1.90
 MAX_PROCESS = 5_000
-INF = 10 ** 12
+INF = 10**12
 
 is_debug_mode = os.getenv("DEBUG_MODE", False)
+
 
 class Model:
     def __init__(self, n, m, init_postions):
@@ -107,12 +108,11 @@ class Model:
                 to_i = [-1, rand_i]
             self.mv(from_v, to_i[1])
 
-
     def get_mountain(self, mountain_num):
         current_num = INF
         for _ in range(1000):
             self.pickup_top()
-            process = [-1, -1] # [v, from_i]
+            process = [-1, -1]  # [v, from_i]
             for i in range(1, self.m + 1):
                 if i == mountain_num:
                     continue
@@ -172,6 +172,7 @@ class Model:
         self.fix_mountains()
         self.solve_last()
 
+
 def main():
     start_at = time.time()
     n, m = map(int, input().split())
@@ -184,4 +185,6 @@ def main():
     if is_debug_mode:
         print(model.score())
         print(params)
+
+
 main()

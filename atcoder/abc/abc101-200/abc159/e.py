@@ -22,12 +22,12 @@ def solve(l):
             for v in vs:
                 if s[v][i]:
                     if choco[idx] + 1 > k:
-                        return 10 ** 9
+                        return 10**9
                     choco[idx] += 1
     return ans + len(l) - 1
 
 
-ans = 10 ** 9
+ans = 10**9
 for i in range(2 ** (h - 1)):
     div = []
     tmp = []

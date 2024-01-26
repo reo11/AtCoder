@@ -1,5 +1,5 @@
-from collections import defaultdict, deque
 import heapq
+from collections import defaultdict, deque
 
 n = int(input())
 a = list(map(int, input().split()))

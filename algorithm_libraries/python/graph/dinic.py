@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class Dinic:
     # V: 頂点数, E: 辺数
     # O(V^2E)
@@ -49,7 +50,7 @@ class Dinic:
 
     def flow(self, s: int, t: int) -> int:
         flow = 0
-        INF = 10 ** 9 + 7
+        INF = 10**9 + 7
 
         while self.bfs(s, t):
             (*self.it,) = map(iter, self.G)

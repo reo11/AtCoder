@@ -18,7 +18,7 @@ def calc_cost(dic, color):
     return cost
 
 
-INF = 10 ** 9
+INF = 10**9
 cost = INF
 for colors in permutations(range(C), 3):
     tmp_cost = 0

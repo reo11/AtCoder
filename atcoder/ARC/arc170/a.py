@@ -1,5 +1,6 @@
 from collections import deque
-INF = float('inf')
+
+INF = float("inf")
 n = int(input())
 s = list(input())
 t = list(input())
@@ -10,7 +11,7 @@ queue_b = deque()
 
 for i, (si, ti) in enumerate(zip(s, t)):
     if si != ti:
-        if si == 'A':
+        if si == "A":
             queue_a.append(i)
         else:
             queue_b.append(i)

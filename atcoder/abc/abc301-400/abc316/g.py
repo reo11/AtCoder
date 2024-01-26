@@ -1,6 +1,7 @@
 import sys
-from collections import deque, defaultdict
-INF = float('inf')
+from collections import defaultdict, deque
+
+INF = float("inf")
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 

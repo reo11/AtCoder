@@ -1,9 +1,10 @@
 from collections import deque
+
 n = int(input())
 s = list(input())
 a_list = []
 b_list = []
-INF = 10 ** 10
+INF = 10**10
 for i in range(len(s)):
     s_i = s[i]
     if s_i == "A":

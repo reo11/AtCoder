@@ -1,6 +1,7 @@
 # 前計算で各S, Gと各お菓子の最短距離を求めておく
 import time
 from collections import deque
+
 INF = float("inf")
 start_at = time.time()
 h, w, t = map(int, input().split())
@@ -40,7 +41,7 @@ distance_matrix = [[INF] * (2 + n) for _ in range(2 + n)]
 dxy = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 for start_pos in range(2 + n):
     visited = [[False] * w for _ in range(h)]
-    que = deque([[0, positions[start_pos]]]) # [distance, pos]
+    que = deque([[0, positions[start_pos]]])  # [distance, pos]
     count = 0
     while que:
         cost, pos = que.popleft()
@@ -49,8 +50,13 @@ for start_pos in range(2 + n):
             break
         for dy, dx in dxy:
             next_pos = (pos[0] + dy, pos[1] + dx)
-        
-            if next_pos[0] < 0 or next_pos[0] >= h or next_pos[1] < 0 or next_pos[1] >= w:
+
+            if (
+                next_pos[0] < 0
+                or next_pos[0] >= h
+                or next_pos[1] < 0
+                or next_pos[1] >= w
+            ):
                 continue
             if visited[next_pos[0]][next_pos[1]]:
                 continue
@@ -80,7 +86,9 @@ for i in range(1 << (n + 2)):
         for k in range(2 + n):
             if i & (1 << k):
                 continue
-            dp[i | (1 << k)][k] = min(dp[i | (1 << k)][k], dp[i][j] + distance_matrix[j][k])
+            dp[i | (1 << k)][k] = min(
+                dp[i | (1 << k)][k], dp[i][j] + distance_matrix[j][k]
+            )
 
 ans = -1
 for i in range(len(dp)):
@@ -92,7 +100,7 @@ for i in range(len(dp)):
             if i & (1 << j):
                 count += 1
         ans = max(ans, count)
-    # print("i:", i, "ans:", ans)        
+    # print("i:", i, "ans:", ans)
 # print(dp)
 # print(distance_matrix)
 print(ans)

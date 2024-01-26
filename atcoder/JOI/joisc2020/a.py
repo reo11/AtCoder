@@ -10,7 +10,7 @@ b = list(map(int, input().split()))
 # あり得る最大と最小のA個数を持っておく
 # 最後に後ろからたどっていけば行けるはず
 
-INF = 2 ** 30
+INF = 2**30
 dp = [[[INF, 0] for _ in range(2)] for _ in range(2 * n)]
 dp[0][0] = [1, 1]
 dp[0][1] = [0, 0]

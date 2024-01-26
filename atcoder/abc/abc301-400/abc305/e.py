@@ -4,7 +4,7 @@ from collections import defaultdict
 
 input = lambda: sys.stdin.readline().rstrip()
 
-MAX_N = 3 * 10 ** 5
+MAX_N = 3 * 10**5
 
 n, m, k = map(int, input().split())
 ab = [list(map(int, input().split())) for _ in [0] * m]

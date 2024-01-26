@@ -5,7 +5,7 @@ a = list(map(int, input().split()))
 
 candidates = []
 for i in range(1, 32):
-    candidates.append(2 ** i)
+    candidates.append(2**i)
 candidates.sort(reverse=True)
 
 counter = defaultdict(int)

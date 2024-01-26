@@ -14,7 +14,7 @@ for i in range(1, n + 1):
         for ii in range(d):
             dp[i][j][ii] = max(
                 dp[i - 1][j][ii],  # i番目を選択しない
-                dp[i - 1][j - 1][(ii - ai) % d] + ai  # i番目を選択する
+                dp[i - 1][j - 1][(ii - ai) % d] + ai,  # i番目を選択する
             )
 
 ans = dp[-1][-1][0]

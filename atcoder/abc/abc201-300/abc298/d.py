@@ -80,7 +80,7 @@ q = int(input())
 
 s = deque([1])
 ans = []
-ten_multi = [0 for _ in range((6 * (10 ** 5)) + 1)]
+ten_multi = [0 for _ in range((6 * (10**5)) + 1)]
 ten = 1
 for i in range(len(ten_multi)):
     ten_multi[i] = ten

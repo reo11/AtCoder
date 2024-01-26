@@ -23,7 +23,6 @@ n, x = map(int, input().split())
 a = list(map(int, input().split()))
 
 
-
 def solve(a: List[int], x: int) -> str:
     """
     数列Aを入れた時に数字Xを作ることができるかを判定する
@@ -35,4 +34,3 @@ def solve(a: List[int], x: int) -> str:
         str: (Yes & answer) or No
     """
     pass
-

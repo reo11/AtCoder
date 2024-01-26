@@ -1,9 +1,11 @@
 from collections import defaultdict
+
 MOD = 998244353
+
 
 class Facts:
     # O(max_num)
-    def __init__(self, max_num: int = 10 ** 5, p: int = 10 ** 9 + 7) -> None:
+    def __init__(self, max_num: int = 10**5, p: int = 10**9 + 7) -> None:
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)
@@ -53,6 +55,7 @@ class Facts:
             a = a * a % self.p
             b >>= 1
         return ans
+
 
 n, k = map(int, input().split())
 a = list(map(int, input().split()))

@@ -6,7 +6,7 @@ from collections import defaultdict
 h, w, k = map(int, input().split())
 s = [list(map(int, list(input()))) for _ in range(h)]
 ans = float("inf")
-for h_bit in range(2**h): 
+for h_bit in range(2**h):
     cut = 0
     # i行目に対してグループ付け
     group = [0] * h
@@ -44,4 +44,3 @@ for h_bit in range(2**h):
         # print(h_bit, ans, cut)
         # print(cut_history)
 print(ans)
-        

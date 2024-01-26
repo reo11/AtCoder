@@ -13,8 +13,8 @@ for i in range(n - 8):
                 if ii == 3 or jj == 3:
                     if s[i + ii][j + jj] == ".":
                         left_up_white += 1
-                elif 0 <= i+ii < n and 0 <= j+jj < m:
-                    if s[i+ii][j+jj] == "#":
+                elif 0 <= i + ii < n and 0 <= j + jj < m:
+                    if s[i + ii][j + jj] == "#":
                         left_up += 1
         right_down_white = 0
         right_down = 0
@@ -27,6 +27,11 @@ for i in range(n - 8):
                     if s[i + 5 + ii][j + 5 + jj] == "#":
                         right_down += 1
         # print(left_up_white, left_up, right_down_white, right_down)
-        if left_up_white == 7 and left_up == 9 and right_down_white == 7 and right_down == 9:
+        if (
+            left_up_white == 7
+            and left_up == 9
+            and right_down_white == 7
+            and right_down == 9
+        ):
             ans.append(f"{i + 1} {j + 1}")
 print(*ans, sep="\n")

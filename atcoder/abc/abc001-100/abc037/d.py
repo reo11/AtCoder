@@ -2,7 +2,7 @@ import sys
 
 input = sys.stdin.readline
 sys.setrecursionlimit(10000000)
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 h, w = map(int, input().split())
 a = [[int(i) for i in input().rstrip().split()] for i in range(h)]
 dxy = [[1, 0], [-1, 0], [0, 1], [0, -1]]

@@ -2,7 +2,7 @@ from math import factorial
 
 
 class Facts:
-    def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num=10**5, p=10**9 + 7):
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)
@@ -11,7 +11,7 @@ class Facts:
             self.fact[i] %= self.p
 
     def comb(self, n, k):
-        """ nCk mod p を求める """
+        """nCk mod p を求める"""
         """ 計算量 O(log(p)) """
         """ n! / (n-k)! / k! mod p """
         """ フェルマーの小定理 a^(-1) ≡ a^(p-2) """
@@ -28,7 +28,7 @@ class Facts:
         ) % self.p
 
     def perm(self, n, k):
-        """ nPk mod p を求める """
+        """nPk mod p を求める"""
         """ 計算量 O(b - a)? """
         """ n! / (n-k)! mod p """
         """ n! * (n-k)!^(p-2) mod p """
@@ -41,7 +41,7 @@ class Facts:
         return (a * self.power_func(b, self.p - 2)) % self.p
 
     def power_func(self, a, b):
-        """ a^b mod p　を繰り返し二乗法で求める """
+        """a^b mod p　を繰り返し二乗法で求める"""
         """ 計算量 O(log(b)) """
         if b == 0:
             return 1
@@ -52,7 +52,7 @@ class Facts:
             return (a * self.power_func(a, b - 1)) % self.p
 
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 fact = Facts()
 n, k = map(int, input().split())

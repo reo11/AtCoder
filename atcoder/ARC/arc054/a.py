@@ -7,7 +7,7 @@ d3 = 2 * l + d
 v1 = x + y  # 右
 v2 = -(x - y)  # 左
 
-ans = 10 ** 9
+ans = 10**9
 for d in [d1, d2, d3]:
     if s < d:
         ans = min(ans, (d - s) / v1)

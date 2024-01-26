@@ -11,12 +11,13 @@ for _ in range(q):
 # c: 2 -> l~rの間の連続する1の最大の長さを求める
 # セグ木
 
+
 class SegTree:
     def __init__(self, n: int, mode: str = "max") -> None:
         self.mode = mode
         unit_elements = {
-            "min": 10 ** 13,
-            "max": -(10 ** 13),
+            "min": 10**13,
+            "max": -(10**13),
             "sum": 0,
             "mul": 1,
             "gcd": 0,
@@ -26,7 +27,7 @@ class SegTree:
         self.tree_value = [self.e] * 2 * self.tree_size
 
     def __str__(self) -> str:
-        if self.tree_size > 2 ** 4:
+        if self.tree_size > 2**4:
             return "Segtree size too big"
         out = ""
         i = 0
@@ -105,6 +106,7 @@ class SegTree:
             res = self._op(self._op(res, self.tree_value[l]), self.tree_value[r])
         return res
 
+
 ans = []
 for c, l, r in queries:
     if c == 1:
@@ -125,5 +127,3 @@ for c, l, r in queries:
         ret = max(ret, cnt)
         ans.append(ret)
 print(*ans, sep="\n")
-
-

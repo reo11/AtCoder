@@ -3,7 +3,7 @@ import pprint
 from collections import defaultdict
 from itertools import combinations
 
-MAX_VALUE = 2 * 10 ** 9
+MAX_VALUE = 2 * 10**9
 
 
 def score(l1, l2, l3):

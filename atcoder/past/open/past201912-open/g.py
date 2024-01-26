@@ -3,7 +3,7 @@ from collections import defaultdict
 
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
-INF = 10 ** 9
+INF = 10**9
 d = defaultdict(lambda: defaultdict(lambda: -INF))
 
 n = int(input())

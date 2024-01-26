@@ -7,7 +7,7 @@ a = list(map(int, input().split()))
 
 # ループがあるか見つけ、ループのサイズを見つける
 # ループしている場合、残りのｋをループで割ったあまりに置き換える
-INF = 10 ** 12
+INF = 10**12
 cnt = [-1 for _ in range(n)]
 cur = 0
 size = INF

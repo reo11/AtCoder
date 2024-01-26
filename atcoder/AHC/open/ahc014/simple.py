@@ -226,7 +226,7 @@ class CoordinateController:
                         q_score += w[i][j]
             return q_score / s
 
-        return round(10 ** 6 * (self.size ** 2 / self.m) * sum_q())
+        return round(10**6 * (self.size**2 / self.m) * sum_q())
 
     def add_answers(self, coordinates: List[Coordinate]) -> None:
         self.answers.append(coordinates)

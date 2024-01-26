@@ -1,8 +1,9 @@
 from collections import deque
+
 n, d, p = map(int, input().split())
 f = list(map(int, input().split()))
 f_origin = f[:]
-INF = float('inf')
+INF = float("inf")
 f.sort(reverse=True)
 f = deque(f)
 

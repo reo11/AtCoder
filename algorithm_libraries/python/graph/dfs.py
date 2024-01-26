@@ -1,11 +1,11 @@
 import sys
 from typing import List, Tuple
 
-sys.setrecursionlimit(10 ** 7)
+sys.setrecursionlimit(10**7)
 
 
 class DepthFirsSearch:
-    """ 深さ優先探索 """
+    """深さ優先探索"""
 
     def __init__(
         self,

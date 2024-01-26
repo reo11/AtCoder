@@ -7,7 +7,7 @@ b = list(map(int, input().split()))
 
 t = 0
 count = 0
-for i in range(10 ** 5 + 1):
+for i in range(10**5 + 1):
     a_idx = bisect.bisect_left(a, t)
     if a_idx >= n:
         break

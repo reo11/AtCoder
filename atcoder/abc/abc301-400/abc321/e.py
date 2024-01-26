@@ -1,6 +1,7 @@
-import sys
 import math
+import sys
 from collections import deque
+
 input = lambda: sys.stdin.readline().rstrip()
 
 t = int(input())
@@ -16,9 +17,9 @@ for ti in range(t):
         continue
     ansi = 0
     # xの子孫を数える
-    base = x * (2 ** k)
+    base = x * (2**k)
     if base <= n:
-        ansi += min(n, (base + (2 ** k) - 1)) - base + 1
+        ansi += min(n, (base + (2**k) - 1)) - base + 1
     que = deque([])
     if x // 2 > 0:
         que = deque([[x, x // 2, k - 1]])

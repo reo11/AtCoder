@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 n = int(input())
 a = list(map(int, input().split()))
 
@@ -16,12 +17,12 @@ for i in range(n):
         while len(queue) > 0 and queue[-1] != a_i - 1:
             queue.pop()
         if len(queue) > 0:
-            queue.pop() # a_i - 1を消す
+            queue.pop()  # a_i - 1を消す
             queue.append(a_i)
     else:
         queue.append(1)
     # a_i = Rとするパターン数をansに加算する
-    ans += len(queue) # 嘘っぽい
+    ans += len(queue)  # 嘘っぽい
     # print(ans, queue)
 # print(counter)
 print(ans)

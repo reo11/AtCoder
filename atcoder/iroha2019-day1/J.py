@@ -2,7 +2,7 @@ def display_ans_list(max_n):
 
     for n in range(1, max_n + 1):
         l_ = []
-        for i in range(2 ** n):
+        for i in range(2**n):
             if format(i, "b").zfill(n) == format(i, "b").zfill(n)[::-1]:
                 l_.append(format(i, "b").zfill(n))
         for k in range(n):

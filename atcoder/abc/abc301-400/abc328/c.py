@@ -13,6 +13,8 @@ def cumsum(a):
     for v in a:
         r.append(r[-1] + v)
     return r
+
+
 cum = cumsum(ren)
 
 ans = []

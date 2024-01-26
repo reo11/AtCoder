@@ -3,7 +3,7 @@ import bisect
 import sys
 
 input = sys.stdin.readline
-INF = 10 ** 10
+INF = 10**10
 
 n = int(input())
 c = [0] * n

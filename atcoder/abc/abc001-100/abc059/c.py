@@ -1,7 +1,7 @@
 n = int(input())
 a = list(map(int, input().split()))
 
-ans = 10 ** 10
+ans = 10**10
 
 # 1 -1 1 -1...
 cost1 = 0

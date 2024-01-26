@@ -42,7 +42,7 @@ def check(target_power):
 
 
 l = 0
-r = 10 ** 6
+r = 10**6
 while (r - l) > 10 ** (-8):
     mid = (r + l) / 2
     if check(mid):

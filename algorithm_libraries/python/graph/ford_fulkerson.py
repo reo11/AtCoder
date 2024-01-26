@@ -1,4 +1,6 @@
 INF = float("inf")
+
+
 class FordFulkerson:
     # Ford-Fulkerson algorithm
     # E: 辺の数,　F: 最大流量
@@ -39,7 +41,7 @@ class FordFulkerson:
         f = INF
         N = self.N
         while f:
-            self.used = [0]*N
+            self.used = [0] * N
             f = self.dfs(s, t, INF)
             flow += f
         return flow

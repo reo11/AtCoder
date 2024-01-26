@@ -19,7 +19,7 @@ def solve(t, a):
     if a and (a in m):
         return m[a]
 
-    r, n = -(10 ** 10), (-1 if t % 2 == 1 else 1)
+    r, n = -(10**10), (-1 if t % 2 == 1 else 1)
     for i in range(9):
         if p[i] == 0:
             p[i] = n

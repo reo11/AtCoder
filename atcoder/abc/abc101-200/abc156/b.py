@@ -2,7 +2,7 @@ n, k = map(int, input().split())
 
 i = 0
 while True:
-    s = k ** i
+    s = k**i
     if n / s >= 1:
         i += 1
         continue

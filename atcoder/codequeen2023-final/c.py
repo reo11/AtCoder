@@ -1,15 +1,16 @@
 import sys
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
 n, s, t = map(int, input().split())
 uv = []
 edges = defaultdict(lambda: [])
-for _ in range(n-1):
+for _ in range(n - 1):
     u, v = map(int, input().split())
-    edges[u-1].append(v-1)
-    edges[v-1].append(u-1)
+    edges[u - 1].append(v - 1)
+    edges[v - 1].append(u - 1)
 
 
 ans = [-1 for _ in range(n)]

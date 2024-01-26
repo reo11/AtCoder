@@ -1,6 +1,8 @@
 from collections import defaultdict
+
 n = int(input())
 s = int(input())
+
 
 def norm_for_s(s):
     zeropad_si = str(s).zfill(n)
@@ -10,10 +12,11 @@ def norm_for_s(s):
         counter[int(l)] += 1
     return counter
 
+
 normed_s = norm_for_s(s)
 
 ans = 0
-for i in range(10 ** 7 + 1):
+for i in range(10**7 + 1):
     if i * i > 10 ** (n + 1):
         break
     si = str(i * i).zfill(n)

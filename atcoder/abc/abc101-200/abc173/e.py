@@ -2,7 +2,7 @@ from math import log10
 
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 a.sort()
 
 cnt_neg = 0

@@ -2,7 +2,7 @@ import numpy as np
 import scipy.sparse.csgraph as cs
 
 N, M = map(int, input().split())
-INF = 10 ** 9
+INF = 10**9
 G = np.array([[INF] * N for i in range(N)])
 H = []
 for _ in range(M):

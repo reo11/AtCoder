@@ -1,14 +1,16 @@
-from collections import defaultdict
 from bisect import bisect_left, bisect_right
+from collections import defaultdict
+
 n = int(input())
 a = list(map(int, input().split()))
 xor_sum_memo = defaultdict(int)
 # 大きい順に試す
 a.sort()
 
-INF = 10 ** 16
+INF = 10**16
 for ai in a:
-    xor_sum_memo[INF] ^= ai 
+    xor_sum_memo[INF] ^= ai
+
 
 def nim(k, pre_k=INF):
     # 更新分だけ追加計算
@@ -16,18 +18,19 @@ def nim(k, pre_k=INF):
     xor_sum = xor_sum_memo[pre_k]
     idx = bisect_left(a, k + 1)
     for i in range(idx, len(a)):
-        
+
         if a[i] < k + 1:
             continue
         if a[i] > pre_k:
             break
         xor_sum ^= a[i]
-        xor_sum ^= (a[i] % (k + 1))
+        xor_sum ^= a[i] % (k + 1)
     xor_sum_memo[k] = xor_sum
     if xor_sum == 0:
         return -1
     else:
         return k
+
 
 ans = []
 pre_k = INF

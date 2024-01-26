@@ -9,4 +9,4 @@ for si in range(n):
     else:
         ans.append(s[si])
 ans = ans[1:]
-print(*ans, sep=' ')
+print(*ans, sep=" ")

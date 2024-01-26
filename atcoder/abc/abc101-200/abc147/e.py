@@ -68,7 +68,7 @@ for i in l:
     dp[h - 1][w - 1][i + v] = True
     dp[h - 1][w - 1][i - v] = True
 
-ans = 10 ** 9
+ans = 10**9
 for i in range(25601):
     if dp[h - 1][w - 1][i]:
         ans = min(ans, abs(12800 - i))

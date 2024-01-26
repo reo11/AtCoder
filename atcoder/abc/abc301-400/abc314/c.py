@@ -1,4 +1,5 @@
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 n, m = map(int, input().split())
 s = list(input())
 c = list(map(int, input().split()))

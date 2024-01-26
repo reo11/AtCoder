@@ -1,7 +1,7 @@
 from heapq import heappop, heappush
 
 inf = float("inf")
-mod = 10 ** 9 + 7
+mod = 10**9 + 7
 
 
 def dijkstra(start, ad):

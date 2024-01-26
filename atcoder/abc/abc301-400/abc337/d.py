@@ -1,5 +1,6 @@
 from collections import deque
-INF = float('inf')
+
+INF = float("inf")
 h, w, k = map(int, input().split())
 s = [list(input()) for _ in range(h)]
 

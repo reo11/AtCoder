@@ -28,6 +28,6 @@ for i in range(1, n + 2):
     # print(new_a)
     new_a = battle(new_a, i)
 out = []
-for i in range(2 ** n):
+for i in range(2**n):
     out.append(str(ans[a[i]]))
 print("\n".join(out))

@@ -14,4 +14,3 @@ for a in range(1, n + 1):
             if edges[a][b] and edges[b][c] and edges[a][c]:
                 ans += 1
 print(ans)
-

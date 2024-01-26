@@ -16,10 +16,14 @@ else:
             if not flag:
                 break
             expected_num = num_str[i] - a
-            if expected_num != num_str[i+1]:
-                if num_str[i+1] < expected_num and expected_num <= 9 and expected_num >= 0:
-                    num_str[i+1] = expected_num
-                    for j in range(i+2, len(num_str)):
+            if expected_num != num_str[i + 1]:
+                if (
+                    num_str[i + 1] < expected_num
+                    and expected_num <= 9
+                    and expected_num >= 0
+                ):
+                    num_str[i + 1] = expected_num
+                    for j in range(i + 2, len(num_str)):
                         num_str[j] = 0
                 else:
                     flag = False

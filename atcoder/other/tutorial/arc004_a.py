@@ -12,7 +12,7 @@ y = [0] * n
 for i in range(n):
     x[i], y[i] = map(int, input().split())
 
-ans = -(10 ** 9)
+ans = -(10**9)
 
 for i in range(n):
     for j in range(n):

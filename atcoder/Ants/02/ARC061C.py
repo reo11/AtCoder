@@ -4,7 +4,7 @@ sum_ = 0
 for i in range(2 ** (len(s) - 1)):
     l = []
     for b in range(len(s)):
-        bit = 2 ** b
+        bit = 2**b
         if i & bit > 0:
             l.append(b)
     if len(l) == 0:

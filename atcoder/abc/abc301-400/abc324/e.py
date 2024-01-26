@@ -45,6 +45,6 @@ for idx, si in enumerate(s):
 # 分割位置を全探索
 ans = 0
 for i in range(len(t) + 1):
-    ans += (counter[i] * rev_counter[len(t) - i])
+    ans += counter[i] * rev_counter[len(t) - i]
 
 print(ans)

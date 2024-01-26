@@ -6,7 +6,7 @@ for i in range(2 ** (len(s) - 1)):
     plus_l = []
     cal_l = []
     for j in range(len(s)):
-        bit = 2 ** j
+        bit = 2**j
         if i & bit > 0:
             plus_l.append(j)
     if len(plus_l) == 0:

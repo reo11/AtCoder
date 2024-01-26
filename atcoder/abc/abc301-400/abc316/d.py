@@ -1,6 +1,7 @@
 import math
 from collections import defaultdict
-INF = float('inf')
+
+INF = float("inf")
 
 n = int(input())
 candidates = []

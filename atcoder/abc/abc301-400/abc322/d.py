@@ -1,6 +1,7 @@
 # 全探索するしかなさそう
-import numpy as np
 from functools import lru_cache
+
+import numpy as np
 
 ps = []
 for i in range(3):
@@ -22,17 +23,21 @@ for i in range(3):
     p = np.delete(p, idxs, 1)
     ps.append(p)
 
+
 @lru_cache(maxsize=None)
 def rotate_x(num):
     return np.rot90(ps[0], num)
+
 
 @lru_cache(maxsize=None)
 def rotate_y(num):
     return np.rot90(ps[1], num)
 
+
 @lru_cache(maxsize=None)
 def rotate_z(num):
     return np.rot90(ps[2], num)
+
 
 @lru_cache(maxsize=None)
 def out_of_range(x, y):
@@ -108,4 +113,3 @@ for x_rotate in range(4):
                                         print("Yes")
                                         exit()
 print("No")
-

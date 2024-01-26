@@ -3,8 +3,8 @@ n = int(input())
 idx = 0
 while True:
     idx += 1
-    if idx ** 2 > n:
+    if idx**2 > n:
         idx -= 1
         break
 
-print(idx ** 2)
+print(idx**2)

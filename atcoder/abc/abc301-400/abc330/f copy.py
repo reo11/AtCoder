@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 INF = float("inf")
 n, k = map(int, input().split())
 xy = []
@@ -26,7 +27,7 @@ while k > 0:
     # dxyiのうち最もコスト消費が少なく小さくできるものを選択しつづける
     if positions[0] == positions[2]:
         break
-    next_dxy = [INF, -1] # (cost, dx, dy)
+    next_dxy = [INF, -1]  # (cost, dx, dy)
     for i, (dx, dy) in enumerate(dxy):
         cost = 0
         if dx % 2 == 0:

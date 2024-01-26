@@ -1,8 +1,10 @@
 from collections import defaultdict
+
 h, w = map(int, input().split())
 s = [list(input()) for _ in range(h)]
 
 MOD = 998244353
+
 
 class ModInt:
     def __init__(self, x, p=998244353):
@@ -74,7 +76,8 @@ class ModInt:
             else ModInt(pow(other, self.x, self.mod))
         )
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n):
         self.n = n + 1
         self.parents = [-1] * (n + 1)
@@ -119,25 +122,27 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
+
 
 def calc_num(y, x):
     return w * y + x
 
+
 dxy = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-uf_tree = UnionFind(h*w)
+uf_tree = UnionFind(h * w)
 ans = ModInt(0)
 count_red = 0
 for i in range(h):
     for j in range(w):
-        if s[i][j] == '.':
+        if s[i][j] == ".":
             count_red += 1
         else:
             num = calc_num(i, j)
             for dx, dy in dxy:
                 x = j + dx
                 y = i + dy
-                if 0 <= x < w and 0 <= y < h and s[y][x] == '#':
+                if 0 <= x < w and 0 <= y < h and s[y][x] == "#":
                     neighbor_num = calc_num(y, x)
                     if not uf_tree.same(num, neighbor_num):
                         uf_tree.union(num, neighbor_num)
@@ -146,19 +151,19 @@ v = 0
 groups = set()
 for i in range(h):
     for j in range(w):
-        if s[i][j] == '#':
+        if s[i][j] == "#":
             num = calc_num(i, j)
             groups.add(uf_tree.find(num))
 base_group_count = len(groups)
 for i in range(h):
     for j in range(w):
-        if s[i][j] == '.':
+        if s[i][j] == ".":
             num = calc_num(i, j)
             groups = set()
             for dx, dy in dxy:
                 x = j + dx
                 y = i + dy
-                if 0 <= x < w and 0 <= y < h and s[y][x] == '#':
+                if 0 <= x < w and 0 <= y < h and s[y][x] == "#":
                     neighbor_num = calc_num(y, x)
                     groups.add(uf_tree.find(neighbor_num))
             if len(groups) == 1:
@@ -173,4 +178,3 @@ for i in range(h):
 
 ans /= ModInt(count_red)
 print(ans)
-

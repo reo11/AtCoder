@@ -1,4 +1,4 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 def solve(num, mod):

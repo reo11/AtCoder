@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
 
-INF = 10 ** 9
+INF = 10**9
 edges = [[INF for _ in range(n)] for _ in range(n)]
 for i in range(m):
     a, b, t = map(int, input().split())

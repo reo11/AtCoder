@@ -1,12 +1,15 @@
 # AGC064B
 import sys
 from collections import defaultdict, deque
+
 import pypyjit
-pypyjit.set_param('max_unroll_recursion=-1')
+
+pypyjit.set_param("max_unroll_recursion=-1")
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n):
         self.n = n + 1
         self.parents = [-1] * (n + 1)
@@ -51,7 +54,8 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
+
 
 n, m = map(int, input().split())
 edges = defaultdict(lambda: defaultdict(lambda: []))

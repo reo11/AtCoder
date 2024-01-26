@@ -12,5 +12,4 @@ for i in range(n):
         ans[1] += y
     else:
         status += 1
-print(*ans, sep=" ")            
-    
+print(*ans, sep=" ")

@@ -6,9 +6,9 @@ def f(num):
     count = 0
     i = 1
     while True:
-        if ((5 ** i) * (2)) > num:
+        if ((5**i) * (2)) > num:
             break
-        count += num // ((5 ** i) * (2))
+        count += num // ((5**i) * (2))
         i += 1
     return count
 

@@ -18,7 +18,7 @@ ans_num = 1
 print(ans)
 for i in range(n):
     if ans[i] == -1:
-        ans_num *= (m - count + 1)
+        ans_num *= m - count + 1
         ans_num %= MOD
     else:
         count -= 1

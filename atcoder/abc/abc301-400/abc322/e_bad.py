@@ -1,8 +1,9 @@
 import copy
+
 MAX_NUM = 6
 
 n, k, p = map(int, input().split())
-INF = 10 ** 18
+INF = 10**18
 cas = []
 for _ in range(n):
     ca = list(map(int, input().split()))
@@ -20,13 +21,30 @@ elif k == 2:
     dp = [[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)]
     dp[0][0] = 0
 elif k == 3:
-    dp = [[[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)]
+    dp = [
+        [[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)
+    ]
     dp[0][0][0] = 0
 elif k == 4:
-    dp = [[[[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)]
+    dp = [
+        [
+            [[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)]
+            for _ in range(MAX_NUM)
+        ]
+        for _ in range(MAX_NUM)
+    ]
     dp[0][0][0][0] = 0
 else:
-    dp = [[[[[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)] for _ in range(MAX_NUM)]
+    dp = [
+        [
+            [
+                [[INF for _ in range(MAX_NUM)] for _ in range(MAX_NUM)]
+                for _ in range(MAX_NUM)
+            ]
+            for _ in range(MAX_NUM)
+        ]
+        for _ in range(MAX_NUM)
+    ]
     dp[0][0][0][0][0] = 0
 
 for c, a in cas:
@@ -48,7 +66,9 @@ for c, a in cas:
                     idx1 = min(i + a[0], 5)
                     idx2 = min(j + a[1], 5)
                     idx3 = min(ii + a[2], 5)
-                    tmp_dp[idx1][idx2][idx3] = min(tmp_dp[idx1][idx2][idx3], dp[i][j][ii] + c)
+                    tmp_dp[idx1][idx2][idx3] = min(
+                        tmp_dp[idx1][idx2][idx3], dp[i][j][ii] + c
+                    )
     elif k == 4:
         for i in range(6):
             for j in range(6):
@@ -58,7 +78,9 @@ for c, a in cas:
                         idx2 = min(j + a[1], 5)
                         idx3 = min(ii + a[2], 5)
                         idx4 = min(jj + a[3], 5)
-                        tmp_dp[idx1][idx2][idx3][idx4] = min(tmp_dp[idx1][idx2][idx3][idx4], dp[i][j][ii][jj] + c)
+                        tmp_dp[idx1][idx2][idx3][idx4] = min(
+                            tmp_dp[idx1][idx2][idx3][idx4], dp[i][j][ii][jj] + c
+                        )
     else:
         for i in range(6):
             for j in range(6):
@@ -70,7 +92,10 @@ for c, a in cas:
                             idx3 = min(ii + a[2], 5)
                             idx4 = min(jj + a[3], 5)
                             idx5 = min(kk + a[4], 5)
-                            tmp_dp[idx1][idx2][idx3][idx4][idx5] = min(tmp_dp[idx1][idx2][idx3][idx4][idx5], dp[i][j][ii][jj][kk] + c)
+                            tmp_dp[idx1][idx2][idx3][idx4][idx5] = min(
+                                tmp_dp[idx1][idx2][idx3][idx4][idx5],
+                                dp[i][j][ii][jj][kk] + c,
+                            )
     dp = tmp_dp
 
 ans = -1

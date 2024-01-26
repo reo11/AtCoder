@@ -3,8 +3,10 @@ from decimal import Decimal
 
 a, b = map(int, input().split())
 
+
 def f(x):
     return Decimal((a / math.sqrt(1 + x)) + (b * x))
+
 
 # 3分探索する
 l = 0

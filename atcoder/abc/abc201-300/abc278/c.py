@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, q = map(int, input().split())
 tab = []
 for i in range(q):
@@ -19,5 +20,3 @@ for ti, ai, bi in tab:
         else:
             ans.append("No")
 print(*ans, sep="\n")
-
-    

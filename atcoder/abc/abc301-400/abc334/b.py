@@ -1,4 +1,4 @@
-INF = 10 ** 19
+INF = 10**19
 a, m, l, r = map(int, input().split())
 a += INF
 a %= m

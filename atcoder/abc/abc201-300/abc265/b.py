@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, m, t = map(int, input().split())
 a = list(map(int, input().split()))
 xy = []

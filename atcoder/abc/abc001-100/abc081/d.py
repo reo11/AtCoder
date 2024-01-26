@@ -17,7 +17,7 @@ def solve_minus(out):
 
 max_a = 0
 max_i = 0
-min_a = 10 ** 7
+min_a = 10**7
 min_i = 0
 for i in range(n):
     if a[i] > max_a:

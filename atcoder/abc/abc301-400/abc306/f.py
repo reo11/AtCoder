@@ -27,8 +27,8 @@ class SegTree:
     def __init__(self, n: int, mode: str = "min") -> None:
         self.mode = mode
         unit_elements = {
-            "min": 10 ** 13,
-            "max": -(10 ** 13),
+            "min": 10**13,
+            "max": -(10**13),
             "sum": 0,
             "mul": 1,
             "gcd": 0,
@@ -38,7 +38,7 @@ class SegTree:
         self.tree_value = [self.e] * 2 * self.tree_size
 
     def __str__(self) -> str:
-        if self.tree_size > 2 ** 4:
+        if self.tree_size > 2**4:
             return "Segtree size too big"
         out = ""
         i = 0

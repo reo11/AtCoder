@@ -3,8 +3,8 @@ from collections import defaultdict
 from math import gcd
 
 input = sys.stdin.readline
-MOD = 10 ** 9 + 7
-MAX = 2 * (10 ** 5) + 1
+MOD = 10**9 + 7
+MAX = 2 * (10**5) + 1
 sqr = [1 for _ in range(MAX)]
 for i in range(1, MAX):
     sqr[i] = sqr[i - 1] * 2
@@ -12,7 +12,7 @@ for i in range(1, MAX):
 
 
 class FLT:
-    def __init__(self, mod=10 ** 9 + 7):
+    def __init__(self, mod=10**9 + 7):
         self.mod = mod
 
     def rep_sqr(self, base, k):
@@ -25,7 +25,7 @@ class FLT:
         return ans
 
     def inv(self, a):
-        """ 逆元を取る """
+        """逆元を取る"""
         return self.rep_sqr(a, self.mod - 2)
 
 

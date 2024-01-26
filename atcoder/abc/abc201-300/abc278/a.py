@@ -1,4 +1,5 @@
 from collections import deque
+
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
 a = deque(a)

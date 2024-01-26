@@ -9,6 +9,7 @@ for _ in range(q):
     i, x = map(int, input().split())
     ix.append((i, x))
 
+
 class MultiSet:
     def __init__(self) -> None:
         self.cnt_dict = defaultdict(int)
@@ -44,6 +45,7 @@ class MultiSet:
 
     def include(self, num: int) -> bool:
         return self.cnt_dict.get(num, 0) > 0
+
 
 multiset = MultiSet()
 for ai in a:

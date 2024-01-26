@@ -1,7 +1,9 @@
 import sys
 from collections import defaultdict, deque
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
+
 
 class ModInt:
     def __init__(self, x, p=998244353):
@@ -73,7 +75,8 @@ class ModInt:
             else ModInt(pow(other, self.x, self.mod))
         )
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n):
         self.n = n + 1
         self.parents = [-1] * (n + 1)
@@ -118,7 +121,8 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
+
 
 n = int(input())
 pq = []
@@ -135,6 +139,7 @@ edges = defaultdict(list)
 points = defaultdict(lambda: ModInt(0))
 parents = defaultdict(lambda: -1)
 
+
 def find_parents(node):
     first_node = node
     path_node_list = [first_node]
@@ -144,6 +149,7 @@ def find_parents(node):
     for child_node in path_node_list:
         parents[child_node] = node
     return node
+
 
 for edge_i, (p, q) in enumerate(pq, start=0):
     # pが先攻, qが後攻

@@ -1,7 +1,9 @@
 import sys
 from collections import defaultdict
+
 import pypyjit
-pypyjit.set_param('max_unroll_recursion=-1')
+
+pypyjit.set_param("max_unroll_recursion=-1")
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -21,6 +23,8 @@ for _ in range(n):
 ans = []
 set_ans = set()
 visited = defaultdict(lambda: False)
+
+
 def dfs(i):
     if visited[i]:
         return
@@ -33,6 +37,7 @@ def dfs(i):
     if i not in set_ans:
         ans.append(i)
         set_ans.add(i)
+
 
 dfs(1)
 print(*ans[:-1], sep=" ")

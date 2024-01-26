@@ -27,6 +27,6 @@ for i in range(q):
                 d -= x
         ans_i = 0
         for _, v in deleted.items():
-            ans_i += v ** 2
+            ans_i += v**2
         ans.append(ans_i)
 print("\n".join(list(map(str, ans))))

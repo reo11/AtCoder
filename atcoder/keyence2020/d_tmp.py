@@ -15,7 +15,7 @@ for i in range(n):
 i = n - 1
 flag = False
 count = 0
-for _ in range(10 ** 5):
+for _ in range(10**5):
     if i == 0:
         flag = True
         break

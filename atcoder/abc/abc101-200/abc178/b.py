@@ -14,7 +14,7 @@ Y += [d]
 if c <= 0 and 0 <= d:
     Y += [0]
 
-ans = -(10 ** 18)
+ans = -(10**18)
 for x in X:
     for y in Y:
         ans = max(ans, x * y)

@@ -1,7 +1,7 @@
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
-a_idx = [-1] * (2 * 10 ** 5)
-ans = [0] * (2 * 10 ** 5)
+a_idx = [-1] * (2 * 10**5)
+ans = [0] * (2 * 10**5)
 idx = 0
 for i in range(n * k):
     a_i = a[i % n]

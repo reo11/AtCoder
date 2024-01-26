@@ -1,6 +1,6 @@
 n = int(input())
 
-score = 10 ** 9
+score = 10**9
 
 for i in range(1000):
     for j in range(1000):

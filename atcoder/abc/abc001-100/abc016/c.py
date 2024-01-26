@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-INF = 10 ** 10
+INF = 10**10
 ab = [[INF for _ in range(n)] for _ in range(n)]
 for i in range(n):
     ab[i][i] = 0

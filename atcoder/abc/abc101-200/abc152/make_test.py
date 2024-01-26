@@ -7,10 +7,10 @@ def is_prime(n):
     return n != 1
 
 
-n = 10 ** 4
+n = 10**4
 print(n)
 a = []
-num = 10 ** 6
+num = 10**6
 idx = 0
 
 while len(a) < n:

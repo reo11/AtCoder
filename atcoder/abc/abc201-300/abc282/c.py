@@ -5,7 +5,7 @@ flag = True
 ans = []
 for i in range(n):
     # ""で囲まれていない,を.にする
-    if s[i] == "\"":
+    if s[i] == '"':
         flag = not flag
 
     if s[i] == "," and flag:

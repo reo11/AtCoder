@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-INF = 10 ** 18
+INF = 10**18
 MAX_VALUE = 250002
 
 n, m = map(int, input().split())

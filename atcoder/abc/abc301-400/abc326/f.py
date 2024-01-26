@@ -1,4 +1,5 @@
 from collections import deque
+
 n, x, y = map(int, input().split())
 a = list(map(int, input().split()))
 
@@ -12,14 +13,15 @@ if n == 1:
         print("R")
         exit()
 
+
 def solve_half(ax, target_x):
     # 半分全列挙して可能かどうかを判定する
     # 不可能な場合は空行列
     # 可能な場合は正負のリストを返す（0: 負, 1: 正）
-    halfs = [ax[:len(ax) // 2], ax[len(ax) // 2:]]
+    halfs = [ax[: len(ax) // 2], ax[len(ax) // 2 :]]
     values = [dict(), dict()]
     for i, half in enumerate(halfs):
-        que = deque([[0, 0, 0]]) # [value, path]
+        que = deque([[0, 0, 0]])  # [value, path]
         while que:
             value, depth, path = que.popleft()
             if depth == len(half):
@@ -59,6 +61,7 @@ def solve_half(ax, target_x):
             return path
     return []
 
+
 # 4分割して半分全列挙
 def solve(a):
     ay = a[::2]
@@ -71,7 +74,7 @@ def solve(a):
         return
 
     ans = []
-    direction = 0 # 0: x正, 1: x負, 2: y正, 3: y負
+    direction = 0  # 0: x正, 1: x負, 2: y正, 3: y負
     while path_y or path_x:
         if path_y:
             d = path_y.popleft()
@@ -105,9 +108,7 @@ def solve(a):
     print("".join(ans))
     return
 
+
 solve(a)
 # 奇数回目の操作でy方向に動く
 # 偶数回目の操作でx方向に動く
-
-
-

@@ -2,7 +2,7 @@
 # 二進数, 2進数
 l = list(map(int, list(input())))
 n = len(l) + 1
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 dp1 = [0 for _ in range(n)]
 dp2 = [0 for _ in range(n)]
 dp1[0] = 1

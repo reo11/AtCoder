@@ -3,12 +3,14 @@ from collections import defaultdict
 n = int(input())
 a = list(map(int, input().split()))
 
+
 def gcd(a: int, b: int) -> int:
     # 最大公約数
     # (12, 18) -> 6
     while b:
         a, b = b, a % b
     return a
+
 
 def prime_factorize(n: int):
     # 素因数分解
@@ -28,6 +30,7 @@ def prime_factorize(n: int):
     if n != 1:
         counter[n] += 1
     return counter
+
 
 gcd_value = a[0]
 for ai in a[1:]:

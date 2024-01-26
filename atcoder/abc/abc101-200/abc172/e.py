@@ -1,9 +1,9 @@
 n, m = map(int, input().split())
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 class Facts:
-    def __init__(self, max_num=10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num=10**5, p=10**9 + 7):
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)
@@ -44,7 +44,7 @@ class Facts:
         return ans
 
 
-facts = Facts(max_num=5 * 10 ** 5)
+facts = Facts(max_num=5 * 10**5)
 
 ans = 0
 for k in range(n + 1):

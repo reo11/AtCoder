@@ -17,7 +17,7 @@ def can_beet(t):
 
 
 l = -1
-r = 10 ** 9 + 1
+r = 10**9 + 1
 while r - l > 1:
     mid = (r + l) // 2
     if can_beet(mid):

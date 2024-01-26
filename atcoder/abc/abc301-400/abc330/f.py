@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 INF = float("inf")
 n, k = map(int, input().split())
 xy = []
@@ -11,7 +12,7 @@ for _ in range(n):
 
 # 作成可能な正方形の辺の長さを2分探索する
 l = -1
-r = 10 ** 10 + 1
+r = 10**10 + 1
 
 # queueに入ったデータの両端の差をvalueにする
 def calc_cost(value, queue):
@@ -46,6 +47,7 @@ def calc_cost(value, queue):
             cost += cost2
     return cost, left, right
 
+
 def judge(value, max_cost):
     x_queue = []
     y_queue = []
@@ -56,8 +58,15 @@ def judge(value, max_cost):
     y_queue = deque(list(sorted(y_queue)))
     cost_x, left_x, right_x = calc_cost(value, x_queue)
     cost_y, left_y, right_y = calc_cost(value, y_queue)
-    print(value, cost_x + cost_y, (k - (cost_x + cost_y)), right_x - left_x, right_y - left_y)
+    print(
+        value,
+        cost_x + cost_y,
+        (k - (cost_x + cost_y)),
+        right_x - left_x,
+        right_y - left_y,
+    )
     return cost_x + cost_y <= max_cost
+
 
 while r - l > 1:
     mid = (r + l) // 2
@@ -66,4 +75,3 @@ while r - l > 1:
     else:
         l = mid
 print(l, r)
-

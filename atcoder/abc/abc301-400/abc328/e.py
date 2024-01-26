@@ -1,8 +1,10 @@
-from collections import defaultdict, deque
 import itertools
+from collections import defaultdict, deque
+
 INF = float("inf")
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n):
         self.n = n + 1
         self.parents = [-1] * (n + 1)
@@ -47,7 +49,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 n, m, k = map(int, input().split())

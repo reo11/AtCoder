@@ -9,13 +9,13 @@ for i in range(d):
 
 # 完全に解く 1
 # 全く解かない 0
-min_cost = 10 ** 10
-for i in range(2 ** d):
+min_cost = 10**10
+for i in range(2**d):
     count = 0
     score = 0
     use_list = []
     for bit in range(d):
-        if i & 2 ** bit > 0:
+        if i & 2**bit > 0:
             use_list.append(bit + 1)
             count += p[bit]
             score += (bit + 1) * 100 * p[bit] + c[bit]

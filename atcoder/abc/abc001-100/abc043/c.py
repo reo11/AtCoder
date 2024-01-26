@@ -3,7 +3,7 @@ from math import ceil
 n = int(input())
 a = list(map(int, input().split()))
 
-ans = 10 ** 10
+ans = 10**10
 
 m1 = a[int(n / 2)]
 m2 = int(sum(a) / n)

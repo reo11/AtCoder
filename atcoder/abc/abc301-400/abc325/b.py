@@ -1,8 +1,10 @@
 n = int(input())
 wx = []
 
+
 def ok(time):
     return 9 <= time and time <= 17
+
 
 for _ in range(n):
     w, x = map(int, input().split())

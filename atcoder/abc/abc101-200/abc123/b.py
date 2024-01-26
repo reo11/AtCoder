@@ -4,7 +4,7 @@ from math import ceil
 t = []
 for i in range(5):
     t.append(int(input()))
-ans = 10 ** 9
+ans = 10**9
 
 for values in list(itertools.permutations(t)):
     tmp = 0

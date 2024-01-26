@@ -57,7 +57,7 @@ class Dinic:
 
     def flow(self, s, t):
         flow = 0
-        INF = 10 ** 9 + 7
+        INF = 10**9 + 7
         G = self.G
         while self.bfs(s, t):
             (*self.it,) = map(iter, self.G)

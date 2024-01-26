@@ -4,7 +4,7 @@ for i in range(m):
     k.append(list(map(int, input().split())))
 p = list(map(int, input().split()))
 count = 0
-for i in range(2 ** n):
+for i in range(2**n):
     flag = True
     for q_idx, query in enumerate(k):
         count_p = 0

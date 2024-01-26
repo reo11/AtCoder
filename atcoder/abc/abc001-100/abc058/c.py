@@ -10,7 +10,7 @@ alphabet = set(s[0])
 for i in range(1, n):
     alphabet = alphabet & set(s[i])
 
-count_min = defaultdict(lambda: 10 ** 9)
+count_min = defaultdict(lambda: 10**9)
 for a in sorted(alphabet):
     for i in range(n):
         count_min[a] = min(count_min[a], s[i].count(a))

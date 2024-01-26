@@ -10,7 +10,7 @@ for i in range(2, n + 1):
 
 class Facts:
     # O(max_num)
-    def __init__(self, max_num=2 * 10 ** 5, p=10 ** 9 + 7):
+    def __init__(self, max_num=2 * 10**5, p=10**9 + 7):
         self.p = p
         self.max_num = max_num
         self.fact = [1] * (self.max_num + 1)

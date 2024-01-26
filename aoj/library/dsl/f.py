@@ -14,20 +14,20 @@ class SegTree:
         self.n = n
         self.mode = mode
         unit_elements = {
-            "min": 2 ** 31 - 1,
-            "max": -(10 ** 13),
+            "min": 2**31 - 1,
+            "max": -(10**13),
             "sum": 0,
             "mul": 1,
             "gcd": 0,
         }
         self.e = unit_elements[self.mode]  # 単位元
         self.lv = (self.n - 1).bit_length()
-        self.tree_size = 2 ** self.lv  # n以上の最小の2のべき乗数
+        self.tree_size = 2**self.lv  # n以上の最小の2のべき乗数
         self.tree_value = [self.e] * (2 * self.tree_size)
         self.tree_lazy = [None] * (2 * self.tree_size)
 
     def __str__(self) -> str:
-        if self.tree_size > 2 ** 4:
+        if self.tree_size > 2**4:
             return "Segtree size too big"
         out = ""
         i = 0

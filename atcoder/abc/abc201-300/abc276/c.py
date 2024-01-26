@@ -30,4 +30,4 @@ while p:
         ans.append(max_num)
         flag = False
 ans = reversed(ans)
-print(*ans, sep=' ')
+print(*ans, sep=" ")

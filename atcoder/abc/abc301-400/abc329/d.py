@@ -5,9 +5,11 @@ from collections import defaultdict
 n, m = map(int, input().split())
 a = list(map(int, input().split()))
 
+
 def calc_value(person_num, value):
     # 同着の場合に若い番号を優先する
     return value * MAX_N + (MAX_N - person_num)
+
 
 queue = []
 heapq.heapify(queue)

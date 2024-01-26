@@ -1,4 +1,4 @@
-mod = 10 ** 9 + 7
+mod = 10**9 + 7
 
 n, m = map(int, input().split())
 a = [1] * (n + 1)

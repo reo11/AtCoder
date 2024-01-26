@@ -1,9 +1,10 @@
-import sys
-import math
 import itertools
+import math
+import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
-INF = float('inf')
+INF = float("inf")
 
 n = int(input())
 costs = defaultdict(lambda: defaultdict(lambda: 0))
@@ -25,6 +26,8 @@ for bit in range(0, 2 ** (n + 1)):
         if bit & (1 << i) == 0:
             zero_bits.append(i)
     for bit_i, bit_j in itertools.combinations(zero_bits, 2):
-        dp[bit | (1 << bit_i) | (1 << bit_j)] = max(dp[bit | (1 << bit_i) | (1 << bit_j)], dp[bit] + costs[bit_i][bit_j])
+        dp[bit | (1 << bit_i) | (1 << bit_j)] = max(
+            dp[bit | (1 << bit_i) | (1 << bit_j)], dp[bit] + costs[bit_i][bit_j]
+        )
         ans = max(ans, dp[bit | (1 << bit_i) | (1 << bit_j)])
 print(ans)

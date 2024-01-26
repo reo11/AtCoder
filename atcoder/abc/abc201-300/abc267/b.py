@@ -34,4 +34,3 @@ for left in range(5):
                 print("Yes")
                 exit()
 print("No")
-

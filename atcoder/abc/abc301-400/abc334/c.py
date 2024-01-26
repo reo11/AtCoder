@@ -1,5 +1,6 @@
 from collections import deque
-INF = float('inf')
+
+INF = float("inf")
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
 a = sorted(a)

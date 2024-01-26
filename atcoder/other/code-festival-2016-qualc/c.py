@@ -1,8 +1,8 @@
 n = int(input())
 t = list(map(int, input().split()))
 a = list(map(int, input().split()))
-INF = 10 ** 12
-MOD = 10 ** 9 + 7
+INF = 10**12
+MOD = 10**9 + 7
 
 arr = [[1, INF] for _ in range(n)]
 cur_max = -1

@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
-from heapq import heappop, heappush, heapify
+from heapq import heapify, heappop, heappush
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 

@@ -1,7 +1,7 @@
 n, m = map(int, input().split())
 c = list(map(int, input().split()))
 
-INF = 10 ** 9
+INF = 10**9
 MAX = n + 1
 dp = [INF for _ in range(MAX)]
 dp[0] = 0

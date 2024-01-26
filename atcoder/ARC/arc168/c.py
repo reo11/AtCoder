@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 MOD = 998244353
 
 n, k = map(int, input().split())
@@ -26,21 +27,33 @@ for ki in range(1, k + 1):
                 ansi = 0
                 # AB
                 if counter["A"] - abi > 0 and counter["B"] - abi > 0:
-                    v = memo[abi][bci][cai] * (counter["A"] - abi) * (counter["B"] - abi)
+                    v = (
+                        memo[abi][bci][cai]
+                        * (counter["A"] - abi)
+                        * (counter["B"] - abi)
+                    )
                     memo[abi + 1][bci][cai] += v
                     memo[abi + 1][bci][cai] %= MOD
                     ansi += v
                     ansi %= MOD
                 # BC
                 if counter["B"] - bci > 0 and counter["C"] - bci > 0:
-                    v = memo[abi][bci][cai] * (counter["B"] - bci) * (counter["C"] - bci)
+                    v = (
+                        memo[abi][bci][cai]
+                        * (counter["B"] - bci)
+                        * (counter["C"] - bci)
+                    )
                     memo[abi][bci + 1][cai] += v
                     memo[abi][bci + 1][cai] %= MOD
                     ansi += v
                     ansi %= MOD
                 # CA
                 if counter["C"] - cai > 0 and counter["A"] - cai > 0:
-                    v = memo[abi][bci][cai] * (counter["C"] - cai) * (counter["A"] - cai)
+                    v = (
+                        memo[abi][bci][cai]
+                        * (counter["C"] - cai)
+                        * (counter["A"] - cai)
+                    )
                     memo[abi][bci][cai + 1] += v
                     memo[abi][bci][cai + 1] %= MOD
                     ansi += v

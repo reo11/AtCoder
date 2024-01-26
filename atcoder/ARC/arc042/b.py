@@ -11,7 +11,7 @@ for i in range(N):
     b = X[i - 1] - X[i]
     c = Y[i - 1] * (X[i] - X[i - 1]) - X[i - 1] * (Y[i] - Y[i - 1])
     d = abs(a * x + b * y + c)
-    e = (a ** 2 + b ** 2) ** 0.5
+    e = (a**2 + b**2) ** 0.5
     d = d / e
     ans = min(ans, d)
 

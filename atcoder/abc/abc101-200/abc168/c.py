@@ -4,7 +4,7 @@ a, b, h, m = map(int, input().split())
 
 
 def yogen(b, c, shi):
-    return sqrt(b ** 2 + c ** 2 - 2 * b * c * cos(shi))
+    return sqrt(b**2 + c**2 - 2 * b * c * cos(shi))
 
 
 shi1 = radians(m / 60 * 360)

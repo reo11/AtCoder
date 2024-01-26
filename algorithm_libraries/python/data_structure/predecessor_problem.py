@@ -5,8 +5,8 @@ class SegTree:
     def __init__(self, n: int, mode: str = "min") -> None:
         self.mode = mode
         unit_elements = {
-            "min": 10 ** 13,
-            "max": -(10 ** 13),
+            "min": 10**13,
+            "max": -(10**13),
         }
         self.e = unit_elements[self.mode]  # 単位元
         self.tree_size = 2 ** (n - 1).bit_length()  # n以上の最小の2のべき乗数

@@ -6,7 +6,7 @@ input = sys.stdin.buffer.readline
 
 n, m, R = map(int, input().split())
 r = list(map(int, input().split()))
-INF = 10 ** 10
+INF = 10**10
 dist = [[INF for _ in range(n)] for _ in range(n)]
 for i in range(m):
     a, b, c = map(int, input().split())

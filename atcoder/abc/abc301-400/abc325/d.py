@@ -1,5 +1,6 @@
 import heapq
 from collections import deque
+
 n = int(input())
 td = []
 

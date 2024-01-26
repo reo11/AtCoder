@@ -1,5 +1,5 @@
 n = int(input())
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 if n == 1:
     print(0)
 else:

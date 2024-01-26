@@ -23,7 +23,7 @@ def solve1(n):
 
 
 def solve2(n):
-    INF = 10 ** 9
+    INF = 10**9
     n = n[::-1]
     n += "0"
     n_len = len(n)

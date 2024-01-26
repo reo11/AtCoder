@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import Dict
 
 input = sys.stdin.readline
-INF = 10 ** 12
+INF = 10**12
 
 n = int(input())
 edges = defaultdict(lambda: [])

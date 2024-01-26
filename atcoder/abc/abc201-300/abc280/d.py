@@ -1,6 +1,6 @@
 import math
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 def prime_factorize(n: int) -> List[int]:
@@ -21,6 +21,7 @@ def prime_factorize(n: int) -> List[int]:
     if n != 1:
         a.append(n)
     return sorted(a)
+
 
 k = int(input())
 k_factors = defaultdict(lambda: 0)

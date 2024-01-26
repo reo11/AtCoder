@@ -1,5 +1,8 @@
 from collections import defaultdict
+
 INF = float("inf")
+
+
 class WeightedUnionFind:
     def __init__(self, n: int) -> None:
         self.par = [i for i in range(n + 1)]
@@ -43,6 +46,7 @@ class WeightedUnionFind:
         if self.find(x) != self.find(y):
             return -INF  # コスト算出不可
         return self.weight[x] - self.weight[y]
+
 
 n, q = map(int, input().split())
 abd = []

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 MOD = 998244353
 s = list(input())
 

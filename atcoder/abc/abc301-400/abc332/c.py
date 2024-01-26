@@ -3,7 +3,7 @@ s = list(input())
 
 ans = 0
 
-current = [m, 0] # 無地, ロゴ入り
+current = [m, 0]  # 無地, ロゴ入り
 for i in range(n):
     si = s[i]
     if si == "0":

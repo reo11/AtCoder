@@ -1,6 +1,6 @@
 n, m, x = map(int, input().split())
 ca = [list(map(int, input().split())) for i in range(n)]
-INF = 10 ** 12
+INF = 10**12
 
 
 def calc_cost(l):
@@ -20,7 +20,7 @@ def calc_cost(l):
 
 
 ans = INF
-for i in range(2 ** n):
+for i in range(2**n):
     l = []
     for j in range(n):
         if i >> j & 1:

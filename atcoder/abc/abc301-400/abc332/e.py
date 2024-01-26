@@ -1,6 +1,7 @@
 from decimal import Decimal
-from heapq import heappush, heappop, heapify
-INF = float('inf')
+from heapq import heapify, heappop, heappush
+
+INF = float("inf")
 SEARCH_DEPTH = 100
 
 n, d = map(int, input().split())
@@ -8,12 +9,14 @@ w = list(map(int, input().split()))
 w = sorted(w, reverse=True)
 w = [Decimal(x) for x in w]
 
+
 def calc_v(xs):
     v = Decimal(0)
     mean = Decimal(sum(xs) / len(xs))
     for x in xs:
         v += (Decimal(x) - mean) ** 2
     return Decimal(v / len(xs))
+
 
 def solve_greedy(w, d):
     # 分散が最小になるようなグループを選び続ける
@@ -42,6 +45,7 @@ def solve_greedy(w, d):
             candidates.append(c)
         # print(candidates)
     return candidates[0][1], candidates[0][0]
+
 
 boxes, v = solve_greedy(w, d)
 # print(boxes, v)

@@ -1,5 +1,6 @@
 import sys
 from collections import defaultdict
+
 input = lambda: sys.stdin.readline().rstrip()
 
 n, q = map(int, input().split())

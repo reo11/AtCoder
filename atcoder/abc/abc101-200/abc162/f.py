@@ -1,7 +1,7 @@
 # dpでいけそう
 n = int(input())
 a = list(map(int, input().split()))
-INF = 10 ** 16
+INF = 10**16
 
 ans = -INF
 

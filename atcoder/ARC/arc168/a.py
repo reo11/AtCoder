@@ -4,10 +4,10 @@ s = list(input())
 # https://output-zakki.com/inversion_number/
 class BIT:
     def __init__(self, n):
-        self.size=n
-        self.tree = [0] * (n+1)
-    
-    def add(self, i,x):
+        self.size = n
+        self.tree = [0] * (n + 1)
+
+    def add(self, i, x):
         while i <= self.size:
             self.tree[i] += x
             i += i & -i
@@ -19,6 +19,7 @@ class BIT:
             i -= i & -i
         return total
 
+
 def InversionNumberByBIT(A):
     ans = 0
     Bit = BIT(max(len(A) + 1, max(A) + 1))
@@ -26,6 +27,7 @@ def InversionNumberByBIT(A):
         ans += i - Bit.sum(A[i])
         Bit.add(A[i], 1)
     return ans
+
 
 counter = []
 # ">"が連続する数を数える

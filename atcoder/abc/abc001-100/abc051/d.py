@@ -3,7 +3,7 @@ from collections import defaultdict
 from heapq import heapify, heappop, heappush
 
 input = sys.stdin.readline
-INF = 10 ** 12
+INF = 10**12
 edges = defaultdict(lambda: defaultdict(lambda: INF))
 n, m = map(int, input().split())
 for i in range(m):

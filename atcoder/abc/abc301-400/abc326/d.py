@@ -5,6 +5,7 @@ n = int(input())
 R = list(input())
 C = list(input())
 
+
 def first(a, b, c):
     min_value = min(a, b, c)
     if min_value == a:
@@ -13,6 +14,7 @@ def first(a, b, c):
         return "B"
     else:
         return "C"
+
 
 def check_abc(a, b, c):
     # 衝突してないか
@@ -40,6 +42,7 @@ def check_abc(a, b, c):
             return False
     return True
 
+
 def show_abc(a, b, c):
     out = [["." for _ in range(n)] for _ in range(n)]
     for i in range(n):
@@ -47,6 +50,7 @@ def show_abc(a, b, c):
         out[i][b[i]] = "B"
         out[i][c[i]] = "C"
     return "Yes\n" + "\n".join(["".join(row) for row in out])
+
 
 # 賢く全探索
 abc_list = list(range(n))

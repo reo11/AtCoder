@@ -4,8 +4,8 @@ def counting_primes(n: int) -> int:
         return 0
     elif n <= 3:
         return 2
-    v = int(n ** 0.5) - 1
-    while v ** 2 <= n:
+    v = int(n**0.5) - 1
+    while v**2 <= n:
         v += 1
     v -= 1
     smalls = [(i + 1) // 2 for i in range(v + 1)]

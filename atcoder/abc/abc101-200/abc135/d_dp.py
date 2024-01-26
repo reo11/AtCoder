@@ -1,4 +1,4 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 s = str(input())
 l = len(s)
 dp = [[0 for _ in range(2)] for _ in range(l + 1)]

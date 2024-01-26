@@ -1,12 +1,13 @@
 n = int(input())
 s = list(input())
 
+
 class BIT:
     def __init__(self, n):
-        self.size=n
-        self.tree = [0] * (n+1)
+        self.size = n
+        self.tree = [0] * (n + 1)
 
-    def add(self, i,x):
+    def add(self, i, x):
         while i <= self.size:
             self.tree[i] += x
             i += i & -i
@@ -18,6 +19,7 @@ class BIT:
             i -= i & -i
         return total
 
+
 def InversionNumberByBIT(A):
     ans = 0
     Bit = BIT(max(len(A) + 1, max(A) + 1))
@@ -26,11 +28,12 @@ def InversionNumberByBIT(A):
         Bit.add(A[i], 1)
     return ans
 
+
 x = [1]
 
 for si in s:
     if si == "<":
-        x.append(x[-1] + 10 ** 9)
+        x.append(x[-1] + 10**9)
     else:
         x.append(x[-1] - 1)
 

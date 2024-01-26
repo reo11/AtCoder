@@ -1,12 +1,13 @@
 n, m, k = map(int, input().split())
 c = list(map(int, input().split()))
 
+
 class BIT:
     def __init__(self, n):
-        self.size=n
-        self.tree = [0] * (n+1)
+        self.size = n
+        self.tree = [0] * (n + 1)
 
-    def add(self, i,x):
+    def add(self, i, x):
         while i <= self.size:
             self.tree[i] += x
             i += i & -i
@@ -17,6 +18,7 @@ class BIT:
             total += self.tree[i]
             i -= i & -i
         return total
+
 
 def InversionNumberByBIT(A):
     ans = 0

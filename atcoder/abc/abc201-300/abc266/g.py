@@ -59,7 +59,7 @@ r, g, b, k = map(int, input().split())
 r -= k
 g -= k
 
-facts = Facts(3 * 10 ** 6, MOD)
+facts = Facts(3 * 10**6, MOD)
 
 ans = 1
 ans *= facts.comb(g + b + k, g)

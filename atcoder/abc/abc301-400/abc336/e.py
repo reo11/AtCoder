@@ -9,11 +9,10 @@ counts = [[0 for _ in range(135)] for _ in range(15)]
 # 1桁目
 for i in range(1, 135):
     for j in range(1, 10):
-        counts[0][i] =
+        counts[0][i] = 1
 
 for i in range(1, 15):
     for j in range(135):
         counts[i][j] = counts[i - 1][j]
         counts[i][j] += counts[i - 1][(j - i * (10 ** (i - 1))) % 135]
     counts[i][i * (10 ** (i - 1)) % 135] += 1
-

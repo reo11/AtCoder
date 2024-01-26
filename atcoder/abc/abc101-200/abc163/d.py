@@ -1,6 +1,6 @@
 n, k = map(int, input().split())
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 s = [0 for _ in range(n + 2)]
 v = 0

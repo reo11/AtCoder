@@ -1,6 +1,6 @@
 import bisect
 
-INF = 10 ** 15
+INF = 10**15
 n, W = map(int, input().split())
 w = []
 v = []
@@ -25,20 +25,20 @@ def solve1():
 
     items1 = []
     items2 = []
-    for i in range(2 ** a):
+    for i in range(2**a):
         w_ = 0
         v_ = 0
         for j in range(a):
-            if i & 2 ** j > 0:
+            if i & 2**j > 0:
                 w_ += w[j]
                 v_ += v[j]
         items1.append([w_, v_])
     items1 = sorted(items1, key=lambda x: (x[0], -x[1]))
-    for i in range(2 ** b):
+    for i in range(2**b):
         w_ = 0
         v_ = 0
         for j in range(b):
-            if i & 2 ** j > 0:
+            if i & 2**j > 0:
                 w_ += w[a + j]
                 v_ += v[a + j]
         items2.append([w_, v_])
@@ -63,7 +63,7 @@ def solve1():
             b_items.append(items2[i])
             pre_v = items2[i][1]
     b_items.insert(0, [0, 0])
-    b_items.append([10 ** 20, 0])
+    b_items.append([10**20, 0])
     b_w = [x[0] for x in b_items]
 
     ans = 0

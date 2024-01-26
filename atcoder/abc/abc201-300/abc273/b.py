@@ -1,4 +1,5 @@
 from collections import deque
+
 x, k = map(int, input().split())
 
 ans = [0 for _ in range(16)]
@@ -20,5 +21,5 @@ ans = deque(reversed(ans))
 while len(ans) > 1 and ans[0] == 0:
     ans.popleft()
 
-ans = ''.join(map(str, ans))
+ans = "".join(map(str, ans))
 print(ans)

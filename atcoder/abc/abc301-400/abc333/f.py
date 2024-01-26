@@ -6,6 +6,7 @@
 n = int(input())
 MOD = 998244353
 
+
 class ModInt:
     def __init__(self, x, p=998244353):
         self.mod = p
@@ -76,10 +77,10 @@ class ModInt:
             else ModInt(pow(other, self.x, self.mod))
         )
 
-# 長さiの列が全て消える確率
-tmp = [1, ModInt(1) / 2,
 
-s = (1 + 2 + 4 + 8 + 16)
+# 長さiの列が全て消える確率
+
+s = 1 + 2 + 4 + 8 + 16
 ans1 = ModInt(1)
 ans1 /= ModInt(s)
 print(ans1)

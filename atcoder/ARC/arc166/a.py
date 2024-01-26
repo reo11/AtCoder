@@ -1,5 +1,7 @@
 from collections import defaultdict, deque
+
 t = int(input())
+
 
 def solve(n, x, y):
     # x, y はABCからなる文字列
@@ -65,7 +67,6 @@ def solve(n, x, y):
             return "No"
 
     return "Yes"
-
 
 
 ans = []

@@ -1,4 +1,4 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 w, h = map(int, input().split())
 
 dp = [[1 for _ in range(w)] for _ in range(h)]

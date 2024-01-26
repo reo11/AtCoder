@@ -1,5 +1,6 @@
 import itertools
 from collections import deque
+
 h, w = map(int, input().split())
 A = [list(map(int, input().split())) for _ in range(h)]
 B = [list(map(int, input().split())) for _ in range(h)]
@@ -19,6 +20,7 @@ def calc_cost(vector):
         # print(base_vector, cost)
     return cost
 
+
 # 列の入れ替え全列挙
 ans = -1
 for cols in itertools.permutations(range(w)):
@@ -36,4 +38,3 @@ for cols in itertools.permutations(range(w)):
             else:
                 ans = min(ans, cost)
 print(ans)
-

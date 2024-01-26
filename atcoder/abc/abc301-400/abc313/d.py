@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n, k = map(int, input().split())
 memo = defaultdict(lambda: -1)
 each_group = defaultdict(lambda: -1)
@@ -7,6 +8,7 @@ each_group = defaultdict(lambda: -1)
 def answer(a):
     out = "! " + " ".join(list(map(str, a)))
     print(out)
+
 
 def question(a):
     a_str = " ".join(sorted(list(map(str, a))))
@@ -17,6 +19,7 @@ def question(a):
     res = int(input())
     memo[a_str] = res
     return res
+
 
 # グループ分けを行なう
 # 1をgroup1とする
@@ -45,12 +48,12 @@ for i in range(2, k + 1):
     xj = question([j for j in range(1, k + 1)])
     if xi == xj:
         # iとjは同じ値
-        groups[each_group[k+1]].append(i)
-        each_group[i] = each_group[k+1]
+        groups[each_group[k + 1]].append(i)
+        each_group[i] = each_group[k + 1]
     else:
         # iとjは異なる値
-        groups[each_group[k+1] ^ 1].append(i)
-        each_group[i] = each_group[k+1] ^ 1
+        groups[each_group[k + 1] ^ 1].append(i)
+        each_group[i] = each_group[k + 1] ^ 1
 # 全部でN回の質問
 a0 = [0 for _ in range(n)]
 a1 = [0 for _ in range(n)]

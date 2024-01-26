@@ -9,10 +9,10 @@ counter = defaultdict(int)
 ans = []
 
 for ai in a:
-    num = (len(sorted_a) - bisect_right(sorted_a, ai))
+    num = len(sorted_a) - bisect_right(sorted_a, ai)
     counter[num] += 1
 
 for i in range(n):
     ans.append(counter[i])
 
-print(*ans, sep='\n')
+print(*ans, sep="\n")

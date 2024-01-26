@@ -1,10 +1,11 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 
 MOD = 998244353
 n = int(input())
 a = list(map(int, input().split()))
-inv_n = pow(n, MOD - 2, MOD) # 1/nをあらかじめ計算しておく
+inv_n = pow(n, MOD - 2, MOD)  # 1/nをあらかじめ計算しておく
 memo = [0 for _ in range(n + 1)]
 
 stuck = 0

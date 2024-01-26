@@ -3,7 +3,7 @@ from collections import defaultdict
 
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
-MAX = 10 ** 6
+MAX = 10**6
 
 n, m = map(int, input().split())
 edges = defaultdict(list)

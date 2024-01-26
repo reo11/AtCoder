@@ -9,7 +9,7 @@ def perm(n, r):
     return factorial(n) // factorial(n - r)
 
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 n = int(input())
 c = list(map(int, input().split()))

@@ -1,6 +1,7 @@
 import heapq
 from collections import defaultdict
-INF = float('inf')
+
+INF = float("inf")
 n, a, b, c = map(int, input().split())
 d = []
 
@@ -33,7 +34,7 @@ while que:
         costs[w] = min(costs[w], cost + d[v][w] * a)
         heapq.heappush(que, [cost + d[v][w] * a, w])
 
-que = [[0, n-1]]
+que = [[0, n - 1]]
 visited = defaultdict(lambda: False)
 costs = [INF for _ in range(n)]
 while que:

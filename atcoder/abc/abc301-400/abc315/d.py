@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 h, w = map(int, input().split())
 c = [list(input()) for _ in range(h)]
 

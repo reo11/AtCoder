@@ -22,7 +22,7 @@ def solve(left, r):
     if abs(left - r) == 0:
         return 0
 
-    res = 10 ** 12
+    res = 10**12
     for mid in range(left, r):
         res = min(res, solve(left, mid) + solve(mid + 1, r))
 

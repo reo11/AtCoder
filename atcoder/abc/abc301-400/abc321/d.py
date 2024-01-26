@@ -11,6 +11,7 @@ def cumsum(a):
         r.append(r[-1] + v)
     return r
 
+
 # 二部探索をする
 a = sorted(a)
 b = sorted(b)

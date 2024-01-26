@@ -1,7 +1,8 @@
+from bisect import bisect_left, bisect_right
 from collections import deque
 from time import time
-from bisect import bisect_left, bisect_right
-INF = float('inf')
+
+INF = float("inf")
 
 start_at = time()
 n, k = map(int, input().split())
@@ -9,6 +10,8 @@ a = list(map(int, input().split()))
 a = sorted(a, reverse=True)
 
 ans = 0
+
+
 def calc_score(x):
     score = 0
     n = len(x)
@@ -16,6 +19,7 @@ def calc_score(x):
         score += (x[i + 1] - x[i]) % k
         # print(x[i + 1], x[i], score)
     return score
+
 
 cumsum = [0] * (n)
 for i in range(n - 1):
@@ -31,4 +35,3 @@ for start_idx in range(n):
     ans = max(ans, ansi)
 
 print(ans)
-

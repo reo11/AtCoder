@@ -5,9 +5,9 @@ t = input()
 prefix = False
 suffix = False
 
-if t[:len(s)] == s:
+if t[: len(s)] == s:
     prefix = True
-if t[-len(s):] == s:
+if t[-len(s) :] == s:
     suffix = True
 if prefix and suffix:
     print(0)

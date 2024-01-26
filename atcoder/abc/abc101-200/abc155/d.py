@@ -38,14 +38,14 @@ def cnt(x):
 
 
 bottom = 0
-top = 2 * (10 ** 18) + 2
+top = 2 * (10**18) + 2
 
 
 while top - bottom > 1:
     mid = (top + bottom) // 2
-    if cnt(mid - 10 ** 18 - 1) < k:
+    if cnt(mid - 10**18 - 1) < k:
         bottom = mid
     else:
         top = mid
 
-print(int(top - 10 ** 18 - 1))
+print(int(top - 10**18 - 1))

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 MOD = 998244353
 
 a, b = map(int, input().split())
@@ -6,6 +7,7 @@ if b == 0:
     print(0)
     exit()
 # a**bの正の約数の総積はaで何回割り切れるか
+
 
 def prime_factorize(n):
     # 素因数分解
@@ -26,9 +28,10 @@ def prime_factorize(n):
         a.append(n)
     return a
 
+
 def make_divisors(n):
     divisors = []
-    for i in range(1, int(n ** 0.5) + 1):
+    for i in range(1, int(n**0.5) + 1):
         if i == n:
             continue
         if n % i == 0:
@@ -41,13 +44,14 @@ def make_divisors(n):
     divisors.sort()
     return divisors
 
+
 class FLT:
     """
     フェルマーの小定理
     a^(-1) = a^(m-2) mod p
     """
 
-    def __init__(self, mod: int = 10 ** 9 + 7) -> None:
+    def __init__(self, mod: int = 10**9 + 7) -> None:
         self.mod = mod
 
     def rep_sqr(self, base: int, k: int) -> int:
@@ -60,8 +64,9 @@ class FLT:
         return ans
 
     def inv(self, a: int) -> int:
-        """ 逆元を取る """
+        """逆元を取る"""
         return self.rep_sqr(a, self.mod - 2)
+
 
 a_primes = prime_factorize(a)
 prime_counter = defaultdict(int)

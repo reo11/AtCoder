@@ -1,4 +1,4 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
 

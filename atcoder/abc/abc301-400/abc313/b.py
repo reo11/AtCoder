@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 n, m = map(int, input().split())
 ab = defaultdict(lambda: [])
 for _ in range(m):

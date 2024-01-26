@@ -1,6 +1,8 @@
 import sys
+
 import pypyjit
-pypyjit.set_param('max_unroll_recursion=-1')
+
+pypyjit.set_param("max_unroll_recursion=-1")
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 

@@ -10,7 +10,7 @@ def base_5(n):
         n //= 5
     return ans[::-1]
 
+
 mapping = [0, 2, 4, 6, 8]
 ans = int("".join(map(str, [mapping[x] for x in base_5(n - 1)])))
 print(ans)
-

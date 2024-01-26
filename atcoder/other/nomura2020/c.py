@@ -4,7 +4,7 @@ from math import ceil
 
 input = sys.stdin.readline
 
-INF = 2 ** 50
+INF = 2**50
 n = int(input())
 a = list(map(int, input().split()))
 if n == 0 and a[0] == 0:

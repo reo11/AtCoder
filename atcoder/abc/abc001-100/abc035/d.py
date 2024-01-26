@@ -7,7 +7,7 @@ input = sys.stdin.buffer.readline
 n, m, t = map(int, input().split())
 A = list(map(int, input().split()))
 abc = [list(map(int, input().split())) for _ in range(m)]
-edges = defaultdict(lambda: defaultdict(lambda: 10 ** 10))
+edges = defaultdict(lambda: defaultdict(lambda: 10**10))
 for i in range(m):
     a, b, c = abc[i]
     a -= 1
@@ -51,7 +51,7 @@ def dijkstra(s, n, w, cost, create_path=False, goal=None):
 
 d1 = dijkstra(0, n, m, edges)
 
-edges = defaultdict(lambda: defaultdict(lambda: 10 ** 10))
+edges = defaultdict(lambda: defaultdict(lambda: 10**10))
 for i in range(m):
     a, b, c = abc[i]
     a -= 1

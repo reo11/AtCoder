@@ -7,11 +7,11 @@ for _ in range(m):
     input_set.append((x, y))
 input_set = set(input_set)
 ans = 0
-for i in range(2 ** n):
+for i in range(2**n):
     size = 0
     l = []
     for bit in range(n):
-        if i & 2 ** bit > 0:
+        if i & 2**bit > 0:
             size += 1
             l.append(bit + 1)
     if len(l) < 2:

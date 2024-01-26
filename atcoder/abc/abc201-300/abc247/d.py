@@ -35,5 +35,4 @@ for query in queries:
                 q.appendleft([pos, x])
                 break
         ans.append(ansi)
-print(*ans, sep='\n')
-        
+print(*ans, sep="\n")

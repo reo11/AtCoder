@@ -15,6 +15,7 @@ q_list = [int(input()) for _ in range(q)]
 CONST_VALUE = 3 * 5 * 7 * 8
 ans = []
 
+
 @lru_cache(maxsize=None)
 def calc_bus(time):
     start_time = time
@@ -25,6 +26,7 @@ def calc_bus(time):
             time += p - (time % p)
             time += t
     return time - start_time
+
 
 for qi in q_list:
     start_time = qi + x

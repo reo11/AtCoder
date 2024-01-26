@@ -4,7 +4,7 @@ n, t = map(int, input().split())
 a = list(map(int, input().split()))
 
 ans = defaultdict(int)
-min_v = [10 ** 9 + 1, 1]
+min_v = [10**9 + 1, 1]
 
 for v in a:
     ans[v - min_v[0]] += min_v[1]

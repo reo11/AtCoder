@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 n = int(input())
 uv = defaultdict(list)
 for _ in range(n - 1):

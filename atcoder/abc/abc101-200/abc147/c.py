@@ -11,13 +11,13 @@ for i in range(n):
 # ビット全探索
 bit = 0
 ans = 0
-for X in range(2 ** n):
+for X in range(2**n):
     # 1010など
     flag = False
     count = 0
     for num in range(n):
         f = True
-        if X & (2 ** num) >= 1:
+        if X & (2**num) >= 1:
             for x, y in xy[num]:
                 t = 1 if X & 2 ** (x - 1) >= 1 else 0
                 if t != y:

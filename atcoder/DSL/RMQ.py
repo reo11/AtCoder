@@ -52,7 +52,7 @@ class RMQ:
         return res
 
 
-e = (2 ** 31) - 1
+e = (2**31) - 1
 rmq = RMQ(n, e)
 
 for i in range(q):

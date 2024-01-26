@@ -2,7 +2,7 @@ from itertools import product
 
 n, m, x = map(int, input().split())
 ca = [list(map(int, input().split())) for i in range(n)]
-INF = 10 ** 12
+INF = 10**12
 
 ans = INF
 l = [0, 1]

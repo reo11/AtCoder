@@ -45,7 +45,7 @@ bit_cnt_table[1] = 1
 base = 0
 i = 2
 while i <= n:
-    if i % (2 ** base) == 0:
+    if i % (2**base) == 0:
         base += 1
     bit_cnt_table[i] = 1 + bit_cnt_table[i - 2 ** (base)]
     i += 1

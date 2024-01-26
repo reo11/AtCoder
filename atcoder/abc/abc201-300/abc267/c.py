@@ -7,6 +7,8 @@ def cumsum(a):
     for v in a:
         r.append(r[-1] + v)
     return r
+
+
 cumsum_a = cumsum(a)
 
 ans = -float("inf")

@@ -1,19 +1,24 @@
 import decimal
 from collections import defaultdict
 from itertools import permutations
+
 c = [list(map(int, input().split())) for _ in range(3)]
-c_list = [c[0][0], c[0][1], c[0][2], c[1][0], c[1][1], c[1][2], c[2][0], c[2][1], c[2][2]]
+c_list = [
+    c[0][0],
+    c[0][1],
+    c[0][2],
+    c[1][0],
+    c[1][1],
+    c[1][2],
+    c[2][0],
+    c[2][1],
+    c[2][2],
+]
 
 # 順列全探索
 count_all = 0
 count_ok = 0
-naname_group = {
-    0: [0],
-    2: [1],
-    4: [0, 1],
-    6: [1],
-    8: [0]
-}
+naname_group = {0: [0], 2: [1], 4: [0, 1], 6: [1], 8: [0]}
 for perm in permutations(list(range(9))):
     # print(perm)
     tate = defaultdict(lambda: set())

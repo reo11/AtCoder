@@ -1,11 +1,11 @@
 import random
 
 MIN0 = 0
-MIN5 = -(10 ** 5)
-MIN9 = -(10 ** 9)
-MAX5 = 10 ** 5
-MAX9 = 10 ** 9
-MAX18 = 10 ** 18
+MIN5 = -(10**5)
+MIN9 = -(10**9)
+MAX5 = 10**5
+MAX9 = 10**9
+MAX18 = 10**18
 
 
 def int_generator(min_value: int = MIN0, max_value: int = MAX5) -> int:
@@ -21,9 +21,9 @@ def pair_generator(
 if __name__ == "__main__":
     f = open("sample.txt", "w", encoding="UTF-8")
     datalist = []
-    n = int_generator(1, 5 * 10 ** 5)
+    n = int_generator(1, 5 * 10**5)
     k = int_generator(1, n)
-    q = int_generator(1, 5 * 10 ** 5)
+    q = int_generator(1, 5 * 10**5)
     datalist.append(f"{n} {k} {q}\n")
     for _ in [0] * q:
         x, y = pair_generator(1, n, 0, MAX9)

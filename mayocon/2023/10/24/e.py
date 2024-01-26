@@ -1,10 +1,13 @@
 from collections import deque
+
 n, m = map(int, input().split())
 # 移動は最大2n回 <= 200
 output_count = 0
 
+
 def judge_output(v: int):
     print(v)
+
 
 def judge_input():
     kv = input()
@@ -14,6 +17,7 @@ def judge_input():
     k = kv[0]
     v = kv[1:]
     return k, v
+
 
 # 深さ優先探索
 dist_list = [-1 for _ in range(n + 1)]
@@ -26,7 +30,7 @@ while output_count < 2 * n:
     # まだ訪れていない頂点を訪れる
     v = [i for i in v if dist_list[i] == -1]
     if len(v) == 0:
-        next_v = l.pop() # 戻る
+        next_v = l.pop()  # 戻る
         q.append([dist - 1, next_v, l])
     else:
         next_v = v[0]

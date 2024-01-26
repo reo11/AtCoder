@@ -9,7 +9,14 @@ for i in range(3):
 
 ans = INF
 for target_number in range(10):
-    for first, second, third in [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]]:
+    for first, second, third in [
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 0, 2],
+        [1, 2, 0],
+        [2, 0, 1],
+        [2, 1, 0],
+    ]:
         num = 0
         for t in range(3 * m):
             if num == 0 and s[first][t] == target_number:

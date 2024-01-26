@@ -10,7 +10,7 @@ class LCM_mod:
     因数の積を逐次余りに置き換えて最小公倍数を導出する.
     """
 
-    def __init__(self, max_num: int, p: int = 10 ** 9 + 7) -> None:
+    def __init__(self, max_num: int, p: int = 10**9 + 7) -> None:
         self.max_num = max_num + 1
         self.p = p
         self.prime = [0 for _ in range(self.max_num)]

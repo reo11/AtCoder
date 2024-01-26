@@ -6,9 +6,9 @@ def solve():
 
     for i in range(2, ceil(n ** (1 / 3)) + 1):
         div = n // i
-        if n % i ** 2 == 0:
+        if n % i**2 == 0:
             p = i
-            q = n // i ** 2
+            q = n // i**2
             break
         elif n % i == 0 and int(sqrt(div)) ** 2 == div:
             p = int(sqrt(div))

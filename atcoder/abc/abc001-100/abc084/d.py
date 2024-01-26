@@ -17,13 +17,13 @@ def isPrime(n):
     return True
 
 
-isprime = [False] * (10 ** 5 + 1)
-for i in range(1, 10 ** 5 + 1):
+isprime = [False] * (10**5 + 1)
+for i in range(1, 10**5 + 1):
     if isPrime(i):
         isprime[i] = True
-ans = [0] * (10 ** 5 + 1)
+ans = [0] * (10**5 + 1)
 v = 0
-for i in range(1, 10 ** 5 + 1):
+for i in range(1, 10**5 + 1):
     if i % 2 == 1 and isprime[i] and isprime[(i + 1) // 2]:
         v += 1
     ans[i] = v

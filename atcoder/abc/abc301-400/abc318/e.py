@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 n = int(input())
 a = list(map(int, input().split()))
 
@@ -7,7 +8,7 @@ counter = defaultdict(lambda: [0, 0, 0])
 
 print(a)
 for i in range(len(a)):
-    counter[a[i]][1] += (i - counter[a[i]][0])
+    counter[a[i]][1] += i - counter[a[i]][0]
     counter[a[i]][0] += 1
 
 ans = 0

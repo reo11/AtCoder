@@ -54,7 +54,7 @@ for i in range(n):
 
 # 小さい方は全探索
 ans = INF
-for i in range(2 ** m):
+for i in range(2**m):
     ignore_set = set()
     for j in range(m):
         if i >> j & 1:

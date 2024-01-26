@@ -2,7 +2,7 @@ import math
 
 a, b, x = map(int, input().split())
 
-cur = 10 ** 9
+cur = 10**9
 dis = cur // 2
 l = []
 while True:
@@ -21,4 +21,4 @@ for i in l:
     cal = (a * i) + (b * len(str(i)))
     if cal <= x:
         ans = max(ans, i)
-print(min(ans, 10 ** 9))
+print(min(ans, 10**9))

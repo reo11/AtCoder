@@ -2,10 +2,10 @@ from typing import Iterator, List
 
 
 def bit_full_search(max_bit: int) -> Iterator[List[int]]:
-    for i in range(2 ** max_bit):
+    for i in range(2**max_bit):
         bit_list = [0 for _ in range(max_bit)]
         for j in range(10):
-            if i & 2 ** j > 0:
+            if i & 2**j > 0:
                 bit_list[j] = 1
         yield bit_list
 
@@ -21,7 +21,7 @@ for i in range(n):
     p.append(list(map(int, input().split())))
 
 # bit全探索
-ans = -(10 ** 10)
+ans = -(10**10)
 
 for l in bit_full_search(10):
     if sum(l) == 0:

@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n = int(input())
 counter = defaultdict(int)
 for i in range(n):

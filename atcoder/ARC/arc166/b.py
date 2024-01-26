@@ -1,12 +1,14 @@
 import itertools
 import sys
-import pypyjit
-from functools import lru_cache
 from collections import defaultdict
+from functools import lru_cache
 
-pypyjit.set_param('max_unroll_recursion=-1')
+import pypyjit
+
+pypyjit.set_param("max_unroll_recursion=-1")
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
+
 
 @lru_cache(maxsize=None)
 def gcd(a: int, b: int) -> int:
@@ -15,6 +17,7 @@ def gcd(a: int, b: int) -> int:
     while b:
         a, b = b, a % b
     return a
+
 
 @lru_cache(maxsize=None)
 def lcm(x: int, y: int) -> int:
@@ -58,7 +61,7 @@ for pattern_orders in patterns:
         continue
     candidate = []
     for pattern_i in pattern_orders:
-        candidate.append(mod_abc[pattern_i][:len(pattern_orders)])
+        candidate.append(mod_abc[pattern_i][: len(pattern_orders)])
     for candidatei in itertools.product(*candidate):
         used_i = set()
         cost = 0

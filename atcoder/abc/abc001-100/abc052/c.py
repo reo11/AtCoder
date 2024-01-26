@@ -24,7 +24,7 @@ def trial_division(n):
 
 n = int(input())
 kai = [0 for _ in range(n + 1)]
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 l = []
 
 for i in range(1, n + 1):

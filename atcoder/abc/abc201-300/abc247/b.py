@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 n = int(input())
 
 counter = defaultdict(int)
@@ -20,6 +21,6 @@ for s, t in st:
         ans = False
         break
 if ans:
-    print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

@@ -2,7 +2,7 @@ from collections import deque
 
 h, w = map(int, input().split())
 s = [[i for i in list(str(input()))] for i in range(h)]
-INF = 10 ** 9
+INF = 10**9
 dp = [[INF for _ in range(w)] for _ in range(h)]
 
 

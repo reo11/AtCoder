@@ -6,6 +6,7 @@ def valid(a, b, c, d):
     else:
         return False
 
+
 h, m = map(int, input().split())
 for i in range(60 * 24):
     if m == 60:

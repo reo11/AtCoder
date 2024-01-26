@@ -1,16 +1,19 @@
 import sys
-import pypyjit
 from collections import defaultdict
-pypyjit.set_param('max_unroll_recursion=-1')
+
+import pypyjit
+
+pypyjit.set_param("max_unroll_recursion=-1")
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
-INF = float('inf')
+INF = float("inf")
 
 h, w = map(int, input().split())
 s = [list(map(int, input().split())) for _ in range(h)]
 
 # 連続して同じところを操作すると元に戻るので、最初だけ4つの選択肢、そのあとは3つの選択肢
 # 左上、右上、左下、右下
+
 
 def is_state_correct(X):
     for i in range(h):
@@ -19,8 +22,9 @@ def is_state_correct(X):
                 return False
     return True
 
+
 def spin(pattern_num, X):
-    #　左上、右上、左下、右下
+    # 　左上、右上、左下、右下
     tmp_X = [[0 for _ in range(w)] for _ in range(h)]
     dxy = [[0, 0], [0, 1], [1, 0], [1, 1]]
     x = dxy[pattern_num][0]
@@ -42,17 +46,22 @@ def spin(pattern_num, X):
             tmp_X[0][j] = X[0][j]
     return tmp_X
 
+
 def state_str(X):
-    return '_'.join(['_'.join(map(str, x)) for x in X])
+    return "_".join(["_".join(map(str, x)) for x in X])
+
 
 def display(X):
-    return '\n'.join([' '.join(map(str, x)) for x in X])
+    return "\n".join([" ".join(map(str, x)) for x in X])
+
 
 visited = defaultdict(lambda: INF)
 visited[state_str(s)] = 0
 
 ans = INF
-def dfs(X, pre_pattern_num = -1, depth = 1):
+
+
+def dfs(X, pre_pattern_num=-1, depth=1):
     for i in range(4):
         if i == pre_pattern_num:
             continue
@@ -64,6 +73,7 @@ def dfs(X, pre_pattern_num = -1, depth = 1):
         if depth + 1 >= 21:
             continue
         dfs(tmp_X, i, depth + 1)
+
 
 if is_state_correct(s):
     print(0)

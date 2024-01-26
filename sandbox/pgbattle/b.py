@@ -12,6 +12,6 @@ for i in range(len(s) - 2):
             count += 1
             count_question += 1
     if count == 3:
-        ans += 3 ** -count_question
+        ans += 3**-count_question
 
 print(ans)

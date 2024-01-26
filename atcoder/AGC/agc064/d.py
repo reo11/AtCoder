@@ -25,7 +25,7 @@ dp[0][0][1] = 1
 for i in range(1, n + 1):
     # それまでにj個Bを使っている
     for j in range(i):
-        b_count = counter["B"] - j # 使えるBの数
+        b_count = counter["B"] - j  # 使えるBの数
         r_count = n - i - b_count  # 使えるRの数
         if i == n:
             print("print", i, j, r_count, b_count)

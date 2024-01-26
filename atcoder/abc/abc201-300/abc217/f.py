@@ -5,4 +5,3 @@ ab = []
 for _ in range(m):
     a, b = map(int, input().split())
     ab.append((a, b))
-

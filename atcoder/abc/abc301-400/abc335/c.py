@@ -1,15 +1,11 @@
 import sys
+
 import pypyjit
 
-pypyjit.set_param('max_unroll_recursion=-1')
+pypyjit.set_param("max_unroll_recursion=-1")
 input = lambda: sys.stdin.readline().rstrip()
 
-directions = {
-    "L": [-1, 0],
-    "R": [1, 0],
-    "U": [0, 1],
-    "D": [0, -1]
-}
+directions = {"L": [-1, 0], "R": [1, 0], "U": [0, 1], "D": [0, -1]}
 
 n, q = map(int, input().split())
 queries = []

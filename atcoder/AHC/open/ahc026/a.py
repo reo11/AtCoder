@@ -1,14 +1,15 @@
-import time
-import os
 import itertools
+import os
+import time
 from collections import defaultdict, deque
 from typing import List
 
 TIME_LIMIT = 1.90
 MAX_PROCESS = 5_000
-INF = 10 ** 12
+INF = 10**12
 
 is_debug_mode = os.getenv("DEBUG_MODE", False)
+
 
 class Model:
     def __init__(self, n, m, init_postions):
@@ -84,7 +85,7 @@ class Model:
                 count += 1
         return count > 0
 
-    def sort_top(self, diff = 1):
+    def sort_top(self, diff=1):
         # 終盤の効率化
         # 一番上にあるもの同士がdiff以下の場合乗せる
         count = 0
@@ -98,7 +99,11 @@ class Model:
             for i in tops.keys():
                 for j in range(1, diff + 1):
                     if i + j in tops.keys():
-                        if len(self.mountains[tops[i] - 1]) > 1 and self.mountains[tops[i] - 1][-2] < i + j and self.mountains[tops[i] - 1][-2] > i:
+                        if (
+                            len(self.mountains[tops[i] - 1]) > 1
+                            and self.mountains[tops[i] - 1][-2] < i + j
+                            and self.mountains[tops[i] - 1][-2] > i
+                        ):
                             continue
                         self.ans.append([i, tops[i + j]])
                         self.mv(i, tops[i + j])
@@ -107,8 +112,7 @@ class Model:
                         break
         return count > 0
 
-
-    def zero_fix(self, zero_fix_pattern = 1):
+    def zero_fix(self, zero_fix_pattern=1):
         # ゼロ山がある場合、一番下にない最も小さい数字を移動させる
         zero_mountain = self.find_zero_mountain()
         flag = True
@@ -117,7 +121,7 @@ class Model:
             zero_mountain = self.find_zero_mountain()
             flag = False
             if zero_mountain != -1:
-                bottoms = set() # 対象外
+                bottoms = set()  # 対象外
                 # 一番下にある数字は除外
                 for m in self.mountains:
                     if len(m) == 0:
@@ -157,8 +161,7 @@ class Model:
                     to_mountain = [len(self.mountains[mountain_i - 1]), mountain_i]
         return to_mountain[1]
 
-
-    def fix_mountains(self, target_num, mountain_num, max_diff = 1000):
+    def fix_mountains(self, target_num, mountain_num, max_diff=1000):
         # queueに入ってる数字の登場が最も遅い山に移動させる
         pre_num = -INF
         for i in reversed(range(len(self.mountains[mountain_num - 1]))):
@@ -198,7 +201,8 @@ class Model:
             # 山の中にある場合
             self.fix_mountains(target_num, mountain_num, max_diff=max_diff)
             if zero_fix_pattern > 0:
-                self.zero_fix(zero_fix_pattern) # ゼロ山に最も大きい数を移動させる
+                self.zero_fix(zero_fix_pattern)  # ゼロ山に最も大きい数を移動させる
+
 
 def main():
     start_at = time.time()
@@ -210,7 +214,26 @@ def main():
     config = {
         "top_sort_diff": [0, 1, 2, 3],
         "zero_fix_pattern": [0, 1, 2],
-        "max_diff": [5, 10, 15, 20, 25, 30, 35, 40, 50, 55, 60, 65, 70, 75, 80, 90, 100, 1000],
+        "max_diff": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40,
+            50,
+            55,
+            60,
+            65,
+            70,
+            75,
+            80,
+            90,
+            100,
+            1000,
+        ],
     }
 
     p = itertools.product(*config.values())
@@ -231,4 +254,6 @@ def main():
     if is_debug_mode:
         print(model.score())
         print(params)
+
+
 main()

@@ -51,14 +51,14 @@ def circumcenter(x1, y1, x2, y2, x3, y3):
     return x, y, r
 
 
-ans = 10 ** 15
+ans = 10**15
 if n > 2:
     for a, b, c in itertools.combinations(range(n), 3):
         cx, cy, cr = circumcenter(
             xy[a][0], xy[a][1], xy[b][0], xy[b][1], xy[c][0], xy[c][1]
         )
         # check
-        rr = cr ** 2
+        rr = cr**2
         flag = True
         for i in range(n):
             x, y = xy[i]

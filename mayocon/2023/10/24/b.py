@@ -13,7 +13,7 @@ while queue:
         print(len(n) - len(num))
         exit()
     for i in range(len(num)):
-        next_num = num[:i] + num[i+1:]
+        next_num = num[:i] + num[i + 1 :]
         queue.append(next_num)
 
 print(-1)

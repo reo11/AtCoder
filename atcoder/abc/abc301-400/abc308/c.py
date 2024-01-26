@@ -7,7 +7,7 @@ input = lambda: sys.stdin.readline().rstrip()
 def solve1(ab):
     ans = []
     for i, (a, b) in enumerate(ab, start=1):
-        p = (10 ** 20 * a) // (a + b)
+        p = (10**20 * a) // (a + b)
         ans.append([p, i])
     ans.sort(key=lambda x: (-x[0], x[1]))
     ans = [i for _, i in ans]

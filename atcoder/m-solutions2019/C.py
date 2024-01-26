@@ -1,7 +1,7 @@
 from math import factorial
 
 n, a, b, c = map(int, input().split())
-mod = 10 ** 9 + 7
+mod = 10**9 + 7
 
 
 def comb(n, r):
@@ -12,7 +12,7 @@ e = 0
 for m in range(n, 2 * n):
     e += (
         comb(m - 1, n - 1)
-        * (a ** n * b ** (m - n) + a ** (m - n) * b ** n)
+        * (a**n * b ** (m - n) + a ** (m - n) * b**n)
         * m
         / (100 ** (n - 1) * (100 - c))
     )

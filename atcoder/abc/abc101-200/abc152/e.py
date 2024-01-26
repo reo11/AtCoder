@@ -71,7 +71,7 @@ def flt(a, mod):
 sieve()
 
 # python > pypy
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 n = int(input())
 a = list(map(int, input().split()))

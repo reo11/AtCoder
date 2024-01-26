@@ -16,7 +16,7 @@ class FLT:
         return ans
 
     def inv(self, a: int) -> int:
-        """ 逆元を取る """
+        """逆元を取る"""
         return self.rep_sqr(a, self.mod - 2)
 
 

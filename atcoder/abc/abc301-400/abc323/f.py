@@ -1,10 +1,12 @@
-INF = 10 ** 18
+INF = 10**18
 xa, ya, xb, yb, xc, yc = map(int, input().split())
 # 荷物から目的地の方向を求める
 # 横方向から押すパターンと縦方向から押すパターンを考える
 
+
 def manhattan_distance(x1, y1, x2, y2):
     return abs(x1 - x2) + abs(y1 - y2)
+
 
 to_push = [yc - yb, xc - xb]  # [上に押す距離, 右に押す距離]
 
@@ -103,4 +105,3 @@ else:
 # print(to_push)
 # print(cost1, cost2)
 print(min([cost1, cost2]))
-

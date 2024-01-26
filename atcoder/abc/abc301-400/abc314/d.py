@@ -1,4 +1,5 @@
 import sys
+
 input = lambda: sys.stdin.readline().rstrip()
 sys.setrecursionlimit(20000000)
 
@@ -7,7 +8,7 @@ n = int(input())
 s = list(input())
 q = int(input())
 txc = []
-status = 0 # 1: komoji, 2: oomoji
+status = 0  # 1: komoji, 2: oomoji
 exclude_set = set()
 for _ in range(q):
     t, x, c = input().split()

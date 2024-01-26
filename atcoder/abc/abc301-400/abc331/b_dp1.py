@@ -1,7 +1,7 @@
 n, s, m, l = map(int, input().split())
-INF = float('inf')
+INF = float("inf")
 # dp[i]: i個の卵を買うのにかかる最小の金額
-dp = [INF] * (n + 13) # 12個が最大なので
+dp = [INF] * (n + 13)  # 12個が最大なので
 
 dp[0] = 0
 # 貰うDP

@@ -1,12 +1,15 @@
 from collections import defaultdict
+
 n = int(input())
 rc = []
+
 
 def four(x, y):
     # x, yを入れたら縦横斜めの座標系に変換する
     r1 = x + y
     r2 = (n - 1 - x) + y
     return [x, y, r1, r2]
+
 
 ans = [-1, -1]
 flag = True
