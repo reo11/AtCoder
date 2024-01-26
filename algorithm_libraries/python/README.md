@@ -1,6 +1,4 @@
-
-# Libraries for python
-| category       | feature               | status   |
+# Libraries for python| category       | feature               | status   |
 |:---------------|:----------------------|:---------|
 | misc           | sample                | ✅        |
 | math           | sort                  | ✅        |
@@ -38,12 +36,16 @@
 | dp             | LCS                   | ❓        |
 | dp             | levenshtein_dist      | ❓        |
 | dp             | count_substring       | ✅        |
+| dp             | traveling_salesman    | ❓        |
 | graph          | bfs                   | ❓        |
 | graph          | dfs                   | ❓        |
 | graph          | dijkstra              | ❓        |
 | graph          | max_flow              | ❓        |
 | graph          | prim                  | ❓        |
 | graph          | warshall_floyd        | ❓        |
+| graph          | ford_fulkerson        | ❓        |
+| graph          | dinic                 | ❓        |
+| graph          | matching              | ❓        |
 | string         | z_algorithm           | ❓        |
 | utils          | create_snippet        | ❓        |
 | sample         | a_plus_b              | ❓        |

@@ -11,7 +11,7 @@ test: run-test
 # requier `docker login` before push
 
 build-atcoder:
-	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile .
+	docker build --build-arg UID=$(shell id -u) --build-arg UNAME=$(shell whoami) -t $(ATCODER_IMAGE) -f dockerfiles/Dockerfile.new .
 	docker push $(ATCODER_IMAGE)
 
 ifeq ($(shell docker ps -a --format '{{.Names}}'| grep $(ATCODER_CONTAINER_NAME)),)
@@ -39,9 +39,6 @@ build-test:
 
 run-test: build-test
 	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) python algorithm_libraries/test/test.py
-
-# run-cpp-test:
-# 	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) python algorithm_libraries/test/test.py --lang=cpp
 
 lint: build-test
 	docker run --rm -v ${PWD}:/work $(PYTHON_TESTER_IMAGE) pysen run lint

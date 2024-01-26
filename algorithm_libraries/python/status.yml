@@ -82,6 +82,8 @@ categories:
     status: unknown
   - name: count_substring
     status: ok
+  - name: traveling_salesman
+    status: unknown
   name: dp
 - features:
   - name: bfs
@@ -95,6 +97,12 @@ categories:
   - name: prim
     status: unknown
   - name: warshall_floyd
+    status: unknown
+  - name: ford_fulkerson
+    status: unknown
+  - name: dinic
+    status: unknown
+  - name: matching
     status: unknown
   name: graph
 - features:
