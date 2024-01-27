@@ -5,7 +5,7 @@ FROM --platform=linux/x86_64 ubuntu:22.04
 
 # ユーザの追加
 ARG UID
-ENV USER_NAME=atcoder_user
+ENV USER_NAME=player
 RUN useradd $USER_NAME -u $UID -m
 
 ARG DEBIAN_FRONTEND=noninteractive
