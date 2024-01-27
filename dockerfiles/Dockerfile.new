@@ -141,24 +141,6 @@ RUN mkdir $RUST_HOME && \
     cargo install cargo-compete && \
     chown -R $USER_NAME $RUST_HOME
 
-# Ruby start
-RUN cd /tmp && \
-    wget https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz && \
-    tar -xf ruby-3.2.2.tar.gz && \
-    cd ruby-3.2.2 && \
-    export cflags=-fno-stack-clash-protection && \
-    ./configure && \
-    make && \
-    sudo make install && \
-# 以下、Library のインストール
-RUN sudo gem install rbtree
-RUN sudo gem install ac-library-rb
-RUN sudo gem install faster_prime
-RUN sudo gem install sorted_set
-RUN sudo gem install numo-narray
-RUN sudo gem install polars-df
-# Ruby end
-
 # online-judge-tools
 RUN python3.11 -m pip install online-judge-tools
 
