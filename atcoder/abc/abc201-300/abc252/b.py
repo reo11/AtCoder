@@ -5,14 +5,14 @@ b = set(b)
 
 max_a = max(a)
 ab = []
-flag = True
+flag = False
 
 for i, ai in enumerate(a, start=1):
-    print(i, ai)
     if ai == max_a and i in b:
-        flag = False
+        flag = True
         break
+
 if flag:
-    print("No")
-else:
     print("Yes")
+else:
+    print("No")
